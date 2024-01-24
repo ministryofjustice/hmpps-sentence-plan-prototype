@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <title>
-  Sentence plan - GOV.UK
+  Sentence plan
 </title>
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
     <meta name="theme-color" content="#0b0c0c"> 
@@ -64,20 +64,20 @@
 {{ mojHeader({
   organisationLabel: {
     text: 'HMPPS',
-    href: '#'
+    href: '/index'
   },
   serviceLabel: {
     text: 'Sentence Plan',
-    href: '#'
+    href: '/index'
   },
   navigation: {
     label: 'Account navigation',
     items: [{
-      text: '',
+      text: 'Alexis Diaz',
       href: '#',
       active: true
     }, {
-      text: '',
+      text: 'Sign out',
       href: '#'
     }]
   }
@@ -103,12 +103,20 @@
         
         <main class="govuk-main-wrapper " id="main-content" role="main">
           
- 
+          
+          
+          
+      
+          
+          
+          
+          
           
           
  <!-- Patterns -->         
           
           
+
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-full">
     
@@ -118,15 +126,16 @@
               
            <h1 class="govuk-heading-m mb0">
               <!--  <span class="govuk-caption-l">JW 41 54 60 A</span> -->
-                Prototype scenarios
+                Ibrahima Jones
                 
-              
+               <!-- <span class="moj-badge moj-badge--red">HIGH RISK OF SERIOUS HARM</span> -->
               </h1>
           
-         <!--  <ul class="govuk-list">
-             <li>Last updated: 12 August 2023</li>
-             
-           </ul>-->
+           <ul class="govuk-list">
+             <li>CRN: Z804100</li>
+             <li>PNC: 2017/123400000H</li>
+             <li>Date of birth: 26 June 1978</li>
+           </ul>
            
     
             
@@ -134,8 +143,7 @@
           
   </div>
 
-</div>
-         
+</div>         
           
 
           
@@ -149,100 +157,37 @@
 <div class="govuk-grid-column-two-thirds">
   
   
-  <nav class="moj-sub-navigation mb40" aria-label="Sub navigation">
-  
-    <ul class="moj-sub-navigation__list">
-      <li class="moj-sub-navigation__item">
-        <a class="moj-sub-navigation__link" aria-current="page" href="#">Current scenario</a>
-      </li>
-  
-      <li class="moj-sub-navigation__item">
-        <a class="moj-sub-navigation__link" href="previousScenarios">Previous scenarios</a>
-      </li>
+  <div class="backhome"><a href="javascript: history.go(-1)" class="govuk-back-link">Back</a></div>
 
-    </ul>
-  
-  </nav>
-  
-  
-  
- <div class="govuk-notification-banner mb30" role="region"
-  aria-labelledby="govuk-notification-banner-title"
-  data-module="govuk-notification-banner">
-  <div class="govuk-notification-banner__header">
-    <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">
-      Important
-    </h2>
-  </div>
-  <div class="govuk-notification-banner__content">
-    <p class="govuk-notification-banner__heading">
-      This scenario is currently being worked on.
-    </p>
-  </div>
+  <form class="form" action="objective1a" method="post">
+ <div class="govuk-form-group">
+   <h1 class="govuk-label-wrapper">
+     <span class="govuk-caption-l">Step 1 of 5</span>
+     <label class="govuk-label govuk-label--l" for="achieve">
+       What is Ibrahima's objective?
+     </label>
+   </h1>
+   <div id="achieve-hint" class="govuk-hint">
+    Describe what they're trying to change or achieve.
+   </div>
+ <div id="achieve-hint2" class="govuk-hint">
+    The objective needs to be specific, measurable, achievable, relevant, and timebound.
+   </div>
+   <textarea class="govuk-textarea" id="achieve" name="achieve" rows="5" aria-describedby="achieve-hint2"></textarea>
+ </div>
+
+
+<div class="govuk-button-group mt40">
+  <button class="govuk-button" data-module="govuk-button">
+    Save and continue
+  </button>
+  <button class="govuk-button govuk-button--secondary" data-module="govuk-button">
+    Save as draft
+  </button>
 </div>
-
-
-
-
-<h2 class="govuk-heading-m mb30">
-  <span class="govuk-caption-m">Scenario 2.0</span>
-  Objectives and actions</h2>
-
-<!--<div class="govuk-tabs mt20" data-module="govuk-tabs">
-  <h2 class="govuk-tabs__title">
-    Contents
-  </h2>
-  <ul class="govuk-tabs__list">
-    <li class="govuk-tabs__list-item govuk-tabs__list-item--selected">
-      <a class="govuk-tabs__tab" href="#desc">
-        Purpose
-      </a>
-    </li>
-    <li class="govuk-tabs__list-item">
-      <a class="govuk-tabs__tab" href="#notes">
-       Scenario notes
-      </a>
-    </li>
-
-  </ul>
-  <div class="govuk-tabs__panel" id="desc">
-    <h2 class="govuk-heading-s">Purpose</h2>
-    
-    <p>Provide enough information in a realistic way to enable a practitioner to complete the journey in the prototype of recording an objective.</p>
-      
-    <p>In the session we will ask the practitioner to read through the scenario notes and use the information to record one objective for the person on probation.</p>
-      
-    
-  </div>
-
-  <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="notes">
-    <h2 class="govuk-heading-s">Scenario notes</h2>
-    
-    <p>Person on probation: Ibrahima Jones</p>
-    
-    <p>You've had a review of Ibrahima's assessment in OAYsys ahead of your meetings with him. He was convicted of domestic abuse of his partner and was sentenced to xx in custody. He is serving xx of time on probation. His assessment showed a family history of domestic violence and alcoholism. [Something here about personal skills or abilities?]. His violence seems to be associated with drinking.</p>
-    
-    <p>In your meetings with Ibrahima, you've noticed that he doesn't take responsibility for his actions towards his partner that resulted in his conviction. He uses language such as 'she asked for it' and 'she's the problem'. He doesn't think he needs to change and is frustrated that the courts have mandated the sentence.</p>
-    
-    <p>You want to set Ibrahima an objective around reducing his drinking. You’ve had conversations with him about his drinking and he hasn't shown a willingness to address it.</p>
-    
-    <p>You now want to record the objective you’ve set on Ibrahima’s sentence plan.</p>
-    
-    
-
-  </div>
   
-</div>
--->
-
-
-<a href="splan2/task-main" role="button" draggable="false" class="govuk-button govuk-button--start" data-module="govuk-button">
-  Start now
-  <svg class="govuk-button__start-icon" xmlns="http://www.w3.org/2000/svg" width="17.5" height="19" viewBox="0 0 33 40" aria-hidden="true" focusable="false">
-    <path fill="currentColor" d="M0 0h13l20 20-20 20H0l20-20z" />
-  </svg></a>
-
- 
+   
+  </form>
 
 <!-- / column-third-wrap -->
   </div>
@@ -251,6 +196,27 @@
 
 
 <!-- /Patterns --> 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
         </main>

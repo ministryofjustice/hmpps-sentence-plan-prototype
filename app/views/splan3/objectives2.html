@@ -103,186 +103,249 @@
         
         <main class="govuk-main-wrapper " id="main-content" role="main">
           
-          
-          
-          
-      
-          
-          
-          
-          
+ 
           
           
  <!-- Patterns -->         
           
           
-
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-full">
     
           
-          <div class="profile-banner-plan">
-              
-              
-           <h1 class="govuk-heading-m mb0">
-              <!--  <span class="govuk-caption-l">JW 41 54 60 A</span> -->
-                Ibrahima Jones
-                
-                <!-- <span class="moj-badge moj-badge--red">HIGH RISK OF SERIOUS HARM</span> -->
-              </h1>
-          
-           <ul class="govuk-list">
-             <li>CRN: Z804100</li>
-             <li>PNC: 2017/123400000H</li>
-             <li>Date of birth: 26 June 1978</li>
-           </ul>
+     <div class="profile-banner-plan profileFIlters">
            
-    
-            
-            </div>
+           
+        <h1 class="govuk-heading-m mb10">
+          Luis Arnold
+        </h1>
+       
+        <ul class="govuk-list">
+          <li>CRN: Z804100</li>
+          <li>PNC: 2017/123400000H</li>
+          <li>Date of birth: 26 June 1978</li>
+        </ul>
+        
+ 
+         
+         </div>
+       
           
   </div>
 
-</div>         
-          
-
-          
-
-
-<div class="govuk-grid-row">
-    
-<div class="govuk-grid-column-full">
-  
-
-
-  <form class="form" action="actionQ" method="post">
-
-
-         <h1 class="govuk-heading-l">
-          Sentence plan</h1>
-         
-         
-         
-    <div class="govuk-grid-row">
-               
-      <div class="govuk-grid-column-one-half">
-
-         <div class="card">
-            <div class="card-heading">
-              <h2 class="govuk-heading-s">Timeline</h2>
-            </div>
-            <div class="card-body">
-              <p class="govuk-body mb0">A timeline of events.</p>
-              
-             <p class="govuk-body mb10"><a href="objectiveSummary" class="govuk-button govuk-button--secondary mb0">View timeline</a></p>
-              
-               </div>
-          </div>
-          
-          
-           </div>
-           
-           
-           <div class="govuk-grid-column-one-half">
-           
-           
-           <div class="card">
-             <div class="card-heading">
-               <h2 class="govuk-heading-s">Objectives and actions</h2>
-             </div>
-             <div class="card-body">
-               <p class="govuk-body mb0">There are currently no objectives added.</p>
-               
-              <p class="govuk-body mb10"><a href="action" class="govuk-button govuk-button--secondary mb0">Add an objective</a></p>
-               
-                </div>
-           </div>
-           
-           
-           
-           
-         </div>
-         
-         </div>
-         
-         
-<div class="govuk-grid-row">
-           
-  <div class="govuk-grid-column-one-half">
-
-     <div class="card">
-       <div class="card-heading">
-         <h2 class="govuk-heading-s">Ibrahima's details</h2>
-       </div>
-       <div class="card-body">
-         <p class="govuk-body mb0">A profile of Ibrahima.</p>
-         
-        <p class="govuk-body mb10"><a href="objectiveSummary" class="govuk-button govuk-button--secondary mb0">View profile</a></p>
-         
-          </div>
-     </div>
-      
-      
-       </div>
-       
-       
-       <div class="govuk-grid-column-one-half">
-       
-       
-       <div class="card">
-         <div class="card-heading">
-           <h2 class="govuk-heading-s">Meeting notes</h2>
-         </div>
-         <div class="card-body">
-           <p class="govuk-body mb0">There are currently no notes added.</p>
-           
-          <p class="govuk-body mb10"><a href="action" class="govuk-button govuk-button--secondary mb0">Add a note</a></p>
-           
-            </div>
-       </div>
-       
-       
-       
-       
-     </div>
-     
-     </div>
-   
-  </form>
-
-<!-- / column-third-wrap -->
-  </div>
 </div>
 
+   
+    <div class="govuk-grid-row">
+      
+      
+      
+      <div class="govuk-grid-column-full">
+        
+        <nav class="moj-sub-navigation planprogressContain" aria-label="Sub navigation">
+    
+            
+          <ul class="moj-sub-navigation__list">
+            <li class="moj-sub-navigation__item">
+              <a class="moj-sub-navigation__link" href="index3Layout">About Luis</a>
+            </li>
+        
+           <!-- <li class="moj-sub-navigation__item">
+              <a class="moj-sub-navigation__link" href="#2">Activity</a>
+            </li> -->
+        
+            <li class="moj-sub-navigation__item">
+              <a class="moj-sub-navigation__link" aria-current="page" href="#3">Objectives</a>
+            </li>
+            
+           <!--  <li class="moj-sub-navigation__item">
+              <a class="moj-sub-navigation__link" href="#3">Progress</a>
+            </li> -->
+    
+          </ul>
+  
+        </nav>
+        
+        
+        <div class="moj-page-header-actions">
+        
+          <div class="moj-page-header-actions__title">
+            <h1 class="govuk-heading-l">
+              <span class="govuk-caption-l">Sentence plan</span>
+              Objectives</h1>
+          </div>
+        
+          <div class="moj-page-header-actions__actions">
+        
+            <div class="moj-button-menu">
+              <div class="moj-button-menu__wrapper">
+        
+               <!-- <button type="submit" class="govuk-button moj-button-menu__item govuk-button--secondary moj-page-header-actions__action" data-module="govuk-button">
+                  View Luis's plan
+                </button> -->
+
+        
+              </div>
+            </div>
+        
+          </div>
+        
+        </div>
+        
+        
+        
+        
+        
+      {% if data['objAdd']=='yesOBJ'%}
+      
+      <div class="card">
+        <div class="card-heading">
+          <h2 class="govuk-heading-s">Agreed objectives</h2>
+        </div>
+        <div class="card-body">
+           
+      
+<table class="govuk-table main-case-table" data-module="moj-sortable-table">
+      
+        <thead class="govuk-table__head">
+          <tr class="govuk-table__row">
+      
+            <th scope="col" class="govuk-table__header">Agreed objectives</th>
+            
+            <th scope="col" class="govuk-table__header">Date agreed</th>
+            
+            <th scope="col" class="govuk-table__header">Related need</th>
+            
+            <th scope="col" class="govuk-table__header">Actions</th>
+            
+            <th scope="col" class="govuk-table__header govuk-table__header--numeric">Status</th>
+      
+      
+          </tr>
+        </thead>
+      
+        <tbody class="govuk-table__body">
+      
+   
+      
+          <tr class="govuk-table__row">
+      
+            <td class="govuk-table__cell"><a class="govuk-link govuk-link--no-visited-state" href="#">{{ data['ObjTitle'] }}</a></td>
+       
+             <td class="govuk-table__cell">
+               28 March 2024
+             </td>
+             
+             <td class="govuk-table__cell">
+                Accommodation<br><span class="moj-badge moj-badge--red mt5">High priority</span>
+              </td>
+             
+             <td class="govuk-table__cell">
+               0
+             </td>
+             
+             <td class="govuk-table__cell govuk-table__header--numeric">
+             <strong class="govuk-tag govuk-tag--blue mt0">
+              New
+             </strong>
+             </td>
+   
+          </tr>
+        </tbody>
+      </table> 
+      
+
+      
+      
+
+       </div>
+  </div> 
 
 
-<!-- /Patterns --> 
+      
+      {% else %}
+  
+
+        
+        <div class="card">
+          <div class="card-heading">
+            <h2 class="govuk-heading-s">Suggested objectives</h2>
+          </div>
+          <div class="card-body">
 
 
+            <table class="govuk-table main-case-table" data-module="moj-sortable-table">
+            
+              <thead class="govuk-table__head">
+                <tr class="govuk-table__row">
+            
+                  <th scope="col" class="govuk-table__header">Details</th>
+                  
+                  <th scope="col" class="govuk-table__header">Date suggested</th>
+                  
+                  <th scope="col" class="govuk-table__header">Area for improvement</th>
+                  
+                  <th scope="col" class="govuk-table__header  govuk-table__header--numeric">Priority</th>
+                
+            
+            
+                </tr>
+              </thead>
+            
+              <tbody class="govuk-table__body">
+            
+         
+            
+                <tr class="govuk-table__row">
+            
+                  <td class="govuk-table__cell"><a class="govuk-link govuk-link--no-visited-state" href="suggestedObj">{{ data['ObjTitle'] }}</a></td>
+             
+                   <td class="govuk-table__cell">
+                     20 March 2024
+                   </td>
+                   
+                   <td class="govuk-table__cell">
+                     Accommodation
+                    </td>
+                   
+                   <td class="govuk-table__cell govuk-table__header--numeric">
+                    1
+                   </td>
+                   
+         
+                </tr>
+                
+               
+            
+              </tbody>
+            </table>
+            
+            
+            </div>
+            </div>
+            
+            
+            {% endif %} 
+        
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+            
+       
+        
+        <span>  <a href="#" class="govuk-button mt20" data-module="govuk-button">
+          Add a new objective
+        </a>
+      </span>
+        
+      
+          
+        
+      </div>
+    
+    </div>
 
         </main>
       </div>
-    
+
 
     
   <footer class="govuk-footer " role="contentinfo">

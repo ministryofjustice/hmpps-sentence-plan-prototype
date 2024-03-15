@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <title>
-  Sentence plan - GOV.UK
+  Sentence plan
 </title>
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
     <meta name="theme-color" content="#0b0c0c"> 
@@ -64,20 +64,20 @@
 {{ mojHeader({
   organisationLabel: {
     text: 'HMPPS',
-    href: '#'
+    href: '/index'
   },
   serviceLabel: {
     text: 'Sentence Plan',
-    href: '#'
+    href: '/index'
   },
   navigation: {
     label: 'Account navigation',
     items: [{
-      text: '',
+      text: 'Alexis Diaz',
       href: '#',
       active: true
     }, {
-      text: '',
+      text: 'Sign out',
       href: '#'
     }]
   }
@@ -118,15 +118,16 @@
               
            <h1 class="govuk-heading-m mb0">
               <!--  <span class="govuk-caption-l">JW 41 54 60 A</span> -->
-                Previous prototype scenarios
+                Luis Arnold
                 
-              
+               <!-- <span class="moj-badge moj-badge--red">HIGH RISK OF SERIOUS HARM</span>-->
               </h1>
           
-         <!--  <ul class="govuk-list">
-             <li>Last updated: 12 August 2023</li>
-             
-           </ul>-->
+           <ul class="govuk-list">
+             <li>CRN: Z804100</li>
+             <li>PNC: 2017/123400000H</li>
+             <li>Date of birth: 26 June 1978</li>
+           </ul>
            
     
             
@@ -135,81 +136,112 @@
   </div>
 
 </div>
-         
-          
 
-          
-
-
-<div class="govuk-grid-row">
+   
+    <div class="govuk-grid-row">
+      
+      <div class="govuk-grid-column-one-quarter">
+        <nav class="moj-side-navigation mt0" aria-label="Side navigation" style="padding-top: 0;">
+          <ul class="moj-side-navigation__list">
+            <li class="moj-side-navigation__item">
+              <a href="index" aria-current="location">About Luis</a>
+            </li>
+    
+            <li class="moj-side-navigation__item">
+              <a href="#2">Timeline</a>
+            </li>
+    
+            <li class="moj-side-navigation__item  moj-side-navigation__item--active">
+              <a href="objectives">Objectives</a>
+            </li>
+            
+            <li class="moj-side-navigation__item">
+              <a href="#3">Milestones</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+      
+      <div class="govuk-grid-column-three-quarters">
+        <span class="govuk-caption-l">Suggested objective</span>
+        <h2 class="govuk-heading-l">Find suitable employment</h2>
+        
+        
+        <div class="card">
+           <div class="card-heading">
+             <h2 class="govuk-heading-s">Motivation for change</h2>
+           </div>
+           <div class="card-body">
+            <p>I want to make changes but need help.</p>
+              </div>
+         </div>
+        
+       <div class="card">
+          <div class="card-heading">
+            <h2 class="govuk-heading-s">Practitioner notes</h2>
+          </div>
+          <div class="card-body">
+            
+            <h3 class="govuk-heading-s">Practitioner name</h3>
+            <p>Alexis Rush</p>
+            
+            <h3 class="govuk-heading-s">Note</h3>
+           <p>Luis wants to find a job so they can feel more confident. have more money and develop their skills.</p>
+             </div>
+        </div>
+     
+        
+        <div class="govuk-form-group mt50" style="border-top: 1px solid #000; padding-top: 40px;">
+          <fieldset class="govuk-fieldset" aria-describedby="contact-hint">
+            <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+              <h1 class="govuk-fieldset__heading">
+                Do you want to add this as an objective?
+              </h1>
+            </legend>
   
-  
-  
-  
-<div class="govuk-grid-column-two-thirds">
-  
-  
-  <nav class="moj-sub-navigation mb40" aria-label="Sub navigation">
-  
-    <ul class="moj-sub-navigation__list">
-      <li class="moj-sub-navigation__item">
-        <a class="moj-sub-navigation__link" href="index">Current scenario</a>
-      </li>
-  
-      <li class="moj-sub-navigation__item">
-        <a class="moj-sub-navigation__link" aria-current="page" href="#">Previous scenarios</a>
-      </li>
-
-    </ul>
-  
-  </nav>
-  
-  
-
-
-<ul class="govuk-list">
-  
-  
-  <li><a href="splan2/task-main">Scenario 2.0 &ndash; Objectives and actions</a></li>
-  <li><a href="splan/objectiveFirst">Scenario 1.0 &ndash; Record an objective</a></li>
-  
-  
-</ul>
+            <div class="govuk-radios" data-module="govuk-radios">
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="contact" name="contact" type="radio" value="email">
+                <label class="govuk-label govuk-radios__label" for="contact">
+                  Yes
+                </label>
+              </div>
+              
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="contact-2" name="contact" type="radio" value="phone" data-aria-controls="conditional-contact-2">
+                <label class="govuk-label govuk-radios__label" for="contact-2">
+                  No
+                </label>
+              </div>
+              <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-contact-2">
+                <div class="govuk-form-group">
+                  <h1 class="govuk-label-wrapper">
+                    <label class="govuk-label govuk-label" for="more-detail">
+                      Can you provide more detail?
+                    </label>
+                  </h1>
  
-
-<!-- / column-third-wrap -->
-  </div>
-</div>
-
-
-
-<!-- /Patterns --> 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+                  <textarea class="govuk-textarea" id="more-detail" name="moreDetail" rows="5" aria-describedby="more-detail-hint"></textarea>
+                </div>
+              </div>
+             
+            </div>
+            
+            
+            
+            
+          </fieldset>
+        </div>
+        
+        <button type="submit" class="govuk-button" data-module="govuk-button">
+          Save and continue
+        </button>
+        
+      </div>
 
         </main>
       </div>
-    
+
 
     
   <footer class="govuk-footer " role="contentinfo">

@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <title>
-  Sentence plan - GOV.UK
+  Sentence plan
 </title>
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
     <meta name="theme-color" content="#0b0c0c"> 
@@ -64,20 +64,20 @@
 {{ mojHeader({
   organisationLabel: {
     text: 'HMPPS',
-    href: '#'
+    href: '/index'
   },
   serviceLabel: {
     text: 'Sentence Plan',
-    href: '#'
+    href: '/index'
   },
   navigation: {
     label: 'Account navigation',
     items: [{
-      text: '',
+      text: 'Alexis Diaz',
       href: '#',
       active: true
     }, {
-      text: '',
+      text: 'Sign out',
       href: '#'
     }]
   }
@@ -113,103 +113,112 @@
   <div class="govuk-grid-column-full">
     
           
-          <div class="profile-banner-plan">
+         <div class="profile-banner-plan profileFIlters mb30">
               
               
-           <h1 class="govuk-heading-m mb0">
-              <!--  <span class="govuk-caption-l">JW 41 54 60 A</span> -->
-                Previous prototype scenarios
-                
-              
-              </h1>
+           <h1 class="govuk-heading-m mb10">
+             Luis Arnold
+           </h1>
           
-         <!--  <ul class="govuk-list">
-             <li>Last updated: 12 August 2023</li>
-             
-           </ul>-->
+           <ul class="govuk-list">
+             <li>CRN: Z804100</li>
+             <li>PNC: 2017/123400000H</li>
+             <li>Date of birth: 26 June 1978</li>
+           </ul>
            
     
             
             </div>
+            
+            
+            
           
   </div>
 
 </div>
-         
+
+   
+    <div class="govuk-grid-row">
+
+      
+      
+      <div class="govuk-grid-column-three-quarters">
+        
+        <div class="backhome"><a href="javascript: history.go(-1)" class="govuk-back-link">Back</a></div>
+        
+        
+        <span class="govuk-caption-l">Suggested objective</span>
+        <h2 class="govuk-heading-l">{{ data['ObjTitle'] }}</h2>
+        
+        
+     <!--   <div class="card">
+           <div class="card-heading">
+             <h2 class="govuk-heading-s">Motivation for change</h2>
+           </div>
+           <div class="card-body">
+            <p>I want to make changes but need help.</p>
+              </div>
+         </div> -->
+        
+       <div class="card">
+          <div class="card-heading">
+            <h2 class="govuk-heading-s">Notes</h2>
+          </div>
+          <div class="card-body">
+
+           <p>{{ data['ObjDesc'] }}</p>
+             </div>
+        </div>
+     
+        
+        <div class="govuk-form-group mt50" >
           
-
           
-
-
-<div class="govuk-grid-row">
-  
-  
-  
-  
-<div class="govuk-grid-column-two-thirds">
-  
-  
-  <nav class="moj-sub-navigation mb40" aria-label="Sub navigation">
-  
-    <ul class="moj-sub-navigation__list">
-      <li class="moj-sub-navigation__item">
-        <a class="moj-sub-navigation__link" href="index">Current scenario</a>
-      </li>
-  
-      <li class="moj-sub-navigation__item">
-        <a class="moj-sub-navigation__link" aria-current="page" href="#">Previous scenarios</a>
-      </li>
-
-    </ul>
-  
-  </nav>
-  
-  
-
-
-<ul class="govuk-list">
-  
-  
-  <li><a href="splan2/task-main">Scenario 2.0 &ndash; Objectives and actions</a></li>
-  <li><a href="splan/objectiveFirst">Scenario 1.0 &ndash; Record an objective</a></li>
-  
-  
-</ul>
- 
-
-<!-- / column-third-wrap -->
-  </div>
-</div>
-
-
-
-<!-- /Patterns --> 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+          <form class="form" action="objectives2" method="post">
+            
+            
+           <div class="govuk-form-group">
+             <fieldset class="govuk-fieldset" aria-describedby="changedName-hint">
+               <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+                 <h1 class="govuk-fieldset__heading">
+                   Do you and Luis want to add this as an objective?
+                 </h1>
+               </legend>
+               <div id="changedName-hint" class="govuk-hint">
+                 You can update the objective and add actions later
+               </div>
+               <div class="govuk-radios govuk-radios--inline" data-module="govuk-radios">
+                 <div class="govuk-radios__item">
+                   <input class="govuk-radios__input" id="yesOBJ" name="objAdd" type="radio" value="yesOBJ">
+                   <label class="govuk-label govuk-radios__label" for="yesOBJ">
+                     Yes
+                   </label>
+                 </div>
+                 <div class="govuk-radios__item">
+                   <input class="govuk-radios__input" id="noOBJ" name="objAdd" type="radio" value="noOBJ">
+                   <label class="govuk-label govuk-radios__label" for="noOBJ">
+                     No
+                   </label>
+                 </div>
+               </div>
+             </fieldset>
+           </div> 
+            
+            
+            
+          
+          </form>
+        </div>
+        
+        <a href="objectivesData" class="govuk-button" data-module="govuk-button">
+          Save and continue
+        </a>
+        
+      </div>
 
         </main>
       </div>
-    
+
 
     
   <footer class="govuk-footer " role="contentinfo">

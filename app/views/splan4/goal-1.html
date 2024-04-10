@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="en" class="govuk-template ">
+  <head>
+    <meta charset="utf-8">
+    <title>
+  Sentence plan
+</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <meta name="theme-color" content="#0b0c0c"> 
+    
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    
+      <link rel="shortcut icon" sizes="16x16 32x32 48x48" href="/plugin-assets/govuk-frontend/govuk/assets/images/favicon.ico" type="image/x-icon">
+      <link rel="mask-icon" href="/plugin-assets/govuk-frontend/govuk/assets/images/govuk-mask-icon.svg" color="#0b0c0c"> 
+      <link rel="apple-touch-icon" sizes="180x180" href="/plugin-assets/govuk-frontend/govuk/assets/images/govuk-apple-touch-icon-180x180.png">
+      <link rel="apple-touch-icon" sizes="167x167" href="/plugin-assets/govuk-frontend/govuk/assets/images/govuk-apple-touch-icon-167x167.png">
+      <link rel="apple-touch-icon" sizes="152x152" href="/plugin-assets/govuk-frontend/govuk/assets/images/govuk-apple-touch-icon-152x152.png">
+      <link rel="apple-touch-icon" href="/plugin-assets/govuk-frontend/govuk/assets/images/govuk-apple-touch-icon.png">
+    
+
+    
+  
+  
+    <link href="/public/stylesheets/application.css" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+
+
+    
+    
+  </head>
+  <body class="govuk-template__body "><script id="__bs_script__">//<![CDATA[
+  (function() {
+    try {
+      var script = document.createElement('script');
+      if ('async') {
+        script.async = true;
+      }
+      script.src = '/browser-sync/browser-sync-client.js?v=2.29.3'.replace("HOST", location.hostname);
+      if (document.body) {
+        document.body.appendChild(script);
+      } else if (document.head) {
+        document.head.appendChild(script);
+      }
+    } catch (e) {
+      console.error("Browsersync: could not append script tag", e);
+    }
+  })()
+//]]></script>
+
+    <script>document.body.className = ((document.body.className) ? document.body.className + ' js-enabled' : 'js-enabled');</script>
+    
+
+    
+      <a href="#main-content" class="govuk-skip-link" data-module="govuk-skip-link">Skip to main content</a>
+
+    
+{%- from "moj/components/header/macro.njk" import mojHeader -%}
+
+{{ mojHeader({
+  organisationLabel: {
+    text: 'HMPPS',
+    href: '/index'
+  },
+  serviceLabel: {
+    text: 'Sentence Plan',
+    href: '/index'
+  },
+  navigation: {
+    label: 'Account navigation',
+    items: [{
+      text: 'Alexis Diaz',
+      href: '#',
+      active: true
+    }, {
+      text: 'Sign out',
+      href: '#'
+    }]
+  }
+
+}) }}
+
+
+
+
+  
+
+
+
+
+    
+      <div class="govuk-width-container">
+        
+        
+        
+        
+
+      
+        
+        <main class="govuk-main-wrapper " id="main-content" role="main">
+          
+ 
+          
+          
+ <!-- Patterns -->         
+          
+          
+<!--<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+    
+          
+          <div class="profile-banner-plan profileFIlters">
+              
+              
+           <h1 class="govuk-heading-m mb10">
+             Joan Smith
+           </h1>
+          
+           <ul class="govuk-list">
+             <li>CRN: Z804100</li>
+             <li>PNC: 2017/123400000H</li>
+             <li>Date of birth: 26 June 1978</li>
+           </ul>
+           
+    
+            
+            </div>
+          
+  </div>
+
+</div>-->
+
+
+
+    <div class="govuk-grid-row">
+
+      <div class="govuk-grid-column-full">
+        
+        <a href="#" class="govuk-back-link">Back</a>
+        
+        <!--<nav class="moj-sub-navigation planprogressContain" aria-label="Sub navigation">
+  
+
+      
+      
+      
+      
+      
+      </nav>-->
+      
+        
+      
+      <div class="govuk-grid-row">
+          
+          
+          
+        <div class="govuk-grid-column-two-thirds">
+       <!-- <h1 class="govuk-heading-l">
+            What goal is Joan trying to achieve?</h1>-->
+
+
+
+      </div>
+    
+      <div class="moj-page-header-actions__actions">
+    
+        <div class="moj-button-menu">
+          <div class="moj-button-menu__wrapper">
+    
+
+    
+          </div>
+        </div>
+    
+      </div>
+    
+    </div>
+    
+    
+    
+ <!--  <div class="moj-banner mb20" role="region" aria-label="information">
+     
+       <svg class="moj-banner__icon" fill="currentColor" role="presentation" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 25" height="25" width="25">
+         <path d="M13.7,18.5h-2.4v-2.4h2.4V18.5z M12.5,13.7c-0.7,0-1.2-0.5-1.2-1.2V7.7c0-0.7,0.5-1.2,1.2-1.2s1.2,0.5,1.2,1.2v4.8
+       C13.7,13.2,13.2,13.7,12.5,13.7z M12.5,0.5c-6.6,0-12,5.4-12,12s5.4,12,12,12s12-5.4,12-12S19.1,0.5,12.5,0.5z" />
+       </svg>
+     
+       <div class="moj-banner__message">
+         <h2 class="govuk-heading-s"><a href="objectives2" class="govuk-link govuk-link--no-visited-state">1 suggested objective</a></h2>
+       </div>
+     
+     </div>-->
+        
+        
+     <!--   <div class="filterPanels">
+          
+
+          
+          <div class="govuk-checkboxes govuk-checkboxes--small" data-module="govuk-checkboxes">
+          
+            <ul class="govuk-list mt0 mb0">
+              <li>Filter information:</li>
+                <li>
+                  <div class="govuk-checkboxes__item">
+                    <input class="govuk-checkboxes__input" id="waste" name="waste" type="checkbox" value="carcasses">
+                    <label class="govuk-label govuk-checkboxes__label" for="waste">
+                      View all
+                    </label>
+                  </div>
+                </li>
+                <li><div class="govuk-checkboxes__item">
+                  <input class="govuk-checkboxes__input" id="waste" name="waste" type="checkbox" value="carcasses">
+                  <label class="govuk-label govuk-checkboxes__label" for="waste">
+                    Risk
+                  </label>
+                </div></li>
+                <li>
+                  <div class="govuk-checkboxes__item">
+                    <input class="govuk-checkboxes__input" id="waste" name="waste" type="checkbox" value="carcasses">
+                    <label class="govuk-label govuk-checkboxes__label" for="waste">
+                      Needs
+                    </label>
+                  </div>
+                </li>
+                <li>
+                  <div class="govuk-checkboxes__item">
+                    <input class="govuk-checkboxes__input" id="waste" name="waste" type="checkbox" value="carcasses">
+                    <label class="govuk-label govuk-checkboxes__label" for="waste">
+                      Personal details
+                    </label>
+                  </div>
+                </li>
+            </ul>
+          </div>
+        </div>
+      -->
+        
+     
+        
+        
+        <div class="govuk-grid-row">
+          
+          
+          
+          <div class="govuk-grid-column-two-thirds">
+            
+            <div class="govuk-form-group">
+                <fieldset class="govuk-fieldset" aria-describedby="contact-hint">
+                  <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+                    <span class="govuk-caption-xl">Accommodation</span>
+                    <h1 class="govuk-fieldset__heading">
+                        What goal is Joan trying to achieve?
+                    </h1>
+
+
+
+                    <div class="govuk-inset-text">
+                        <h1 class="govuk-heading-s govuk-!-margin-bottom-0">Notes from Joan's assessment</h1>
+                        <p class="govuk-body-s ">Created on 26 March 2024 by Joe Bloggs.</p>
+                        <p class="govuk-body">Joan may be required to seek independent accommodation and there needs to be consideration made of the victim of her index offence, the need to protect her partner and their child and to minimise / prevent opportunities to frequent pro- offending peers.</p>
+                      </div>
+
+                      
+                  </legend>
+                  <div id="contact-hint" class="govuk-hint">
+                    Select one option.
+                  </div>
+                  <div class="govuk-radios" data-module="govuk-radios">
+                    <div class="govuk-radios__item">
+                      <input class="govuk-radios__input" id="contact" name="contact" type="radio" value="email" >
+                      <label class="govuk-label govuk-radios__label" for="contact">
+                        Improve relationship with neighbours
+                      </label>
+                    </div>
+
+                    <div class="govuk-radios__item">
+                      <input class="govuk-radios__input" id="contact-2" name="contact" type="radio" value="phone" data-aria-controls="conditional-contact-2">
+                      <label class="govuk-label govuk-radios__label" for="contact-2">
+                        Find suitable accommodation
+                      </label>
+                    </div>
+
+                    <div class="govuk-radios__item">
+                        <input class="govuk-radios__input" id="contact-2" name="contact" type="radio" value="phone" data-aria-controls="conditional-contact-2">
+                        <label class="govuk-label govuk-radios__label" for="contact-2">
+                          Reduce risk of eviction</label>
+                      </div>
+
+                      <div class="govuk-radios__item">
+                        <input class="govuk-radios__input" id="contact-2" name="contact" type="radio" value="phone" data-aria-controls="conditional-contact-2">
+                        <label class="govuk-label govuk-radios__label" for="contact-2">
+                        Follow rules of their accommodation provider and stay in current accommodation for the length of their sentence</label>
+                      </div>
+
+
+                      <div class="govuk-radios__item">
+                        <input class="govuk-radios__input" id="contact-2" name="contact" type="radio" value="phone" data-aria-controls="conditional-contact-2">
+                        <label class="govuk-label govuk-radios__label" for="contact-2">
+                        Have housing needs assessed by the housing advice service</label>
+                      </div>
+
+                      <div class="govuk-radios__item">
+                        <input class="govuk-radios__input" id="contact-2" name="contact" type="radio" value="phone" data-aria-controls="conditional-contact-2">
+                        <label class="govuk-label govuk-radios__label" for="contact-2">
+                            Reduce or pay off any unpaid rent payments, so they can be considered for other accommodation</label>
+                      </div>
+
+
+                      <div class="govuk-radios__item">
+                        <input class="govuk-radios__input" id="contact-2" name="contact" type="radio" value="phone" data-aria-controls="conditional-contact-2">
+                        <label class="govuk-label govuk-radios__label" for="contact-2">
+                            Actively try to find suitable housing by submitting applications and attending assessments</label>
+                      </div>
+
+                      <div class="govuk-radios__item">
+                        <input class="govuk-radios__input" id="contact-2" name="contact" type="radio" value="phone" data-aria-controls="conditional-contact-2">
+                        <label class="govuk-label govuk-radios__label" for="contact-2">
+                            Follow the rules of the approved premises or supported housing</label>
+                      </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                    <div class="govuk-radios__divider">or</div>
+                    <div class="govuk-radios__item">
+                      <input class="govuk-radios__input" id="contact-3" name="contact" type="radio" value="text" data-aria-controls="conditional-contact-3">
+                      <label class="govuk-label govuk-radios__label" for="contact-3">
+                        Something else
+                      </label>
+                    </div>
+
+                    <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-contact-3">
+                      <div class="govuk-form-group">
+                        <label class="govuk-label" for="contact-by-text">
+                            Enter Joan's goal
+                        </label>
+                        <input class="govuk-input " id="contact-by-text" name="contactByText" >
+                      </div>
+
+                      
+                    </div>
+                  </div>
+                </fieldset>
+
+
+                <button type="submit" class="govuk-button govuk-!-margin-top-6" data-module="govuk-button">
+                    Save and continue
+                  </button>
+              </div>
+
+          </div>
+          
+
+          
+          
+          <div class="govuk-grid-column-one-third">
+
+
+            <!--rosh card-->
+            <div class="card  ">
+                <div class="card-heading">
+                  <h2 class="govuk-heading-s">Joan's motivation to make changes to their accommodation
+                </h2>
+                </div>
+                <div class="card-body card-3-body">
+                  
+                  <p >Joan <strong>wants to make changes and knows how.</strong></p>
+                  
+                  <p class="updatedDate">Last updated: 29 February 2024</p>
+                              
+                  
+
+  
+                   </div>
+              </div>
+
+            <!--rosh card end -->
+            
+            <div class="card ">
+              <div class="card-heading">
+                <h2 class="govuk-heading-s">Court order requirements</h2>
+              </div>
+              <div class="card-body card-3-body">
+
+                
+               
+                
+               <p class="corLayout">
+                 <span>Unpaid work</span>
+                 120 <date>hours</date>
+             <!--  <strong class="govuk-tag">
+                   Active
+                 </strong> -->
+               </p>
+               
+               <p class="corLayout">
+                 <span>Rehabilitation activity<br>requirement (RAR)</span>
+                 20 <date>days</date>
+              <!--  <strong class="govuk-tag govuk-tag--green">
+                   Finished
+                 </strong> -->
+                 
+               </p>
+
+
+                
+                 </div>
+            </div>
+            
+          </div>
+          
+          
+        </div>
+        
+        
+        
+       
+        
+      </div>
+    
+    </div>
+
+        </main>
+      </div>
+
+
+    
+  <footer class="govuk-footer " role="contentinfo">
+  <div class="govuk-width-container ">
+    
+    <div class="govuk-footer__meta">
+      <div class="govuk-footer__meta-item govuk-footer__meta-item--grow">
+        
+          <h2 class="govuk-visually-hidden">Footer links</h2>
+          
+            <ul class="govuk-footer__inline-list">
+              
+                <li class="govuk-footer__inline-list-item">
+                  <a class="govuk-footer__link" href="/manage-prototype">
+                    Manage your prototype
+                  </a>
+                </li>
+              
+                <li class="govuk-footer__inline-list-item">
+                  <a class="govuk-footer__link" href="/manage-prototype/clear-data">
+                    Clear data
+                  </a>
+                </li>
+              
+            </ul>
+          
+          
+        
+        <svg
+          aria-hidden="true"
+          focusable="false"
+          class="govuk-footer__licence-logo"
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 483.2 195.7"
+          height="17"
+          width="41"
+        >
+          <path
+            fill="currentColor"
+            d="M421.5 142.8V.1l-50.7 32.3v161.1h112.4v-50.7zm-122.3-9.6A47.12 47.12 0 0 1 221 97.8c0-26 21.1-47.1 47.1-47.1 16.7 0 31.4 8.7 39.7 21.8l42.7-27.2A97.63 97.63 0 0 0 268.1 0c-36.5 0-68.3 20.1-85.1 49.7A98 98 0 0 0 97.8 0C43.9 0 0 43.9 0 97.8s43.9 97.8 97.8 97.8c36.5 0 68.3-20.1 85.1-49.7a97.76 97.76 0 0 0 149.6 25.4l19.4 22.2h3v-87.8h-80l24.3 27.5zM97.8 145c-26 0-47.1-21.1-47.1-47.1s21.1-47.1 47.1-47.1 47.2 21 47.2 47S123.8 145 97.8 145"
+          />
+        </svg>
+        <span class="govuk-footer__licence-description">
+          
+            All content is available under the
+            <a
+              class="govuk-footer__link"
+              href="https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/"
+              rel="license"
+            >Open Government Licence v3.0</a>, except where otherwise stated
+          
+        </span>
+      </div>
+      <div class="govuk-footer__meta-item">
+        <a
+          class="govuk-footer__link govuk-footer__copyright-logo"
+          href="https://www.nationalarchives.gov.uk/information-management/re-using-public-sector-information/uk-government-licensing-framework/crown-copyright/"
+        >© Crown copyright</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+
+    
+  
+    
+  
+    <script src="/plugin-assets/govuk-prototype-kit/lib/assets/javascripts/kit.js"></script>
+  
+
+  
+    <script src="/plugin-assets/govuk-prototype-kit/lib/assets/javascripts/auto-store-data.js"></script>
+  
+
+  
+    <script src="/plugin-assets/govuk-frontend/govuk/all.js"></script>
+  
+
+  
+    <script src="/plugin-assets/govuk-frontend/govuk-prototype-kit/init.js"></script>
+  
+
+  
+    <script src="/plugin-assets/%40ministryofjustice%2Ffrontend/moj/all.jquery.min.js"></script>
+  
+
+  
+    <script src="/plugin-assets/%40ministryofjustice%2Ffrontend/moj/init.js"></script>
+  
+
+  
+    <script src="/plugin-assets/jquery/dist/jquery.js"></script>
+  
+
+  
+    <script src="/public/javascripts/application.js"></script>
+  
+
+
+    
+  
+
+  </body>
+</html>

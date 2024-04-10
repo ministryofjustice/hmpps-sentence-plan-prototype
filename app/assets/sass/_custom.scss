@@ -1,4 +1,5 @@
 // global styles for <a> and <p> tags
+$govuk-brand-colour:	#1d70b8;
 .govuk-button {
 	text-decoration: none;
 }
@@ -32,7 +33,7 @@
 
 
 .profile-style {
-	background: govuk-colour("blue");
+	background:  $govuk-brand-colour	;
 }
 
 
@@ -432,8 +433,8 @@ margin-bottom: 20px;
 }
 
 .action-banner {
-	background: rgba(govuk-colour("blue"), 0.05);
-	border-left: 5px solid govuk-colour("blue");
+	background: rgba( $govuk-brand-colour	, 0.05);
+	border-left: 5px solid  $govuk-brand-colour	;
 	padding: 20px;
 	margin-bottom: 30px;
 	ul {
@@ -518,7 +519,7 @@ margin-bottom: 20px;
 						
 					}
 					&.active {
-					     border-left: 8px solid govuk-colour("blue");
+					     border-left: 8px solid  $govuk-brand-colour	;
 						background: #fff;
 						font-weight: bold;
 						padding-left: 32px;
@@ -598,7 +599,7 @@ margin-bottom: 20px;
 	span {
 		display: inline-block;
 		margin: 20px 5px 0 0;
-		background: govuk-colour("blue");
+		background: $govuk-brand-colour;
 		color: #fff;
 		border-radius: 5px;
 		padding: 4px 8px;
@@ -740,7 +741,7 @@ margin-bottom: 20px;
 	background: govuk-colour("orange");
 }
 .badge-sp2 {
-	background: govuk-colour("blue");
+	background: $govuk-brand-colour;
 }
 
 .moj-sub-navigation {
@@ -982,4 +983,4 @@ margin-bottom: 20px;
 	.govuk-button {
 		font-size: 1rem!important;
 	}
-	
+}

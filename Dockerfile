@@ -1,4 +1,4 @@
-FROM node:18.16-bullseye-slim
+FROM node:20.12-bookworm-slim as base
 
 ENV NODE_ENV=production
 

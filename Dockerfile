@@ -1,6 +1,6 @@
 FROM node:20.12-bookworm-slim as base
 
-ENV NODE_ENV=production
+ENV NODE_ENV=development
 
 RUN addgroup --gid 1017 --system appgroup \
   && adduser --uid 1017 --system appuser --gid 1017

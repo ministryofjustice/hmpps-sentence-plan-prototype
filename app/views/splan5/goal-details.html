@@ -1,0 +1,174 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    {%- from "moj/components/side-navigation/macro.njk" import mojSideNavigation -%}
+    
+    <div class="govuk-grid-column-two-thirds">
+      <span class="govuk-caption-xl">Accommodation</span>
+      <h1 class="govuk-heading-l">Create goals with Joan</h1>
+
+      <details class="govuk-details">
+        <summary class="govuk-details__summary">
+          <span class="govuk-details__summary-text">Creating SMART goals</span>
+        </summary>
+        <div class="govuk-details__text">
+          Goals and steps should be SMART, meaning 'specific', 'measurable', 'achievable', 'realistic', and 'time-bound'. This allows progress to be better measured and evaluated.
+        </div>
+      </details>
+
+      <div class="govuk-form-group">
+        <h1 class="govuk-label-wrapper">
+            <label class="govuk-label govuk-label--m" for="event-name">What goal should Joan be trying to achieve?</label>
+        </h1>
+        <input class="govuk-input" id="event-name" name="eventName" type="text" value="Improve relationship with neighbours">
+    </div>
+
+
+
+      <div class="govuk-form-group govuk-character-count" data-module="govuk-character-count" data-maxlength="200">
+        <h2 class="govuk-label-wrapper">
+          <label class="govuk-label govuk-label--m" for="with-hint">Why should Joan try to achieve this goal?</label>
+        </h2>
+        <textarea class="govuk-textarea govuk-js-character-count" id="with-hint" name="withHint" rows="5" aria-describedby="with-hint-info with-hint-hint"></textarea>
+        <div id="with-hint-info" class="govuk-hint govuk-character-count__message">You have 250 words remaining</div>
+      </div>
+
+      <div class="govuk-form-group">
+        <fieldset class="govuk-fieldset" aria-describedby="changedName-hint">
+          <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+            <h2 class="govuk-fieldset__heading">Can Joan start working on this goal now?</h2>
+          </legend>
+          <div class="govuk-radios govuk-radios--inline" data-module="govuk-radios">
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="changedName" name="changedName" type="radio" value="yes" data-target="finalQuestion">
+              <label class="govuk-label govuk-radios__label" for="changedName">Yes</label>
+            </div>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="changedName-2" name="changedName" type="radio" value="no">
+              <label class="govuk-label govuk-radios__label" for="changedName-2">No</label>
+            </div>
+          </div>
+        </fieldset>
+      </div>
+
+
+      <!-- When achieve goal start -->
+      <div id="finalQuestion" style="display: none;">
+      <fieldset class="govuk-fieldset" aria-describedby="contact-hint">
+        <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+          <h2 class="govuk-fieldset__heading">When will you and Joan review this goal?</h2>
+        </legend>
+        <div id="contact-hint" class="govuk-hint">Select one option.</div>
+        <div class="govuk-radios" data-module="govuk-radios">
+          <div class="govuk-radios__item">
+            <input class="govuk-radios__input" id="achieve" name="achieve" type="radio" value="3" >
+            <label class="govuk-label govuk-radios__label" for="achieve">In 3 months (30 August 2024)</label>
+          </div>
+          <div class="govuk-radios__item">
+            <input class="govuk-radios__input" id="achieve-2" name="achieve" type="radio" value="6" >
+            <label class="govuk-label govuk-radios__label" for="achieve-2">In 6 months (30 November 2024)</label>
+          </div>
+          <div class="govuk-radios__item">
+            <input class="govuk-radios__input" id="achieve-3" name="achieve" type="radio" value="12" >
+            <label class="govuk-label govuk-radios__label" for="achieve-3">In 12 months (30 May 2025)</label>
+          </div>
+          <div class="govuk-radios__item">
+            <input class="govuk-radios__input" id="achieve-4" name="achieve" type="radio" value="sentence" >
+            <label class="govuk-label govuk-radios__label" for="achieve-4">At the end of the sentence</label>
+          </div>
+          <div class="govuk-radios__item">
+            <input class="govuk-radios__input" id="achieve-5" name="achieve" type="radio" value="review_meeting" >
+            <label class="govuk-label govuk-radios__label" for="achieve-5">At the next review meeting</label>
+          </div>
+          <div class="govuk-radios__divider">or</div>
+          <div class="govuk-radios__item">
+            <input class="govuk-radios__input" id="achieve-6" name="achieve" type="radio" value="another" data-aria-controls="conditional-contact-333">
+            <label class="govuk-label govuk-radios__label" for="achieve-6">Set another date</label>
+          </div>
+          <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-contact-333">
+            <div class="govuk-form-group">
+              <label class="govuk-label" for="contact-by-text">Enter a date for Joan to achieve this goal.</label>
+              <div id="passport-issued-hint" class="govuk-hint">For example, 27 3 2007</div>
+              <div class="govuk-date-input" id="passport-issued">
+                <div class="govuk-date-input__item">
+                  <div class="govuk-form-group">
+                    <label class="govuk-label govuk-date-input__label" for="passport-issued-day">Day</label>
+                    <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="passport-issued-day" name="passport-issued-day" type="text" inputmode="numeric">
+                  </div>
+                </div>
+                <div class="govuk-date-input__item">
+                  <div class="govuk-form-group">
+                    <label class="govuk-label govuk-date-input__label" for="passport-issued-month">Month</label>
+                    <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="passport-issued-month" name="passport-issued-month" type="text" inputmode="numeric">
+                  </div>
+                </div>
+                <div class="govuk-date-input__item">
+                  <div class="govuk-form-group">
+                    <label class="govuk-label govuk-date-input__label" for="passport-issued-year">Year</label>
+                    <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="passport-issued-year" name="passport-issued-year" type="text" inputmode="numeric">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </fieldset>
+    </div>
+  </br>
+      <!-- When achieve goal end -->
+
+      <form class="form" action="/splan5/create-step1" method="post">
+        <div class="govuk-button-group">
+          <button type="submit" class="govuk-button govuk-button--secondary" data-module="govuk-button">Save and add steps</button>
+        </div>
+      </form>
+
+      <form class="form" action="/splan5/create-goal-success" method="post">
+        <div class="govuk-button-group">
+          <button type="submit" class="govuk-button" id="createGoalButton" data-module="govuk-button">Save and create another goal</button>
+        </div>
+      </form>
+    </div>
+
+  </div>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      var radioYes = document.getElementById("changedName");
+      var radioNo = document.getElementById("changedName-2");
+      var finalQuestion = document.getElementById("finalQuestion");
+  
+      function toggleFinalQuestion() {
+        if (radioYes.checked) {
+          finalQuestion.style.display = "block";
+        } else {
+          finalQuestion.style.display = "none";
+        }
+      }
+  
+      radioYes.addEventListener("change", toggleFinalQuestion);
+      radioNo.addEventListener("change", toggleFinalQuestion);
+  
+      // Initial check to ensure the correct state on page load
+      toggleFinalQuestion();
+    });
+  </script>
+
+
+
+
+
+  
+{% endblock %}

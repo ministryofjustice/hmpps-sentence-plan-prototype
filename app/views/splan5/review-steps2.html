@@ -1,0 +1,92 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Check your answers template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds-from-desktop">
+
+      <span class="govuk-caption-xl">Accommodation</span>
+      <h1 class="govuk-heading-l">Add steps with Joan to help them work towards this goal</h1>
+
+      <div class="govuk-inset-text">
+        <h2 class="govuk-heading-m">
+        Goal: find suitable accommodation.
+      </h2>
+      </div>
+      
+
+      <details class="govuk-details">
+        <summary class="govuk-details__summary">
+          <span class="govuk-details__summary-text">Creating SMART goals</span>
+        </summary>
+        <div class="govuk-details__text">
+          Goals and steps should be SMART, meaning 'specific', 'measurable', 'achievable', 'realistic', and 'time-bound'. This allows progress to be better measured and evaluated.
+        </div>
+      </details>
+
+      </div>
+      <div class="govuk-grid-column-full">
+       
+                <table class="govuk-table">
+                  
+                  <thead class="govuk-table__head">
+                    <tr class="govuk-table__row">
+                      <th scope="col" class="govuk-table__header">Step</th>
+                      <th scope="col" class="govuk-table__header">Who will do this</th>
+                      <th scope="col" class="govuk-table__header">Actions</th>
+                      <th scope="col" class="govuk-table__header"></th>
+                    </tr>
+                  </thead>
+                  <tbody class="govuk-table__body">
+                    <tr class="govuk-table__row">
+                      <td scope="row" class="govuk-table__cell">1. Make a referral to housing officer</th>
+                      <td class="govuk-table__cell">Probation practitioner</td>
+                      <td class="govuk-table__cell"><a href="#">Change</a></td>
+                      <td class="govuk-table__cell"><a href="#">Delete</a></td>
+                    </tr>
+                  </tbody>
+                  <tbody class="govuk-table__body">
+                    <tr class="govuk-table__row">
+                      <td scope="row" class="govuk-table__cell">2. Set up appointments with housing agencies</th>
+                      <td class="govuk-table__cell">Joan</br>Probation practitioner</td>
+                      <td class="govuk-table__cell"><a href="#">Change</a></td>
+                      <td class="govuk-table__cell"><a href="#">Delete</a></td>
+                    </tr>
+                  </tbody>
+                </table>
+
+              </div>
+              <div class="govuk-grid-column-two-thirds-from-desktop">
+
+                <form action="/splan5/create-step2" method="post" novalidate>
+
+                  {{ govukButton({
+                    text: "Add another step",
+                    classes: "govuk-button--secondary"
+                  }) }}
+          
+                </form>
+            
+              <form action="/splan5/plan-overview" method="post" novalidate>
+
+                {{ govukButton({
+                  text: "Save and add to plan"
+                }) }}
+        
+              </form>
+            </div>
+
+    </div>
+  </div>
+{% endblock %}

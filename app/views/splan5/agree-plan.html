@@ -1,0 +1,119 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+
+    <div class="govuk-grid-row">
+    
+    
+      <div class="govuk-grid-column-full">
+        
+  
+        <!-- Header -->
+        <div class="profile-banner-plan profileFIlters">
+                
+                
+          <!--<h1 class="govuk-heading-m mb10">
+            Joan Smith
+          </h1>-->
+         
+          <ul class="govuk-list govuk-!-margin-bottom-0">
+           <li class="govuk-body govuk-!-font-size-27" style="padding-top: 0px;">
+               
+           <strong>Joan Smith</strong>
+             </li>
+           <li style="padding-top: 8px;">CRN: Z804100</li>
+            <li style="padding-top: 8px;">PNC: 2017/123400000H</li>
+            <li style="padding-top: 8px;">Date of birth: 26 June 1978</li>
+          </ul>
+  
+          <div style="display: flex; justify-content: space-between; align-items: center; padding-top: 40px;">
+            <h1 class="govuk-heading-l" >
+              Joan's plan
+            </h1>
+           
+           
+              
+          </div>
+        </div>
+        </div>
+
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">
+        Agree plan with Joan
+      </h1>
+
+      <form class="form" action="/splan5/plan-agreed-overview" method="post">
+
+        
+        
+        {% set phoneHtml %}
+        {{ govukInput({
+          id: "contact-by-phone",
+          name: "contactByPhone",
+          type: "text",
+          autocomplete: "text",
+          classes: "govuk-!-width-full",
+          label: {
+            text: "Enter why Joan does not agree"
+          }
+        }) }}
+        {% endset -%}
+      
+        
+        {{ govukRadios({
+          name: "contact",
+          fieldset: {
+            legend: {
+              text: "Does Joan agree to this plan?",
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--m"
+            }
+          },
+          hint: {
+            text: "Joan must answer this question."
+          },
+          items: [
+            {
+              value: "email",
+              text: "Yes, I agree"
+            },
+            {
+              value: "phone",
+              text: "No, I do not agree",
+              conditional: {
+                html: phoneHtml
+              }
+            }
+          ]
+        }) }}
+
+        <div class="govuk-form-group govuk-character-count" data-module="govuk-character-count" data-maxlength="250">
+          <h2 class="govuk-label-wrapper">
+            <label class="govuk-label govuk-label--m" for="with-hint">Add any other notes</label>
+          </h2>
+          <textarea class="govuk-textarea govuk-js-character-count" id="with-hint" name="withHint" rows="5" aria-describedby="with-hint-info with-hint-hint"></textarea>
+          <div id="with-hint-info" class="govuk-hint govuk-character-count__message">You have 250 words remaining</div>
+        </div>
+
+        {{ govukButton({
+          text: "Agree plan with Joan"
+        }) }}
+
+        <p class="govuk-body">
+          <a href="plan-overview" class="govuk-link govuk-link--no-visited-state">Change goals</a>
+        </p>
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

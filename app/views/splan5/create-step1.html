@@ -1,0 +1,167 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      
+      <span class="govuk-caption-xl">Accommodation</span>
+      <h1 class="govuk-heading-l">Add steps with Joan to help them work towards this goal</h1>
+
+
+      <form class="form" action="/splan5/review-steps" method="post">
+
+        <div class="govuk-inset-text">
+          <h2 class="govuk-heading-m">
+          Goal: find suitable accommodation.
+        </h2>
+        </div>
+
+        <details class="govuk-details">
+          <summary class="govuk-details__summary">
+            <span class="govuk-details__summary-text">Creating SMART goals</span>
+          </summary>
+          <div class="govuk-details__text">
+            Goals and steps should be SMART, meaning 'specific', 'measurable', 'achievable', 'realistic', and 'time-bound'. This allows progress to be better measured and evaluated.
+          </div>
+        </details>
+
+        {% from "govuk/components/radios/macro.njk" import govukRadios %}
+        {% set emailHtml %}
+          {{ govukInput({
+          id: "something-else",
+          name: "contactByEmail",
+          type: "text",
+          autocomplete: "text",
+          spellcheck: false,
+          classes: "govuk-!-width-full",
+       
+          label: {
+            text: "Enter a step"
+          }
+          }) }}
+          {% endset -%}
+
+        {{ govukRadios({
+          name: "whereDoYouLive",
+          fieldset: {
+            legend: {
+              text: "What should the first step be?",
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--m"
+            }
+          },
+          items: [
+            {
+              value: "england",
+              text: "Make a referral to housing officer"
+            },
+            {
+              value: "scotland",
+              text: "Set up appointments with housing agencies"
+            },
+            {
+              value: "wales",
+              text: "Provide any information that is required"
+            },
+            {
+              value: "northern-ireland",
+              text: "Find information and advice about available accommodation"
+            },
+            {
+              value: "northern-ireland2",
+              text: "Follow the rules of the approved premises"
+            },
+            {
+              divider: "or"
+            },
+            {
+              value: "something-else",
+              text: "Something else",
+              conditional: {
+                html: emailHtml
+              }
+            }
+          ]
+        }) }}
+
+
+
+        {% set textHtml %}
+        {{ govukInput({
+          id: "contact-by-text",
+          name: "contactByText",
+          type: "text",
+          autocomplete: "text",
+          classes: "govuk-!-width-full",
+          label: {
+            text: "Enter who will do this"
+          }
+        }) }}
+        {% endset -%}
+
+          {{ govukCheckboxes({
+            name: "contact",
+            fieldset: {
+              legend: {
+                text: "Who will do this step?",
+                isPageHeading: true,
+                classes: "govuk-fieldset__legend--m"
+              }
+            },
+            hint: {
+              text: "Select all that apply."
+            },
+            items: [
+              {
+                value: "email",
+                text: "Joan"
+              },
+              {
+                value: "phone",
+                text: "Probation practitioner"
+              },
+              {
+                value: "phone2",
+                text: "Programme staff"
+              },
+              {
+                value: "phone3",
+                text: "Partnership agency"
+              },
+              {
+                value: "phone4",
+                text: "Commissioned rehabilitative services (CRS) provider"
+              },
+              {
+                value: "text message",
+                text: "Someone else",
+                conditional: {
+                  html: textHtml
+                }
+              }
+            ]
+          }) }}
+
+        {{ govukButton({
+          text: "Add step to goal"
+        }) }}
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

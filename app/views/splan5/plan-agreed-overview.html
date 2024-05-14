@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html lang="en" class="govuk-template ">
+  <head>
+    <meta charset="utf-8">
+    <title>
+  Sentence plan
+</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <meta name="theme-color" content="#0b0c0c"> 
+    
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    
+      <link rel="shortcut icon" sizes="16x16 32x32 48x48" href="/plugin-assets/govuk-frontend/govuk/assets/images/favicon.ico" type="image/x-icon">
+      <link rel="mask-icon" href="/plugin-assets/govuk-frontend/govuk/assets/images/govuk-mask-icon.svg" color="#0b0c0c"> 
+      <link rel="apple-touch-icon" sizes="180x180" href="/plugin-assets/govuk-frontend/govuk/assets/images/govuk-apple-touch-icon-180x180.png">
+      <link rel="apple-touch-icon" sizes="167x167" href="/plugin-assets/govuk-frontend/govuk/assets/images/govuk-apple-touch-icon-167x167.png">
+      <link rel="apple-touch-icon" sizes="152x152" href="/plugin-assets/govuk-frontend/govuk/assets/images/govuk-apple-touch-icon-152x152.png">
+      <link rel="apple-touch-icon" href="/plugin-assets/govuk-frontend/govuk/assets/images/govuk-apple-touch-icon.png">
+    
+
+    
+  
+  
+    <link href="/public/stylesheets/application.css" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+
+
+    
+    
+  </head>
+  <body class="govuk-template__body "><script id="__bs_script__">//<![CDATA[
+  (function() {
+    try {
+      var script = document.createElement('script');
+      if ('async') {
+        script.async = true;
+      }
+      script.src = '/browser-sync/browser-sync-client.js?v=2.29.3'.replace("HOST", location.hostname);
+      if (document.body) {
+        document.body.appendChild(script);
+      } else if (document.head) {
+        document.head.appendChild(script);
+      }
+    } catch (e) {
+      console.error("Browsersync: could not append script tag", e);
+    }
+  })()
+//]]></script>
+
+    <script>document.body.className = ((document.body.className) ? document.body.className + ' js-enabled' : 'js-enabled');</script>
+    
+
+    
+      <a href="#main-content" class="govuk-skip-link" data-module="govuk-skip-link">Skip to main content</a>
+
+    
+{%- from "moj/components/header/macro.njk" import mojHeader -%}
+
+{{ mojHeader({
+  organisationLabel: {
+    text: 'HMPPS',
+    href: '/index'
+  },
+  serviceLabel: {
+    text: 'Sentence Plan',
+    href: '/index'
+  },
+  navigation: {
+    label: 'Account navigation',
+    items: [{
+      text: 'Alexis Diaz',
+      href: '#',
+      active: true
+    }, {
+      text: 'Sign out',
+      href: '#'
+    }]
+  }
+
+}) }}
+
+
+
+
+  
+
+
+
+
+    
+      <div class="govuk-width-container ">
+        
+        
+        
+        
+
+      
+        
+        <main class="govuk-main-wrapper govuk-!-padding-top-0" id="main-content" role="main">
+          
+ 
+          
+          
+ <!-- Patterns -->         
+          
+          
+<!--<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+    
+          
+          <div class="profile-banner-plan profileFIlters">
+              
+              
+           <h1 class="govuk-heading-m mb10">
+             Joan Smith
+           </h1>
+          
+           <ul class="govuk-list">
+             <li>CRN: Z804100</li>
+             <li>PNC: 2017/123400000H</li>
+             <li>Date of birth: 26 June 1978</li>
+           </ul>
+           
+    
+            
+            </div>
+          
+  </div>
+
+</div>-->
+
+
+
+    <div class="govuk-grid-row">
+
+      <div class="govuk-grid-column-full">
+        
+        
+
+
+
+
+        
+        <!--<nav class="moj-sub-navigation planprogressContain" aria-label="Sub navigation">
+  
+
+      
+      
+      
+      
+      
+      </nav>-->
+      
+        
+      
+      <div class="govuk-grid-row">
+          
+          
+          
+        <div class="govuk-grid-column-two-thirds">
+       <!-- <h1 class="govuk-heading-l">
+            What goal is Joan trying to achieve?</h1>-->
+
+
+
+      </div>
+    
+      <div class="moj-page-header-actions__actions">
+    
+        <div class="moj-button-menu">
+          <div class="moj-button-menu__wrapper">
+    
+
+    
+          </div>
+        </div>
+    
+      </div>
+    
+    </div>
+    
+    
+    
+ <!--  <div class="moj-banner mb20" role="region" aria-label="information">
+     
+       <svg class="moj-banner__icon" fill="currentColor" role="presentation" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 25" height="25" width="25">
+         <path d="M13.7,18.5h-2.4v-2.4h2.4V18.5z M12.5,13.7c-0.7,0-1.2-0.5-1.2-1.2V7.7c0-0.7,0.5-1.2,1.2-1.2s1.2,0.5,1.2,1.2v4.8
+       C13.7,13.2,13.2,13.7,12.5,13.7z M12.5,0.5c-6.6,0-12,5.4-12,12s5.4,12,12,12s12-5.4,12-12S19.1,0.5,12.5,0.5z" />
+       </svg>
+     
+       <div class="moj-banner__message">
+         <h2 class="govuk-heading-s"><a href="objectives2" class="govuk-link govuk-link--no-visited-state">1 suggested objective</a></h2>
+       </div>
+     
+     </div>-->
+        
+        
+     <!--   <div class="filterPanels">
+          
+
+          
+          <div class="govuk-checkboxes govuk-checkboxes--small" data-module="govuk-checkboxes">
+          
+            <ul class="govuk-list mt0 mb0">
+              <li>Filter information:</li>
+                <li>
+                  <div class="govuk-checkboxes__item">
+                    <input class="govuk-checkboxes__input" id="waste" name="waste" type="checkbox" value="carcasses">
+                    <label class="govuk-label govuk-checkboxes__label" for="waste">
+                      View all
+                    </label>
+                  </div>
+                </li>
+                <li><div class="govuk-checkboxes__item">
+                  <input class="govuk-checkboxes__input" id="waste" name="waste" type="checkbox" value="carcasses">
+                  <label class="govuk-label govuk-checkboxes__label" for="waste">
+                    Risk
+                  </label>
+                </div></li>
+                <li>
+                  <div class="govuk-checkboxes__item">
+                    <input class="govuk-checkboxes__input" id="waste" name="waste" type="checkbox" value="carcasses">
+                    <label class="govuk-label govuk-checkboxes__label" for="waste">
+                      Needs
+                    </label>
+                  </div>
+                </li>
+                <li>
+                  <div class="govuk-checkboxes__item">
+                    <input class="govuk-checkboxes__input" id="waste" name="waste" type="checkbox" value="carcasses">
+                    <label class="govuk-label govuk-checkboxes__label" for="waste">
+                      Personal details
+                    </label>
+                  </div>
+                </li>
+            </ul>
+          </div>
+        </div>
+      -->
+
+
+      <div class="govuk-grid-row">
+        <div class="govuk-grid-column-full">
+
+                <div class="profile-banner-plan profileFIlters">
+     
+           <!--<h1 class="govuk-heading-m mb10">
+             Joan Smith
+           </h1>-->
+          
+           <ul class="govuk-list govuk-!-margin-bottom-0">
+            <li class="govuk-body govuk-!-font-size-27" style="padding-top: 0px;">
+                
+            <strong>Joan Smith</strong>
+              </li>
+            <li style="padding-top: 8px;">CRN: Z804100</li>
+            
+             <li style="padding-top: 8px;">PNC: 2017/123400000H</li>
+             <li style="padding-top: 8px;">Date of birth: 26 June 1978</li>
+           </ul>
+           
+                 
+                </div>
+                
+        </div>
+      
+      </div>
+        
+      <div class="govuk-grid-row">
+        <div class="govuk-grid-column-full">
+          <nav class="moj-sub-navigation planprogressContain" aria-label="Sub navigation">
+          <ul class="moj-sub-navigation__list">
+            <li class="moj-sub-navigation__item">
+              <a class="moj-sub-navigation__link" href="/splan5">About Joan</a>
+            </li>
+            <li class="moj-sub-navigation__item">
+              <a class="moj-sub-navigation__link"   href="/splan4/goals-overview">Goals</a>
+            </li>
+            <li class="moj-sub-navigation__item">
+              <a class="moj-sub-navigation__link" aria-current="page" href="#">Plan summary</a>
+            </li> 
+
+          </ul>
+        </nav>    
+        
+        <div class="moj-banner moj-banner--success" role="region" aria-label="Success">
+
+          <svg class="moj-banner__icon" fill="currentColor" role="presentation" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 25" height="25" width="25">
+            <path d="M25,6.2L8.7,23.2L0,14.1l4-4.2l4.7,4.9L21,2L25,6.2z" />
+          </svg>
+        
+          <div class="moj-banner__message">Joan has agreed to the plan.</div>
+        
+        </div>
+        
+        </div>
+        </div>
+      
+      
+
+        
+        <div class="govuk-grid-row">
+            <div class="govuk-grid-column-two-thirds">
+            
+                <h1 class="govuk-heading-xl">Joan's plan</h1>
+                <p>These are the goals you and Joan agreed to on 4 April 2024.</p>
+
+                <h2 class="govuk-heading-m">Goals to work on now</h2>
+
+<!--GOAL card-->
+                <div class=" govuk-!-margin-top-4" style="border:solid 1px black;padding:20px;">
+                    <span class="govuk-caption-m ">Court order requirement</span>
+                    
+                    <ol start="1" class="govuk-list govuk-list--number">
+                      <li><h2 class="govuk-heading-m govuk-!-padding-top-3">Unpaid work</h2></li>
+              
+                    </ol>  
+
+                  
+            
+                          <p>Completed throughout the sentence</p>
+
+                          <h3 class="govuk-heading-s">Steps</h3>
+                          <ol class="govuk-list govuk-list--number">
+                            <li>Joan to complete a minimum of 6 hours unpaid work per week.</li>
+                            <li>Probation practitoner UPW supervisors to report on progress</li>
+                          </ol>
+                          <p class="govuk-body-s">Last updated: 29 February 2024</p>
+                    </div>
+<!--GOAL card end-->  
+
+<!--GOAL card-->
+<div class=" govuk-!-margin-top-4" style="border:solid 1px black;padding:20px;">
+    <span class="govuk-caption-m ">Risk management plan</span>
+
+    <ol start="2" class="govuk-list govuk-list--number">
+      <li><h2 class="govuk-heading-m govuk-!-padding-top-3">Assess and reduce risk of reoffending and harm</h2></li>
+
+    </ol>  
+
+      <p>Completed throughout the sentence</p>
+
+      <h3 class="govuk-heading-s">Steps</h3>
+      <ol class="govuk-list govuk-list--number">
+        <li>Probation practitoner ongoing assessment in changes in circumstances, thinking and behaviour and how this links to offending and harm</li>
+      </ol>
+      <p class="govuk-body-s">Last updated: 29 February 2024</p>
+</div>
+<!--GOAL card end-->  
+
+
+<!--GOAL card-->
+<div class=" govuk-!-margin-top-4" style="border:solid 1px black;padding:20px;">
+
+  <ol start="3" class="govuk-list govuk-list--number">
+    <li><h2 class="govuk-heading-m govuk-!-padding-top-3">Find suitable accommodation</h2></li>
+
+  </ol>  
+
+    <p class="govuk-body-s">Area of need: <strong>accommodation</strong></p>
+      <p>Completed in the next 3 months</p>
+
+      <h3 class="govuk-heading-s">Steps</h3>
+      <ol class="govuk-list govuk-list--number">
+        <li>Probation practitioner to make a referral to Housing officer</li>
+        <li>Joan to provide any information that is required</li>
+      </ol>
+      <p class="govuk-body-s">Last updated: 29 February 2024</p>
+</div>
+<!--GOAL card end-->  
+
+<h2 class="govuk-heading-m govuk-!-margin-top-9">Goals for later</h2>
+
+<!--GOAL card-->
+<div class=" govuk-!-margin-top-4" style="border:solid 1px black;padding:20px;">
+
+  <ol start="4" class="govuk-list govuk-list--number">
+    <li><h2 class="govuk-heading-m govuk-!-padding-top-3">Increase understanding of the causes of conflict and domestic violence</h2></li>
+
+  </ol> 
+
+    <p class="govuk-body-s">Area of need: <strong>Thinking, behaviours and attitudes</strong></p>
+      <p>Completed in the next 6 months</p>
+
+      <h3 class="govuk-heading-s">Steps</h3>
+      <ol class="govuk-list govuk-list--number">
+        <li>Probation practitioner: Referred to the programme, the Programmes Team</li>
+        <li>Probation practitioner: Pre-work is made available to be undertaken</li>
+        <li>Joan to attend a groupwork on a weekly basis until it has been completed</li>
+      </ol>
+      <p class="govuk-body-s">Last updated: 29 February 2024</p>
+</div>
+<!--GOAL card end-->  
+
+<!--GOAL card-->
+<div class=" govuk-!-margin-top-4" style="border:solid 1px black;padding:20px;">
+
+  <ol start="5" class="govuk-list govuk-list--number">
+    <li><h2 class="govuk-heading-m govuk-!-padding-top-3">Increase awareness of own skills and impact on others</h2></li>
+
+  </ol> 
+
+    <p class="govuk-body-s">Area of need: <strong>Thinking, behaviours and attitudes</strong></p>
+      <p>Completed in the next 6 months</p>
+
+      <h3 class="govuk-heading-s">Steps</h3>
+      <ol class="govuk-list govuk-list--number">
+        <li>Joan to attend specialist appointments and meetings as directed by Children's Services</li>
+      </ol>
+      <p class="govuk-body-s">Last updated: 29 February 2024</p>
+</div>
+<!--GOAL card end-->  
+
+
+<!--GOAL card-->
+<div class=" govuk-!-margin-top-4" style="border:solid 1px black;padding:20px;">
+
+  <ol start="6" class="govuk-list govuk-list--number">
+    <li><h2 class="govuk-heading-m govuk-!-padding-top-3">Reduce drug use</h2></li>
+
+  </ol> 
+
+    <p class="govuk-body-s">Area of need: <strong>Drug use</strong></p>
+      <p>Completed in the next 6 months</p>
+
+      <h3 class="govuk-heading-s">Steps</h3>
+      <ol class="govuk-list govuk-list--number">
+        <li>Joan to attend assessment meeting</li>
+        <li>Joan to attend weekly appointments at their office in W-Town to undergo drug testing</li>
+        <li>Joan to complete a weekly substance misuse diary</li>        
+      </ol>
+      <p class="govuk-body-s">Last updated: 29 February 2024</p>
+</div>
+<!--GOAL card end-->  
+
+<!--GOAL card-->
+<div class=" govuk-!-margin-top-4" style="border:solid 1px black;padding:20px;">
+  <ol start="7" class="govuk-list govuk-list--number">
+    <li><h2 class="govuk-heading-m govuk-!-padding-top-3">Increase confidence and motivation to find employment</h2></li>
+
+  </ol> 
+
+    <p class="govuk-body-s">Area of need: <strong>Education and employment</strong></p>
+      <p>Completed in the next 6 months</p>
+
+      <h3 class="govuk-heading-s">Steps</h3>
+      <ol class="govuk-list govuk-list--number">
+        <li>Joan to attend fortnightly meetings at the Job Centre</li>
+        <li>Joan to find guidance on specific organisations, training courses</li>      
+      </ol>
+      <p class="govuk-body-s">Last updated: 29 February 2024</p>
+</div>
+<!--GOAL card end-->  
+
+
+
+            </div>
+        
+
+
+
+
+
+
+            
+            <div class="govuk-grid-column-one-third">
+
+
+                <div class=" hmpps-actions-block govuk-!-margin-bottom-5">
+                    <!--<h2 class="govuk-heading-m">Actions</h2>-->
+                    <ul class="hmpps-actions-block__list">
+          
+                      <li>
+                        <a href="/splan4/print-1" class="govuk-link govuk-link--no-visited-state" data-qa="add-case-note-action-link" referrerpolicy="no-referrer-when-downgrade">Print plan</a>
+                      </li>
+          
+          
+                      <li>
+                        <a href="#" class="govuk-link govuk-link--no-visited-state" data-qa="add-case-note-action-link" referrerpolicy="no-referrer-when-downgrade">Share plan</a>
+                      </li>
+          
+         
+          
+          
+          
+                    </ul>
+                  </div>
+            </div>
+            
+          </div>
+          
+          
+
+        
+        
+       
+        
+      </div>
+    
+    </div>
+
+        </main>
+      </div>
+
+
+    
+  <footer class="govuk-footer " role="contentinfo">
+  <div class="govuk-width-container ">
+    
+    <div class="govuk-footer__meta">
+      <div class="govuk-footer__meta-item govuk-footer__meta-item--grow">
+        
+          <h2 class="govuk-visually-hidden">Footer links</h2>
+          
+            <ul class="govuk-footer__inline-list">
+              
+                <li class="govuk-footer__inline-list-item">
+                  <a class="govuk-footer__link" href="/manage-prototype">
+                    Manage your prototype
+                  </a>
+                </li>
+              
+                <li class="govuk-footer__inline-list-item">
+                  <a class="govuk-footer__link" href="/manage-prototype/clear-data">
+                    Clear data
+                  </a>
+                </li>
+              
+            </ul>
+          
+          
+        
+        <svg
+          aria-hidden="true"
+          focusable="false"
+          class="govuk-footer__licence-logo"
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 483.2 195.7"
+          height="17"
+          width="41"
+        >
+          <path
+            fill="currentColor"
+            d="M421.5 142.8V.1l-50.7 32.3v161.1h112.4v-50.7zm-122.3-9.6A47.12 47.12 0 0 1 221 97.8c0-26 21.1-47.1 47.1-47.1 16.7 0 31.4 8.7 39.7 21.8l42.7-27.2A97.63 97.63 0 0 0 268.1 0c-36.5 0-68.3 20.1-85.1 49.7A98 98 0 0 0 97.8 0C43.9 0 0 43.9 0 97.8s43.9 97.8 97.8 97.8c36.5 0 68.3-20.1 85.1-49.7a97.76 97.76 0 0 0 149.6 25.4l19.4 22.2h3v-87.8h-80l24.3 27.5zM97.8 145c-26 0-47.1-21.1-47.1-47.1s21.1-47.1 47.1-47.1 47.2 21 47.2 47S123.8 145 97.8 145"
+          />
+        </svg>
+        <span class="govuk-footer__licence-description">
+          
+            All content is available under the
+            <a
+              class="govuk-footer__link"
+              href="https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/"
+              rel="license"
+            >Open Government Licence v3.0</a>, except where otherwise stated
+          
+        </span>
+      </div>
+      <div class="govuk-footer__meta-item">
+        <a
+          class="govuk-footer__link govuk-footer__copyright-logo"
+          href="https://www.nationalarchives.gov.uk/information-management/re-using-public-sector-information/uk-government-licensing-framework/crown-copyright/"
+        >© Crown copyright</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+
+    
+  
+    
+  
+    <script src="/plugin-assets/govuk-prototype-kit/lib/assets/javascripts/kit.js"></script>
+  
+
+  
+    <script src="/plugin-assets/govuk-prototype-kit/lib/assets/javascripts/auto-store-data.js"></script>
+  
+
+  
+    <script src="/plugin-assets/govuk-frontend/govuk/all.js"></script>
+  
+
+  
+    <script src="/plugin-assets/govuk-frontend/govuk-prototype-kit/init.js"></script>
+  
+
+  
+    <script src="/plugin-assets/%40ministryofjustice%2Ffrontend/moj/all.jquery.min.js"></script>
+  
+
+  
+    <script src="/plugin-assets/%40ministryofjustice%2Ffrontend/moj/init.js"></script>
+  
+
+  
+    <script src="/plugin-assets/jquery/dist/jquery.js"></script>
+  
+
+  
+    <script src="/public/javascripts/application.js"></script>
+  
+
+
+    
+  
+
+  </body>
+</html>

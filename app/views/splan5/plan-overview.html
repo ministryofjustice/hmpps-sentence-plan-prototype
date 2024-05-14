@@ -43,14 +43,19 @@
           </h1>
           
           <div class="govuk-button-group" >
-            <button type="submit" class="govuk-button govuk-button--secondary" data-module="govuk-button ">
-              Create goal
-            </button>
+            <form class="form" action="/splan5/create-goal" method="post">
+              <button type="submit" class="govuk-button govuk-button--secondary" data-module="govuk-button ">
+                Create goal
+              </button>
+          </form>
+            <form class="form" action="/splan5/agree-plan" method="post">
             <button type="submit" class="govuk-button" data-module="govuk-button">
               Agree plan
             </button>
+          </form>
           </div>
-        
+         
+            
         </div>
       </div>
     
@@ -61,23 +66,26 @@
       }) }}
 
       <p>
-        Add review dates and steps to each goal to agree this plan with Joan.
+        Add steps to each goal to agree this plan with Joan.
       </p>
 
-      {%- from "moj/components/sub-navigation/macro.njk" import mojSubNavigation -%}
 
-        {{ mojSubNavigation({
-          label: 'Sub navigation',
-          items: [{
-            text: 'Goals for now',
-            href: '#1',
-            active: true
-          }, 
-          {
-            text: 'Goals for later',
-            href: '#2'
-          }]
-        }) }}
+        <nav class="moj-sub-navigation mb40" aria-label="Sub navigation">
+  
+          <ul class="moj-sub-navigation__list">
+            <li class="moj-sub-navigation__item">
+              <a class="moj-sub-navigation__link" aria-current="page" href="#">Goals for now (4)</a>
+            </li>
+        
+            <li class="moj-sub-navigation__item">
+              <a class="moj-sub-navigation__link" href="plan-overview-later">Goals for later (2)</a>
+            </li>
+      
+          </ul>
+        
+        </nav>
+
+
         <div id="summary-cards">
 
     
@@ -91,13 +99,13 @@
             
             <ul class="govuk-summary-card__actions">
               <li class="govuk-summary-card__action">
-                <a class="govuk-link" href="#">Update goal<span class="govuk-visually-hidden"> of University of Gloucestershire (University of Gloucestershire)</span></a>
+                <a class="govuk-link" href="#" class="govuk-link govuk-link--no-visited-state">Update goal<span class="govuk-visually-hidden"> of University of Gloucestershire (University of Gloucestershire)</span></a>
               </li>
               <li class="govuk-summary-card__action">
-                <a class="govuk-link" href="#" style="padding-left:10px">Add or change steps<span class="govuk-visually-hidden"> from University of Gloucestershire (University of Gloucestershire)</span></a>
+                <a class="govuk-link" href="#" style="padding-left:10px" class="govuk-link govuk-link--no-visited-state">Add or change steps<span class="govuk-visually-hidden"> from University of Gloucestershire (University of Gloucestershire)</span></a>
               </li>
               <li class="govuk-summary-card__action">
-                <a class="govuk-link" href="#">Delete<span class="govuk-visually-hidden"> from University of Gloucestershire (University of Gloucestershire)</span></a>
+                <a class="govuk-link" href="#" class="govuk-link govuk-link--no-visited-state">Delete<span class="govuk-visually-hidden"> from University of Gloucestershire (University of Gloucestershire)</span></a>
               </li>
             </ul>
           </div>
@@ -114,13 +122,13 @@
               </thead>
               <tbody class="govuk-table__body">
                 <tr class="govuk-table__row">
-                  <td scope="row" class="govuk-table__cell">1. Make a referral to housing officer</th>
+                  <td scope="row" class="govuk-table__cell">Make a referral to housing officer</th>
                   <td class="govuk-table__cell">Probation practitioner</td>
                 </tr>
               </tbody>
               <tbody class="govuk-table__body">
                 <tr class="govuk-table__row">
-                  <td scope="row" class="govuk-table__cell">2. Set up appointments with housing agencies</th>
+                  <td scope="row" class="govuk-table__cell">Set up appointments with housing agencies</th>
                   <td class="govuk-table__cell">Joan</br>Probation practitioner</td>
                 </tr>
               </tbody>
@@ -174,19 +182,19 @@
               </thead>
               <tbody class="govuk-table__body">
                 <tr class="govuk-table__row">
-                  <td scope="row" class="govuk-table__cell">1. Set up appointments with housing agencies</th>
+                  <td scope="row" class="govuk-table__cell">Set up appointments with housing agencies</th>
                   <td class="govuk-table__cell">Probation practitioner</td>
                 </tr>
               </tbody>
               <tbody class="govuk-table__body">
                 <tr class="govuk-table__row">
-                  <td scope="row" class="govuk-table__cell">2. Follow the rules of the approved premises</th>
+                  <td scope="row" class="govuk-table__cell">Follow the rules of the approved premises</th>
                   <td class="govuk-table__cell">Joan</br>Partnership agency</td>
                 </tr>
               </tbody>
               <tbody class="govuk-table__body">
                 <tr class="govuk-table__row">
-                  <td scope="row" class="govuk-table__cell">3. Find information and advice about available accommodation</th>
+                  <td scope="row" class="govuk-table__cell">Find information and advice about available accommodation</th>
                   <td class="govuk-table__cell">Probation practitioner</td>
                 </tr>
               </tbody>
@@ -239,13 +247,13 @@
               </thead>
               <tbody class="govuk-table__body">
                 <tr class="govuk-table__row">
-                  <td scope="row" class="govuk-table__cell">1. Make a referral to housing officer</th>
+                  <td scope="row" class="govuk-table__cell">Make a referral to housing officer</th>
                   <td class="govuk-table__cell">Probation practitioner</td>
                 </tr>
               </tbody>
               <tbody class="govuk-table__body">
                 <tr class="govuk-table__row">
-                  <td scope="row" class="govuk-table__cell">2. Set up appointments with housing agencies</th>
+                  <td scope="row" class="govuk-table__cell">Set up appointments with housing agencies</th>
                   <td class="govuk-table__cell">Joan</br>Probation practitioner</td>
                 </tr>
               </tbody>
@@ -298,13 +306,13 @@
               </thead>
               <tbody class="govuk-table__body">
                 <tr class="govuk-table__row">
-                  <td scope="row" class="govuk-table__cell">1. Make a referral to housing officer</th>
+                  <td scope="row" class="govuk-table__cell">Make a referral to housing officer</th>
                   <td class="govuk-table__cell">Probation practitioner</td>
                 </tr>
               </tbody>
               <tbody class="govuk-table__body">
                 <tr class="govuk-table__row">
-                  <td scope="row" class="govuk-table__cell">2. Set up appointments with housing agencies</th>
+                  <td scope="row" class="govuk-table__cell">Set up appointments with housing agencies</th>
                   <td class="govuk-table__cell">Joan</br>Probation practitioner</td>
                 </tr>
               </tbody>

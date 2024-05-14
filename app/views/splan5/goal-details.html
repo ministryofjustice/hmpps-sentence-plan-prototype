@@ -1,3 +1,5 @@
+
+
 {% extends "layouts/main.html" %}
 
 {% block pageTitle %}
@@ -12,6 +14,8 @@
 {% endblock %}
 
 {% block content %}
+
+
   <div class="govuk-grid-row">
     {%- from "moj/components/side-navigation/macro.njk" import mojSideNavigation -%}
     
@@ -131,13 +135,13 @@
 
       <form class="form" action="/splan5/create-step1" method="post">
         <div class="govuk-button-group">
-          <button type="submit" class="govuk-button govuk-button--secondary" data-module="govuk-button">Save and add steps</button>
+          <button type="submit" class="govuk-button " data-module="govuk-button">Save and add steps</button>
         </div>
       </form>
 
       <form class="form" action="/splan5/create-goal-success" method="post">
         <div class="govuk-button-group">
-          <button type="submit" class="govuk-button" id="createGoalButton" data-module="govuk-button">Save and create another goal</button>
+          <button type="submit" class="govuk-button govuk-button--secondary" id="createGoalButton" data-module="govuk-button">Save and create another goal</button>
         </div>
       </form>
     </div>

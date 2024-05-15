@@ -1,0 +1,980 @@
+<!DOCTYPE html>
+<html lang="en" class="govuk-template ">
+  <head>
+    <meta charset="utf-8">
+    <title>
+  Sentence plan
+</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <meta name="theme-color" content="#0b0c0c"> 
+    
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    
+      <link rel="shortcut icon" sizes="16x16 32x32 48x48" href="/plugin-assets/govuk-frontend/govuk/assets/images/favicon.ico" type="image/x-icon">
+      <link rel="mask-icon" href="/plugin-assets/govuk-frontend/govuk/assets/images/govuk-mask-icon.svg" color="#0b0c0c"> 
+      <link rel="apple-touch-icon" sizes="180x180" href="/plugin-assets/govuk-frontend/govuk/assets/images/govuk-apple-touch-icon-180x180.png">
+      <link rel="apple-touch-icon" sizes="167x167" href="/plugin-assets/govuk-frontend/govuk/assets/images/govuk-apple-touch-icon-167x167.png">
+      <link rel="apple-touch-icon" sizes="152x152" href="/plugin-assets/govuk-frontend/govuk/assets/images/govuk-apple-touch-icon-152x152.png">
+      <link rel="apple-touch-icon" href="/plugin-assets/govuk-frontend/govuk/assets/images/govuk-apple-touch-icon.png">
+    
+
+    
+  
+  
+    <link href="/public/stylesheets/application.css" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+
+
+    
+    
+  </head>
+  <body class="govuk-template__body "><script id="__bs_script__">//<![CDATA[
+  (function() {
+    try {
+      var script = document.createElement('script');
+      if ('async') {
+        script.async = true;
+      }
+      script.src = '/browser-sync/browser-sync-client.js?v=2.29.3'.replace("HOST", location.hostname);
+      if (document.body) {
+        document.body.appendChild(script);
+      } else if (document.head) {
+        document.head.appendChild(script);
+      }
+    } catch (e) {
+      console.error("Browsersync: could not append script tag", e);
+    }
+  })()
+//]]></script>
+
+    <script>document.body.className = ((document.body.className) ? document.body.className + ' js-enabled' : 'js-enabled');</script>
+    
+
+    
+      <a href="#main-content" class="govuk-skip-link" data-module="govuk-skip-link">Skip to main content</a>
+
+    
+{%- from "moj/components/header/macro.njk" import mojHeader -%}
+
+{{ mojHeader({
+  organisationLabel: {
+    text: 'HMPPS',
+    href: '/index'
+  },
+  serviceLabel: {
+    text: 'Sentence Plan',
+    href: '/index'
+  },
+  navigation: {
+    label: 'Account navigation',
+    items: [{
+      text: 'Alexis Diaz',
+      href: '#',
+      active: true
+    }, {
+      text: 'Sign out',
+      href: '#'
+    }]
+  }
+
+}) }}
+
+
+
+
+  
+
+
+
+
+    
+      <div class="govuk-width-container-full-w">
+        
+        
+        
+        
+
+      
+        
+        <main class="govuk-main-wrapper " id="main-content" role="main">
+          
+ 
+          
+          
+ <!-- Patterns -->         
+          
+          
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+    
+          
+          <div class="profile-banner-plan profileFIlters">
+              
+              
+           <!--<h1 class="govuk-heading-m mb10">
+             Joan Smith
+           </h1>-->
+          
+           <ul class="govuk-list govuk-!-margin-bottom-0">
+            <li class="govuk-body govuk-!-font-size-27" style="padding-top: 0px;">
+                
+            <strong>Joan Smith</strong>
+              </li>
+            <li style="padding-top: 8px;">CRN: Z804100</li>
+            
+             <li style="padding-top: 8px;">PNC: 2017/123400000H</li>
+             <li style="padding-top: 8px;">Date of birth: 26 June 1978</li>
+           </ul>
+           
+    
+            
+            </div>
+          
+  </div>
+
+</div>
+
+
+
+    <div class="govuk-grid-row">
+
+      <div class="govuk-grid-column-full">
+        
+
+        
+        <nav class="moj-sub-navigation planprogressContain" aria-label="Sub navigation">
+  
+          
+        <ul class="moj-sub-navigation__list">
+          <li class="moj-sub-navigation__item">
+            <a class="moj-sub-navigation__link" href="/splan5">About Joan</a>
+          </li>
+      
+         <!-- <li class="moj-sub-navigation__item">
+            <a class="moj-sub-navigation__link" href="#2">Activity</a>
+          </li>-->
+      
+          <li class="moj-sub-navigation__item">
+            <a class="moj-sub-navigation__link"  aria-current="page" href="objectives2">Goals</a>
+          </li>
+
+
+        <li class="moj-sub-navigation__item">
+            <a class="moj-sub-navigation__link" href="/splan5/plan-agreed-overview">Plan summary</a>
+          </li> 
+
+
+         
+
+          <li class="moj-sub-navigation__item " style="float:right;padding-right:0">
+            <!-- Print -->
+
+                <ul>
+                <li class="moj-sub-navigation__item govuk-!-margin-top-1" style="float:right;padding-right:0;margin-right: 0px;">
+                        <a class="govuk-button govuk-button--secondary" href="#" >
+                            Add new goal</a>
+                </li>
+                </ul>
+          </li>
+  
+        </ul>
+      
+      
+      
+      
+      
+      </nav>
+      
+        
+    <div class="moj-page-header-actions">
+
+      
+    
+      <div class="moj-page-header-actions__title">
+
+
+        
+        <h1 class="govuk-heading-l govuk-!-padding-bottom-2">
+          Joan's goals to work on now</h1>
+      </div>
+    
+      <div class="moj-page-header-actions__actions">
+    
+        <div class="moj-button-menu">
+          <div class="moj-button-menu__wrapper">
+    
+
+    
+          </div>
+        </div>
+    
+      </div>
+    
+    </div>
+    
+    
+<!--GOALS FOR LATER-->
+<div class="govuk-grid-row govuk-!-margin-top-4">
+  <div class="govuk-grid-column-one-half">
+      <!--<h2 class="govuk-heading-m">To work on now</h2>-->
+  </div>
+</div>
+
+<div class="govuk-grid-row">
+  <!--ONE-->
+  <div class="govuk-grid-column-one-quarter">
+      <h3 class="govuk-heading-s">Goal</h3>
+  </div>
+  <!--TWO-->
+  <div class="govuk-grid-column-one-quarter">
+      <h3 class="govuk-heading-s">Steps to do</h3>
+  </div>
+  <!--THREE-->
+  <div class="govuk-grid-column-one-quarter" id="doing" ondrop="drop(event, 'doing')" ondragover="allowDrop(event)">
+      <h3 class="govuk-heading-s">Doing</h3>
+  </div>
+  <!--FOUR-->
+  <div class="govuk-grid-column-one-quarter" id="done" ondrop="drop(event, 'done')" ondragover="allowDrop(event)">
+      <h3 class="govuk-heading-s">Done</h3>
+  </div>
+</div>
+
+<!--ROW 1-->
+<div class="govuk-grid-row" style="border:solid 1px black;">
+
+  <!--ONE-->
+  <div class="govuk-grid-column-one-quarter">
+      <ol start="1" class="govuk-list govuk-list--number">
+          <li>
+              <h2 class="govuk-heading-m govuk-!-padding-top-3" draggable="true" ondragstart="drag(event)">Unpaid work </h2>
+          </li>
+      </ol>
+      <p class="govuk-body"><a href="#">View court order requirement in nDelius</a></p>
+      <p class="govuk-body-s">Court order requirement</p>
+      <!--<details class="govuk-details">
+              <summary class="govuk-details__summary">
+                <span class="govuk-details__summary-text">
+                  Details about this goal
+                </span>
+              </summary>
+              <div class="govuk-details__text">
+                We need to 
+              </div>
+            </details>-->
+      <p>Completed throughout the sentence</p>
+
+      <hr />
+
+      <p class="govuk-body-s">&#8595;<a href="#">&nbsp;Move goal down</a></p>
+  </div>
+  <!--TWO-->
+  <div class="govuk-grid-column-one-quarter">
+      <!--CARD -->
+
+      <div class="card  govuk-!-margin-top-3" draggable="true" ondragstart="drag(event)">
+          <div class="card-heading-kanban">
+              <h2 class="govuk-heading-s govuk-!-margin-top-0">A minimum of 6 hours unpaid work per week
+              </h2>
+              <div class="govuk-grid-row govuk-!-margin-bottom-0">
+                  <div class="govuk-grid-column-two-thirds">
+                      <p class="govuk-!-padding-bottom-0 govuk-body-s">Joan Smith</p>
+                  </div>
+                  <div class="govuk-grid-column-one-third">
+                      <p class="govuk-body-s" style="text-align: right;"><a href="#">Update</a></p>
+                  </div>
+              </div>
+          </div>
+      </div>
+
+      <!--CARD end -->
+      <!--CARD -->
+
+      <div class="card  govuk-!-margin-top-3" draggable="true" ondragstart="drag(event)">
+          <div class="card-heading-kanban">
+              <h2 class="govuk-heading-s govuk-!-margin-top-0">UPW supervisors to report on progress
+
+              </h2>
+              <div class="govuk-grid-row govuk-!-margin-bottom-0">
+                  <div class="govuk-grid-column-two-thirds">
+                      <p class="govuk-!-padding-bottom-0 govuk-body-s">Probation officer</p>
+                  </div>
+                  <div class="govuk-grid-column-one-third">
+                      <p class="govuk-body-s" style="text-align: right;"><a href="#">Update</a></p>
+                  </div>
+              </div>
+          </div>
+      </div>
+
+      <!--CARD end -->
+
+
+  </div>
+  <!--THREE-->
+  <div class="govuk-grid-column-one-quarter">
+      <p></p>
+  </div>
+  <!--FOUR-->
+  <div class="govuk-grid-column-one-quarter">
+      <p></p>
+  </div>
+
+</div>
+
+
+
+        
+<!--END one -->      
+
+<!--ROW 2-->
+      
+
+<div class="govuk-grid-row govuk-!-margin-top-4" style="border:solid 1px black;">
+    <!--ONE-->
+    <div class="govuk-grid-column-one-quarter">
+
+      <ol start="2" class="govuk-list govuk-list--number">
+        <li><h2 class="govuk-heading-m govuk-!-padding-top-3">Assess and reduce risk of reoffending and harm </h2></li>
+
+      </ol>
+      <p class="govuk-body"><a href="#">View risk managagement plan in OASys</a></p>
+        <p class="govuk-body-s">From risk management plan</p>
+        
+          <p>Completed throughout the sentence</p>
+
+    
+
+          <hr />
+          <p class="govuk-body-s">&#8593;<a href="#">&nbsp;Move goal up</a></p> 
+          <p class="govuk-body-s">&#8595;<a href="#">&nbsp;Move goal down</a></p> 
+    </div>
+    <!--TWO-->
+    <div class="govuk-grid-column-one-quarter">
+
+                   <!--CARD -->
+            
+                   <div class="card  govuk-!-margin-top-3">
+                    <div class="card-heading-kanban">
+                      <h2 class="govuk-heading-s govuk-!-margin-top-0">Ongoing assessment in changes in circumstances, thinking and behaviour and how this links to offending and harm
+    
+                    </h2>
+                        <div class="govuk-grid-row govuk-!-margin-bottom-0">
+                            <div class="govuk-grid-column-two-thirds">
+                                <p class="govuk-!-padding-bottom-0 govuk-body-s">Probation officer</p>
+                            </div>
+                            <div class="govuk-grid-column-one-third">
+                                <p class="	govuk-body-s" style="text-align: right;"><a href="#">Update</a></p>
+                            </div>
+                        </div>
+                    </div>
+                  </div>
+    
+                <!--CARD end -->
+
+
+
+      </div>
+    <!--THREE-->
+    <div class="govuk-grid-column-one-quarter">
+        <p></p>
+      </div>   
+    <!--FOUR-->
+    <div class="govuk-grid-column-one-quarter">
+        <p></p>
+      </div>                    
+  </div>
+    
+<!--END 2 -->      
+        
+       <!--ROW 3-->
+      
+
+      <div class="govuk-grid-row govuk-!-margin-top-4" style="border:solid 1px black;">
+        <!--ONE-->
+        <div class="govuk-grid-column-one-quarter">
+
+          <ol start="3" class="govuk-list govuk-list--number">
+            <li><h2 class="govuk-heading-m govuk-!-padding-top-3">Find suitable accommodation </h2></li>
+    
+          </ol>
+          <p class="govuk-body"><a href="#">View and update goal</a></p>
+            
+
+            <p class="govuk-body-s">Area of need: <strong>accommodation</strong></p>
+              <p>Completed in the next 3 months</p>
+              <hr />
+              <p class="govuk-body-s">&#8593;<a href="#">&nbsp;Move goal up</a></p> 
+             
+              
+        </div>
+        <!--TWO-->
+        <div class="govuk-grid-column-one-quarter">
+            
+                   <!--CARD -->
+            
+                   <div class="card  govuk-!-margin-top-3">
+                    <div class="card-heading-kanban">
+                      <h2 class="govuk-heading-s govuk-!-margin-top-0">Make a referral to Housing officer
+    
+                    </h2>
+                        <div class="govuk-grid-row govuk-!-margin-bottom-0">
+                            <div class="govuk-grid-column-two-thirds">
+                                <p class="govuk-!-padding-bottom-0 govuk-body-s">Probation officer</p>
+                            </div>
+                            <div class="govuk-grid-column-one-third">
+                                <p class="	govuk-body-s" style="text-align: right;"><a href="#">Update</a></p>
+                            </div>
+                        </div>
+                    </div>
+                  </div>
+    
+                <!--CARD end -->
+
+
+                   <!--CARD -->
+            
+                   <div class="card  govuk-!-margin-top-3">
+                    <div class="card-heading-kanban">
+                      <h2 class="govuk-heading-s govuk-!-margin-top-0">Provide any information that is required
+    
+                    </h2>
+                        <div class="govuk-grid-row govuk-!-margin-bottom-0">
+                            <div class="govuk-grid-column-two-thirds">
+                                <p class="govuk-!-padding-bottom-0 govuk-body-s">Joan Smith</p>
+                            </div>
+                            <div class="govuk-grid-column-one-third">
+                                <p class="	govuk-body-s" style="text-align: right;"><a href="#">Update</a></p>
+                            </div>
+                        </div>
+                    </div>
+                  </div>
+    
+                <!--CARD end -->
+            
+
+
+
+
+
+
+          </div>
+        <!--THREE-->
+        <div class="govuk-grid-column-one-quarter">
+            <p></p>
+          </div>   
+        <!--FOUR-->
+        <div class="govuk-grid-column-one-quarter">
+            <p></p>
+          </div>                    
+      </div>
+        
+<!--END 3 --> 
+
+<div class="govuk-button-group govuk-!-margin-top-4">
+    <button type="submit" class="govuk-button govuk-button--secondary" data-module="govuk-button">
+        Add a new goal 
+    </button>
+  </div>
+
+<!--GOALS FOR LATER-->
+<div class="govuk-grid-row govuk-!-margin-top-8" >
+    <h2 class="govuk-heading-l govuk-!-padding-bottom-2">
+        Joan's goals to work on later</h2>
+</div>
+
+<div class="govuk-grid-row" >
+    <!--ONE-->
+    <div class="govuk-grid-column-one-quarter">
+        <h3 class="govuk-heading-s">Goals</h3>
+    </div>
+    <!--TWO-->
+    <div class="govuk-grid-column-one-quarter">
+        <h3 class="govuk-heading-s">Steps to do</h3>
+      </div>
+    <!--THREE-->
+    <div class="govuk-grid-column-one-quarter">
+        <h3 class="govuk-heading-s">Doing</h3>
+      </div>   
+    <!--FOUR-->
+    <div class="govuk-grid-column-one-quarter">
+        <h3 class="govuk-heading-s">Done</h3>
+      </div>                    
+
+
+  </div>
+
+    
+<!--ROW 1-->
+  
+
+  <div class="govuk-grid-row" style="border:solid 1px black;">
+    <!--ONE-->
+    <div class="govuk-grid-column-one-quarter">
+
+      <ol start="4" class="govuk-list govuk-list--number">
+        <li><h2 class="govuk-heading-m govuk-!-padding-top-3">Increase understanding of the causes of conflict and domestic violence </h2></li>
+
+      </ol>
+      <p class="govuk-body"><a href="#">View and update goal</a></p>
+          <p class="govuk-body-s">Area of need: <strong>Thinking, behaviours and attitudes</strong></p>
+          <p>Completed in the next 6 months</p>
+    
+
+              
+          <hr />
+          <!--<p class="govuk-body-s">&#8593;<a href="#">&nbsp;Move goal up</a></p> -->
+          <p class="govuk-body-s">&#8595;<a href="#">&nbsp;Move goal down</a></p> 
+    </div>
+    <!--TWO-->
+    <div class="govuk-grid-column-one-quarter">
+        
+                   <!--CARD -->
+            
+                   <div class="card  govuk-!-margin-top-3">
+                    <div class="card-heading-kanban">
+                      <h2 class="govuk-heading-s govuk-!-margin-top-0">Referred to the programme, the Programmes Team
+    
+                    </h2>
+                        <div class="govuk-grid-row govuk-!-margin-bottom-0">
+                            <div class="govuk-grid-column-two-thirds">
+                                <p class="govuk-!-padding-bottom-0 govuk-body-s">Probation officer</p>
+                            </div>
+                            <div class="govuk-grid-column-one-third">
+                                <p class="	govuk-body-s" style="text-align: right;"><a href="#">Update</a></p>
+                            </div>
+                        </div>
+                    </div>
+                  </div>
+    
+                <!--CARD end -->
+
+                   <!--CARD -->
+            
+                   <div class="card  govuk-!-margin-top-3">
+                    <div class="card-heading-kanban">
+                      <h2 class="govuk-heading-s govuk-!-margin-top-0">Pre-work is made available to be undertaken
+    
+                    </h2>
+                        <div class="govuk-grid-row govuk-!-margin-bottom-0">
+                            <div class="govuk-grid-column-two-thirds">
+                                <p class="govuk-!-padding-bottom-0 govuk-body-s">Probation officer</p>
+                            </div>
+                            <div class="govuk-grid-column-one-third">
+                                <p class="	govuk-body-s" style="text-align: right;"><a href="#">Update</a></p>
+                            </div>
+                        </div>
+                    </div>
+                  </div>
+    
+                <!--CARD end -->            
+                
+                   <!--CARD -->
+            
+                   <div class="card  govuk-!-margin-top-3">
+                    <div class="card-heading-kanban">
+                      <h2 class="govuk-heading-s govuk-!-margin-top-0">Attend a groupwork on a weekly basis until it has been completed
+    
+                    </h2>
+                        <div class="govuk-grid-row govuk-!-margin-bottom-0">
+                            <div class="govuk-grid-column-two-thirds">
+                                <p class="govuk-!-padding-bottom-0 govuk-body-s">Probation officer</p>
+                            </div>
+                            <div class="govuk-grid-column-one-third">
+                                <p class="	govuk-body-s" style="text-align: right;"><a href="#">Update</a></p>
+                            </div>
+                        </div>
+                    </div>
+                  </div>
+    
+                <!--CARD end -->                            
+
+
+
+
+
+      </div>
+    <!--THREE-->
+    <div class="govuk-grid-column-one-quarter">
+        <p></p>
+      </div>   
+    <!--FOUR-->
+    <div class="govuk-grid-column-one-quarter">
+        <p></p>
+      </div>                    
+  </div>
+    
+<!--END one -->      
+
+
+<!--ROW 2-->
+  
+
+<div class="govuk-grid-row govuk-!-margin-top-4" style="border:solid 1px black;">
+    <!--ONE-->
+    <div class="govuk-grid-column-one-quarter">
+      <ol start="5" class="govuk-list govuk-list--number">
+        <li><h2 class="govuk-heading-m govuk-!-padding-top-3">Increase awareness of own skills and impact on others </h2></li>
+
+      </ol>      
+
+      <p class="govuk-body"><a href="#">View and update goal</a></p>
+        <p class="govuk-body-s">Area of need: <strong>Thinking, behaviours and attitudes</strong></p>
+        <p>Completed in the next 6 months</p>
+ 
+        <hr />
+        <p class="govuk-body-s">&#8593;<a href="#">&nbsp;Move goal up</a></p> 
+        <p class="govuk-body-s">&#8595;<a href="#">&nbsp;Move goal down</a></p> 
+    </div>
+    <!--TWO-->
+    <div class="govuk-grid-column-one-quarter">
+
+
+                           <!--CARD -->
+            
+                           <div class="card  govuk-!-margin-top-3">
+                            <div class="card-heading-kanban">
+                              <h2 class="govuk-heading-s govuk-!-margin-top-0">Attend specialist appointments and meetings as directed by Children's Services
+            
+                            </h2>
+                                <div class="govuk-grid-row govuk-!-margin-bottom-0">
+                                    <div class="govuk-grid-column-two-thirds">
+                                        <p class="govuk-!-padding-bottom-0 govuk-body-s">Joan smith</p>
+                                    </div>
+                                    <div class="govuk-grid-column-one-third">
+                                        <p class="	govuk-body-s" style="text-align: right;"><a href="#">Update</a></p>
+                                    </div>
+                                </div>
+                            </div>
+                          </div>
+            
+                        <!--CARD end -->    
+
+
+
+
+
+          
+
+      </div>
+    <!--THREE-->
+    <div class="govuk-grid-column-one-quarter">
+        <p></p>
+      </div>   
+    <!--FOUR-->
+    <div class="govuk-grid-column-one-quarter">
+        <p></p>
+      </div>                    
+  </div>
+    
+<!--END 2 -->   
+
+<!--ROW 3-->
+  
+
+<div class="govuk-grid-row govuk-!-margin-top-4" style="border:solid 1px black;">
+    <!--ONE-->
+    <div class="govuk-grid-column-one-quarter">
+
+      <ol start="6" class="govuk-list govuk-list--number">
+        <li><h2 class="govuk-heading-m govuk-!-padding-top-3">Reduce drug use </h2></li>
+
+      </ol>  
+      <p class="govuk-body"><a href="#">View and update goal</a></p>
+        <p class="govuk-body-s">Area of need: <strong>Drug use</strong></p>
+        <p>Completed in the next 6 months</p>
+      
+        <hr />
+        <p class="govuk-body-s">&#8593;<a href="#">&nbsp;Move goal up</a></p> 
+        <p class="govuk-body-s">&#8595;<a href="#">&nbsp;Move goal down</a></p> 
+    </div>
+    <!--TWO-->
+    <div class="govuk-grid-column-one-quarter">
+
+
+                           <!--CARD -->
+            
+                           <div class="card  govuk-!-margin-top-3">
+                            <div class="card-heading-kanban">
+                              <h2 class="govuk-heading-s govuk-!-margin-top-0">Attend assessment meeting
+            
+                            </h2>
+                                <div class="govuk-grid-row govuk-!-margin-bottom-0">
+                                    <div class="govuk-grid-column-two-thirds">
+                                        <p class="govuk-!-padding-bottom-0 govuk-body-s">Joan smith</p>
+                                    </div>
+                                    <div class="govuk-grid-column-one-third">
+                                        <p class="	govuk-body-s" style="text-align: right;"><a href="#">Update</a></p>
+                                    </div>
+                                </div>
+                            </div>
+                          </div>
+            
+                        <!--CARD end -->    
+
+
+                           <!--CARD -->
+            
+                           <div class="card  govuk-!-margin-top-3">
+                            <div class="card-heading-kanban">
+                              <h2 class="govuk-heading-s govuk-!-margin-top-0">Attend weekly appointments at their office in W-Town to undergo drug testing
+            
+                            </h2>
+                                <div class="govuk-grid-row govuk-!-margin-bottom-0">
+                                    <div class="govuk-grid-column-two-thirds">
+                                        <p class="govuk-!-padding-bottom-0 govuk-body-s">Joan smith</p>
+                                    </div>
+                                    <div class="govuk-grid-column-one-third">
+                                        <p class="	govuk-body-s" style="text-align: right;"><a href="#">Update</a></p>
+                                    </div>
+                                </div>
+                            </div>
+                          </div>
+            
+                        <!--CARD end -->              
+                        
+                           <!--CARD -->
+            
+                           <div class="card  govuk-!-margin-top-3">
+                            <div class="card-heading-kanban">
+                              <h2 class="govuk-heading-s govuk-!-margin-top-0">Complete a weekly substance misuse diary
+            
+                            </h2>
+                                <div class="govuk-grid-row govuk-!-margin-bottom-0">
+                                    <div class="govuk-grid-column-two-thirds">
+                                        <p class="govuk-!-padding-bottom-0 govuk-body-s">Joan smith</p>
+                                    </div>
+                                    <div class="govuk-grid-column-one-third">
+                                        <p class="	govuk-body-s" style="text-align: right;"><a href="#">Update</a></p>
+                                    </div>
+                                </div>
+                            </div>
+                          </div>
+            
+                        <!--CARD end -->              
+
+
+
+        
+       
+
+
+          
+
+      </div>
+    <!--THREE-->
+    <div class="govuk-grid-column-one-quarter">
+        <p></p>
+      </div>   
+    <!--FOUR-->
+    <div class="govuk-grid-column-one-quarter">
+        <p></p>
+      </div>                    
+  </div>
+    
+<!--END 3 --> 
+
+<!--ROW 4-->
+  
+
+<div class="govuk-grid-row govuk-!-margin-top-4" style="border:solid 1px black;">
+    <!--ONE-->
+    <div class="govuk-grid-column-one-quarter">
+
+      <ol start="7" class="govuk-list govuk-list--number">
+        <li><h2 class="govuk-heading-m govuk-!-padding-top-3">Increase confidence and motivation to find employment</h2></li>
+
+      </ol>  
+      <p class="govuk-body"><a href="#">View and update goal</a></p> 
+        <p class="govuk-body-s">Area of need: <strong>Education and employment</strong></p>
+        <p>Completed in the next 6 months</p>
+     
+        <hr />
+        <p class="govuk-body-s">&#8593;<a href="#">&nbsp;Move goal up</a></p> 
+
+    </div>
+    <!--TWO-->
+    <div class="govuk-grid-column-one-quarter">
+
+
+                           <!--CARD -->
+            
+                           <div class="card  govuk-!-margin-top-3">
+                            <div class="card-heading-kanban">
+                              <h2 class="govuk-heading-s govuk-!-margin-top-0">Attend fortnightly meetings at the Job Centre
+            
+                            </h2>
+                                <div class="govuk-grid-row govuk-!-margin-bottom-0">
+                                    <div class="govuk-grid-column-two-thirds">
+                                        <p class="govuk-!-padding-bottom-0 govuk-body-s">Joan smith</p>
+                                    </div>
+                                    <div class="govuk-grid-column-one-third">
+                                        <p class="	govuk-body-s" style="text-align: right;"><a href="#">Update</a></p>
+                                    </div>
+                                </div>
+                            </div>
+                          </div>
+            
+                        <!--CARD end -->   
+                        
+                           <!--CARD -->
+            
+                           <div class="card  govuk-!-margin-top-3">
+                            <div class="card-heading-kanban">
+                              <h2 class="govuk-heading-s govuk-!-margin-top-0">Find guidance on specific organisations, training courses
+            
+                            </h2>
+                                <div class="govuk-grid-row govuk-!-margin-bottom-0">
+                                    <div class="govuk-grid-column-two-thirds">
+                                        <p class="govuk-!-padding-bottom-0 govuk-body-s">Joan smith</p>
+                                    </div>
+                                    <div class="govuk-grid-column-one-third">
+                                        <p class="	govuk-body-s" style="text-align: right;"><a href="#">Update</a></p>
+                                    </div>
+                                </div>
+                            </div>
+                          </div>
+            
+                        <!--CARD end -->                           
+
+
+
+
+
+
+
+          
+
+      </div>
+    <!--THREE-->
+    <div class="govuk-grid-column-one-quarter">
+        <p></p>
+      </div>   
+    <!--FOUR-->
+    <div class="govuk-grid-column-one-quarter">
+        <p></p>
+      </div>                    
+  </div>
+    
+<!--END 4--> 
+
+
+<div class="govuk-button-group govuk-!-margin-top-4">
+    <button type="submit" class="govuk-button govuk-button--secondary" data-module="govuk-button">
+        Add a new goal 
+    </button>
+  </div>
+
+        
+      </div>
+    
+    </div>
+
+        </main>
+      </div>
+
+
+    
+  <footer class="govuk-footer " role="contentinfo">
+  <div class="govuk-width-container ">
+    
+    <div class="govuk-footer__meta">
+      <div class="govuk-footer__meta-item govuk-footer__meta-item--grow">
+        
+          <h2 class="govuk-visually-hidden">Footer links</h2>
+          
+            <ul class="govuk-footer__inline-list">
+              
+                <li class="govuk-footer__inline-list-item">
+                  <a class="govuk-footer__link" href="/manage-prototype">
+                    Manage your prototype
+                  </a>
+                </li>
+              
+                <li class="govuk-footer__inline-list-item">
+                  <a class="govuk-footer__link" href="/manage-prototype/clear-data">
+                    Clear data
+                  </a>
+                </li>
+              
+            </ul>
+          
+          
+        
+        <svg
+          aria-hidden="true"
+          focusable="false"
+          class="govuk-footer__licence-logo"
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 483.2 195.7"
+          height="17"
+          width="41"
+        >
+          <path
+            fill="currentColor"
+            d="M421.5 142.8V.1l-50.7 32.3v161.1h112.4v-50.7zm-122.3-9.6A47.12 47.12 0 0 1 221 97.8c0-26 21.1-47.1 47.1-47.1 16.7 0 31.4 8.7 39.7 21.8l42.7-27.2A97.63 97.63 0 0 0 268.1 0c-36.5 0-68.3 20.1-85.1 49.7A98 98 0 0 0 97.8 0C43.9 0 0 43.9 0 97.8s43.9 97.8 97.8 97.8c36.5 0 68.3-20.1 85.1-49.7a97.76 97.76 0 0 0 149.6 25.4l19.4 22.2h3v-87.8h-80l24.3 27.5zM97.8 145c-26 0-47.1-21.1-47.1-47.1s21.1-47.1 47.1-47.1 47.2 21 47.2 47S123.8 145 97.8 145"
+          />
+        </svg>
+        <span class="govuk-footer__licence-description">
+          
+            All content is available under the
+            <a
+              class="govuk-footer__link"
+              href="https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/"
+              rel="license"
+            >Open Government Licence v3.0</a>, except where otherwise stated
+          
+        </span>
+      </div>
+      <div class="govuk-footer__meta-item">
+        <a
+          class="govuk-footer__link govuk-footer__copyright-logo"
+          href="https://www.nationalarchives.gov.uk/information-management/re-using-public-sector-information/uk-government-licensing-framework/crown-copyright/"
+        >© Crown copyright</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+
+    
+  
+    
+  
+    <script src="/plugin-assets/govuk-prototype-kit/lib/assets/javascripts/kit.js"></script>
+  
+
+  
+    <script src="/plugin-assets/govuk-prototype-kit/lib/assets/javascripts/auto-store-data.js"></script>
+  
+
+  
+    <script src="/plugin-assets/govuk-frontend/govuk/all.js"></script>
+  
+
+  
+    <script src="/plugin-assets/govuk-frontend/govuk-prototype-kit/init.js"></script>
+  
+
+  
+    <script src="/plugin-assets/%40ministryofjustice%2Ffrontend/moj/all.jquery.min.js"></script>
+  
+
+  
+    <script src="/plugin-assets/%40ministryofjustice%2Ffrontend/moj/init.js"></script>
+  
+
+  
+    <script src="/plugin-assets/jquery/dist/jquery.js"></script>
+  
+
+  
+    <script src="/public/javascripts/application.js"></script>
+  
+
+  </body>
+</html>

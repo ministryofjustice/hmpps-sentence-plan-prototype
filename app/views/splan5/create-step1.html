@@ -4,17 +4,44 @@
   Question page template – {{ serviceName }} – GOV.UK Prototype Kit
 {% endblock %}
 
-{% block beforeContent %}
-  {{ govukBackLink({
-  text: "Back",
-  href: "javascript:window.history.back()"
-}) }}
-{% endblock %}
 
 {% block content %}
 
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+    
+          
+          <div class="profile-banner-plan profileFIlters">
+             
+          
+           <ul class="govuk-list govuk-!-margin-bottom-0">
+            <li class="govuk-body govuk-!-font-size-19" style="padding-top: 8px;">
+                
+            <strong>Joan Smith</strong>
+              </li>
+            <li style="padding-top: 8px;">CRN: Z804100</li>
+             <li style="padding-top: 8px;">PNC: 2017/123400000H</li>
+             <li style="padding-top: 8px;">Date of birth: 26 June 1978</li>
+           </ul>
+           
+          </hr>
+          <h1 class="govuk-heading-l" style="margin-bottom: -5px;"> Joan's plan</h1>
+            
+            </div>
+          
+  </div>
+
+</div>
+
+
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
+      {% from "govuk/components/back-link/macro.njk" import govukBackLink %}
+
+{{ govukBackLink({
+  text: "Back",
+  href: "goal-details"
+}) }}
 
       
       <span class="govuk-caption-xl">Accommodation</span>
@@ -39,6 +66,11 @@
         </details>
 
         {% from "govuk/components/radios/macro.njk" import govukRadios %}
+        {% from "govuk/components/input/macro.njk" import govukInput %}
+        {% from "govuk/components/checkboxes/macro.njk" import govukCheckboxes %}
+        {% from "govuk/components/button/macro.njk" import govukButton %}
+
+
         {% set emailHtml %}
           {{ govukInput({
           id: "something-else",
@@ -164,4 +196,5 @@
     </div>
   </div>
 
-{% endblock %}
+  {% endblock %}
+

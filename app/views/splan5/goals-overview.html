@@ -84,29 +84,39 @@
 
 }) }}
 
+<div class="moj-primary-navigation">
+
+  <div class="moj-primary-navigation__container">
+
+    <div class="moj-primary-navigation__nav">
+
+      <nav class="moj-primary-navigation" aria-label="Primary navigation">
+
+        <ul class="moj-primary-navigation__list">
+          <li class="moj-primary-navigation__item">
+            <a class="moj-primary-navigation__link" href="/splan5/index">About Joan</a>
+          </li>
+
+          <li class="moj-primary-navigation__item">
+            <a class="moj-primary-navigation__link"  aria-current="page" href="/splan5/goals-overview">Goals</a>
+          </li>
+
+          <li class="moj-primary-navigation__item">
+            <a class="moj-primary-navigation__link"   href="/splan5/plan-agreed-overview">Plan summary</a>
+          </li>
 
 
+      </nav>
 
-  
+    </div>
+  </div>
 
+</div>
 
-
-
-    
-      <div class="govuk-width-container-full-w">
-        
-        
-        
-        
-
-      
+      <div class="govuk-width-container">
         
         <main class="govuk-main-wrapper " id="main-content" role="main">
-          
- 
-          
-          
- <!-- Patterns -->         
+  
           
           
 <div class="govuk-grid-row">
@@ -114,108 +124,33 @@
     
           
           <div class="profile-banner-plan profileFIlters">
-              
-              
-           <!--<h1 class="govuk-heading-m mb10">
-             Joan Smith
-           </h1>-->
+             
           
            <ul class="govuk-list govuk-!-margin-bottom-0">
-            <li class="govuk-body govuk-!-font-size-27" style="padding-top: 0px;">
+            <li class="govuk-body govuk-!-font-size-19" style="padding-top: 8px;">
                 
             <strong>Joan Smith</strong>
               </li>
             <li style="padding-top: 8px;">CRN: Z804100</li>
-            
              <li style="padding-top: 8px;">PNC: 2017/123400000H</li>
              <li style="padding-top: 8px;">Date of birth: 26 June 1978</li>
            </ul>
            
-    
-            
-            </div>
+          </hr>
+
+          <h1 class="govuk-heading-l" style="margin-bottom: -5px;"> Goals to work on now</h1>
+      
+      </div>
           
   </div>
 
 </div>
 
 
+<div class="govuk-width-container-full-w">
 
-    <div class="govuk-grid-row">
-
-      <div class="govuk-grid-column-full">
-        
-
-        
-        <nav class="moj-sub-navigation planprogressContain" aria-label="Sub navigation">
+      
   
-          
-        <ul class="moj-sub-navigation__list">
-          <li class="moj-sub-navigation__item">
-            <a class="moj-sub-navigation__link" href="/splan5">About Joan</a>
-          </li>
-      
-         <!-- <li class="moj-sub-navigation__item">
-            <a class="moj-sub-navigation__link" href="#2">Activity</a>
-          </li>-->
-      
-          <li class="moj-sub-navigation__item">
-            <a class="moj-sub-navigation__link"  aria-current="page" href="objectives2">Goals</a>
-          </li>
-
-
-        <li class="moj-sub-navigation__item">
-            <a class="moj-sub-navigation__link" href="/splan5/plan-agreed-overview">Plan summary</a>
-          </li> 
-
-
-         
-
-          <li class="moj-sub-navigation__item " style="float:right;padding-right:0">
-            <!-- Print -->
-
-                <ul>
-                <li class="moj-sub-navigation__item govuk-!-margin-top-1" style="float:right;padding-right:0;margin-right: 0px;">
-                        <a class="govuk-button govuk-button--secondary" href="#" >
-                            Add new goal</a>
-                </li>
-                </ul>
-          </li>
-  
-        </ul>
-      
-      
-      
-      
-      
-      </nav>
-      
-        
-    <div class="moj-page-header-actions">
-
-      
-    
-      <div class="moj-page-header-actions__title">
-
-
-        
-        <h1 class="govuk-heading-l govuk-!-padding-bottom-2">
-          Joan's goals to work on now</h1>
-      </div>
-    
-      <div class="moj-page-header-actions__actions">
-    
-        <div class="moj-button-menu">
-          <div class="moj-button-menu__wrapper">
-    
-
-    
-          </div>
-        </div>
-    
-      </div>
-    
-    </div>
     
     
 <!--GOALS FOR LATER-->
@@ -251,26 +186,18 @@
   <div class="govuk-grid-column-one-quarter">
       <ol start="1" class="govuk-list govuk-list--number">
           <li>
-              <h2 class="govuk-heading-m govuk-!-padding-top-3" draggable="true" ondragstart="drag(event)">Unpaid work </h2>
+              <h2 class="govuk-heading-m govuk-!-padding-top-3" draggable="true" ondragstart="drag(event)">Find suitable accommodation </h2>
           </li>
       </ol>
-      <p class="govuk-body"><a href="#">View court order requirement in nDelius</a></p>
-      <p class="govuk-body-s">Court order requirement</p>
-      <!--<details class="govuk-details">
-              <summary class="govuk-details__summary">
-                <span class="govuk-details__summary-text">
-                  Details about this goal
-                </span>
-              </summary>
-              <div class="govuk-details__text">
-                We need to 
-              </div>
-            </details>-->
-      <p>Completed throughout the sentence</p>
+     
+     
+      <p>Review in 3 months</p>
 
       <hr />
 
-      <p class="govuk-body-s">&#8595;<a href="#">&nbsp;Move goal down</a></p>
+      <button type="button" class="govuk-button govuk-button--secondary move-down-btn" data-card-id="summary-card-1">
+        Move goal down
+      </button>
   </div>
   <!--TWO-->
   <div class="govuk-grid-column-one-quarter">
@@ -278,33 +205,33 @@
 
       <div class="card  govuk-!-margin-top-3" draggable="true" ondragstart="drag(event)">
           <div class="card-heading-kanban">
-              <h2 class="govuk-heading-s govuk-!-margin-top-0">A minimum of 6 hours unpaid work per week
+              <h2 class="govuk-heading-s govuk-!-margin-top-0">Make a referral to housing officer
               </h2>
               <div class="govuk-grid-row govuk-!-margin-bottom-0">
                   <div class="govuk-grid-column-two-thirds">
-                      <p class="govuk-!-padding-bottom-0 govuk-body-s">Joan Smith</p>
-                  </div>
-                  <div class="govuk-grid-column-one-third">
-                      <p class="govuk-body-s" style="text-align: right;"><a href="#">Update</a></p>
+                      <p class="govuk-!-padding-bottom-0 govuk-body-s">Probation practitioner</p>
+                  
+                      <p class="govuk-body-s"><a href="#" class="govuk-link govuk-link--no-visited-state">Update</a></p>
                   </div>
               </div>
           </div>
       </div>
 
       <!--CARD end -->
+
       <!--CARD -->
 
       <div class="card  govuk-!-margin-top-3" draggable="true" ondragstart="drag(event)">
           <div class="card-heading-kanban">
-              <h2 class="govuk-heading-s govuk-!-margin-top-0">UPW supervisors to report on progress
+              <h2 class="govuk-heading-s govuk-!-margin-top-0">Set up appointments with housing agencies
 
               </h2>
               <div class="govuk-grid-row govuk-!-margin-bottom-0">
                   <div class="govuk-grid-column-two-thirds">
-                      <p class="govuk-!-padding-bottom-0 govuk-body-s">Probation officer</p>
-                  </div>
-                  <div class="govuk-grid-column-one-third">
-                      <p class="govuk-body-s" style="text-align: right;"><a href="#">Update</a></p>
+                      <p class="govuk-body-s">Joan</p>
+                      <p class="govuk-body-s">Probation officer</p>
+                  
+                      <p class="govuk-body-s" ><a href="#" class="govuk-link govuk-link--no-visited-state">Update</a></p>
                   </div>
               </div>
           </div>
@@ -341,7 +268,7 @@
         <li><h2 class="govuk-heading-m govuk-!-padding-top-3">Assess and reduce risk of reoffending and harm </h2></li>
 
       </ol>
-      <p class="govuk-body"><a href="#">View risk managagement plan in OASys</a></p>
+      <p class="govuk-body"><a href="#" class="govuk-link govuk-link--no-visited-state">View risk managagement plan in OASys</a></p>
         <p class="govuk-body-s">From risk management plan</p>
         
           <p>Completed throughout the sentence</p>
@@ -349,8 +276,8 @@
     
 
           <hr />
-          <p class="govuk-body-s">&#8593;<a href="#">&nbsp;Move goal up</a></p> 
-          <p class="govuk-body-s">&#8595;<a href="#">&nbsp;Move goal down</a></p> 
+          <p class="govuk-body-s">&#8593;<a href="#" class="govuk-link govuk-link--no-visited-state">&nbsp;Move goal up</a></p> 
+          <p class="govuk-body-s">&#8595;<a href="#" class="govuk-link govuk-link--no-visited-state">&nbsp;Move goal down</a></p> 
     </div>
     <!--TWO-->
     <div class="govuk-grid-column-one-quarter">
@@ -367,7 +294,7 @@
                                 <p class="govuk-!-padding-bottom-0 govuk-body-s">Probation officer</p>
                             </div>
                             <div class="govuk-grid-column-one-third">
-                                <p class="	govuk-body-s" style="text-align: right;"><a href="#">Update</a></p>
+                                <p class="	govuk-body-s" style="text-align: right;"><a href="#" class="govuk-link govuk-link--no-visited-state">Update</a></p>
                             </div>
                         </div>
                     </div>
@@ -401,13 +328,13 @@
             <li><h2 class="govuk-heading-m govuk-!-padding-top-3">Find suitable accommodation </h2></li>
     
           </ol>
-          <p class="govuk-body"><a href="#">View and update goal</a></p>
+          <p class="govuk-body"><a href="#" class="govuk-link govuk-link--no-visited-state">View and update goal</a></p>
             
 
             <p class="govuk-body-s">Area of need: <strong>accommodation</strong></p>
               <p>Completed in the next 3 months</p>
               <hr />
-              <p class="govuk-body-s">&#8593;<a href="#">&nbsp;Move goal up</a></p> 
+              <p class="govuk-body-s">&#8593;<a href="#" class="govuk-link govuk-link--no-visited-state">&nbsp;Move goal up</a></p> 
              
               
         </div>
@@ -426,7 +353,7 @@
                                 <p class="govuk-!-padding-bottom-0 govuk-body-s">Probation officer</p>
                             </div>
                             <div class="govuk-grid-column-one-third">
-                                <p class="	govuk-body-s" style="text-align: right;"><a href="#">Update</a></p>
+                                <p class="	govuk-body-s" style="text-align: right;"><a href="#" class="govuk-link govuk-link--no-visited-state">Update</a></p>
                             </div>
                         </div>
                     </div>
@@ -447,7 +374,7 @@
                                 <p class="govuk-!-padding-bottom-0 govuk-body-s">Joan Smith</p>
                             </div>
                             <div class="govuk-grid-column-one-third">
-                                <p class="	govuk-body-s" style="text-align: right;"><a href="#">Update</a></p>
+                                <p class="	govuk-body-s" style="text-align: right;"><a href="#" class="govuk-link govuk-link--no-visited-state">Update</a></p>
                             </div>
                         </div>
                     </div>
@@ -519,15 +446,15 @@
         <li><h2 class="govuk-heading-m govuk-!-padding-top-3">Increase understanding of the causes of conflict and domestic violence </h2></li>
 
       </ol>
-      <p class="govuk-body"><a href="#">View and update goal</a></p>
+      <p class="govuk-body"><a href="#" class="govuk-link govuk-link--no-visited-state">View and update goal</a></p>
           <p class="govuk-body-s">Area of need: <strong>Thinking, behaviours and attitudes</strong></p>
           <p>Completed in the next 6 months</p>
     
 
               
           <hr />
-          <!--<p class="govuk-body-s">&#8593;<a href="#">&nbsp;Move goal up</a></p> -->
-          <p class="govuk-body-s">&#8595;<a href="#">&nbsp;Move goal down</a></p> 
+          <!--<p class="govuk-body-s">&#8593;<a href="#" class="govuk-link govuk-link--no-visited-state">&nbsp;Move goal up</a></p> -->
+          <p class="govuk-body-s">&#8595;<a href="#" class="govuk-link govuk-link--no-visited-state">&nbsp;Move goal down</a></p> 
     </div>
     <!--TWO-->
     <div class="govuk-grid-column-one-quarter">
@@ -544,7 +471,7 @@
                                 <p class="govuk-!-padding-bottom-0 govuk-body-s">Probation officer</p>
                             </div>
                             <div class="govuk-grid-column-one-third">
-                                <p class="	govuk-body-s" style="text-align: right;"><a href="#">Update</a></p>
+                                <p class="	govuk-body-s" style="text-align: right;"><a href="#" class="govuk-link govuk-link--no-visited-state">Update</a></p>
                             </div>
                         </div>
                     </div>
@@ -564,7 +491,7 @@
                                 <p class="govuk-!-padding-bottom-0 govuk-body-s">Probation officer</p>
                             </div>
                             <div class="govuk-grid-column-one-third">
-                                <p class="	govuk-body-s" style="text-align: right;"><a href="#">Update</a></p>
+                                <p class="	govuk-body-s" style="text-align: right;"><a href="#" class="govuk-link govuk-link--no-visited-state">Update</a></p>
                             </div>
                         </div>
                     </div>
@@ -584,7 +511,7 @@
                                 <p class="govuk-!-padding-bottom-0 govuk-body-s">Probation officer</p>
                             </div>
                             <div class="govuk-grid-column-one-third">
-                                <p class="	govuk-body-s" style="text-align: right;"><a href="#">Update</a></p>
+                                <p class="	govuk-body-s" style="text-align: right;"><a href="#" class="govuk-link govuk-link--no-visited-state">Update</a></p>
                             </div>
                         </div>
                     </div>
@@ -621,13 +548,13 @@
 
       </ol>      
 
-      <p class="govuk-body"><a href="#">View and update goal</a></p>
+      <p class="govuk-body"><a href="#" class="govuk-link govuk-link--no-visited-state">View and update goal</a></p>
         <p class="govuk-body-s">Area of need: <strong>Thinking, behaviours and attitudes</strong></p>
         <p>Completed in the next 6 months</p>
  
         <hr />
-        <p class="govuk-body-s">&#8593;<a href="#">&nbsp;Move goal up</a></p> 
-        <p class="govuk-body-s">&#8595;<a href="#">&nbsp;Move goal down</a></p> 
+        <p class="govuk-body-s">&#8593;<a href="#" class="govuk-link govuk-link--no-visited-state">&nbsp;Move goal up</a></p> 
+        <p class="govuk-body-s">&#8595;<a href="#" class="govuk-link govuk-link--no-visited-state">&nbsp;Move goal down</a></p> 
     </div>
     <!--TWO-->
     <div class="govuk-grid-column-one-quarter">
@@ -645,7 +572,7 @@
                                         <p class="govuk-!-padding-bottom-0 govuk-body-s">Joan smith</p>
                                     </div>
                                     <div class="govuk-grid-column-one-third">
-                                        <p class="	govuk-body-s" style="text-align: right;"><a href="#">Update</a></p>
+                                        <p class="	govuk-body-s" style="text-align: right;"><a href="#" class="govuk-link govuk-link--no-visited-state">Update</a></p>
                                     </div>
                                 </div>
                             </div>
@@ -683,13 +610,13 @@
         <li><h2 class="govuk-heading-m govuk-!-padding-top-3">Reduce drug use </h2></li>
 
       </ol>  
-      <p class="govuk-body"><a href="#">View and update goal</a></p>
+      <p class="govuk-body"><a href="#" class="govuk-link govuk-link--no-visited-state">View and update goal</a></p>
         <p class="govuk-body-s">Area of need: <strong>Drug use</strong></p>
         <p>Completed in the next 6 months</p>
       
         <hr />
-        <p class="govuk-body-s">&#8593;<a href="#">&nbsp;Move goal up</a></p> 
-        <p class="govuk-body-s">&#8595;<a href="#">&nbsp;Move goal down</a></p> 
+        <p class="govuk-body-s">&#8593;<a href="#" class="govuk-link govuk-link--no-visited-state">&nbsp;Move goal up</a></p> 
+        <p class="govuk-body-s">&#8595;<a href="#" class="govuk-link govuk-link--no-visited-state">&nbsp;Move goal down</a></p> 
     </div>
     <!--TWO-->
     <div class="govuk-grid-column-one-quarter">
@@ -707,7 +634,7 @@
                                         <p class="govuk-!-padding-bottom-0 govuk-body-s">Joan smith</p>
                                     </div>
                                     <div class="govuk-grid-column-one-third">
-                                        <p class="	govuk-body-s" style="text-align: right;"><a href="#">Update</a></p>
+                                        <p class="	govuk-body-s" style="text-align: right;"><a href="#" class="govuk-link govuk-link--no-visited-state">Update</a></p>
                                     </div>
                                 </div>
                             </div>
@@ -728,7 +655,7 @@
                                         <p class="govuk-!-padding-bottom-0 govuk-body-s">Joan smith</p>
                                     </div>
                                     <div class="govuk-grid-column-one-third">
-                                        <p class="	govuk-body-s" style="text-align: right;"><a href="#">Update</a></p>
+                                        <p class="	govuk-body-s" style="text-align: right;"><a href="#" class="govuk-link govuk-link--no-visited-state">Update</a></p>
                                     </div>
                                 </div>
                             </div>
@@ -748,7 +675,7 @@
                                         <p class="govuk-!-padding-bottom-0 govuk-body-s">Joan smith</p>
                                     </div>
                                     <div class="govuk-grid-column-one-third">
-                                        <p class="	govuk-body-s" style="text-align: right;"><a href="#">Update</a></p>
+                                        <p class="	govuk-body-s" style="text-align: right;"><a href="#" class="govuk-link govuk-link--no-visited-state">Update</a></p>
                                     </div>
                                 </div>
                             </div>
@@ -788,12 +715,12 @@
         <li><h2 class="govuk-heading-m govuk-!-padding-top-3">Increase confidence and motivation to find employment</h2></li>
 
       </ol>  
-      <p class="govuk-body"><a href="#">View and update goal</a></p> 
+      <p class="govuk-body"><a href="#" class="govuk-link govuk-link--no-visited-state">View and update goal</a></p> 
         <p class="govuk-body-s">Area of need: <strong>Education and employment</strong></p>
         <p>Completed in the next 6 months</p>
      
         <hr />
-        <p class="govuk-body-s">&#8593;<a href="#">&nbsp;Move goal up</a></p> 
+        <p class="govuk-body-s">&#8593;<a href="#" class="govuk-link govuk-link--no-visited-state">&nbsp;Move goal up</a></p> 
 
     </div>
     <!--TWO-->
@@ -812,7 +739,7 @@
                                         <p class="govuk-!-padding-bottom-0 govuk-body-s">Joan smith</p>
                                     </div>
                                     <div class="govuk-grid-column-one-third">
-                                        <p class="	govuk-body-s" style="text-align: right;"><a href="#">Update</a></p>
+                                        <p class="	govuk-body-s" style="text-align: right;"><a href="#" class="govuk-link govuk-link--no-visited-state">Update</a></p>
                                     </div>
                                 </div>
                             </div>
@@ -832,7 +759,7 @@
                                         <p class="govuk-!-padding-bottom-0 govuk-body-s">Joan smith</p>
                                     </div>
                                     <div class="govuk-grid-column-one-third">
-                                        <p class="	govuk-body-s" style="text-align: right;"><a href="#">Update</a></p>
+                                        <p class="	govuk-body-s" style="text-align: right;"><a href="#" class="govuk-link govuk-link--no-visited-state">Update</a></p>
                                     </div>
                                 </div>
                             </div>
@@ -867,7 +794,7 @@
         Add a new goal 
     </button>
   </div>
-
+</div>
         
       </div>
     

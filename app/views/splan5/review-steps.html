@@ -25,7 +25,7 @@
            </ul>
            
           </hr>
-          <h1 class="govuk-heading-l" style="margin-bottom: -5px;"> Joan's plan</h1>
+          <!--<h1 class="govuk-heading-l" style="margin-bottom: -5px;"> Joan's plan</h1>-->
             
             </div>
           
@@ -46,21 +46,22 @@
     <div class="govuk-grid-column-two-thirds-from-desktop">
 
       <span class="govuk-caption-xl">Accommodation</span>
-      <h1 class="govuk-heading-l">Add steps with Joan to help them work towards this goal</h1>
+      <h1 class="govuk-heading-l">Add or review steps</h1>
 
       <div class="govuk-inset-text">
         <h2 class="govuk-heading-m">
-        Goal: find suitable accommodation.
+        Goal: find suitable accommodation
       </h2>
       </div>
       
 
       <details class="govuk-details">
         <summary class="govuk-details__summary">
-          <span class="govuk-details__summary-text">Creating SMART goals</span>
+          <span class="govuk-details__summary-text">SMART goals and steps</span>
         </summary>
         <div class="govuk-details__text">
-          Goals and steps should be SMART, meaning 'specific', 'measurable', 'achievable', 'realistic', and 'time-bound'. This allows progress to be better measured and evaluated.
+          <p class="govuk-body">Goals and steps should be SMART, meaning ‘specific’, ‘measurable’, ‘achievable’, ‘realistic’, and ‘time-bound’. This allows progress to be better measured and evaluated.</p>
+          <p class="govuk-body">Adding steps makes goals more measurable and achievable.</p>
         </div>
       </details>
 
@@ -73,8 +74,8 @@
                     <tr class="govuk-table__row">
                       <th scope="col" class="govuk-table__header">Step</th>
                       <th scope="col" class="govuk-table__header">Who will do this</th>
-                      <th scope="col" class="govuk-table__header">Actions</th>
-                      <th scope="col" class="govuk-table__header"></th>
+                      <th scope="col" class="govuk-table__header">Change step</th>
+                      <th scope="col" class="govuk-table__header">Delete step</th>
                     </tr>
                   </thead>
                   <tbody class="govuk-table__body">
@@ -102,10 +103,10 @@
           
                 </form>
             
-              <form action="/splan5/plan-overview" method="post" novalidate>
+              <form action="/splan5/review-date" method="post" novalidate>
 
                 {{ govukButton({
-                  text: "Save and add to plan"
+                  text: "Save and continue"
                 }) }}
         
               </form>

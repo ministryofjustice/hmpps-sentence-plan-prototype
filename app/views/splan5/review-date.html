@@ -143,7 +143,7 @@
 
 
 
-<a href="create-goal" class="govuk-back-link">Back</a>
+<a href="review-steps" class="govuk-back-link">Back</a>
 
 
   <div class="govuk-grid-row">
@@ -151,60 +151,31 @@
 
     <div class="govuk-grid-column-two-thirds">
       <span class="govuk-caption-xl">Accommodation</span>
-      <h1 class="govuk-heading-l">Add details to Joan’s goal</h1>
+      <h1 class="govuk-heading-l">Add a review date</h1>
 
-      <details class="govuk-details">
-        <summary class="govuk-details__summary">
-          <span class="govuk-details__summary-text">SMART goals and steps</span>
-        </summary>
-        <div class="govuk-details__text">
-          <p class="govuk-body">Goals and steps should be SMART, meaning ‘specific’, ‘measurable’, ‘achievable’, ‘realistic’, and ‘time-bound’. This allows progress to be better measured and evaluated.</p>
-          <p class="govuk-body">Adding steps makes goals more measurable and achievable.</p>
-        </div>
-      </details>
-
-      <div class="govuk-form-group">
-        <h1 class="govuk-label-wrapper">
-            <label class="govuk-label govuk-label--m" for="event-name">What goal should Joan try to achieve?</label>
-        </h1>
-        <input class="govuk-input" id="event-name" name="eventName" type="text" value="Improve relationship with neighbours">
-    </div>
-
-
-
-      <div class="govuk-form-group govuk-character-count" data-module="govuk-character-count" data-maxlength="200">
-        <h2 class="govuk-label-wrapper">
-          <label class="govuk-label govuk-label--m" for="with-hint">Why should Joan try to achieve this goal?</label>
+        <div class="govuk-inset-text">
+          <h2 class="govuk-heading-m">
+          Goal: find suitable accommodation
         </h2>
-        <textarea class="govuk-textarea govuk-js-character-count" id="with-hint" name="withHint" rows="5" aria-describedby="with-hint-info with-hint-hint"></textarea>
-        <div id="with-hint-info" class="govuk-hint govuk-character-count__message">You have 250 words remaining</div>
-      </div>
+        </div>
+
+        <details class="govuk-details">
+          <summary class="govuk-details__summary">
+            <span class="govuk-details__summary-text">SMART goals and steps</span>
+          </summary>
+          <div class="govuk-details__text">
+            <p class="govuk-body">Goals and steps should be SMART, meaning ‘specific’, ‘measurable’, ‘achievable’, ‘realistic’, and ‘time-bound’. This allows progress to be better measured and evaluated.</p>
+            <p class="govuk-body">Adding steps makes goals more measurable and achievable.</p>
+          </div>
+        </details>
+    
 
       <div class="govuk-form-group">
-        <fieldset class="govuk-fieldset" aria-describedby="changedName-hint">
-          <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
-            <h2 class="govuk-fieldset__heading">Can Joan start working on this goal now?</h2>
-          </legend>
-          <div class="govuk-radios govuk-radios--inline" data-module="govuk-radios">
-            <div class="govuk-radios__item">
-              <input class="govuk-radios__input" id="changedName" name="changedName" type="radio" value="yes" data-target="finalQuestion">
-              <label class="govuk-label govuk-radios__label" for="changedName">Yes</label>
-            </div>
-            <div class="govuk-radios__item">
-              <input class="govuk-radios__input" id="changedName-2" name="changedName" type="radio" value="no">
-              <label class="govuk-label govuk-radios__label" for="changedName-2">No</label>
-            </div>
-          </div>
-        </fieldset>
-      </div>
-
-      <!-- When achieve goal start
-      <div id="finalQuestion" style="display: none;">
-      <fieldset class="govuk-fieldset" aria-describedby="contact-hint">
-        <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
-          <h2 class="govuk-fieldset__heading">When will you and Joan review this goal?</h2>
-        </legend>
         <div class="govuk-radios" data-module="govuk-radios">
+              <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+                <h1 class="govuk-fieldset__heading">When will you and Joan review this goal?</h1>
+              </legend>
+          
           <div class="govuk-radios__item">
             <input class="govuk-radios__input" id="achieve-5" name="achieve" type="radio" value="review_meeting" >
             <label class="govuk-label govuk-radios__label" for="achieve-5">At our next meeting</label>
@@ -259,12 +230,12 @@
         </div>
       </fieldset>
     </div>
-  </br> -->
+  </br>
       <!-- When achieve goal end -->
 
-      <form class="form" action="/splan5/create-step1" method="post">
+      <form class="form" action="/splan5/plan-overview" method="post">
         <div class="govuk-button-group">
-          <button type="submit" class="govuk-button " data-module="govuk-button">Save and add steps</button>
+          <button type="submit" class="govuk-button " data-module="govuk-button">Save and add to plan</button>
         </div>
       </form>
 
@@ -276,8 +247,6 @@
     </div>
 
   </div>
-
-
 </main>
 </div>
 

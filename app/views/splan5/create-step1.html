@@ -25,7 +25,7 @@
            </ul>
            
           </hr>
-          <h1 class="govuk-heading-l" style="margin-bottom: -5px;"> Joan's plan</h1>
+          <!--<h1 class="govuk-heading-l" style="margin-bottom: -5px;"> Joan's plan</h1>-->
             
             </div>
           
@@ -45,23 +45,24 @@
 
       
       <span class="govuk-caption-xl">Accommodation</span>
-      <h1 class="govuk-heading-l">Add steps with Joan to help them work towards this goal</h1>
+      <h1 class="govuk-heading-l">Add steps to Joan’s goal</h1>
 
 
       <form class="form" action="/splan5/review-steps" method="post">
 
         <div class="govuk-inset-text">
           <h2 class="govuk-heading-m">
-          Goal: find suitable accommodation.
+          Goal: find suitable accommodation
         </h2>
         </div>
 
         <details class="govuk-details">
           <summary class="govuk-details__summary">
-            <span class="govuk-details__summary-text">Creating SMART goals</span>
+            <span class="govuk-details__summary-text">SMART goals and steps</span>
           </summary>
           <div class="govuk-details__text">
-            Goals and steps should be SMART, meaning 'specific', 'measurable', 'achievable', 'realistic', and 'time-bound'. This allows progress to be better measured and evaluated.
+            <p class="govuk-body">Goals and steps should be SMART, meaning ‘specific’, ‘measurable’, ‘achievable’, ‘realistic’, and ‘time-bound’. This allows progress to be better measured and evaluated.</p>
+            <p class="govuk-body">Adding steps makes goals more measurable and achievable.</p>
           </div>
         </details>
 
@@ -81,7 +82,7 @@
           classes: "govuk-!-width-full",
        
           label: {
-            text: "Enter a step"
+            text: "Enter the first step"
           }
           }) }}
           {% endset -%}
@@ -90,7 +91,7 @@
           name: "whereDoYouLive",
           fieldset: {
             legend: {
-              text: "What should the first step be?",
+              text: "What is the first step?",
               isPageHeading: true,
               classes: "govuk-fieldset__legend--m"
             }
@@ -139,7 +140,7 @@
           autocomplete: "text",
           classes: "govuk-!-width-full",
           label: {
-            text: "Enter who will do this"
+            text: "Enter who will do this step"
           }
         }) }}
         {% endset -%}
@@ -188,7 +189,7 @@
           }) }}
 
         {{ govukButton({
-          text: "Add step to goal"
+          text: "Save and continue"
         }) }}
 
       </form>

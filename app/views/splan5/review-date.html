@@ -198,10 +198,10 @@
           </div>
           <div class="govuk-radios__divider">or</div>
           <div class="govuk-radios__item">
-            <input class="govuk-radios__input" id="achieve-6" name="achieve" type="radio" value="another" data-aria-controls="conditional-contact-333">
+            <input class="govuk-radios__input" id="set-another" name="achieve" type="radio" value="another" data-aria-controls="conditional-contact-333">
             <label class="govuk-label govuk-radios__label" for="achieve-6">Set another date</label>
           </div>
-          <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-contact-333">
+          <div class="govuk-radios__conditional govuk-radios__conditional--hidden"  style="display: none;" id="another-date">
             <div class="govuk-form-group">
               <label class="govuk-label" for="contact-by-text">Enter a review date</label>
               <div id="passport-issued-hint" class="govuk-hint">For example, 27 3 2007.</div>
@@ -355,23 +355,22 @@
 
 <script>
   document.addEventListener("DOMContentLoaded", function () {
-    var radioYes = document.getElementById("changedName");
-    var radioNo = document.getElementById("changedName-2");
-    var finalQuestion = document.getElementById("finalQuestion");
+    const setAnother = document.getElementById("set-another");
+    const anotherDate = document.getElementById("another-date");
+    const others=document.querySelectorAll('input[name="achieve"]')
 
-    function toggleFinalQuestion() {
-      if (radioYes.checked) {
-        finalQuestion.style.display = "block";
-      } else {
-        finalQuestion.style.display = "none";
-      }
+    others.forEach(element => {
+      element.addEventListener("change", hideAnother);
+    });
+
+    function displayAnother() {
+      anotherDate.style.display='block'
     }
+    function hideAnother() {
+      anotherDate.style.display='none'
+    }
+    setAnother.addEventListener("change", displayAnother);
 
-    radioYes.addEventListener("change", toggleFinalQuestion);
-    radioNo.addEventListener("change", toggleFinalQuestion);
-
-    // Initial check to ensure the correct state on page load
-    toggleFinalQuestion();
   });
 </script>
 

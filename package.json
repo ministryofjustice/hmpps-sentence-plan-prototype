@@ -7,14 +7,14 @@
   "dependencies": {
     "@govuk-prototype-kit/common-templates": "2.0.1",
     "@ministryofjustice/frontend": "2.1.2",
-    "govuk-frontend": "5.3.0",
+    "@x-govuk/govuk-prototype-components": "^3.0.5",
+    "govuk-frontend": "5.4.0",
     "govuk-prototype-kit": "13.16.2",
     "jquery": "^3.7.1"
   },
   "name": "Sentence Plan Prototype",
   "version": "1.0.0",
   "main": "index.js",
-  "devDependencies": {},
   "author": "",
   "license": "ISC",
   "description": ""

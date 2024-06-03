@@ -156,8 +156,7 @@
       label: 'Side navigation',
       items: [{
         text: 'Accommodation',
-        href: '#1',
-        active: true
+        href: 'create-goal'
       }, {
         text: 'Employment and education',
         href: '#2'
@@ -182,7 +181,8 @@
       },
       {
         text: 'Thinking, behaviours and attitudes',
-        href:'create-goal-thinking'
+        href:'create-goal-thinking',
+        active: true
       }
       ]
     }) }}
@@ -196,7 +196,7 @@
         
             
             
-            <span class="govuk-caption-xl">Accommodation</span>
+            <span class="govuk-caption-xl">Thinking, behaviours and attitudes</span>
             <h1 class="govuk-heading-l">Create a goal with Joan</h1>
 
             <details class="govuk-details">
@@ -213,11 +213,11 @@
                 <p>Information related to strengths and protective factors.</p>
 
                 <h1 class="govuk-heading-s govuk-!-margin-bottom-0">Risk summary for this area</h1>
-                <p>Information about risk related to accommodation.</p>
+                <p>Information about risk related to thinking, behaviours and attitudes.</p>
                 
-                <h1 class="govuk-heading-s govuk-!-margin-bottom-0">Notes on accommodation</h1>
+                <h1 class="govuk-heading-s govuk-!-margin-bottom-0">Notes on thinking, behaviours and attitudes</h1>
                 <p class="govuk-body-s govuk-!-margin-bottom-0" style="color: #505a5f;font-size: 1rem;">Created on 26 March 2024 by Joe Bloggs.</p>
-                <p class="govuk-body">Joan may be required to seek independent accommodation and there needs to be consideration made of the victim of her index offence, the need to protect her partner and their child and to minimise / prevent opportunities to frequent pro- offending peers.</p>
+                <p class="govuk-body">Joan ...</p>
                </div>
             </details>
 
@@ -238,90 +238,170 @@
                   <div id="contact-hint" class="govuk-hint">
                     Select one goal. You can add more later.
                   </div>
+
                   <div class="govuk-radios" data-module="govuk-radios">
                     <div class="govuk-radios__item">
-                      <input class="govuk-radios__input" id="goal" name="goal" type="radio"  value="relationship">
-                      <label class="govuk-label govuk-radios__label" for="goal">
-                        Improve relationship with neighbours
-                      </label>
+                        <input class="govuk-radios__input" id="goal" name="goal" type="radio" value="relationship">
+                        <label class="govuk-label govuk-radios__label" for="goal">
+                            Improve problem-solving skills
+                        </label>
                     </div>
-
+                
                     <div class="govuk-radios__item">
-                      <input class="govuk-radios__input" id="goal-1" name="goal" type="radio" value="suitable" >
-                      <label class="govuk-label govuk-radios__label" for="goal-1">
-                        Find suitable accommodation
-                      </label>
+                        <input class="govuk-radios__input" id="goal-1" name="goal" type="radio" value="suitable">
+                        <label class="govuk-label govuk-radios__label" for="goal-1">
+                            Develop new thinking and decision-making skills
+                        </label>
                     </div>
-
+                
                     <div class="govuk-radios__item">
-                        <input class="govuk-radios__input" id="goal-2" name="goal" type="radio" value="eviction" >
+                        <input class="govuk-radios__input" id="goal-2" name="goal" type="radio" value="eviction">
                         <label class="govuk-label govuk-radios__label" for="goal-2">
-                          Reduce risk of eviction</label>
-                      </div>
-
-                      <div class="govuk-radios__item">
+                            Reduce impulsive behaviour
+                        </label>
+                    </div>
+                
+                    <div class="govuk-radios__item">
                         <input class="govuk-radios__input" id="goal-3" name="goal" type="radio" value="rules">
                         <label class="govuk-label govuk-radios__label" for="goal-3">
-                        Follow rules of their accommodation provider and stay in current accommodation for the length of their sentence</label>
-                      </div>
-
-
-                      <div class="govuk-radios__item">
+                            Increase ability to plan for the future
+                        </label>
+                    </div>
+                
+                    <div class="govuk-radios__item">
                         <input class="govuk-radios__input" id="goal-4" name="goal" type="radio" value="assessed">
                         <label class="govuk-label govuk-radios__label" for="goal-4">
-                        Have housing needs assessed by the housing advice service</label>
-                      </div>
-
-                      <div class="govuk-radios__item">
-                        <input class="govuk-radios__input" id="goal-5" name="goal" type="radio" value="payments" >
+                            Improve ability to resolve conflict
+                        </label>
+                    </div>
+                
+                    <div class="govuk-radios__item">
+                        <input class="govuk-radios__input" id="goal-5" name="goal" type="radio" value="payments">
                         <label class="govuk-label govuk-radios__label" for="goal-5">
-                            Reduce or pay off any unpaid rent payments, so they can be considered for other accommodation</label>
-                      </div>
-
-
-                      <div class="govuk-radios__item">
-                        <input class="govuk-radios__input" id="goal-6" name="goal" type="radio" value="applications" >
+                            Increase understanding of how behaviour affects others
+                        </label>
+                    </div>
+                
+                    <div class="govuk-radios__item">
+                        <input class="govuk-radios__input" id="goal-6" name="goal" type="radio" value="applications">
                         <label class="govuk-label govuk-radios__label" for="goal-6">
-                            Actively try to find suitable housing by submitting applications and attending assessments</label>
-                      </div>
-
-  
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+                            Increase awareness of the triggers that may lead to violent behaviour
+                        </label>
+                    </div>
+                
+                    <div class="govuk-radios__item">
+                        <input class="govuk-radios__input" id="goal-7" name="goal" type="radio" value="applications">
+                        <label class="govuk-label govuk-radios__label" for="goal-7">
+                            Reduce the number of conflicts they are involved with
+                        </label>
+                    </div>
+                
+                    <div class="govuk-radios__item">
+                        <input class="govuk-radios__input" id="goal-8" name="goal" type="radio" value="applications">
+                        <label class="govuk-label govuk-radios__label" for="goal-8">
+                            Do not get arrested for any violent incidents in the next 12 months
+                        </label>
+                    </div>
+                
+                    <div class="govuk-radios__item">
+                        <input class="govuk-radios__input" id="goal-9" name="goal" type="radio" value="applications">
+                        <label class="govuk-label govuk-radios__label" for="goal-9">
+                            Increase assertiveness skills
+                        </label>
+                    </div>
+                
+                    <div class="govuk-radios__item">
+                        <input class="govuk-radios__input" id="goal-10" name="goal" type="radio" value="applications">
+                        <label class="govuk-label govuk-radios__label" for="goal-10">
+                            Increase skills in dealing with others
+                        </label>
+                    </div>
+                
+                    <div class="govuk-radios__item">
+                        <input class="govuk-radios__input" id="goal-11" name="goal" type="radio" value="applications">
+                        <label class="govuk-label govuk-radios__label" for="goal-11">
+                            Increase skills in dealing with difficult situations
+                        </label>
+                    </div>
+                
+                    <div class="govuk-radios__item">
+                        <input class="govuk-radios__input" id="goal-12" name="goal" type="radio" value="applications">
+                        <label class="govuk-label govuk-radios__label" for="goal-12">
+                            Increase self-control
+                        </label>
+                    </div>
+                
+                    <div class="govuk-radios__item">
+                        <input class="govuk-radios__input" id="goal-13" name="goal" type="radio" value="applications">
+                        <label class="govuk-label govuk-radios__label" for="goal-13">
+                            Increase awareness of how their attitude affects their behaviour
+                        </label>
+                    </div>
+                
+                    <div class="govuk-radios__item">
+                        <input class="govuk-radios__input" id="goal-14" name="goal" type="radio" value="applications">
+                        <label class="govuk-label govuk-radios__label" for="goal-14">
+                            Increase understanding of how it feels to be treated in a discriminatory way
+                        </label>
+                    </div>
+                
+                    <div class="govuk-radios__item">
+                        <input class="govuk-radios__input" id="goal-15" name="goal" type="radio" value="applications">
+                        <label class="govuk-label govuk-radios__label" for="goal-15">
+                            Attitudes to justify their behaviour
+                        </label>
+                    </div>
+                
+                    <div class="govuk-radios__item">
+                        <input class="govuk-radios__input" id="goal-16" name="goal" type="radio" value="applications">
+                        <label class="govuk-label govuk-radios__label" for="goal-16">
+                            Improve sensitivity
+                        </label>
+                    </div>
+                
+                    <div class="govuk-radios__item">
+                        <input class="govuk-radios__input" id="goal-17" name="goal" type="radio" value="applications">
+                        <label class="govuk-label govuk-radios__label" for="goal-17">
+                            Increase acceptance of cultural diversity
+                        </label>
+                    </div>
+                
+                    <div class="govuk-radios__item">
+                        <input class="govuk-radios__input" id="goal-18" name="goal" type="radio" value="applications">
+                        <label class="govuk-label govuk-radios__label" for="goal-18">
+                            Improved compliance with the supervision process
+                        </label>
+                    </div>
+                
+                    <div class="govuk-radios__item">
+                        <input class="govuk-radios__input" id="goal-19" name="goal" type="radio" value="applications">
+                        <label class="govuk-label govuk-radios__label" for="goal-19">
+                            Compile all licence conditions for the duration of their licence
+                        </label>
+                    </div>
+                
+                    <div class="govuk-radios__item">
+                        <input class="govuk-radios__input" id="goal-20" name="goal" type="radio" value="applications">
+                        <label class="govuk-label govuk-radios__label" for="goal-20">
+                            Identify and overcome obstacles that have previously contributed to their behaviour
+                        </label>
+                    </div>
+                
                     <div class="govuk-radios__divider">or</div>
                     <div class="govuk-radios__item">
-                      <input class="govuk-radios__input" id="goal-8" name="goal" type="radio" value="else" >
-                      <label class="govuk-label govuk-radios__label" for="goal-8">
-                        Something else
-                      </label>
+                        <input class="govuk-radios__input" id="goal-21" name="goal" type="radio" value="else">
+                        <label class="govuk-label govuk-radios__label" for="goal-21">
+                            Something else
+                        </label>
                     </div>
-
-                  
-
-                      
-                    </div>
-                  </div>
+                </div>
                 </fieldset>
+                
 
 
 
 
-
-                <a href="/splan5/goal-details.html" type="submit" class="govuk-button govuk-!-margin-top-6" data-module="govuk-button">
+                <a href="/splan5/goal-details-thinking.html" type="submit" class="govuk-button govuk-!-margin-top-6" data-module="govuk-button">
                     Save and continue
                 </a>
 

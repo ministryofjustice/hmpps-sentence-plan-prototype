@@ -1,0 +1,76 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+
+<script type="text/javascript" src="assets/js/auto.js"></script>
+{% endblock %}
+
+
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">
+        Autocomplete test
+      </h1>
+
+      <form class="form" action="/path/of/next/page" method="post">
+
+        <div class="govuk-form-group">
+          <label class="govuk-label govuk-label--m" for="country">
+            What goal should Joan try to achieve?
+          </label>
+          <div id="event-name-hint" class="govuk-hint">
+            Select an example or write something else
+          </div>
+        <select class="govuk-select" id="country" name="country"
+          data-module="autocomplete" data-autoselect="" data-display-menu="" data-min-length="" data-show-all-values="" data-show-no-options-found="">
+          <option value="" selected disabled>Select an option</option>
+          <option value="relationship">Improve problem-solving skills</option>
+          <option value="suitable">Develop new thinking and decision-making skills</option>
+          <option value="eviction">Reduce impulsive behaviour</option>
+          <option value="rules">Increase ability to plan for the future</option>
+          <option value="assessed">Improve ability to resolve conflict</option>
+          <option value="payments">Increase understanding of how behaviour affects others</option>
+          <option value="applications">Increase awareness of the triggers that may lead to violent behaviour</option>
+          <option value="applications">Reduce the number of conflicts they are involved with</option>
+          <option value="applications">Do not get arrested for any violent incidents in the next 12 months</option>
+          <option value="applications">Increase assertiveness skills</option>
+          <option value="applications">Increase skills in dealing with others</option>
+          <option value="applications">Increase skills in dealing with difficult situations</option>
+          <option value="applications">Increase self-control</option>
+          <option value="applications">Increase awareness of how their attitude affects their behaviour</option>
+          <option value="applications">Increase understanding of how it feels to be treated in a discriminatory way</option>
+          <option value="applications">Attitudes to justify their behaviour</option>
+          <option value="applications">Improve sensitivity</option>
+          <option value="applications">Increase acceptance of cultural diversity</option>
+          <option value="applications">Improved compliance with the supervision process</option>
+          <option value="applications">Compile all licence conditions for the duration of their licence</option>
+          <option value="applications">Identify and overcome obstacles that have previously contributed to their behaviour</option>
+        </select>
+      </div>
+
+
+
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+
+      </form>
+
+    </div>
+  </div>
+
+  
+
+{% endblock %}

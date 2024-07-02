@@ -1,0 +1,419 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Content page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+ 
+{% endblock %}
+
+{% block content %}
+
+
+<div class="moj-primary-navigation">
+
+  <div class="moj-primary-navigation__container">
+
+    <div class="moj-primary-navigation__nav">
+
+      <nav class="moj-primary-navigation" aria-label="Primary navigation">
+
+        <ul class="moj-primary-navigation__list">
+          <li class="moj-primary-navigation__item">
+            <a class="moj-primary-navigation__link" aria-current="page" href="/splan6/index">John's plan</a>
+          </li>
+
+          <li class="moj-primary-navigation__item">
+            <a class="moj-primary-navigation__link"   href="/splan6/about">About John</a>
+          </li>
+
+      </nav>
+
+    </div>
+  </div>
+
+</div>
+
+  <div class="govuk-grid-row">
+    
+    
+    <div class="govuk-grid-column-full">
+      
+
+      <!-- Header -->
+      <div class="profile-banner-plan profileFIlters">
+              
+              
+        <!--<h1 class="govuk-heading-m mb10">
+          John Smith
+        </h1>-->
+       
+        <ul class="govuk-list govuk-!-margin-bottom-0">
+         <li class="govuk-body govuk-!-font-size-19" style="padding-top: 8px;">
+             
+         <strong>John Smith</strong>
+           </li>
+         <li style="padding-top: 8px;">CRN: Z804100</li>
+          <li style="padding-top: 8px;">PNC: 2017/123400000H</li>
+          <li style="padding-top: 8px;">Date of birth: 26 June 1978</li>
+        </ul>
+
+        <div style="display: flex; justify-content: space-between; align-items: center; padding-top: 40px;">
+          <h1 class="govuk-heading-l" >
+            John's plan
+          </h1>
+          
+          <div class="govuk-button-group" >
+            <form class="form" action="/splan6/create-goal" method="post">
+              <button type="submit" class="govuk-button govuk-button--secondary" data-module="govuk-button ">
+                Create goal
+              </button>
+          </form>
+            <form class="form" action="/splan6/agree-plan" method="post">
+            <button type="submit" class="govuk-button" data-module="govuk-button">
+              Agree plan
+            </button>
+          </form>
+          </div>
+         
+            
+        </div>
+      </div>
+    
+      {{ mojBanner({
+        type: 'success',
+        text: 'You added a goal to John’s plan',
+        iconFallbackText: 'Success'
+      }) }}
+
+      <p>
+        Add steps to the goals Joan is working on now. You can then agree the plan with Joan.
+      </p>
+
+
+        <nav class="moj-sub-navigation mb40" aria-label="Sub navigation">
+  
+          <ul class="moj-sub-navigation__list">
+            <li class="moj-sub-navigation__item">
+              <a class="moj-sub-navigation__link" aria-current="page" href="#">Goals to work on now (4)</a>
+            </li>
+        
+            <li class="moj-sub-navigation__item">
+              <a class="moj-sub-navigation__link" href="plan-overview-later">Future goals (2)</a>
+            </li>
+      
+          </ul>
+        
+        </nav>
+
+
+        <div id="summary-cards">
+
+    
+
+        <div class="govuk-summary-card" id="summary-card-1" draggable="true">
+          
+          <div class="govuk-summary-card__title-wrapper">
+            <h2 class="govuk-summary-card__title">
+              Find suitable accommodation
+            </h2>
+            
+            <ul class="govuk-summary-card__actions">
+              <li class="govuk-summary-card__action">
+                <a class="govuk-link" href="#" class="govuk-link govuk-link--no-visited-state">Update goal<span class="govuk-visually-hidden"> I will find suitable accommodation</span></a>
+              </li>
+              <li class="govuk-summary-card__action">
+                <a class="govuk-link" href="#" style="padding-left:10px" class="govuk-link govuk-link--no-visited-state">Add or change steps<span class="govuk-visually-hidden"> for I will find suitable accommodation</span></a>
+              </li>
+              <li class="govuk-summary-card__action">
+                <a class="govuk-link" href="#" class="govuk-link govuk-link--no-visited-state">Remove goal<span class="govuk-visually-hidden"> I will find suitable accommodation</span></a>
+              </li>
+            </ul>
+          </div>
+
+          <div class="govuk-summary-card__content">
+            <p class="govuk-body">Aim to achieve in 6 months (8 January 202)</p>
+            <table class="govuk-table">
+                  
+              <thead class="govuk-table__head">
+                <tr class="govuk-table__row">
+                  <th scope="col" class="govuk-table__header">Step</th>
+                  <th scope="col" class="govuk-table__header">Who will do this</th>
+                </tr>
+              </thead>
+              <tbody class="govuk-table__body">
+                <tr class="govuk-table__row">
+                  <td scope="row" class="govuk-table__cell">Make a referral to housing officer</th>
+                  <td class="govuk-table__cell">Probation practitioner</td>
+                </tr>
+              </tbody>
+              <tbody class="govuk-table__body">
+                <tr class="govuk-table__row">
+                  <td scope="row" class="govuk-table__cell">Set up appointments with housing agencies</th>
+                  <td class="govuk-table__cell">John</br>Probation practitioner</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          
+          <p class="govuk-body-s" style="padding-left: 20px; color: 	#505a5f;">Area of need: employment and education</br>
+            Also relates to: thinking, behaviours and attitudes</p>
+
+          <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+          <div class="govuk-button-group" style="padding-left: 20px">
+            
+            <button type="submit" class="govuk-button govuk-button--secondary move-up-btn" data-card-id="summary-card-1" >
+              Move goal up
+            </button>
+            <button type="button" class="govuk-button govuk-button--secondary move-down-btn" data-card-id="summary-card-1">
+              Move goal down
+            </button>
+          </div>
+        </div>
+
+        <!-- card 1 end -->
+
+
+
+        <div class="govuk-summary-card" id="summary-card-4" draggable="true">
+          <div class="govuk-summary-card__title-wrapper">
+            <h2 class="govuk-summary-card__title">
+              Improve problem-solving skills
+            </h2>
+            
+            <ul class="govuk-summary-card__actions">
+              <li class="govuk-summary-card__action">
+                <a class="govuk-link" href="#">Update goal<span class="govuk-visually-hidden"> of University of Gloucestershire (University of Gloucestershire)</span></a>
+              </li>
+              <li class="govuk-summary-card__action">
+                <a class="govuk-link" href="#" style="padding-left:10px">Add or change steps<span class="govuk-visually-hidden"> from University of Gloucestershire (University of Gloucestershire)</span></a>
+              </li>
+              <li class="govuk-summary-card__action">
+                <a class="govuk-link" href="#">Delete<span class="govuk-visually-hidden"> from University of Gloucestershire (University of Gloucestershire)</span></a>
+              </li>
+            </ul>
+          </div>
+
+          <div class="govuk-summary-card__content">
+            <p class="govuk-body">Text about why John should achieve this goal.</p>
+            <table class="govuk-table">
+                  
+              <thead class="govuk-table__head">
+                <tr class="govuk-table__row">
+                  <th scope="col" class="govuk-table__header">Step</th>
+                  <th scope="col" class="govuk-table__header">Who will do this</th>
+                </tr>
+              </thead>
+              <tbody class="govuk-table__body">
+                <tr class="govuk-table__row">
+                  <td scope="row" class="govuk-table__cell">Improve ability to identify a problem</th>
+                  <td class="govuk-table__cell">John</td>
+                </tr>
+                <tr class="govuk-table__row">
+                  <td scope="row" class="govuk-table__cell">Find alternative solutions to problems</th>
+                  <td class="govuk-table__cell">John</br>Probation practitioner</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <h3 class="govuk-heading-s" style="padding-left: 20px">Review in 6 months (November 2024)</h3>
+          <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+          <div class="govuk-button-group" style="padding-left: 20px">
+            <button type="submit" class="govuk-button govuk-button--secondary move-up-btn" data-card-id="summary-card-4" >
+              Move goal up
+            </button>
+            <button type="button" class="govuk-button govuk-button--secondary move-down-btn" data-card-id="summary-card-4">
+              Move goal down
+            </button>
+           
+          </div>
+        </div>
+
+        <!-- card 2 end -->
+
+       
+
+        <div class="govuk-summary-card" id="summary-card-2" draggable="true">
+          <div class="govuk-summary-card__title-wrapper">
+            <h2 class="govuk-summary-card__title">
+              Unpaid work
+            </h2>
+            
+            <ul class="govuk-summary-card__actions">
+              <li class="govuk-summary-card__action">
+                <a class="govuk-link" href="#">Update goal<span class="govuk-visually-hidden"> of University of Gloucestershire (University of Gloucestershire)</span></a>
+              </li>
+              <li class="govuk-summary-card__action">
+                <a class="govuk-link" href="#" style="padding-left:10px">Add or change steps<span class="govuk-visually-hidden"> from University of Gloucestershire (University of Gloucestershire)</span></a>
+              </li>
+              <li class="govuk-summary-card__action">
+                <a class="govuk-link" href="#">Delete<span class="govuk-visually-hidden"> from University of Gloucestershire (University of Gloucestershire)</span></a>
+              </li>
+            </ul>
+          </div>
+
+          <div class="govuk-summary-card__content">
+            <p class="govuk-body">Court order requirement</p>
+            <table class="govuk-table">
+                  
+              <thead class="govuk-table__head">
+                <tr class="govuk-table__row">
+                  <th scope="col" class="govuk-table__header">Step</th>
+                  <th scope="col" class="govuk-table__header">Who will do this</th>
+                </tr>
+              </thead>
+              <tbody class="govuk-table__body">
+                <tr class="govuk-table__row">
+                  <td scope="row" class="govuk-table__cell">Complete a  minimum of 6 hours unpaid work per week</th>
+                  <td class="govuk-table__cell">John</td>
+                </tr>
+              </tbody>
+              <tbody class="govuk-table__body">
+                <tr class="govuk-table__row">
+                  <td scope="row" class="govuk-table__cell">UPW supervisors to report on progress</th>
+                  <td class="govuk-table__cell">Probation practitioner</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <h3 class="govuk-heading-s" style="padding-left: 20px" >Review at the end of the sentence</h3>
+          <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+          <div class="govuk-button-group" style="padding-left: 20px">
+            <button type="submit" class="govuk-button govuk-button--secondary move-up-btn" data-card-id="summary-card-2" >
+              Move goal up
+            </button>
+            <button type="button" class="govuk-button govuk-button--secondary move-down-btn" data-card-id="summary-card-2">
+              Move goal down
+            </button>
+          </div>
+        </div>
+
+<!-- card 3 end -->
+
+
+
+        <div class="govuk-summary-card" id="summary-card-3" draggable="true">
+          <div class="govuk-summary-card__title-wrapper">
+            <h2 class="govuk-summary-card__title">
+              Assess and reduce risk of reoffending and harm
+            </h2>
+            
+            <ul class="govuk-summary-card__actions">
+              <li class="govuk-summary-card__action">
+                <a class="govuk-link" href="#">Update goal<span class="govuk-visually-hidden"> of University of Gloucestershire (University of Gloucestershire)</span></a>
+              </li>
+              <li class="govuk-summary-card__action">
+                <a class="govuk-link" href="#" style="padding-left:10px">Add or change steps<span class="govuk-visually-hidden"> from University of Gloucestershire (University of Gloucestershire)</span></a>
+              </li>
+              <li class="govuk-summary-card__action">
+                <a class="govuk-link" href="#">Delete<span class="govuk-visually-hidden"> from University of Gloucestershire (University of Gloucestershire)</span></a>
+              </li>
+            </ul>
+          </div>
+
+          <div class="govuk-summary-card__content">
+            <p class="govuk-body">Risk management plan</p>
+            <table class="govuk-table">
+                  
+              <thead class="govuk-table__head">
+                <tr class="govuk-table__row">
+                  <th scope="col" class="govuk-table__header">Step</th>
+                  <th scope="col" class="govuk-table__header">Who will do this</th>
+                </tr>
+              </thead>
+              <tbody class="govuk-table__body">
+                <tr class="govuk-table__row">
+                  <td scope="row" class="govuk-table__cell">Ongoing assessment on changes to circumstances, thinking and behaviour and how this links to offending and harm</th>
+                  <td class="govuk-table__cell">Probation practitioner</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <h3 class="govuk-heading-s" style="padding-left: 20px">Review at the end of the sentence</h3>
+          <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+          <div class="govuk-button-group" style="padding-left: 20px">
+            <button type="submit" class="govuk-button govuk-button--secondary move-up-btn" data-card-id="summary-card-3" >
+              Move goal up
+            </button>
+            <button type="button" class="govuk-button govuk-button--secondary move-down-btn" data-card-id="summary-card-3">
+              Move goal down
+            </button>
+          </div>
+        </div>
+
+        <!-- card 4 end -->
+
+   
+        
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const summaryCards = document.querySelectorAll('.govuk-summary-card');
+
+      summaryCards.forEach(function(card) {
+        const moveUpBtn = card.querySelector('.move-up-btn');
+        const moveDownBtn = card.querySelector('.move-down-btn');
+
+        moveUpBtn.addEventListener('click', function() {
+          moveCardUp(card);
+        });
+
+        moveDownBtn.addEventListener('click', function() {
+          moveCardDown(card);
+        });
+      });
+
+      function moveCardUp(card) {
+        const prevCard = card.previousElementSibling;
+        if (prevCard !== null) {
+          card.parentNode.insertBefore(card, prevCard);
+        }
+      }
+
+      function moveCardDown(card) {
+        const nextCard = card.nextElementSibling;
+        if (nextCard !== null) {
+          card.parentNode.insertBefore(nextCard, card);
+        }
+      }
+    });
+  </script>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const summaryCards = document.querySelectorAll('.govuk-summary-card');
+
+    summaryCards.forEach(function(card) {
+      card.addEventListener('dragstart', handleDragStart);
+      card.addEventListener('dragover', handleDragOver);
+      card.addEventListener('drop', handleDrop);
+    });
+
+    function handleDragStart(event) {
+      event.dataTransfer.setData('text/plain', event.target.id);
+    }
+
+    function handleDragOver(event) {
+      event.preventDefault();
+      event.dataTransfer.dropEffect = 'move';
+    }
+
+    function handleDrop(event) {
+      event.preventDefault();
+      const draggedId = event.dataTransfer.getData('text/plain');
+      const draggedCard = document.getElementById(draggedId);
+      const dropZone = event.currentTarget;
+      if (dropZone !== draggedCard) {
+        dropZone.parentNode.insertBefore(draggedCard, dropZone);
+      }
+    }
+  });
+</script>
+
+{% endblock %}

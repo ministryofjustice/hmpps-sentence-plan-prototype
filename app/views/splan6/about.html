@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <title>
-  Sentence plan - GOV.UK
+  Sentence plan
 </title>
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
     <meta name="theme-color" content="#0b0c0c"> 
@@ -64,154 +64,113 @@
 {{ mojHeader({
   organisationLabel: {
     text: 'HMPPS',
-    href: '#'
+    href: '/index'
   },
   serviceLabel: {
     text: 'Sentence Plan',
-    href: '#'
+    href: '/index'
   },
   navigation: {
     label: 'Account navigation',
     items: [{
-      text: '',
+      text: 'Alexis Diaz',
       href: '#',
       active: true
     }, {
-      text: '',
+      text: 'Sign out',
       href: '#'
     }]
   }
 
 }) }}
 
+<div class="moj-primary-navigation">
 
+  <div class="moj-primary-navigation__container">
 
+    <div class="moj-primary-navigation__nav">
 
-  
+      <nav class="moj-primary-navigation" aria-label="Primary navigation">
 
+        <ul class="moj-primary-navigation__list">
+          <li class="moj-primary-navigation__item">
+            <a class="moj-primary-navigation__link"  href="/splan6/index">John's plan</a>
+          </li>
 
+          <li class="moj-primary-navigation__item">
+            <a class="moj-primary-navigation__link"  aria-current="page" href="/splan6/about">About John</a>
+          </li>
 
+      </nav>
+     
+    </div>
+  </div>
 
-    
+</div>
+
       <div class="govuk-width-container">
         
-        
-        
-        
-
-      
-        
         <main class="govuk-main-wrapper " id="main-content" role="main">
-          
- 
-          
-          
- <!-- Patterns -->         
+  
           
           
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-full">
     
           
-          <div class="profile-banner-plan">
-              
-              
-           <h1 class="govuk-heading-m mb0">
-              <!--  <span class="govuk-caption-l">JW 41 54 60 A</span> -->
-                Prototype scenarios
-                
-              
-              </h1>
-          
-         <!--  <ul class="govuk-list">
-             <li>Last updated: 12 August 2023</li>
+          <div class="profile-banner-plan profileFIlters">
              
-           </ul>-->
+          
+           <ul class="govuk-list govuk-!-margin-bottom-0">
+            <li class="govuk-body govuk-!-font-size-19" style="padding-top: 8px;">
+                
+            <strong>John Smith</strong>
+              </li>
+            <li style="padding-top: 8px;">CRN: Z804100</li>
+             <li style="padding-top: 8px;">PNC: 2017/123400000H</li>
+             <li style="padding-top: 8px;">Date of birth: 26 June 1978</li>
+           </ul>
            
-    
+          </hr>
+
+
+          <div style="display: flex; justify-content: space-between; align-items: center; padding-top: 40px; margin-bottom: -30px;">
             
+            
+            <div class="govuk-button-group" >
+              <form class="form" action="/splan5/create-goal" method="post">
+                <button type="submit" class="govuk-button" data-module="govuk-button ">
+                  Create goal
+                </button>
+            </form>
+              
             </div>
-          
-  </div>
-
-</div>
          
+        
+      
+      </div>
           
+  </div>
 
+</div>
+
+
+
+        
+        
+          <div class="govuk-grid-row">
+
+
+            <div class="govuk-grid-column-two-thirds">
           
-
-
-<div class="govuk-grid-row">
-  
-  
-  
-  
-<div class="govuk-grid-column-two-thirds">
-  
-  
-  <nav class="moj-sub-navigation mb40" aria-label="Sub navigation">
-  
-    <ul class="moj-sub-navigation__list">
-      <li class="moj-sub-navigation__item">
-        <a class="moj-sub-navigation__link" aria-current="page" href="#">Current scenario</a>
-      </li>
-  
-      <li class="moj-sub-navigation__item">
-        <a class="moj-sub-navigation__link" href="previousScenarios">Previous scenarios</a>
-      </li>
-
-    </ul>
-  
-  </nav>
-  
-  
-  
- <div class="govuk-notification-banner mb30" role="region"
-  aria-labelledby="govuk-notification-banner-title"
-  data-module="govuk-notification-banner">
-  <div class="govuk-notification-banner__header">
-    <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">
-      Important
-    </h2>
-  </div>
-  <div class="govuk-notification-banner__content">
-    <p class="govuk-notification-banner__heading">
-      This scenario is currently being worked on.
-    </p>
-  </div>
 </div>
-
-
-
-
-
-
- 
-
-<!-- / column-third-wrap -->
-  </div>
-</div>
-
-<h2 class="govuk-heading-m mb30">
-  Scenario 6.0 - creating goals and steps, person summary </h2>
-
-  <ul class="govuk-list">
+      </div>
     
-    <li><a href="splan6">View prototype</a></li>
-    
-  </ul>
-
-  </div>
-</div>
-
-
-
-<!-- /Patterns --> 
-
+    </div>
 
         </main>
       </div>
-    
+
 
     
   <footer class="govuk-footer " role="contentinfo">

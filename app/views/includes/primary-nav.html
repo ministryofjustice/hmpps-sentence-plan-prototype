@@ -1,0 +1,17 @@
+
+{%- from "moj/components/primary-navigation/macro.njk" import mojPrimaryNavigation -%}
+
+{{ mojPrimaryNavigation({
+  label: 'Primary navigation',
+  items: [
+    {
+      text: "John's plan",
+      href: '/splan6/index',
+      active: true
+    },
+    {
+      text: 'About John',
+      href: '/splan6/about'
+    }
+  ]
+}) }}

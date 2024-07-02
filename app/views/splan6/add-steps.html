@@ -1,6 +1,12 @@
 {% extends "layouts/main.html" %} {% block pageTitle %} Question page template –
 {{ serviceName }} – GOV.UK Prototype Kit {% endblock %} 
 
+
+{% block main %}
+{% include "../includes/primary-nav.html" %}
+{{ super() }}
+{% endblock %}
+
 {% block content %}
 
 <div class="govuk-grid-row">

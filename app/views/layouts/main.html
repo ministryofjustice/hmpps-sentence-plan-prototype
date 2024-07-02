@@ -5,3 +5,40 @@ https://prototype-kit.service.gov.uk/docs/how-to-use-layouts
 
 {% extends "govuk-prototype-kit/layouts/govuk-branded.njk" %}
 
+
+{#
+    For guidance on how to use layouts see:
+    https://prototype-kit.service.gov.uk/docs/how-to-use-layouts
+    #}
+    
+    {% extends "govuk-prototype-kit/layouts/govuk-branded.html" %}
+    
+    {% block header %}
+    
+    {%- from "moj/components/header/macro.njk" import mojHeader -%}
+    
+    {{ mojHeader({
+      organisationLabel: {
+        text: 'HMPPS',
+        href: '#'
+      },
+      serviceLabel: {
+        text: serviceName,
+        href: '/index'
+      },
+      navigation: {
+        label: 'Account navigation',
+        items: [{
+          text: 'User name',
+          href: '#',
+          active: true
+        }, {
+          text: 'Sign out',
+          href: '#'
+        }]
+      }
+    
+    }) }}
+    
+    {% endblock %}
+    

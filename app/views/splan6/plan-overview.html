@@ -1,39 +1,14 @@
-{% extends "layouts/main.html" %}
+{% extends "layouts/main.html" %} {% block pageTitle %} Question page template –
+{{ serviceName }} – GOV.UK Prototype Kit {% endblock %} 
 
-{% block pageTitle %}
-  Content page template – {{ serviceName }} – GOV.UK Prototype Kit
-{% endblock %}
 
-{% block beforeContent %}
- 
+{% block main %}
+{% include "../includes/primary-nav-plan.html" %}
+{{ super() }}
 {% endblock %}
 
 {% block content %}
 
-
-<div class="moj-primary-navigation">
-
-  <div class="moj-primary-navigation__container">
-
-    <div class="moj-primary-navigation__nav">
-
-      <nav class="moj-primary-navigation" aria-label="Primary navigation">
-
-        <ul class="moj-primary-navigation__list">
-          <li class="moj-primary-navigation__item">
-            <a class="moj-primary-navigation__link" aria-current="page" href="/splan6/index">John's plan</a>
-          </li>
-
-          <li class="moj-primary-navigation__item">
-            <a class="moj-primary-navigation__link"   href="/splan6/about">About John</a>
-          </li>
-
-      </nav>
-
-    </div>
-  </div>
-
-</div>
 
   <div class="govuk-grid-row">
     
@@ -41,13 +16,8 @@
     <div class="govuk-grid-column-full">
       
 
-      <!-- Header -->
       <div class="profile-banner-plan profileFIlters">
-              
-              
-        <!--<h1 class="govuk-heading-m mb10">
-          John Smith
-        </h1>-->
+      
        
         <ul class="govuk-list govuk-!-margin-bottom-0">
          <li class="govuk-body govuk-!-font-size-19" style="padding-top: 8px;">
@@ -96,11 +66,11 @@
   
           <ul class="moj-sub-navigation__list">
             <li class="moj-sub-navigation__item">
-              <a class="moj-sub-navigation__link" aria-current="page" href="#">Goals to work on now (4)</a>
+              <a class="moj-sub-navigation__link" aria-current="page" href="#">Goals to work on now (1)</a>
             </li>
         
             <li class="moj-sub-navigation__item">
-              <a class="moj-sub-navigation__link" href="plan-overview-later">Future goals (2)</a>
+              <a class="moj-sub-navigation__link" href="plan-overview-later">Future goals (0)</a>
             </li>
       
           </ul>
@@ -159,7 +129,7 @@
           
           <p class="govuk-body-s" style="padding-left: 20px; color: 	#505a5f;">Area of need: employment and education</br>
             Also relates to: thinking, behaviours and attitudes</p>
-
+<!-- 
           <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
           <div class="govuk-button-group" style="padding-left: 20px">
             
@@ -170,10 +140,10 @@
               Move goal down
             </button>
           </div>
-        </div>
+        </div> -->
 
         <!-- card 1 end -->
-
+<!-- 
 
 
         <div class="govuk-summary-card" id="summary-card-4" draggable="true">
@@ -228,11 +198,11 @@
             </button>
            
           </div>
-        </div>
+        </div> -->
 
         <!-- card 2 end -->
 
-       
+<!--        
 
         <div class="govuk-summary-card" id="summary-card-2" draggable="true">
           <div class="govuk-summary-card__title-wrapper">
@@ -287,11 +257,11 @@
               Move goal down
             </button>
           </div>
-        </div>
+        </div> -->
 
 <!-- card 3 end -->
 
-
+<!-- 
 
         <div class="govuk-summary-card" id="summary-card-3" draggable="true">
           <div class="govuk-summary-card__title-wrapper">
@@ -340,7 +310,7 @@
               Move goal down
             </button>
           </div>
-        </div>
+        </div> -->
 
         <!-- card 4 end -->
 

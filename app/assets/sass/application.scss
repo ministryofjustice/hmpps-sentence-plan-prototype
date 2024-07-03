@@ -7,3 +7,10 @@
 @import "node_modules/@ministryofjustice/frontend/moj/all";
 @import "margins";
 @import "custom";
+@import "auto";
+@import "datepicker";
+
+
+#toggleDiv {
+    display: none;
+  }

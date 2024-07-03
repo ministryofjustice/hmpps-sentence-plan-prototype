@@ -1,0 +1,18 @@
+.autocomplete__menu {
+    margin-top: 1rem;
+  }
+
+  .autocomplete__menu:before {
+    content: "Select a suggested step or enter your own";
+    display: block;
+    background-color: #f3f2f1;
+    padding: 2px 6px;
+    border-top: 2px solid;
+    border-bottom: 1px solid #e3e1df;
+  }
+
+  .goal {
+    .autocomplete__menu:before {
+        content: "Select a suggested goal or enter your own";
+      }
+  }

@@ -1012,3 +1012,13 @@ margin-bottom: 20px;
 	justify-content: space-between;
 	padding-top: 25px!important;
 }
+
+.govuk-select {
+	min-width: auto;
+}
+
+.app-htmlformrow {
+	.govuk-form-group {
+		 margin-bottom: 1rem; //this is hacky. Add a media query
+	 }
+   }

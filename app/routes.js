@@ -81,8 +81,14 @@ router.post(`/${DESIGN_VERSION}/create-goal`, function (req, res) {
      */
 
     /**
-     * Once we've saved this data into our session, we're going to redirect the user's
-     * browser to the add steps page
+     * Once we've saved this data into our session, we decide where to redirect the user
+     * If they selected 'Add steps', redirect them to the add steps page
+     * If they didn't select 'Add steps', redirect them to the plan overview page
      */
-    res.redirect(`/${DESIGN_VERSION}/add-steps`)
+
+    if(req.body.action === 'add-steps') {
+        return res.redirect(`/${DESIGN_VERSION}/add-steps`)
+    }
+
+    return res.redirect(`/${DESIGN_VERSION}/plan-overview`)
 })

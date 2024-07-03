@@ -21,23 +21,42 @@ const DESIGN_VERSION="splan6"
  * We usually want these to have the same page URL as the page the form exists on.
  * This means one URL might have both a GET (for loading the page) and a POST
  * for getting the submitted form data from a page!
+ * You'll see these written like `router.post(`/my-page`)
  */
+
+
+
+/**
+ * `router.use` functions run before every request to the service.
+ * It's a great spot for setting up spaces to store data.
+ * Let's set up a place to store our goal objects
+ */
+router.use((req, res, next) => {
+    /**
+     * Let's make sure we haven't already set up our goals array.
+     * If we overwrite it, we'll lose all the goals we've added this session!
+     * So, if the goals array isn't ready yet, let's get it set up to start saving goals!
+     */
+    if(!req.session.data.goals) {
+        req.session.data.goals = []
+    }
+    return next()
+})
 
 /**
  * Here's a super simple route that just renders the
  * views/splan6/index.html page.
  */
 router.get(`/${DESIGN_VERSION}/index`, function (req, res) {
-    res.render(`${DESIGN_VERSION}/index.html`)
+    return res.render(`${DESIGN_VERSION}/index.html`)
 })
-
 
 /**
  * Another super simple route that just renders the
  * views/splan6/create-goal.html page.
  */
 router.get(`/${DESIGN_VERSION}/create-goal`, function (req, res) {
-    res.render(`${DESIGN_VERSION}/create-goal.njk`)
+    return res.render(`${DESIGN_VERSION}/create-goal.njk`)
 })
 
 /**
@@ -52,32 +71,58 @@ router.post(`/${DESIGN_VERSION}/create-goal`, function (req, res) {
     /**
      * Here we save all the data from the create-goal form
      * When data is POST'd from your web-browser, it's stored in the request (req) body.
-     * We can then store this data in our browser session, using req.session
      *
-     * I've chosen to save it as 'createGoalForm' as that should make it
-     * easy to reference in future
-     */
-    req.session.data.createGoalForm = req.body
-
-    /**
      * As of writing this comment, the req.body (for my chosen options) looks like
      *
      * {
      *     needArea: "Accommodation"
      *     goalObjective: "I will find suitable accommodation that's safe and secure"
      *     hasRelatedNeed: "Yes"
+     *     relatedNeedAreas:  ["Drug use", "Health and wellbeing", "_unchecked"]
+     *     isActiveGoal: "Yes"
+     *     date: "At our next meeting (8 August 2024)"
+     *     action: "add-steps"
+     * }
+     *
+     * These match up with the "name" attribute that you see on the inputs within the form
+     * and the values correspond to the selected option. We'll create a variable called
+     * goalData to make some changes to this
+     */
+
+    const goalData = {
+        /** Let's set up an ID for this goal, so we can associate steps with it */
+        id: req.session.data.goals.length + 1,
+        needArea: req.body.needArea,
+        goalObjective: req.body.goalObjective,
+        /** 'relatedNeedAreas' has junk data in it, We will filter out the "_unchecked" value */
+        relatedNeedAreas: req.body.relatedNeedAreas.filter(areaOfNeed => areaOfNeed !== "_unchecked"),
+        isActiveGoal: req.body.isActiveGoal,
+        date: req.body.date,
+        /** We'll also add a blank array for storing steps for this goal in */
+        steps: []
+    }
+
+    /**
+     * Our goal data now looks like this, nice and neat for us to save and use later on!
+     * {
+     *     id: 1
+     *     needArea: "Accommodation"
+     *     goalObjective: "I will find suitable accommodation that's safe and secure"
      *     relatedNeedAreas:  ["Drug use", "Health and wellbeing"]
      *     isActiveGoal: "Yes"
      *     date: "At our next meeting (8 August 2024)"
      * }
      *
-     * These match up with the "name" attribute that you see on the inputs within the form
-     * and the values correspond to the selected option.
+     * We're going to save it in the goals array we made earlier
+     */
+    req.session.data.goals.push(goalData)
+
+    /**
      * We can now access these values in one of these routers in future by writing
-     * req.session.data.createGoalForm['needArea']
+     * req.session.data.goals[goal-id]
      *
      * Or we can access it in your HTML using
-     * {{ data.createGoalForm['needArea'] }}
+     * {{ data.goals[goal-id] }}
      */
 
     /**
@@ -85,10 +130,83 @@ router.post(`/${DESIGN_VERSION}/create-goal`, function (req, res) {
      * If they selected 'Add steps', redirect them to the add steps page
      * If they didn't select 'Add steps', redirect them to the plan overview page
      */
-
     if(req.body.action === 'add-steps') {
-        return res.redirect(`/${DESIGN_VERSION}/add-steps`)
+        return res.redirect(`/${DESIGN_VERSION}/goal/${goalData.id}/add-steps`)
     }
 
+    return res.redirect(`/${DESIGN_VERSION}/plan-overview`)
+})
+
+/**
+ * Here we set up the add steps route, we're being a bit fancy here and using
+ * a path variable, :goalId, to add steps to a specific goal
+ */
+router.get(`/${DESIGN_VERSION}/goal/:goalId/add-steps`, (req, res, next) => {
+    /** We can access that path variable like so */
+    const goalId = req.params.goalId
+
+    /**
+     * We can then get the goal we just created from our goal data store
+     * Note: We remove -1 from the goalId as arrays in Javascript are 0 indexed (start at 0)
+     */
+    const goalData = req.session.data.goals[goalId - 1]
+
+    /**
+     * Finally we pass that goal data to the view, so that we can use it in our page!
+     * We can now access all of our relevant goal data through {{ GOAL_DATA }} in our HTML/template
+     */
+    return res.render(`${DESIGN_VERSION}/add-steps.html`, {
+        GOAL_DATA: goalData
+    })
+})
+
+router.post(`/${DESIGN_VERSION}/goal/:goalId/add-steps`, (req, res, next) => {
+    /** We access that path variable and goal again */
+    const goalId = req.params.goalId
+    const goalData = req.session.data.goals[goalId - 1]
+
+    /**
+     * When we add steps, the req.body looks like
+     * {
+     *     who0: "Joan",
+     *     step0: "Will fly a helicopter"
+     *     when0: "03/07/2024"'
+     * }
+     * with each additional step adding an extra 3 fields, and incrementing their
+     * appended number. We want to break these easier to use for our other pages, so we
+     * clean them up
+     */
+    const steps = Object.keys(req.body)
+        .filter(key => key.startsWith('who'))
+        .map((key, index) => ({
+            id: index + 1,
+            who: req.body[`who${index}`],
+            step: req.body[`step${index}`],
+            when: req.body[`when${index}`]
+        }));
+    /**
+     * Now our step data is shaped like
+     * [
+     *     {
+     *         id: 1,
+     *         who: "Joan",
+     *         step: "Flying a helicopter",
+     *         when: "03/07/2024"
+     *     },
+     *         {
+     *         id: 2,
+     *         who: "Joan",
+     *         step: "Winning the euros",
+     *         when: "14/07/2024"
+     *     }
+     * ]
+     *
+     * And we can easily add all those steps into our goal's steps array,
+     * and then re-save the goal.
+     */
+    goalData.steps.push(...steps)
+    req.session.data.goals[goalId - 1] = goalData
+
+    /** Now lets redirect the user to the summary page */
     return res.redirect(`/${DESIGN_VERSION}/plan-overview`)
 })

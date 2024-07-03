@@ -29,9 +29,9 @@ window.GOVUKPrototypeKit.documentReady(() => {
   ]
 
   accessibleAutocomplete({
-    element: document.querySelector('#createGoalAcc'),
-    id: 'createGoalAcc', // To match it to the existing <label>.
-    name: 'createGoalAcc',
+    element: document.querySelector('#goalObjective'),
+    id: 'goalObjective', // To match it to the existing <label>.
+    name: 'goalObjective',
     source: goal,
     displayMenu: 'overlay'
   })

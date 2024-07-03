@@ -1,0 +1,354 @@
+{% extends "layouts/main.html" %} {% block pageTitle %} Question page template –
+{{ serviceName }} – GOV.UK Prototype Kit {% endblock %} 
+
+
+{% block main %}
+{% include "../includes/primary-nav.html" %}
+{{ super() }}
+{% endblock %}
+
+{% block content %}
+
+
+  
+          
+          
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+    
+          
+          <div class="profile-banner-plan profileFIlters">
+             
+          
+           <ul class="govuk-list govuk-!-margin-bottom-0">
+            <li class="govuk-body govuk-!-font-size-19" style="padding-top: 8px;">
+                
+            <strong>John Smith</strong>
+              </li>
+            <li style="padding-top: 8px;">CRN: Z804100</li>
+             <li style="padding-top: 8px;">PNC: 2017/123400000H</li>
+             <li style="padding-top: 8px;">Date of birth: 26 June 1978</li>
+           </ul>
+           
+          </hr>
+          
+            
+            </div>
+          
+  </div>
+
+</div>
+
+
+        
+<a href="/splan6/index" class="govuk-back-link">Back</a> 
+        
+
+<div class="govuk-grid-row">
+ 
+  <div class="govuk-grid-column-one-third">
+
+    {%- from "moj/components/side-navigation/macro.njk" import mojSideNavigation -%}
+
+    {{ mojSideNavigation({
+      label: 'Side navigation',
+      items: [{
+        text: 'Accommodation',
+        href: 'create-goal'
+      }, {
+        text: 'Employment and education',
+        href: '#2'
+      }, {
+        text: 'Finance',
+        href: '#3'
+      }, {
+        text: 'Drug use',
+        href:'#4'
+      },
+      {
+        text: 'Alcohol use',
+        href:'create-goal-alcohol'
+      },
+      {
+        text: 'Health and wellbeing',
+        href:'#6'
+      },
+      {
+        text: 'Personal relationships and community',
+        href:'#7'
+      },
+      {
+        text: 'Thinking, behaviours and attitudes',
+        href:'create-goal-thinking',
+        active: true
+      }
+      ]
+    }) }}
+
+  </div>
+          
+          
+          
+          <div class="govuk-grid-column-two-thirds">
+          </br>
+        
+            
+            
+            <span class="govuk-caption-xl">Thinking, behaviours and attitudes</span>
+            <h1 class="govuk-heading-l">Create a goal with John</h1>
+
+            <details class="govuk-details">
+              <summary class="govuk-details__summary">
+                <span class="govuk-details__summary-text">
+                  View information from John’s assessment
+                </span>
+              </summary>
+              <div class="govuk-details__text">
+                <h1 class="govuk-heading-s govuk-!-margin-bottom-0">Motivation to make changes in this area</h1>
+                <p>John wants to make changes and knows how.</p>
+
+                <h1 class="govuk-heading-s govuk-!-margin-bottom-0">Strengths and protective factors</h1>
+                <p>No strengths or protective factors related to this area.</p>
+
+                <h1 class="govuk-heading-s govuk-!-margin-bottom-0">This area is linked to risk of serious harm (RoSH)</h1>
+                <p>Multiple incidents of aggression both as a response to the situation (e.g. feels that someone has disrespected him) and also to gain compliance (e.g. when owed money). Exhibits a very negative attitude towards the police and any interaction with them is more often than not likely to result in aggression especially as he believes that they persecute him.</p>
+                
+                <h1 class="govuk-heading-s govuk-!-margin-bottom-0">This area is linked to risk of reoffending</h1>
+                <p>Multiple incidents of aggression both as a response to the situation (e.g. feels that someone has disrespected him) and also to gain compliance (e.g. when owed money). Exhibits a very negative attitude towards the police and any interaction with them is more often than not likely to result in aggression especially as he believes that they persecute him.</p>
+
+                <h1 class="govuk-heading-s govuk-!-margin-bottom-0">Notes on thinking, behaviours and attitudes</h1>
+                <p class="govuk-body-s govuk-!-margin-bottom-0" style="color: #505a5f;font-size: 1rem;">Created on 26 March 2024 by Joe Bloggs.</p>
+                <p class="govuk-body">John struggles to solve his problems and prefers others to do this for him, he behaves impulsively with little thought and places his own needs above those of others including the other's own safety.</p>
+               </div>
+            </details>
+
+            <div class="govuk-form-group ">
+                <fieldset class="govuk-fieldset" aria-describedby="contact-hint">
+                  <div class="govuk-form-group">
+                    <label class="govuk-label govuk-label--m" for="country">
+                      What goal should John try to achieve?
+                    </label>
+                    <div id="event-name-hint" class="govuk-hint">
+                      Search for a suggested goal or enter your own. Add one goal at a time.
+                    </div>
+                  <select class="govuk-select" id="country" name="country"
+                    data-module="autocomplete" data-autoselect="" data-display-menu="" data-min-length="" data-show-all-values="" data-show-no-options-found="">
+                    <option value="" selected disabled>Select an option</option>
+                    <option value="relationship">Improve problem-solving skills</option>
+                    <option value="suitable">Develop new thinking and decision-making skills</option>
+                    <option value="eviction">Reduce impulsive behaviour</option>
+                    <option value="rules">Increase ability to plan for the future</option>
+                    <option value="assessed">Improve ability to resolve conflict</option>
+                    <option value="payments">Increase understanding of how behaviour affects others</option>
+                    <option value="applications">Increase awareness of the triggers that may lead to violent behaviour</option>
+                    <option value="applications">Reduce the number of conflicts they are involved with</option>
+                    <option value="applications">Do not get arrested for any violent incidents in the next 12 months</option>
+                    <option value="applications">Increase assertiveness skills</option>
+                    <option value="applications">Increase skills in dealing with others</option>
+                    <option value="applications">Increase skills in dealing with difficult situations</option>
+                    <option value="applications">Increase self-control</option>
+                    <option value="applications">Increase awareness of how their attitude affects their behaviour</option>
+                    <option value="applications">Increase understanding of how it feels to be treated in a discriminatory way</option>
+                    <option value="applications">Attitudes to justify their behaviour</option>
+                    <option value="applications">Improve sensitivity</option>
+                    <option value="applications">Increase acceptance of cultural diversity</option>
+                    <option value="applications">Improved compliance with the supervision process</option>
+                    <option value="applications">Compile all licence conditions for the duration of their licence</option>
+                    <option value="applications">Identify and overcome obstacles that have previously contributed to their behaviour</option>
+                  </select>
+                </div>
+
+                 
+                </fieldset>
+
+                </div>
+                <div class="govuk-form-group">
+                  <fieldset class="govuk-fieldset">
+                    <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+                      <h2 class="govuk-fieldset__heading">
+                        Is this goal related to any other area of need?
+                      </h2>
+                    </legend>
+                    <div class="govuk-radios" data-module="govuk-radios">
+                      <div class="govuk-radios__item">
+                        <input class="govuk-radios__input" id="contact" name="relatedGoal" type="radio" value="yes" data-aria-controls="conditional-contact">
+                        <label class="govuk-label govuk-radios__label" for="contact">
+                          Yes
+                        </label>
+                      </div>
+                      <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-contact">
+                        <div class="govuk-form-group">
+                          <div class="govuk-form-group">
+                            <fieldset class="govuk-fieldset" aria-describedby="waste-hint">
+                              <div id="waste-hint" class="govuk-hint">
+                                Select all related areas
+                              </div>
+                              <div class="govuk-checkboxes" data-module="govuk-checkboxes">
+                                <div class="govuk-checkboxes__item">
+                                  <input class="govuk-checkboxes__input" id="waste" name="waste" type="checkbox" value="accommodation">
+                                  <label class="govuk-label govuk-checkboxes__label" for="waste">
+                                    Accommodation
+                                  </label>
+                                </div>
+                                <div class="govuk-checkboxes__item">
+                                  <input class="govuk-checkboxes__input" id="waste-2" name="waste" type="checkbox" value="alcohol use">
+                                  <label class="govuk-label govuk-checkboxes__label" for="waste-2">
+                                    Alcohol use
+                                  </label>
+                                </div>
+                                <div class="govuk-checkboxes__item">
+                                  <input class="govuk-checkboxes__input" id="waste-3" name="waste" type="checkbox" value="drug use">
+                                  <label class="govuk-label govuk-checkboxes__label" for="waste-3">
+                                    Drug use
+                                  </label>
+                                </div>
+                                <div class="govuk-checkboxes__item">
+                                  <input class="govuk-checkboxes__input" id="waste-4" name="waste" type="checkbox" value="employment and education">
+                                  <label class="govuk-label govuk-checkboxes__label" for="waste-4">
+                                    Employment and education
+                                  </label>
+                                </div>
+                                <div class="govuk-checkboxes__item">
+                                  <input class="govuk-checkboxes__input" id="waste-5" name="waste" type="checkbox" value="finance">
+                                  <label class="govuk-label govuk-checkboxes__label" for="waste-5">
+                                    Finance
+                                  </label>
+                                </div>
+                                <div class="govuk-checkboxes__item">
+                                  <input class="govuk-checkboxes__input" id="waste-6" name="waste" type="checkbox" value="health and wellbeing">
+                                  <label class="govuk-label govuk-checkboxes__label" for="waste-6">
+                                    Health and wellbeing
+                                  </label>
+                                </div>
+                                <div class="govuk-checkboxes__item">
+                                  <input class="govuk-checkboxes__input" id="waste-7" name="waste" type="checkbox" value="personal relationships and community">
+                                  <label class="govuk-label govuk-checkboxes__label" for="waste-7">
+                                    Personal relationships and community
+                                  </label>
+                                </div>
+                              </div>
+                            </fieldset>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="govuk-radios__item">
+                        <input class="govuk-radios__input" id="changedName-2" name="relatedGoal" type="radio" value="no">
+                        <label class="govuk-label govuk-radios__label" for="changedName-2">
+                          No
+                        </label>
+                      </div>
+                    </div>
+                  </fieldset>
+                </div>
+                
+                
+                <div class="govuk-form-group">
+                  <fieldset class="govuk-fieldset" aria-describedby="changedName-hint">
+                    <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+                      <h2 class="govuk-fieldset__heading">
+                        Can John start working on this goal now?
+                      </h2>
+                    </legend>
+                    <div class="govuk-radios" data-module="govuk-radios">
+                      <div class="govuk-radios__item">
+                        <input class="govuk-radios__input" id="canStartYes" name="canStart" type="radio" value="yes">
+                        <label class="govuk-label govuk-radios__label" for="canStartYes">
+                          Yes
+                        </label>
+                      </div>
+                      <div class="govuk-radios__item">
+                        <input class="govuk-radios__input" id="canStartNo" name="canStart" type="radio" value="no">
+                        <label class="govuk-label govuk-radios__label" for="canStartNo">
+                          No, it is a future goal
+                        </label>
+                      </div>
+                    </div>
+                  </fieldset>
+                </div>
+                
+                <div class="govuk-form-group govuk-conditional--hidden" id="second-question">
+                  <fieldset class="govuk-fieldset">
+                    <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+                      <h2 class="govuk-fieldset__heading">
+                        When should John aim to achieve this goal?
+                      </h2>
+                    </legend>
+                    <div class="govuk-radios" data-module="govuk-radios">
+                      <div class="govuk-radios__item">
+                        <input class="govuk-radios__input" id="whenAchieve1" name="whenAchieve" type="radio" value="next-meeting">
+                        <label class="govuk-label govuk-radios__label" for="whenAchieve1">
+                          At our next meeting (8 August 2024)
+                        </label>
+                      </div>
+                      <div class="govuk-radios__item">
+                        <input class="govuk-radios__input" id="whenAchieve2" name="whenAchieve" type="radio" value="three-months">
+                        <label class="govuk-label govuk-radios__label" for="whenAchieve2">
+                          In 3 months (8 October 2024)
+                        </label>
+                      </div>
+                      <div class="govuk-radios__item">
+                        <input class="govuk-radios__input" id="whenAchieve3" name="whenAchieve" type="radio" value="six-months">
+                        <label class="govuk-label govuk-radios__label" for="whenAchieve3">
+                          In 6 months (8 January 2025)
+                        </label>
+                      </div>
+                      <div class="govuk-radios__item">
+                        <input class="govuk-radios__input" id="whenAchieve4" name="whenAchieve" type="radio" value="twelve-months">
+                        <label class="govuk-label govuk-radios__label" for="whenAchieve4">
+                          In 12 months (8 July 2025)
+                        </label>
+                      </div>
+                      <div class="govuk-radios__item">
+                        <input class="govuk-radios__input" id="whenAchieve5" name="whenAchieve" type="radio" value="end-of-sentence">
+                        <label class="govuk-label govuk-radios__label" for="whenAchieve5">
+                          At the end of John’s sentence
+                        </label>
+                      </div>
+                      <div class="govuk-radios__divider">or</div>
+                      <div class="govuk-radios__item">
+                        <input class="govuk-radios__input" id="whenAchieve6" name="whenAchieve" type="radio" value="set-another-date">
+                        <label class="govuk-label govuk-radios__label" for="whenAchieve6">
+                          Set another date
+                        </label>
+                        <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-set-date">
+                          <div class="govuk-form-group">
+                            <input class="govuk-input govuk-!-width-one-third" id="set-date" name="set-date" type="text" spellcheck="false" placeholder="DD/MM/YYYY">
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </fieldset>
+                </div>
+                
+                
+
+
+                <a href="/splan6/add-steps" type="submit" class="govuk-button govuk-!-margin-top-6" data-module="govuk-button">
+                    Save and continue
+                </a>
+
+   
+              </div>
+
+          </div>
+
+          </div>
+          
+          
+        </div>
+        
+        
+        
+       
+        
+      </div>
+    
+    </div>
+
+        </main>
+      </div>
+
+
+    
+{% endblock %}
+

@@ -1,0 +1,123 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  GOV.UK page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+    
+          
+          <div class="profile-banner-plan profileFIlters">
+             
+          
+           <ul class="govuk-list govuk-!-margin-bottom-0">
+            <li class="govuk-body govuk-!-font-size-19" style="padding-top: 8px;">
+                
+            <strong>John Smith</strong>
+              </li>
+            <li style="padding-top: 8px;">CRN: Z804100</li>
+             <li style="padding-top: 8px;">PNC: 2017/123400000H</li>
+             <li style="padding-top: 8px;">Date of birth: 26 June 1978</li>
+           </ul>
+           
+          </hr>
+          <!--<h1 class="govuk-heading-l" style="margin-bottom: -5px;"> John's plan</h1>-->
+            
+            </div>
+          
+  </div>
+
+</div>
+
+<h2 class="govuk-heading-l">Details from John's assessment</h2>
+
+
+<div class="govuk-accordion" data-module="govuk-accordion" id="accordion-default">
+  <div class="govuk-accordion__section">
+    <div class="govuk-accordion__section-header">
+      <h2 class="govuk-accordion__section-heading">
+        <span class="govuk-accordion__section-button" id="accordion-default-heading-1">
+          Accommodation
+        </span>
+      </h2>
+    </div>
+    <div id="accordion-default-content-1" class="govuk-accordion__section-content">
+      <p class="govuk-body">This is the content for Writing well for the web.</p>
+    </div>
+  </div>
+  <div class="govuk-accordion__section">
+    <div class="govuk-accordion__section-header">
+      <h2 class="govuk-accordion__section-heading">
+        <span class="govuk-accordion__section-button" id="accordion-default-heading-2">
+          Employment and education
+        </span>
+      </h2>
+    </div>
+    <div id="accordion-default-content-2" class="govuk-accordion__section-content">
+      <p class="govuk-body">This is the content for Writing well for specialists.</p>
+    </div>
+  </div>
+  <div class="govuk-accordion__section">
+    <div class="govuk-accordion__section-header">
+      <h2 class="govuk-accordion__section-heading">
+        <span class="govuk-accordion__section-button" id="accordion-default-heading-3">
+          Finance
+        </span>
+      </h2>
+    </div>
+    <div id="accordion-default-content-3" class="govuk-accordion__section-content">
+      <p class="govuk-body">This is the content for Know your audience.</p>
+    </div>
+  </div>
+  <div class="govuk-accordion__section">
+    <div class="govuk-accordion__section-header">
+      <h2 class="govuk-accordion__section-heading">
+        <span class="govuk-accordion__section-button" id="accordion-default-heading-4">
+          Drug use
+        </span>
+      </h2>
+    </div>
+    <div id="accordion-default-content-4" class="govuk-accordion__section-content">
+      <p class="govuk-body">This is the content for How people read.</p>
+    </div>
+  </div>
+</div>
+
+
+<div class="nhsuk-expander-group">
+  <details class="nhsuk-details nhsuk-expander">
+    <summary class="nhsuk-details__summary">
+      <span class="nhsuk-details__summary-text">
+        How to measure your blood glucose levels
+      </span>
+    </summary>
+    <div class="nhsuk-details__text">
+      <p>Testing your blood at home is quick and easy, although it can be uncomfortable. It does get better.</p>
+      <p>You would have been given:</p>
+      <ul>
+        <li>a blood glucose metre</li>
+        <li>small needles called lancets</li>
+        <li>a plastic pen to hold the lancets</li>
+        <li>small test strips</li>
+      </ul>
+
+    </div>
+  </details>
+
+  <details class="hods-expandable-banner">
+    <summary class="hods-expandable-banner__summary">
+      Draft
+    </summary>
+    <div class="hods-expandable-banner__text">
+      This licence is not active. The licence holder or
+      applicant is not authorised to carry out the
+      programme of work as stated in this
+      licence/application.
+    </div>
+  </details>
+
+</div>
+{% endblock %}

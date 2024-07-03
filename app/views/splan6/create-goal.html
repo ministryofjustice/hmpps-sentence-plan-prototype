@@ -162,13 +162,15 @@
               </div>
 
               <div class="govuk-form-group">
-                <fieldset class="govuk-fieldset">
+                <fieldset class="govuk-fieldset" aria-describedby="contact-hint">
                   <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
                     <h2 class="govuk-fieldset__heading">
                       Is this goal related to any other area of need?
                     </h2>
                   </legend>
-                 
+                  <div id="contact-hint" class="govuk-hint">
+                    Select one option.
+                  </div>
                   <div class="govuk-radios" data-module="govuk-radios">
                     <div class="govuk-radios__item">
                       <input class="govuk-radios__input" id="contact" name="contact" type="radio" value="email" data-aria-controls="conditional-contact">
@@ -178,70 +180,76 @@
                     </div>
                     <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-contact">
                       <div class="govuk-form-group">
-                        <div class="govuk-form-group">
-                          <fieldset class="govuk-fieldset" aria-describedby="waste-hint">
-                            
-                            <div id="waste-hint" class="govuk-hint">
-                              Select all related areas
-                            </div>
-                            <div class="govuk-checkboxes" data-module="govuk-checkboxes">
-                              <div class="govuk-checkboxes__item">
-                                <input class="govuk-checkboxes__input" id="waste" name="waste" type="checkbox" value="accommodation">
-                                <label class="govuk-label govuk-checkboxes__label" for="waste">
-                                 Accommodation
-                                </label>
-                              </div>
-                              <div class="govuk-checkboxes__item">
-                                <input class="govuk-checkboxes__input" id="waste-2" name="waste" type="checkbox" value="alcohol use">
-                                <label class="govuk-label govuk-checkboxes__label" for="waste-2">
-                                 Alcohol use
-                                </label>
-                              </div>
-                              <div class="govuk-checkboxes__item">
-                                <input class="govuk-checkboxes__input" id="waste-3" name="waste" type="checkbox" value="drug use">
-                                <label class="govuk-label govuk-checkboxes__label" for="waste-3">
-                                  Drug use
-                                </label>
-                              </div>
-                              <div class="govuk-checkboxes__item">
-                                <input class="govuk-checkboxes__input" id="waste-4" name="waste" type="checkbox" value="employment and education">
-                                <label class="govuk-label govuk-checkboxes__label" for="waste-4">
-                                  Employment and education
-                                </label>
-                              </div>
-                              <div class="govuk-checkboxes__item">
-                                <input class="govuk-checkboxes__input" id="waste-5" name="waste" type="checkbox" value="finance">
-                                <label class="govuk-label govuk-checkboxes__label" for="waste-5">
-                                  Finance
-                                </label>
-                              </div>
-                              <div class="govuk-checkboxes__item">
-                                <input class="govuk-checkboxes__input" id="waste-6" name="waste" type="checkbox" value="health and wellbeing">
-                                <label class="govuk-label govuk-checkboxes__label" for="waste-6">
-                                  Health and wellbeing
-                                </label>
-                              </div>
-                              <div class="govuk-checkboxes__item">
-                                <input class="govuk-checkboxes__input" id="waste-7" name="waste" type="checkbox" value="personal relationships and community">
-                                <label class="govuk-label govuk-checkboxes__label" for="waste-7">
-                                  Personal relationships and community
-                                </label>
-                              </div>
-                             
-                            </div>
-                          </fieldset>
+                        <div id="waste-hint" class="govuk-hint">
+                          Select all related areas
                         </div>
+                        <div class="govuk-checkboxes" data-module="govuk-checkboxes">
+                          <div class="govuk-checkboxes__item">
+                            <input class="govuk-checkboxes__input" id="waste" name="waste" type="checkbox" value="accommodation">
+                            <label class="govuk-label govuk-checkboxes__label" for="waste">
+                             Accommodation
+                            </label>
+                          </div>
+                          <div class="govuk-checkboxes__item">
+                            <input class="govuk-checkboxes__input" id="waste-2" name="waste" type="checkbox" value="alcohol use">
+                            <label class="govuk-label govuk-checkboxes__label" for="waste-2">
+                             Alcohol use
+                            </label>
+                          </div>
+                          <div class="govuk-checkboxes__item">
+                            <input class="govuk-checkboxes__input" id="waste-3" name="waste" type="checkbox" value="drug use">
+                            <label class="govuk-label govuk-checkboxes__label" for="waste-3">
+                              Drug use
+                            </label>
+                          </div>
+                          <div class="govuk-checkboxes__item">
+                            <input class="govuk-checkboxes__input" id="waste-4" name="waste" type="checkbox" value="employment and education">
+                            <label class="govuk-label govuk-checkboxes__label" for="waste-4">
+                              Employment and education
+                            </label>
+                          </div>
+                          <div class="govuk-checkboxes__item">
+                            <input class="govuk-checkboxes__input" id="waste-5" name="waste" type="checkbox" value="finance">
+                            <label class="govuk-label govuk-checkboxes__label" for="waste-5">
+                              Finance
+                            </label>
+                          </div>
+                          <div class="govuk-checkboxes__item">
+                            <input class="govuk-checkboxes__input" id="waste-6" name="waste" type="checkbox" value="health and wellbeing">
+                            <label class="govuk-label govuk-checkboxes__label" for="waste-6">
+                              Health and wellbeing
+                            </label>
+                          </div>
+                          <div class="govuk-checkboxes__item">
+                            <input class="govuk-checkboxes__input" id="waste-7" name="waste" type="checkbox" value="personal relationships and community">
+                            <label class="govuk-label govuk-checkboxes__label" for="waste-7">
+                              Personal relationships and community
+                            </label>
+                          </div>
+                         
+                        </div>
+                      
                       </div>
                     </div>
                     <div class="govuk-radios__item">
-                      <input class="govuk-radios__input" id="changedName-2" name="changedName" type="radio" value="no">
-                      <label class="govuk-label govuk-radios__label" for="changedName-2">
+                      <input class="govuk-radios__input" id="contact-2" name="contact" type="radio" value="phone" data-aria-controls="conditional-contact-2">
+                      <label class="govuk-label govuk-radios__label" for="contact-2">
                         No
                       </label>
                     </div>
+                    <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-contact-2">
+                      <div class="govuk-form-group">
+                        
+                      </div>
+                    </div>
+                    
+                    
                   </div>
                 </fieldset>
               </div>
+              
+
+              
               
               <div class="govuk-form-group">
                 <fieldset class="govuk-fieldset" aria-describedby="changedName-hint">

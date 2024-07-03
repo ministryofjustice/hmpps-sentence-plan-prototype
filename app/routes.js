@@ -92,12 +92,19 @@ router.post(`/${DESIGN_VERSION}/create-goal`, function (req, res) {
     const goalData = {
         /** Let's set up an ID for this goal, so we can associate steps with it */
         id: req.session.data.goals.length + 1,
+
         needArea: req.body.needArea,
         goalObjective: req.body.goalObjective,
+
         /** 'relatedNeedAreas' has junk data in it, We will filter out the "_unchecked" value */
-        relatedNeedAreas: req.body.relatedNeedAreas.filter(areaOfNeed => areaOfNeed !== "_unchecked"),
+        relatedNeedAreas: Array.isArray(req.body.relatedNeedAreas) ?
+            req.body.relatedNeedAreas.filter(areaOfNeed => areaOfNeed !== "_unchecked") : [],
+
         isActiveGoal: req.body.isActiveGoal,
-        date: req.body.date,
+
+        /** Check if the date is set to custom, if so, get value from datePicker, otherwise use req.body.date */
+        date: req.body.date === 'custom' ? `by ${req.body.datePicker}` : req.body.date,
+
         /** We'll also add a blank array for storing steps for this goal in */
         steps: []
     }
@@ -160,6 +167,10 @@ router.get(`/${DESIGN_VERSION}/goal/:goalId/add-steps`, (req, res, next) => {
     })
 })
 
+/**
+ * Add a post route for receiving the steps, which can then be added to the goal with
+ * the id that matches :goalId in the URL.
+ */
 router.post(`/${DESIGN_VERSION}/goal/:goalId/add-steps`, (req, res, next) => {
     /** We access that path variable and goal again */
     const goalId = req.params.goalId
@@ -209,4 +220,14 @@ router.post(`/${DESIGN_VERSION}/goal/:goalId/add-steps`, (req, res, next) => {
 
     /** Now lets redirect the user to the summary page */
     return res.redirect(`/${DESIGN_VERSION}/plan-overview`)
+})
+
+router.get(`/${DESIGN_VERSION}/plan-overview`, (req, res, next) => {
+    /**
+     *  We can now access all goal data through {{ GOALS_DATA }} in our HTML/template
+     */
+    return res.render(`${DESIGN_VERSION}/plan-overview.html`, {
+        GOALS_DATA: req.session.data.goals.filter(goal => goal.date),
+        GOALS_FOR_LATER_DATA: req.session.data.goals.filter(goal => !goal.date)
+    })
 })

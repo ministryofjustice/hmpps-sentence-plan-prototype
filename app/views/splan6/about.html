@@ -8,15 +8,9 @@
 {{ super() }}
 {% endblock %}
 
-{% block content %}
-
-          
-          
+{% block content %}    
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-full">
-    
-          
-                  
     <div class="profile-banner-plan profileFilters">
         <div class="header-container">
             <ul class="govuk-list govuk-!-margin-bottom-0">
@@ -30,9 +24,9 @@
         </div>
     
         <div class="header-container" style="display: flex;  justify-content: space-between; padding-top: 20px;">
-            <h1 class="govuk-heading-l">About John</h1>
+            <h1 class="govuk-heading-l govuk-!-margin-bottom-0">About John</h1>
             <form class="form" action="/splan6/create-goal" method="post">
-                <button type="submit" class="govuk-button govuk-button--secondary" data-module="govuk-button">
+                <button type="submit" class="govuk-button govuk-button--secondary govuk-!-margin-bottom-0" data-module="govuk-button">
                     Create goal
                 </button>
             </form>
@@ -60,7 +54,6 @@
         
     </div>
          
-
     <h2 class="govuk-heading-m">High-scoring areas from the assessment</h2>
     <div class="govuk-accordion" data-module="govuk-accordion" id="accordion-default">
         <div class="govuk-accordion__section">

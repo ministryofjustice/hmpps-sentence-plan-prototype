@@ -993,8 +993,21 @@ margin-bottom: 20px;
 .phoebe-accordion-header {
 	font-size: 24px!important;
 	font-weight: 100!important;
+	display: flex;
+	align-items: center;
+	row-gap: 10px;
+	column-gap: 10px;
+	padding-top: 25px!important;
 }
 
-.phoebe-accordion {
-	border-left: #b1b4b6!important;
+.phoebe-accordion-tags {
+	margin-right: auto;
+}
+
+.phoebe-accordion-header-no-risk {
+	font-size: 24px!important;
+	font-weight: 100!important;
+	display: flex;
+	justify-content: space-between;
+	padding-top: 25px!important;
 }

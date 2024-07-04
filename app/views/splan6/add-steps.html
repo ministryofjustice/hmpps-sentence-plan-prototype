@@ -98,7 +98,10 @@
                     id: "who0",
                     name: "who0",
                     label: {
-                      text: "Who"
+                      text: "Who will do the step?"
+                    },
+                    hint: {
+                      text: "Add one person or agency."
                     },
                     items: [
                       {
@@ -134,8 +137,11 @@
 
                 <div class="govuk-grid-column-one-half">
                   <label class="govuk-label" for="step0">
-                    What
+                    What should they do to achieve the goal?
                   </label>
+                  <div id="account-number-hint" class="govuk-hint">
+                    Add one step in each box.
+                  </div>
                   <div id="step0"></div>
                 </div>
 
@@ -144,7 +150,10 @@
                     id: "when0",
                     name: "when0",
                     label: {
-                        text: "When"
+                        text: "Due date"
+                    },
+                    hint: {
+                      html: "<br>"
                     }
                   }) }}
                 </div>
@@ -185,8 +194,11 @@
                   <div class="govuk-grid-column-one-quarter">
                     <div class="govuk-form-group">
                       <label class="govuk-label govuk-visually-hidden" for="who${count}">
-                        Who
+                        Who will do the step?
                       </label>
+                      <div id="location-hint" class="govuk-hint">
+                        Add one person or agency.
+                      </div>
                       <select class="govuk-select" id="who${count}" name="who${count}">
                         <option value="" selected="" disabled="">Select who</option>
                         <option value="John">Joan</option>
@@ -201,7 +213,10 @@
 
                   <div class="govuk-grid-column-one-half">
                     <label class="govuk-label govuk-visually-hidden" for="step${count}">
-                      What
+                      What should they do to achieve the goal?
+                      <div id="location-hint" class="govuk-hint">
+                        Add one step in each box.
+                      </div>
                     </label>
                     <div id="step${count}"></div>
                   </div>
@@ -210,7 +225,7 @@
 
                     <div class="govuk-form-group hmpps-datepicker " data-module="hmpps-datepicker">
                       <label class="govuk-label govuk-visually-hidden" for="when${count}">
-                        When
+                        Due date
                       </label>
                     <div class="hmpps-datepicker-input__wrapper">
                     <div class="govuk-form-group">

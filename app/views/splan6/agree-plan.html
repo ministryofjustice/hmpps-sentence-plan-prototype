@@ -9,42 +9,7 @@
 
 {% block content %}
 
-  <div class="govuk-grid-row">
-
-    <div class="govuk-grid-row">
-    
-    
-      <div class="govuk-grid-column-full">
-        
-  
-        <!-- Header -->
-        <div class="profile-banner-plan profileFIlters">
-                
-                
-          <!--<h1 class="govuk-heading-m mb10">
-            John Smith
-          </h1>-->
-         
-          <ul class="govuk-list govuk-!-margin-bottom-0">
-           <li class="govuk-body govuk-!-font-size-27" style="padding-top: 0px;">
-               
-           <strong>John Smith</strong>
-             </li>
-           <li style="padding-top: 8px;">CRN: Z804100</li>
-            <li style="padding-top: 8px;">PNC: 2017/123400000H</li>
-            <li style="padding-top: 8px;">Date of birth: 26 June 1978</li>
-          </ul>
-  
-
-          <!--<div style="display: flex; justify-content: space-between; align-items: center; padding-top: 40px;">
-          <h1 class="govuk-heading-l" style="margin-bottom: -5px;"> John's plan</h1>-->
-
-           
-           
-              
-          </div>
-        </div>
-        </div>
+    {% include "../includes/profile-banner.html" %}
 
      <a href="/splan6/plan-overview" class="govuk-back-link">Back</a> 
 
@@ -55,8 +20,6 @@
       <h1 class="govuk-heading-l">
         Does John agree to this plan?
       </h1>
-   
-
 
       <form class="form" action="/splan5/plan-agreed-overview" method="post">
 

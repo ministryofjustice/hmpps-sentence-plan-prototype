@@ -1,7 +1,7 @@
 window.onload = function() {
     const goal = [
-        "I will find suitable accommodation that's safe and secure",
-        'I will keep my current accommodation'
+        "I will find accommodation that is suitable, safe and stable",
+        'I will maintain my current accommodation'
       ]
     
       accessibleAutocomplete({

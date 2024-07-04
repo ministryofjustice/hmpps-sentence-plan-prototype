@@ -5,7 +5,63 @@
 {{ super() }}
 <script src="/public/javascripts/auto.js"></script>
 <script src="/public/javascripts/datepicker.js"></script>
+{% if data.needArea == "Accommodation" %}
+  <script src="/public/javascripts/steps-accommodation.js"></script>
+  <script>
+    var DAsteps = [
+              'Steps',
+              'Here',
+              'As',
+              'Well',
+              'Sorry',
+              'Attend an appointment with a housing agency'
+            ]
+    </script>
+{% elif data.needArea == "Thinking, behaviours and attitudes" %}
+  <script src="/public/javascripts/steps-thinking.js"></script>
+  <script>
+    var DAsteps = [
+              "Attend all probation appointments",
+              "Attend and engage with exercises during supervision sessions",
+              "Attend counselling",
+              "Attend rehabilitation activity requirement (RAR) meetings on time",
+              "Attend Motivational Work Counselling",
+              "Attend Pro Social Modelling course",
+              "Attend Racially Motivated Offending course",
+              "Attend Thinking Skills Violence course",
+              "Break each problem into smaller parts, instead of trying to deal with it all at once",
+              "Consider previous problems they dealt with and what they could have done differently",
+              "Discuss how thoughts or beliefs may impacts behaviour",
+              "Find alternative solutions to problems",
+              "Find non-violent solutions to problems",
+              "Find positive solutions to problems",
+              "Identify people who can help with problems",
+              "Improve ability to identify a problem",
+              "Improve understanding of the results of their behaviour",
+              "Increase awareness of how impulsiveness can affect behaviour",
+              "Learn and understand how they have used anti-social or discriminatory attitudes to justify their behaviour",
+              "Share evidence of problems you have approached in a practical way",
+              "Share examples of how others see their attitudes and behaviour",
+              "Share examples of how their thoughts and feelings affect behaviour",
+              "Share examples of problems solved",
+              "Think about what has contributed to previous behaviour",
+              "Update on progress made and provide examples of achievements"
+            ]
+    </script>
+{% else %}
 <script src="/public/javascripts/steps-accommodation.js"></script>
+<script>
+  var DAsteps = [
+            'Steps',
+            'Here',
+            'As',
+            'Well',
+            'Sorry',
+            'Attend an appointment with a housing agency'
+          ]
+</script>
+{% endif %}
+
 {% endblock %}
 
 {% block content %}
@@ -95,15 +151,6 @@
 
       <script>
         var count = 0;
-
-        const DAsteps = [
-          'Steps',
-          'Here',
-          'As',
-          'Well',
-          'Sorry',
-          'Attend an appointment with a housing agency'
-        ]
 
         function removeRowById(id) {
             // Get the element by ID

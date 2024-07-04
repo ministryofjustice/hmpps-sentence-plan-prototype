@@ -14,6 +14,8 @@ window.onload = function() {
         id: 'goalObjective', // To match it to the existing <label>.
         name: 'goalObjective',
         source: goal,
-        displayMenu: 'overlay'
+        displayMenu: 'overlay',
+        minLength: 3,
+        showNoOptionsFound: false
       })
   };

@@ -13,6 +13,8 @@ window.onload = function() {
         id: 'step0', // To match it to the existing <label>.
         name: 'step0',
         source: lasteps,
-        displayMenu: 'overlay'
+        displayMenu: 'overlay',
+        minLength: 3,
+        showNoOptionsFound: false
       })
   };

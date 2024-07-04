@@ -334,7 +334,9 @@
               id: 'step' + count, // To match it to the existing <label>.
               name: 'step' + count,
               displayMenu: 'overlay',
-              source: DAsteps
+              source: DAsteps,
+              minLength: 3,
+              showNoOptionsFound: false
             })
 
             // reload and init datepicker

@@ -1021,4 +1021,8 @@ margin-bottom: 20px;
 	.govuk-form-group {
 		 margin-bottom: 1rem; //this is hacky. Add a media query
 	 }
-   }
+}
+
+#toggleDiv {
+	display: none;
+}

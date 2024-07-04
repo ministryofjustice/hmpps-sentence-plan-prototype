@@ -23,16 +23,16 @@
         </ul>
 
         <div style="display: flex; justify-content: space-between; align-items: center; padding-top: 40px;">
-          <h1 class="govuk-heading-l">John's plan</h1>
+          <h1 class="govuk-heading-l govuk-!-margin-bottom-0">John's plan</h1>
           
-          <div class="govuk-button-group">
-            <a href="/splan6/create-goal">
-              <button type="button" class="govuk-button govuk-button--secondary" data-module="govuk-button ">
+          <div class="govuk-button-group govuk-!-margin-bottom-0">
+            <form class="form" action="/splan6/create-goal" method="get">
+              <button type="submit" class="govuk-button govuk-button--secondary govuk-!-margin-bottom-0" data-module="govuk-button">
                 Create goal
               </button>
-            </a>
+            </form>
             <form class="form" action="/splan6/agree-plan" method="post">
-            <button type="submit" class="govuk-button" data-module="govuk-button">
+            <button type="submit" class="govuk-button govuk-!-margin-bottom-0" data-module="govuk-button">
               Agree plan
             </button>
           </form>

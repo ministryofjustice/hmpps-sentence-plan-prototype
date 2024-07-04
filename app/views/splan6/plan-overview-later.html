@@ -1,0 +1,188 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block main %}
+  {% include "../includes/primary-nav-plan.html" %}
+  {{ super() }}
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+      <div class="profile-banner-plan profileFIlters">
+        <ul class="govuk-list govuk-!-margin-bottom-0">
+           <li class="govuk-body govuk-!-font-size-19" style="padding-top: 8px;">
+             <strong>John Smith</strong>
+           </li>
+          <li style="padding-top: 8px;">CRN: Z804100</li>
+          <li style="padding-top: 8px;">PNC: 2017/123400000H</li>
+          <li style="padding-top: 8px;">Date of birth: 26 June 1978</li>
+        </ul>
+
+        <div style="display: flex; justify-content: space-between; align-items: center; padding-top: 40px;">
+          <h1 class="govuk-heading-l">John's plan</h1>
+          
+          <div class="govuk-button-group">
+            <a href="/splan6/create-goal">
+              <button type="button" class="govuk-button govuk-button--secondary" data-module="govuk-button ">
+                Create goal
+              </button>
+            </a>
+            <form class="form" action="/splan6/agree-plan" method="post">
+            <button type="submit" class="govuk-button" data-module="govuk-button">
+              Agree plan
+            </button>
+          </form>
+          </div>
+        </div>
+      </div>
+    
+      {{ mojBanner({
+        type: 'success',
+        text: 'You added a goal to John’s plan',
+        iconFallbackText: 'Success'
+      }) }}
+
+      <p>
+        Add steps to the goals John is working on now. You can then agree the plan with John.
+      </p>
+
+      <nav class="moj-sub-navigation mb40" aria-label="Sub navigation">
+        <ul class="moj-sub-navigation__list">
+          <li class="moj-sub-navigation__item">
+            <a class="moj-sub-navigation__link" href="plan-overview">Goals to work on now ({{ GOALS_DATA.length }})</a>
+          </li>
+          <li class="moj-sub-navigation__item">
+            <a class="moj-sub-navigation__link" aria-current="page" href="#">Future goals ({{ GOALS_FOR_LATER_DATA.length }})</a>
+          </li>
+        </ul>
+      </nav>
+
+      <div id="summary-cards">
+        {% for goal in GOALS_FOR_LATER_DATA %}
+        <div class="govuk-summary-card" id="summary-card-{{ goal.id }}" draggable="true">
+          <div class="govuk-summary-card__title-wrapper">
+            <h2 class="govuk-summary-card__title">{{ goal.goalObjective }}</h2>
+            <ul class="govuk-summary-card__actions">
+              <li class="govuk-summary-card__action">
+                <a class="govuk-link govuk-link--no-visited-state" href="#">
+                  Update goal<span class="govuk-visually-hidden"> {{ goal.goalObjective }}</span>
+                </a>
+              </li>
+              <li class="govuk-summary-card__action" style="padding-left: 10px;">
+                <a class="govuk-link govuk-link--no-visited-state" href="#">
+                  Add or change steps<span class="govuk-visually-hidden"> for {{ goal.goalObjective }}</span>
+                </a>
+              </li>
+              <li class="govuk-summary-card__action">
+                <a class="govuk-link govuk-link--no-visited-state" href="#">
+                  Remove goal<span class="govuk-visually-hidden"> {{ goal.goalObjective }}</span>
+                </a>
+              </li>
+            </ul>
+          </div>
+          <div class="govuk-summary-card__content">
+            <p class="govuk-body">Aim to achieve {{ goal.date }}</p>
+            {% if goal.steps and goal.steps.length > 0 %}
+            <table class="govuk-table">
+              <thead class="govuk-table__head">
+              <tr class="govuk-table__row">
+                <th scope="col" class="govuk-table__header">Step</th>
+                <th scope="col" class="govuk-table__header">Who will do this</th>
+                <th scope="col" class="govuk-table__header">Due date</th>
+              </tr>
+              </thead>
+              <tbody class="govuk-table__body">
+              {% for step in goal.steps %}
+              <tr class="govuk-table__row">
+                <td class="govuk-table__cell">{{ step.step }}</td>
+                <td class="govuk-table__cell">{{ step.who }}</td>
+                <td class="govuk-table__cell">{{ step.when }}</td>
+              </tr>
+              {% endfor %}
+              </tbody>
+            </table>
+            {% else %}
+              <strong class="govuk-body govuk-!-font-weight-bold">No steps added</strong>
+              <hr></hr>
+            {% endif %}
+          </div>
+          <p class="govuk-body-s" style="padding-left: 20px; color: #505a5f;">
+            Area of need: {{ goal.needArea }}<br>
+            {% if goal.relatedNeedAreas.length > 0 %}
+              Also relates to: {{ goal.relatedNeedAreas | join(', ') }}
+            {% endif %}
+          </p>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const summaryCards = document.querySelectorAll('.govuk-summary-card');
+
+      summaryCards.forEach(function(card) {
+        const moveUpBtn = card.querySelector('.move-up-btn');
+        const moveDownBtn = card.querySelector('.move-down-btn');
+
+        moveUpBtn.addEventListener('click', function() {
+          moveCardUp(card);
+        });
+
+        moveDownBtn.addEventListener('click', function() {
+          moveCardDown(card);
+        });
+      });
+
+      function moveCardUp(card) {
+        const prevCard = card.previousElementSibling;
+        if (prevCard !== null) {
+          card.parentNode.insertBefore(card, prevCard);
+        }
+      }
+
+      function moveCardDown(card) {
+        const nextCard = card.nextElementSibling;
+        if (nextCard !== null) {
+          card.parentNode.insertBefore(nextCard, card);
+        }
+      }
+    });
+  </script>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const summaryCards = document.querySelectorAll('.govuk-summary-card');
+
+      summaryCards.forEach(function(card) {
+        card.addEventListener('dragstart', handleDragStart);
+        card.addEventListener('dragover', handleDragOver);
+        card.addEventListener('drop', handleDrop);
+      });
+
+      function handleDragStart(event) {
+        event.dataTransfer.setData('text/plain', event.target.id);
+      }
+
+      function handleDragOver(event) {
+        event.preventDefault();
+        event.dataTransfer.dropEffect = 'move';
+      }
+
+      function handleDrop(event) {
+        event.preventDefault();
+        const draggedId = event.dataTransfer.getData('text/plain');
+        const draggedCard = document.getElementById(draggedId);
+        const dropZone = event.currentTarget;
+        if (dropZone !== draggedCard) {
+          dropZone.parentNode.insertBefore(draggedCard, dropZone);
+        }
+      }
+    });
+  </script>
+{% endblock %}

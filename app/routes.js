@@ -241,3 +241,23 @@ router.get(`/${DESIGN_VERSION}/plan-overview-later`, (req, res, next) => {
         GOALS_FOR_LATER_DATA: req.session.data.goals.filter(goal => !goal.date)
     })
 })
+
+router.get(`/${DESIGN_VERSION}/agreed-plan`, (req, res, next) => {
+    /**
+     *  We can now access all goal data through {{ GOALS_DATA }} in our HTML/template
+     */
+    return res.render(`${DESIGN_VERSION}/agreed-plan.html`, {
+        GOALS_DATA: req.session.data.goals.filter(goal => goal.date),
+        GOALS_FOR_LATER_DATA: req.session.data.goals.filter(goal => !goal.date)
+    })
+})
+
+router.get(`/${DESIGN_VERSION}/agreed-plan-later`, (req, res, next) => {
+    /**
+     *  We can now access all goal data through {{ GOALS_DATA }} in our HTML/template
+     */
+    return res.render(`${DESIGN_VERSION}/agreed-plan-later.html`, {
+        GOALS_DATA: req.session.data.goals.filter(goal => goal.date),
+        GOALS_FOR_LATER_DATA: req.session.data.goals.filter(goal => !goal.date)
+    })
+})

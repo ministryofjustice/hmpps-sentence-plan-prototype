@@ -1,6 +1,6 @@
 window.onload = function() {
     const goal = [
-        "I will find suitable accommodation that's safe and secure",
+        "I will find a safe and stable place to live",
         'I will keep my current accommodation'
       ]
     

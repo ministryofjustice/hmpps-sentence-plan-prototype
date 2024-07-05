@@ -53,16 +53,16 @@
       <nav class="moj-sub-navigation mb40" aria-label="Sub navigation">
         <ul class="moj-sub-navigation__list">
           <li class="moj-sub-navigation__item">
-            <a class="moj-sub-navigation__link" aria-current="page" href="#">Goals to work on now ({{ GOALS_DATA.length }})</a>
+            <a class="moj-sub-navigation__link" href="plan-overview">Goals to work on now ({{ GOALS_DATA.length }})</a>
           </li>
           <li class="moj-sub-navigation__item">
-            <a class="moj-sub-navigation__link" href="plan-overview-later">Future goals ({{ GOALS_FOR_LATER_DATA.length }})</a>
+            <a class="moj-sub-navigation__link" aria-current="page" href="#">Future goals ({{ GOALS_FOR_LATER_DATA.length }})</a>
           </li>
         </ul>
       </nav>
 
       <div id="summary-cards">
-        {% for goal in GOALS_DATA %}
+        {% for goal in GOALS_FOR_LATER_DATA %}
         <div class="govuk-summary-card" id="summary-card-{{ goal.id }}" draggable="true">
           <div class="govuk-summary-card__title-wrapper">
             <h2 class="govuk-summary-card__title">{{ goal.goalObjective }}</h2>

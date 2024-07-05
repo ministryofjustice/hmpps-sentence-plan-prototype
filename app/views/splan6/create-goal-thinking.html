@@ -1,7 +1,7 @@
 {% extends "layouts/main.html" %}
 
 {% block pageTitle %}
-  Thinking, behaviours and attitudes – {{ serviceName }} – HMPPS
+  Create goal for Thinking, behaviours and attitudes – {{ serviceName }} – HMPPS
 {% endblock %}
 
 {% block main %}
@@ -35,7 +35,7 @@
                     href:'#4'
                 }, {
                     text: 'Alcohol use',
-                    href:'create-goal-alcohol'
+                    href:'#'
                 }, {
                     text: 'Health and wellbeing',
                     href:'#6'
@@ -57,7 +57,7 @@
                 Create a goal with John
             </h1>
 
-            {% include "../includes/info-from-assessment.html" %}
+            {% include "../includes/info-from-assessment-thinking.html" %}
 
             <form method="post" action="/splan6/create-goal">
                 <input hidden name="needArea" value="Thinking, behaviours and attitudes">

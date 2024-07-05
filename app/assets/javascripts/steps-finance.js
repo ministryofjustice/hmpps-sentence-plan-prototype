@@ -7,7 +7,7 @@ window.onload = function() {
       "Check with court that fines have been paid",
       "Citizen's Advice Bureau to complete an assessment and give advice and information",
       "Create a budget",
-      "Pay money back",
+      "Pay money back ",
       "Pay off fines",
       "Repay money borrowed from friends or family",
       "Saved money so appointments can be attended",
@@ -20,6 +20,8 @@ window.onload = function() {
         id: 'step0', // To match it to the existing <label>.
         name: 'step0',
         source: lasteps,
-        displayMenu: 'overlay'
+        displayMenu: 'overlay',
+        minLength: 3,
+        showNoOptionsFound: false
       })
   };

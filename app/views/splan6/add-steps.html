@@ -9,14 +9,38 @@
   <script src="/public/javascripts/steps-accommodation.js"></script>
   <script>
     var DAsteps = [
-              'Steps',
-              'Here',
-              'As',
-              'Well',
-              'Sorry',
-              'Attend an appointment with a housing agency'
+            "Comply with the rules and regulation of the Approved Premises/Supported Housing where I currently live",
+            "Improve my relationships with my neighbours and/or others in my accommodation",
+            "Reduce any rent arrears",
+            "Attend appointments with my housing worker",
+            "Pay rent/mortgage and bills are paid on time",
+            "Comply with any safeguarding conditions or restrictions that relate to my accommodation",
+            "Find information and advice about available accommodation",
+            "Submit an application to housing provider(s)",
+            "Attend housing appointments to have my housing needs assessed",
+            "Reduce any rent arrears",
+            "Seek approval before accepting accommodation offer, where required"
             ]
     </script>
+  {% elif data.needArea == "Finance" %}
+    <script src="/public/javascripts/steps-finance.js"></script>
+    <script>
+      var DAsteps = [
+              "Attend an appointment with the Citizen's Advice Bureau",
+              "Attend Budgetary Financial Management course",
+              "Attend Finance Advocacy course",
+              "Check with Citizen's Advice Bureau that an appointment was attended",
+              "Check with court that fines have been paid",
+              "Citizen's Advice Bureau to complete an assessment and give advice and information",
+              "Create a budget",
+              "Pay money back ",
+              "Pay off fines",
+              "Repay money borrowed from friends or family",
+              "Saved money so appointments can be attended",
+              "Share evidence of how debts have been paid off",
+              "Share examples of how money is being managed"
+              ]
+      </script>
 {% elif data.needArea == "Thinking, behaviours and attitudes" %}
   <script src="/public/javascripts/steps-thinking.js"></script>
   <script>
@@ -100,11 +124,15 @@
 
     <div class="govuk-grid-row">
       <div class="govuk-grid-column-two-thirds">
-    {% include "../includes/info-from-assessment.html" %}
+        {% if data.needArea == "Thinking, behaviours and attitudes" %}
+          {% include "../includes/info-from-assessment-thinking.html" %}
+        {% elif data.needArea == "Finance" %}
+          {% include "../includes/info-from-assessment-finance.html" %}
+        {% else %}
+          {% include "../includes/info-from-assessment.html" %}
+        {% endif %}
       </div>
     </div>
-
-
 
     <form method="post">
       <div class="app-htmlformrow">
@@ -130,8 +158,8 @@
                         disabled: true
                       },
                       {
-                        value: "Joan",
-                        text: "Joan"
+                        value: "John",
+                        text: "John"
                       },
                       {
                         value: "Probation practitioner",
@@ -333,7 +361,9 @@
               id: 'step' + count, // To match it to the existing <label>.
               name: 'step' + count,
               displayMenu: 'overlay',
-              source: DAsteps
+              source: DAsteps,
+              minLength: 3,
+              showNoOptionsFound: false
             })
 
             // reload and init datepicker

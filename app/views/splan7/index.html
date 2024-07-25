@@ -1,0 +1,123 @@
+{% extends "layouts/main.html" %} {% block pageTitle %} John's Plan –
+{{ serviceName }} – GOV.UK Prototype Kit {% endblock %} 
+{% block main %}
+{% include "../includes/primary-nav.html" %}
+{{ super() }}
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+    <div class="profile-banner-plan profileFilters">
+      <div class="header-container">
+          <ul class="govuk-list govuk-!-margin-bottom-0">
+              <li class="govuk-body govuk-!-font-size-19" style="padding-top: 8px;">
+                  <strong>John Smith</strong>
+              </li>
+              <li style="padding-top: 8px;">CRN: Z804100</li>
+              <li style="padding-top: 8px;">PNC: 2017/123400000H</li>
+              <li style="padding-top: 8px;">Date of birth: 26 June 1978</li>
+          </ul>
+      </div>
+  
+      <div class="header-container" style="display: flex;  justify-content: space-between; padding-top: 20px;">
+          <h1 class="govuk-heading-l govuk-!-margin-bottom-0">Sentence plan</h1>
+          
+      </div>
+  </div>
+
+
+  <div class="govuk-grid-row">
+    <!-- card-->
+   <div class="govuk-grid-column-one-half">                         
+    <div class="card">
+      
+      <div class="card-body landing-card">
+        <div class="landing-heading">
+          <h2 class="govuk-heading-s"><a class="govuk-link govuk-link--no-visited-state" href="/splan6/about">Check or update Joan’s plan</a></h2>
+        </div>
+      <p class="govuk-body">
+        Last updated [DD Month YY]
+      </p>
+      <p class="govuk-body">
+        View or update Joan’s goals and steps, and record how Joan is doing on each goal.
+      </p>
+
+      
+     
+      </div>
+    </div>
+  </div>
+    <!-- card end -->
+  
+  
+    <!-- card-->
+    <div class="govuk-grid-column-one-half">                         
+      <div class="card">
+        
+        <div class="card-body landing-card">
+          <div class="landing-heading">
+            <h2 class="govuk-heading-s"><a class="govuk-link govuk-link--no-visited-state" href="/splan6/create-goal">Record notes on progress</a></h2>
+          </div>
+            <p class="govuk-body">
+              Consider and record how Joan is doing on the whole plan.
+            </p>
+        
+        </div>
+      </div>
+    </div>
+      <!-- card end -->
+
+        <!-- card-->
+    <div class="govuk-grid-column-one-half">                         
+      <div class="card">
+        
+        <div class="card-body landing-card">
+          <div class="landing-heading">
+            <h2 class="govuk-heading-s"><a class="govuk-link govuk-link--no-visited-state" href="/splan6/create-goal">View notes on progress</a></h2>
+          </div>
+            <p class="govuk-body">
+              View notes recorded by practitioners about Joan’s progress on their whole plan.
+            </p>
+        
+        </div>
+      </div>
+    </div>
+      <!-- card end -->
+
+        <!-- card-->
+    <div class="govuk-grid-column-one-half">                         
+      <div class="card">
+        
+        <div class="card-body landing-card">
+          <div class="landing-heading">
+            <h2 class="govuk-heading-s"><a class="govuk-link govuk-link--no-visited-state" href="/splan7/about">View a summary of Joan’s assessment</a></h2>
+          </div>
+          <p class="govuk-body-s">
+            Last updated [DD Month YY]
+          </p>
+            <p class="govuk-body">
+              Check Joan’s strengths, risks and needs to help you consider their plan together.
+            </p>
+        
+        </div>
+      </div>
+    </div>
+      <!-- card end -->
+  </div>
+
+
+  <!-- <p class="govuk-body">John does not have any goals yet. You can either:</p>
+  <ul class="govuk-list govuk-list--bullet">
+    <li>
+        <a href="/splan6/create-goal" class="govuk-link--no-visited-state">create a goal with Joan</a>
+    </li>
+    <li>
+        <a href="/splan6/about" class="govuk-link--no-visited-state">view information about Joan</a></li>
+    </ul>
+  </div>
+</div> -->
+
+
+
+    {% endblock %}

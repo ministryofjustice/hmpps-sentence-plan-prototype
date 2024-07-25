@@ -165,21 +165,7 @@
   </nav>
   
   
-  
- <div class="govuk-notification-banner mb30" role="region"
-  aria-labelledby="govuk-notification-banner-title"
-  data-module="govuk-notification-banner">
-  <div class="govuk-notification-banner__header">
-    <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">
-      Important
-    </h2>
-  </div>
-  <div class="govuk-notification-banner__content">
-    <p class="govuk-notification-banner__heading">
-      This scenario is currently being worked on.
-    </p>
-  </div>
-</div>
+
 
 
 
@@ -193,13 +179,30 @@
 </div>
 
 <h2 class="govuk-heading-m mb30">
-  Scenario 6.0 - creating goals and steps, person summary </h2>
+  Update a plan 
+<br>
+  {%- from "govuk/components/tag/macro.njk" import govukTag -%}
+      {{ govukTag({
+        text: "In progress",
+        classes: "govuk-tag--purple"
+      }) }}</h2>
 
-  <ul class="govuk-list">
-    
-    <li><a href="splan6">View prototype</a></li>
-    
-  </ul>
+  
+
+<!--   <p class="govuk-body">Main features:</p>
+    <ul class="govuk-list govuk-list--bullet">
+      <li>Update a plan journey</li>
+      <li>View 'About' page</li>    
+   
+    </ul> -->
+
+    <form class="form" action="/splan7/index" method="post">
+      {% from "govuk/components/button/macro.njk" import govukButton %}
+      {{ govukButton({
+      text: "View prototype"
+      }) }}
+    </form>
+
 
   </div>
 </div>

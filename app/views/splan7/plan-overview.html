@@ -1,7 +1,7 @@
 {% extends "layouts/main.html" %}
 
 {% block pageTitle %}
-  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+  John's plan – {{ serviceName }} – GOV.UK Prototype Kit
 {% endblock %}
 
 {% block main %}
@@ -31,93 +31,213 @@
                 Create goal
               </button>
             </form>
-            <form class="form" action="/splan6/agree-plan" method="post">
+            <form class="form" action="/splan7/record-progress" method="post">
             <button type="submit" class="govuk-button govuk-!-margin-bottom-0" data-module="govuk-button">
-              Agree plan
+              Record progress
             </button>
           </form>
           </div>
         </div>
       </div>
     
-      {{ mojBanner({
-        type: 'success',
-        text: 'You added a goal to John’s plan',
-        iconFallbackText: 'Success'
-      }) }}
 
       <p>
-        Add steps to the goals John is working on now. You can then agree the plan with John.
+        Last updated 27 June 2024 by Alexis Diaz.
       </p>
 
       <nav class="moj-sub-navigation mb40" aria-label="Sub navigation">
         <ul class="moj-sub-navigation__list">
           <li class="moj-sub-navigation__item">
-            <a class="moj-sub-navigation__link" aria-current="page" href="#">Goals to work on now ({{ GOALS_DATA.length }})</a>
+            <a class="moj-sub-navigation__link" aria-current="page" href="#">Goals to work on now (3)</a>
           </li>
           <li class="moj-sub-navigation__item">
-            <a class="moj-sub-navigation__link" href="plan-overview-later">Future goals ({{ GOALS_FOR_LATER_DATA.length }})</a>
+            <a class="moj-sub-navigation__link" href="plan-overview-later">Future goals (2) </a>
           </li>
         </ul>
       </nav>
 
       <div id="summary-cards">
-        {% for goal in GOALS_DATA %}
+        
         <div class="govuk-summary-card" id="summary-card-{{ goal.id }}" draggable="true">
           <div class="govuk-summary-card__title-wrapper">
-            <h2 class="govuk-summary-card__title">{{ goal.goalObjective }}</h2>
+            <h2 class="govuk-summary-card__title">Accommodation goal</h2>
             <ul class="govuk-summary-card__actions">
               <li class="govuk-summary-card__action">
                 <a class="govuk-link govuk-link--no-visited-state" href="#">
-                  Change goal<span class="govuk-visually-hidden"> {{ goal.goalObjective }}</span>
+                  Update<span class="govuk-visually-hidden"> {{ goal.goalObjective }}</span>
                 </a>
               </li>
               <li class="govuk-summary-card__action" style="padding-left: 10px;">
                 <a class="govuk-link govuk-link--no-visited-state" href="#">
-                  Add or change steps<span class="govuk-visually-hidden"> for {{ goal.goalObjective }}</span>
+                  Mark as achieved<span class="govuk-visually-hidden"> for {{ goal.goalObjective }}</span>
                 </a>
               </li>
               <li class="govuk-summary-card__action">
                 <a class="govuk-link govuk-link--no-visited-state" href="#">
-                  Remove goal<span class="govuk-visually-hidden"> {{ goal.goalObjective }}</span>
+                  Remove<span class="govuk-visually-hidden"> {{ goal.goalObjective }}</span>
                 </a>
               </li>
             </ul>
           </div>
           <div class="govuk-summary-card__content">
-            <p class="govuk-body">Aim to achieve {{ goal.date }}</p>
-            {% if goal.steps and goal.steps.length > 0 %}
+            <p class="govuk-body">Aim to achieve by 27 December 2024</p>
+            
             <table class="govuk-table">
               <thead class="govuk-table__head">
               <tr class="govuk-table__row">
-                <th scope="col" class="govuk-table__header">Step</th>
                 <th scope="col" class="govuk-table__header">Who will do this</th>
-                <th scope="col" class="govuk-table__header">Due date</th>
+                <th scope="col" class="govuk-table__header">Step</th>
+                <th scope="col" class="govuk-table__header">Status</th>
               </tr>
               </thead>
               <tbody class="govuk-table__body">
-              {% for step in goal.steps %}
+            
               <tr class="govuk-table__row">
-                <td class="govuk-table__cell">{{ step.step }}</td>
-                <td class="govuk-table__cell">{{ step.who }}</td>
-                <td class="govuk-table__cell">{{ step.when }}</td>
+                <td class="govuk-table__cell">Probation practitioner</td>
+                <td class="govuk-table__cell">Set up appointments with housing agencies</td>
+                <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--grey">Not started</strong></td>
               </tr>
-              {% endfor %}
+              <tr class="govuk-table__row">
+                <td class="govuk-table__cell">John</td>
+                <td class="govuk-table__cell">Follow the rules of the approved premises</td>
+                <td class="govuk-table__cell"><strong class="govuk-tag">In progress</strong></td>
+              </tr>
+              <tr class="govuk-table__row">
+                <td class="govuk-table__cell">Somebody else</td>
+                <td class="govuk-table__cell">Find information and advice about available accommodation</td>
+                <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--green">Completed</strong></td>
+              </tr>
+              
               </tbody>
             </table>
-            {% else %}
-              <strong class="govuk-body govuk-!-font-weight-bold">No steps added</strong>
-              <hr></hr>
-            {% endif %}
+          
           </div>
           <p class="govuk-body-s" style="padding-left: 20px; color: #505a5f;">
-            Area of need: {{ goal.needArea }}<br>
-            {% if goal.relatedNeedAreas.length > 0 %}
-              Also relates to: {{ goal.relatedNeedAreas | join(', ') }}
-            {% endif %}
+            Area of need: Accommodation <br>
+       
           </p>
         </div>
-        {% endfor %}
+
+        <div class="govuk-summary-card" id="summary-card-{{ goal.id }}" draggable="true">
+          <div class="govuk-summary-card__title-wrapper">
+            <h2 class="govuk-summary-card__title">Accommodation goal</h2>
+            <ul class="govuk-summary-card__actions">
+              <li class="govuk-summary-card__action">
+                <a class="govuk-link govuk-link--no-visited-state" href="#">
+                  Update<span class="govuk-visually-hidden"> {{ goal.goalObjective }}</span>
+                </a>
+              </li>
+              <li class="govuk-summary-card__action" style="padding-left: 10px;">
+                <a class="govuk-link govuk-link--no-visited-state" href="#">
+                  Mark as achieved<span class="govuk-visually-hidden"> for {{ goal.goalObjective }}</span>
+                </a>
+              </li>
+              <li class="govuk-summary-card__action">
+                <a class="govuk-link govuk-link--no-visited-state" href="#">
+                  Remove<span class="govuk-visually-hidden"> {{ goal.goalObjective }}</span>
+                </a>
+              </li>
+            </ul>
+          </div>
+          <div class="govuk-summary-card__content">
+            <p class="govuk-body">Aim to achieve by 27 December 2024</p>
+            
+            <table class="govuk-table">
+              <thead class="govuk-table__head">
+              <tr class="govuk-table__row">
+                <th scope="col" class="govuk-table__header">Who will do this</th>
+                <th scope="col" class="govuk-table__header">Step</th>
+                <th scope="col" class="govuk-table__header">Status</th>
+              </tr>
+              </thead>
+              <tbody class="govuk-table__body">
+            
+              <tr class="govuk-table__row">
+                <td class="govuk-table__cell">Probation practitioner</td>
+                <td class="govuk-table__cell">Set up appointments with housing agencies</td>
+                <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--grey">Not started</strong></td>
+              </tr>
+              <tr class="govuk-table__row">
+                <td class="govuk-table__cell">John</td>
+                <td class="govuk-table__cell">Follow the rules of the approved premises</td>
+                <td class="govuk-table__cell"><strong class="govuk-tag">In progress</strong></td>
+              </tr>
+              <tr class="govuk-table__row">
+                <td class="govuk-table__cell">Somebody else</td>
+                <td class="govuk-table__cell">Find information and advice about available accommodation</td>
+                <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--green">Completed</strong></td>
+              </tr>
+              
+              </tbody>
+            </table>
+          
+          </div>
+          <p class="govuk-body-s" style="padding-left: 20px; color: #505a5f;">
+            Area of need: Accommodation <br>
+       
+          </p>
+        </div>
+
+        <div class="govuk-summary-card" id="summary-card-{{ goal.id }}" draggable="true">
+          <div class="govuk-summary-card__title-wrapper">
+            <h2 class="govuk-summary-card__title">Accommodation goal</h2>
+            <ul class="govuk-summary-card__actions">
+              <li class="govuk-summary-card__action">
+                <a class="govuk-link govuk-link--no-visited-state" href="#">
+                  Update<span class="govuk-visually-hidden"> {{ goal.goalObjective }}</span>
+                </a>
+              </li>
+              <li class="govuk-summary-card__action" style="padding-left: 10px;">
+                <a class="govuk-link govuk-link--no-visited-state" href="#">
+                  Mark as achieved<span class="govuk-visually-hidden"> for {{ goal.goalObjective }}</span>
+                </a>
+              </li>
+              <li class="govuk-summary-card__action">
+                <a class="govuk-link govuk-link--no-visited-state" href="#">
+                  Remove<span class="govuk-visually-hidden"> {{ goal.goalObjective }}</span>
+                </a>
+              </li>
+            </ul>
+          </div>
+          <div class="govuk-summary-card__content">
+            <p class="govuk-body">Aim to achieve by 27 December 2024</p>
+            
+            <table class="govuk-table">
+              <thead class="govuk-table__head">
+              <tr class="govuk-table__row">
+                <th scope="col" class="govuk-table__header">Who will do this</th>
+                <th scope="col" class="govuk-table__header">Step</th>
+                <th scope="col" class="govuk-table__header">Status</th>
+              </tr>
+              </thead>
+              <tbody class="govuk-table__body">
+            
+              <tr class="govuk-table__row">
+                <td class="govuk-table__cell">Probation practitioner</td>
+                <td class="govuk-table__cell">Set up appointments with housing agencies</td>
+                <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--grey">Not started</strong></td>
+              </tr>
+              <tr class="govuk-table__row">
+                <td class="govuk-table__cell">John</td>
+                <td class="govuk-table__cell">Follow the rules of the approved premises</td>
+                <td class="govuk-table__cell"><strong class="govuk-tag">In progress</strong></td>
+              </tr>
+              <tr class="govuk-table__row">
+                <td class="govuk-table__cell">Somebody else</td>
+                <td class="govuk-table__cell">Find information and advice about available accommodation</td>
+                <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--green">Completed</strong></td>
+              </tr>
+              
+              </tbody>
+            </table>
+          
+          </div>
+          <p class="govuk-body-s" style="padding-left: 20px; color: #505a5f;">
+            Area of need: Accommodation <br>
+       
+          </p>
+        </div>
+      
       </div>
     </div>
   </div>

@@ -1,0 +1,72 @@
+
+{% extends "layouts/main.html" %} {% block pageTitle %} John's progress –
+{{ serviceName }} – GOV.UK Prototype Kit {% endblock %} 
+
+
+{% block main %}
+{% include "../includes/primary-nav-progress.html" %}
+{{ super() }}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+    <div class="profile-banner-plan profileFilters">
+        <div class="header-container">
+            <ul class="govuk-list govuk-!-margin-bottom-0">
+                <li class="govuk-body govuk-!-font-size-19" style="padding-top: 8px;">
+                    <strong>John Smith</strong>
+                </li>
+                <li style="padding-top: 8px;">CRN: Z804100</li>
+                <li style="padding-top: 8px;">PNC: 2017/123400000H</li>
+                <li style="padding-top: 8px;">Date of birth: 26 June 1978</li>
+            </ul>
+        </div>
+    
+        <div class="header-container" style="display: flex;  justify-content: space-between; padding-top: 20px;">
+            <h1 class="govuk-heading-l govuk-!-margin-bottom-0">John's progress</h1>
+            <form class="form" action="/splan7/record-progress" method="get">
+              <button type="submit" class="govuk-button govuk-!-margin-bottom-0" data-module="govuk-button">
+                Record progress
+              </button>
+            </form>
+        </div>
+    </div>
+
+    <p class="govuk-body">View notes recorded by practitioners about John’s progress on their whole plan.</p>
+
+    <div style="display: flex;">
+        <h3 class="govuk-heading-s">Progress recorded</h3>
+        <p style="padding-left: 5px; color: #505a5f	;"> by [Practitioner]</p>
+    </div>
+    <p class="govuk-body-s">29 November 2023 at 1:04pm</p>
+    <p>John was involved in this update.</p>
+    <p>[progress]</p>
+
+    <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+
+
+    <div style="display: flex;">
+        <h3 class="govuk-heading-s">Progress recorded</h3>
+        <p style="padding-left: 5px; color: #505a5f	;"> by [Practitioner]</p>
+    </div>
+    <p class="govuk-body-s">29 November 2023 at 1:04pm</p>
+    <p>John was involved in this update.</p>
+    <p>[progress]</p>
+
+    <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+
+    <div style="display: flex;">
+        <h3 class="govuk-heading-s">Progress recorded</h3>
+        <p style="padding-left: 5px; color: #505a5f	;"> by [Practitioner]</p>
+    </div>
+    <p class="govuk-body-s">29 November 2023 at 1:04pm</p>
+    <p>John was involved in this update.</p>
+    <p>[progress]</p>
+
+    </div>
+</div>
+
+
+{% endblock %}

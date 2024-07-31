@@ -58,9 +58,10 @@
 
       <div id="summary-cards">
         
+        
         <div class="govuk-summary-card" id="summary-card-{{ goal.id }}" draggable="true">
           <div class="govuk-summary-card__title-wrapper">
-            <h2 class="govuk-summary-card__title">Accommodation goal</h2>
+            <h2 class="govuk-summary-card__title">1. Accommodation goal</h2>
             <ul class="govuk-summary-card__actions">
               <li class="govuk-summary-card__action">
                 <a class="govuk-link govuk-link--no-visited-state" href="/splan7/update-goal">
@@ -110,17 +111,24 @@
               
               </tbody>
             </table>
-          
           </div>
           <p class="govuk-body-s" style="padding-left: 20px; color: #505a5f;">
-            Area of need: Accommodation <br>
+            Area of need: accommodation 
        
           </p>
+          <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+          <div class="govuk-button-group" style="padding-left: 20px">
+           
+            <button type="button" class="govuk-button govuk-button--secondary move-down-btn" data-card-id="summary-card-2">
+              Move goal down
+            </button>
+          </div>
+        </div>
         </div>
 
         <div class="govuk-summary-card" id="summary-card-{{ goal.id }}" draggable="true">
           <div class="govuk-summary-card__title-wrapper">
-            <h2 class="govuk-summary-card__title">Accommodation goal</h2>
+            <h2 class="govuk-summary-card__title">2. Accommodation goal</h2>
             <ul class="govuk-summary-card__actions">
               <li class="govuk-summary-card__action">
                 <a class="govuk-link govuk-link--no-visited-state" href="#">
@@ -173,14 +181,25 @@
           
           </div>
           <p class="govuk-body-s" style="padding-left: 20px; color: #505a5f;">
-            Area of need: Accommodation <br>
+            Area of need: accommodation
        
           </p>
+          <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+          <div class="govuk-button-group" style="padding-left: 20px">
+            <button type="submit" class="govuk-button govuk-button--secondary move-up-btn" data-card-id="summary-card-2" >
+              Move goal up
+            </button>
+            <button type="button" class="govuk-button govuk-button--secondary move-down-btn" data-card-id="summary-card-2">
+              Move goal down
+            </button>
+          </div>
+        </div>
+        </div>
         </div>
 
         <div class="govuk-summary-card" id="summary-card-{{ goal.id }}" draggable="true">
           <div class="govuk-summary-card__title-wrapper">
-            <h2 class="govuk-summary-card__title">Accommodation goal</h2>
+            <h2 class="govuk-summary-card__title">3. Accommodation goal</h2>
             <ul class="govuk-summary-card__actions">
               <li class="govuk-summary-card__action">
                 <a class="govuk-link govuk-link--no-visited-state" href="#">
@@ -233,9 +252,17 @@
           
           </div>
           <p class="govuk-body-s" style="padding-left: 20px; color: #505a5f;">
-            Area of need: Accommodation <br>
-       
+            Area of need: accommodation 
           </p>
+          <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+          <div class="govuk-button-group" style="padding-left: 20px">
+            <button type="submit" class="govuk-button govuk-button--secondary move-up-btn" data-card-id="summary-card-2" >
+              Move goal up
+            </button>
+           
+          </div>
+        </div>
+        </div>
         </div>
       
       </div>
@@ -243,68 +270,4 @@
   </div>
 
   
-
-  <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      const summaryCards = document.querySelectorAll('.govuk-summary-card');
-
-      summaryCards.forEach(function(card) {
-        const moveUpBtn = card.querySelector('.move-up-btn');
-        const moveDownBtn = card.querySelector('.move-down-btn');
-
-        moveUpBtn.addEventListener('click', function() {
-          moveCardUp(card);
-        });
-
-        moveDownBtn.addEventListener('click', function() {
-          moveCardDown(card);
-        });
-      });
-
-      function moveCardUp(card) {
-        const prevCard = card.previousElementSibling;
-        if (prevCard !== null) {
-          card.parentNode.insertBefore(card, prevCard);
-        }
-      }
-
-      function moveCardDown(card) {
-        const nextCard = card.nextElementSibling;
-        if (nextCard !== null) {
-          card.parentNode.insertBefore(nextCard, card);
-        }
-      }
-    });
-  </script>
-
-  <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      const summaryCards = document.querySelectorAll('.govuk-summary-card');
-
-      summaryCards.forEach(function(card) {
-        card.addEventListener('dragstart', handleDragStart);
-        card.addEventListener('dragover', handleDragOver);
-        card.addEventListener('drop', handleDrop);
-      });
-
-      function handleDragStart(event) {
-        event.dataTransfer.setData('text/plain', event.target.id);
-      }
-
-      function handleDragOver(event) {
-        event.preventDefault();
-        event.dataTransfer.dropEffect = 'move';
-      }
-
-      function handleDrop(event) {
-        event.preventDefault();
-        const draggedId = event.dataTransfer.getData('text/plain');
-        const draggedCard = document.getElementById(draggedId);
-        const dropZone = event.currentTarget;
-        if (dropZone !== draggedCard) {
-          dropZone.parentNode.insertBefore(draggedCard, dropZone);
-        }
-      }
-    });
-  </script>
 {% endblock %}

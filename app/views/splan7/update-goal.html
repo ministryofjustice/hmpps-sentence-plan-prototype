@@ -1,0 +1,110 @@
+
+{% extends "layouts/main.html" %} {% block pageTitle %} John's progress –
+{{ serviceName }} – GOV.UK Prototype Kit {% endblock %} 
+
+
+{% block main %}
+{% include "../includes/primary-nav.html" %}
+{{ super() }}
+{% endblock %}
+
+{% block content %}
+{% include "../includes/profile-banner.html" %}
+<a href="/splan7/plan-overview" class="govuk-back-link">Back</a>
+
+<span class="govuk-caption-l">Accommodation (and drug use)</span>
+<h1 class="govuk-heading-l">I will find a safe and stable place to live</h1>
+<p>Aim to achieve by 27 December 2024. <a href="#" class="govuk-link">Change goal details</a></p>
+
+{% from "govuk/components/table/macro.njk" import govukTable %}
+
+{{ govukTable({
+  captionClasses: "govuk-table__caption--m",
+  head: [
+    {
+      text: "Who will do this"
+    },
+    {
+      text: "Steps"
+    },
+      {
+        text: "Status"
+      }
+  ],
+  rows: [
+    [
+      {
+        text: "Probation practitioner"
+      },
+      {
+        text: "Set up appointments with housing agencies"
+      },
+      {
+        text: "select"
+      }
+    ],
+    [
+      {
+        text: "John"
+      },
+      {
+        text: "Follow the rules of the approved premises"
+      },
+      {
+        text: "select"
+      }
+    ],
+    [
+      {
+        text: "Somebody else"
+      },
+      {
+        text: "Housing officer to find information and advice about available accommodation"
+      },
+      {
+        text: "select"
+      }
+    ]
+  ]
+}) }}
+
+<p><a href="#" class="govuk-link">Add or change steps</a></p>
+<br>
+
+<div class="govuk-width-container">
+    <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+{{ govukTextarea({
+  name: "moreDetail",
+  id: "more-detail",
+  rows: "4",
+  label: {
+    text: "How is [Joan] doing on this [area of need] goal?",
+    classes: "govuk-label--m"
+  },
+  hint: {
+    text: "For example, how Joan feels about their progress, any strengths or protective factors they have developed, or any support they need."
+  }
+}) }}
+
+
+{{ govukDetails({
+  summaryText: "View all notes",
+  text: "[DD Month YYYY] by [Practitioner] // Note content"
+}) }}
+
+
+<form class="form" action="/splan7/progress" method="get">
+  <button type="submit" class="govuk-button" data-module="govuk-button">
+    Save goal and steps
+  </button>
+  <p><a href="/splan7/remove-goal">Remove goal from plan</a></p>
+</form>
+</div>
+    </div>
+</div>
+
+
+
+{% endblock %}

@@ -1,0 +1,98 @@
+
+{% extends "layouts/main.html" %} {% block pageTitle %} John's progress –
+{{ serviceName }} – GOV.UK Prototype Kit {% endblock %} 
+
+
+{% block main %}
+{% include "../includes/primary-nav-plan.html" %}
+{{ super() }}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+    {% include "../includes/profile-banner.html" %}
+    <a href="/splan6/index" class="govuk-back-link">Back</a>
+
+    
+    <h1 class="govuk-heading-l govuk-!-margin-bottom-0">Confirm you want to remove this goal</h1>
+    <br>
+    <p>Remove a goal if it is no longer relevant to Joan. </p>
+
+     <p> You will still be able to see it in ‘Removed goals’, but Joan will not be expected to achieve it. </p>
+   
+    <div class="govuk-summary-card" id="summary-card-{{ goal.id }}" draggable="true">
+        <div class="govuk-summary-card__title-wrapper">
+          <h2 class="govuk-summary-card__title" style="font-size: 24px!important;">Accommodation goal</h2>
+          
+        </div>
+        <div class="govuk-summary-card__content">
+          <p class="govuk-body">Aim to achieve by 27 December 2024</p>
+          
+          <table class="govuk-table">
+            <thead class="govuk-table__head">
+            <tr class="govuk-table__row">
+              <th scope="col" class="govuk-table__header">Who will do this</th>
+              <th scope="col" class="govuk-table__header">Step</th>
+              <th scope="col" class="govuk-table__header">Status</th>
+            </tr>
+            </thead>
+            <tbody class="govuk-table__body">
+          
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell">Probation practitioner</td>
+              <td class="govuk-table__cell">Set up appointments with housing agencies</td>
+              <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--grey">Not started</strong></td>
+            </tr>
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell">John</td>
+              <td class="govuk-table__cell">Follow the rules of the approved premises</td>
+              <td class="govuk-table__cell"><strong class="govuk-tag">In progress</strong></td>
+            </tr>
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell">Somebody else</td>
+              <td class="govuk-table__cell">Find information and advice about available accommodation</td>
+              <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--green">Completed</strong></td>
+            </tr>
+            
+            </tbody>
+          </table>
+        </div>
+        <p class="govuk-body-s" style="padding-left: 20px; color: #505a5f;">
+          Area of need: accommodation 
+     
+        </p>
+
+        
+      </div>
+
+
+       
+      <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+      {{ govukTextarea({
+        name: "moreDetail",
+        id: "more-detail",
+        rows: "4",
+        label: {
+            text: "Why do you want to remove this goal?",
+            classes: "govuk-label--m"
+        }
+       
+        }) }}
+        <form class="form" action="/splan7/plan-overview" method="get">
+            <button type="submit" class="govuk-button" data-module="govuk-button">
+              Confirm
+            </button>
+          </form>
+        </div>
+
+        
+      </div>
+      </div>
+   
+</div>
+
+
+{% endblock %}

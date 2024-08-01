@@ -1,0 +1,154 @@
+
+{% extends "layouts/main.html" %} {% block pageTitle %} John's progress –
+{{ serviceName }} – GOV.UK Prototype Kit {% endblock %} 
+
+
+{% block main %}
+{% include "../includes/primary-nav-plan.html" %}
+{{ super() }}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+    {% include "../includes/profile-banner.html" %}
+    <a href="/splan7/plan-overview-removed" class="govuk-back-link">Back</a>
+
+    
+    <h1 class="govuk-heading-l govuk-!-margin-bottom-0">Confirm you want to add this goal back into John's plan</h1>
+    <br>
+
+   
+    <div class="govuk-summary-card" id="summary-card-{{ goal.id }}" draggable="true">
+        <div class="govuk-summary-card__title-wrapper">
+          <h2 class="govuk-summary-card__title" style="font-size: 24px!important;">Accommodation goal</h2>
+          
+        </div>
+        <div class="govuk-summary-card__content">
+          <p class="govuk-body">Removed on DD Month YYYY</p>
+          <p>text from input</p>
+          
+          <table class="govuk-table">
+            <thead class="govuk-table__head">
+            <tr class="govuk-table__row">
+              <th scope="col" class="govuk-table__header">Who will do this</th>
+              <th scope="col" class="govuk-table__header">Step</th>
+              <th scope="col" class="govuk-table__header">Status</th>
+            </tr>
+            </thead>
+            <tbody class="govuk-table__body">
+          
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell">Probation practitioner</td>
+              <td class="govuk-table__cell">Set up appointments with housing agencies</td>
+              <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--grey">Not started</strong></td>
+            </tr>
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell">John</td>
+              <td class="govuk-table__cell">Follow the rules of the approved premises</td>
+              <td class="govuk-table__cell"><strong class="govuk-tag">In progress</strong></td>
+            </tr>
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell">Somebody else</td>
+              <td class="govuk-table__cell">Find information and advice about available accommodation</td>
+              <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--green">Completed</strong></td>
+            </tr>
+            
+            </tbody>
+          </table>
+        </div>
+        <p class="govuk-body-s" style="padding-left: 20px; color: #505a5f;">
+          Area of need: accommodation 
+     
+        </p>
+
+        
+      </div>
+
+
+       
+      <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+
+<div class="govuk-form-group">
+                    <fieldset class="govuk-fieldset">
+                        <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+                            Can John start working on this goal now?
+                        </legend>
+                        <div class="govuk-radios" data-module="govuk-radios">
+                            <div class="govuk-radios__item" onclick="toggleDiv('isActiveGoal')">
+                                <input class="govuk-radios__input" id="isActiveGoal" name="isActiveGoal" type="radio" value="Yes">
+                                <label class="govuk-label govuk-radios__label" for="isActiveGoal">Yes</label>
+                            </div>
+                            <div class="govuk-radios__item" onclick="toggleDiv('isActiveGoal')">
+                                <input class="govuk-radios__input" id="isActiveGoal-2" name="isActiveGoal" type="radio" value="No">
+                                <label class="govuk-label govuk-radios__label" for="isActiveGoal-2">No, it is a future goal</label>
+                            </div>
+                        </div>
+                    </fieldset>
+                </div>
+
+                <script>
+                    function toggleDiv(x) {
+                        var yesRadio = document.querySelector('input[name="' + x + '"][value="Yes"]');
+                        var toggleDiv = document.getElementById('toggleDiv');
+
+                        if (yesRadio.checked) {
+                            toggleDiv.style.display = 'block';
+                            toggleDiv.setAttribute('aria-hidden', 'false');
+                        } else {
+                            toggleDiv.style.display = 'none';
+                            toggleDiv.setAttribute('aria-hidden', 'true');
+                        }
+                    }
+                </script>
+
+                <div id="toggleDiv" aria-hidden="true">
+                    {% set dateHtml %}
+                        {%- from "../includes/datepicker.html" import hmppsDatePicker -%}
+                        {{ hmppsDatePicker({
+                            id: "datePicker",
+                            name: "datePicker",
+                            classes: "govuk-input--width-10",
+                            hint: { text: "For example, 31/3/2023." },
+                            label: { text: "Select a date", classes: "govuk-fieldset__legend--s" }
+                        }) }}
+                    {% endset %}
+
+                    {{ govukRadios({
+                        name: "date",
+                        fieldset: {
+                            legend: {
+                                text: "When should John aim to achieve this goal?",
+                                isPageHeading: false,
+                                classes: "govuk-fieldset__legend--m"
+                            }
+                        },
+                        items: [
+                            { value: "by our next meeting (8 August 2024)", text: "At our next meeting (8 August 2024)" },
+                            { value: "in 3 months (8 October 2024)", text: "In 3 months (8 October 2024)" },
+                            { value: "in 6 months (8 January 2025)", text: "In 6 months (8 January 2025)" },
+                            { value: "in 12 months (8 July 2025)", text: "In 12 months (8 July 2025)" },
+                            { value: "by the end of John’s sentence", text: "At the end of John’s sentence" },
+                            { divider: "or" },
+                            { value: "custom", text: "Set another date", conditional: { html: dateHtml } }
+                        ]
+                    }) }}
+                </div>
+
+              <form class="form" action="/splan7/plan-overview" method="get">
+            <button type="submit" class="govuk-button" data-module="govuk-button">
+              Confirm
+            </button>
+          </form>
+        </div>
+
+        
+      </div>
+      </div>
+   
+</div>
+
+
+{% endblock %}

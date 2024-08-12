@@ -38,7 +38,50 @@ router.use((req, res, next) => {
      * So, if the goals array isn't ready yet, let's get it set up to start saving goals!
      */
     if(!req.session.data.goals) {
-        req.session.data.goals = []
+        req.session.data.goals = [
+            {
+                id: 1,
+                needArea: "Accommodation",
+                goalObjective: "First test goal objective from routes",
+                relatedNeedAreas: [],
+                isActiveGoal: "Yes",
+                date: "August 23rd 2024",
+                steps: [{
+                    id: 1,
+                    who: "Probation practitioner",
+                    step: "Find accommodation",
+                    status: "not-started",
+                }]
+            },
+            {
+                id: 2,
+                needArea: "Finance",
+                goalObjective: "Second test goal objective from routes",
+                relatedNeedAreas: [],
+                isActiveGoal: "Yes",
+                date: "August 24th 2024",
+                steps: [{
+                    id: 2,
+                    who: "John",
+                    step: "Financial advice",
+                    status: "in-progress",
+                }]
+            },
+            {
+                id: 3,
+                needArea: "Drug use",
+                goalObjective: "Third test goal objective from routes",
+                relatedNeedAreas: [],
+                isActiveGoal: "Yes",
+                date: "August 26th 2024",
+                steps: [{
+                    id: 3,
+                    who: "Programme staff",
+                    step: "Rehab",
+                    status: "completed",
+                }]
+            }
+        ]
     }
     return next()
 })

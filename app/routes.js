@@ -46,12 +46,20 @@ router.use((req, res, next) => {
                 relatedNeedAreas: [],
                 isActiveGoal: "Yes",
                 date: "August 23rd 2024",
-                steps: [{
+                steps: [
+                    {
                     id: 1,
                     who: "Probation practitioner",
                     step: "Find accommodation",
                     status: "not-started",
-                }]
+                    },
+                    {
+                        id: 5,
+                        who: "John",
+                        step: "This is a test second step",
+                        status: "in-progress",
+                    }
+                ]
             },
             {
                 id: 2,

@@ -10,7 +10,7 @@ const router = govukPrototypeKit.requests.setupRouter()
  * This is the name of the design revision
  * Make sure this matches the root folder of your designs!
  */
-const DESIGN_VERSION="splan6"
+const DESIGN_VERSION="splan7"
 
 /**
  * Here we add routes to the application,
@@ -260,4 +260,37 @@ router.get(`/${DESIGN_VERSION}/agreed-plan-later`, (req, res, next) => {
         GOALS_DATA: req.session.data.goals.filter(goal => goal.date),
         GOALS_FOR_LATER_DATA: req.session.data.goals.filter(goal => !goal.date)
     })
+})
+
+router.get(`/${DESIGN_VERSION}/goal/:goalId/remove-goal`, (req, res, next) => {
+    /** We can access that path variable like so */
+    const goalId = req.params.goalId
+
+    /**
+     * We can then get the goal we just created from our goal data store
+     * Note: We remove -1 from the goalId as arrays in Javascript are 0 indexed (start at 0)
+     */
+    const goalData = req.session.data.goals[goalId - 1]
+
+    /**
+     * Finally we pass that goal data to the view, so that we can use it in our page!
+     * We can now access all of our relevant goal data through {{ GOAL_DATA }} in our HTML/template
+     */
+    return res.render(`${DESIGN_VERSION}/remove-goal.html`, {
+        GOAL_DATA: goalData
+    })
+})
+
+router.post(`/${DESIGN_VERSION}/goal/:goalId/remove-goal`, (req, res, next) => {
+    /** We can access that path variable like so */
+    const goalId = req.params.goalId
+
+    req.session.data.goals = req.session.data.goals.filter(goalData=> goalData.id != goalId)
+
+
+    /**
+     * Finally we pass that goal data to the view, so that we can use it in our page!
+     * We can now access all of our relevant goal data through {{ GOAL_DATA }} in our HTML/template
+     */
+    return res.redirect(`/${DESIGN_VERSION}/plan-overview`)
 })

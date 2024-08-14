@@ -38,6 +38,7 @@ router.use((req, res, next) => {
      * So, if the goals array isn't ready yet, let's get it set up to start saving goals!
      */
     if(!req.session.data.goals) {
+
         req.session.data.goals = [
             {
                 id: 1,
@@ -126,6 +127,8 @@ router.use((req, res, next) => {
         console.log(goals.steps.status[2]);
         console.log(goals.steps.status[3]);
         console.log(goals.steps.status[4]);*/
+
+        req.session.data.notes = []
     }
     return next()
 })
@@ -387,9 +390,11 @@ router.get(`/${DESIGN_VERSION}/goal/:goalId/remove-goal`, (req, res, next) => {
 })
 
 router.post(`/${DESIGN_VERSION}/goal/:goalId/remove-goal`, (req, res, next) => {
-    const goalId = req.params.goalId
+    const goalId = Number(req.params.goalId)
 
-    req.session.data.goals.find(goal => goal.id === goalId).state = 'REMOVED'
+    const goal = req.session.data.goals.find(goal => goal.id == goalId);
+    goal.status = 'REMOVED'
+    goal.statusReason = req.body['moreDetail']
 
     return res.redirect(`/${DESIGN_VERSION}/plan-overview`)
 })

@@ -60,31 +60,26 @@
       </p>
     </div>
 
-
-       
       <div class="govuk-grid-row">
         <div class="govuk-grid-column-two-thirds">
-      {{ govukTextarea({
-        name: "moreDetail",
-        id: "more-detail",
-        rows: "4",
-        label: {
-            text: "Why do you want to remove this goal?",
-            classes: "govuk-label--m"
-        }
-       
-        }) }}
         <form class="form" method="post">
-            <button type="submit" class="govuk-button" data-module="govuk-button">
-              Confirm
-            </button>
-          </form>
-        </div>
+          {{ govukTextarea({
+            name: "moreDetail",
+            id: "more-detail",
+            rows: "4",
+            label: {
+              text: "Why do you want to remove this goal?",
+              classes: "govuk-label--m"
+            }
+          }) }}
+          <button type="submit" class="govuk-button" data-module="govuk-button">
+            Confirm
+          </button>
+        </form>
 
-        
       </div>
-      </div>
-   
+    </div>
+  </div>
 </div>
 
 

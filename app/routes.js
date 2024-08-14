@@ -392,7 +392,7 @@ router.get(`/${DESIGN_VERSION}/goal/:goalId/remove-goal`, (req, res, next) => {
 router.post(`/${DESIGN_VERSION}/goal/:goalId/remove-goal`, (req, res, next) => {
     const goalId = Number(req.params.goalId)
 
-    const goal = req.session.data.goals.find(goal => goal.id == goalId);
+    const goal = req.session.data.goals.find(goal => goal.id === goalId);
     goal.status = 'REMOVED'
     goal.statusReason = req.body['moreDetail']
 

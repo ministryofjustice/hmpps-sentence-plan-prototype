@@ -33,53 +33,43 @@
             </form>
         </div>
     </div>
+      <p class="govuk-body">View notes recorded by practitioners about John’s progress on their whole plan.</p>
 
-    <p class="govuk-body">View notes recorded by practitioners about John’s progress on their whole plan.</p>
+      {% for note in PLAN_NOTES %}
+        <div>
+            <div style="display: flex;">
+                <h3 class="govuk-heading-s">Progress recorded</h3>
+                <p style="padding-left: 5px; color: #505a5f	;"> by Alexis Diaz</p>
+            </div>
+            <p class="govuk-body-s">29 November 2023 at 1:04pm</p>
+            <p>{{ note.content.overallNote }}</p>
+            <br>
 
-    <div style="display: flex;">
-        <h3 class="govuk-heading-s">Progress recorded</h3>
-        <p style="padding-left: 5px; color: #505a5f	;"> by [Practitioner]</p>
-    </div>
-    <p class="govuk-body-s">29 November 2023 at 1:04pm</p>
-    <p>[Text on how person is doing on their plan].</p>
-    <br>
-    <p>[John does / does not need support to achieve their goals.]</p>
-        <p>[Text from details box].</p>
-        <br>
-        <p>[John was / was not] involved in this update. </p>
-        <p>[Text from details box].</p>
+            <p>
+                {% if note.content.supportRequired === 'yes' %}
+                    John does need support to achieve their goals.
+                {% elseif note.content.supportRequired === 'no' %}
+                    John does not need support to achieve their goals.
+                {% else %}
+                    Unsure if John needs support to achieve their goals.
+                {% endif %}
+                <br>
+                {{ note.content.supportNote }}
+            </p>
+            <br>
 
-    <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
-
-
-    <div style="display: flex;">
-        <h3 class="govuk-heading-s">Progress recorded</h3>
-        <p style="padding-left: 5px; color: #505a5f	;"> by [Practitioner]</p>
-    </div>
-    <p class="govuk-body-s">29 November 2023 at 1:04pm</p>
-    <p>[Text on how person is doing on their plan].</p> 
-    <br>
-    <p>[John does not / does not need support to achieve their goals.]</p>
-        <p>[Text from details box].</p>
-        <br>
-        <p>[John was / was not] involved in this update. </p>
-        <p>[Text from details box].</p>
-
-    <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
-
-    <div style="display: flex;">
-        <h3 class="govuk-heading-s">Progress recorded</h3>
-        <p style="padding-left: 5px; color: #505a5f	;"> by [Practitioner]</p>
-    </div>
-    <p class="govuk-body-s">29 November 2023 at 1:04pm</p>
-    <p>[Text on how person is doing on their plan].</p>
-    <br>
-    <p>[John does / does not need support to achieve their goals.]</p>
-        <p>[Text from details box].</p>
-        <br>
-        <p>[John was / was not] involved in this update. </p>
-        <p>[Text from details box].</p>
-
+            <p>
+                {% if note.content.popInvolvement === 'yes' %}
+                    John was involved in this update.
+                {% else %}
+                    John was not involved in this update.
+                {% endif %}
+                <br>
+                {{ note.content.popInvolvementNote }}
+            </p>
+        </div>
+        <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+      {% endfor %}
     </div>
 </div>
 

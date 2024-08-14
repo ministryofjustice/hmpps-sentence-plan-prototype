@@ -128,7 +128,17 @@ router.use((req, res, next) => {
         console.log(goals.steps.status[3]);
         console.log(goals.steps.status[4]);*/
 
-        req.session.data.notes = []
+        req.session.data.notes = [{
+            type: 'PLAN',
+            subtype: 'PROGRESS',
+            content: {
+                overallNote: "John is making really great progress flying his helicopter around in circles",
+                supportRequired: 'no',
+                supportNote: `John doesn't need any support, plus I don't know how to fly a helicopter`,
+                popInvolvement: 'no',
+                popInvolvementNote: `John was busy piloting his helicopter `
+            }
+        }]
     }
     return next()
 })
@@ -192,7 +202,7 @@ router.post(`/${DESIGN_VERSION}/create-goal`, function (req, res) {
         relatedNeedAreas: Array.isArray(req.body.relatedNeedAreas) ?
             req.body.relatedNeedAreas.filter(areaOfNeed => areaOfNeed !== "_unchecked") : [],
 
-        state: req.body.isActiveGoal ? 'ACTIVE' : 'FUTURE',
+        status: req.body.isActiveGoal ? 'ACTIVE' : 'FUTURE',
 
         /** Check if the date is set to custom, if so, get value from datePicker, otherwise use req.body.date */
         date: req.body.date === 'custom' ? `by ${req.body.datePicker}` : req.body.date,
@@ -367,6 +377,12 @@ router.get(`/${DESIGN_VERSION}/agreed-plan-later`, (req, res, next) => {
     return res.render(`${DESIGN_VERSION}/agreed-plan-later.html`, {
         GOALS_DATA: req.session.data.goals.filter(goal => goal.date),
         GOALS_FOR_LATER_DATA: req.session.data.goals.filter(goal => !goal.date)
+    })
+})
+
+router.get(`/${DESIGN_VERSION}/progress`, (req, res, next) => {
+    return res.render(`${DESIGN_VERSION}/progress.html`, {
+        PLAN_NOTES: req.session.data.notes.filter(note => note.type === 'PLAN')
     })
 })
 

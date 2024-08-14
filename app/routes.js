@@ -102,12 +102,14 @@ router.use((req, res, next) => {
                 }]
             }*/
         ]
+        /*CAN I MAKE ALIASES FOR EACH ENTRY IN AN ARRAY TEST
+
         const [notstarted, inprogress, cannotbedoneyet, completed] = session.data.goals.steps.status;
 
         console.log(goals.steps.status[1]);
         console.log(goals.steps.status[2]);
         console.log(goals.steps.status[3]);
-        console.log(goals.steps.status[4]);
+        console.log(goals.steps.status[4]);*/
 
     }
 

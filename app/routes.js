@@ -44,47 +44,48 @@ router.use((req, res, next) => {
                 needArea: "Accommodation",
                 goalObjective: "First test goal objective from routes",
                 relatedNeedAreas: [],
-                isActiveGoal: "Yes",
+                status: "ACTIVE",
                 date: "August 23rd 2024",
                 steps: [
                     {
-                    id: 1,
-                    who: "Probation practitioner",
-                    step: "Find accommodation",
-                    statusId: "not-started",
+                        id: 1,
+                        who: "Probation practitioner",
+                        step: "Find accommodation",
+                        statusId: "not-started",
                     },
                     {
-                    id: 2,
-                    who: "John",
-                    step: "This is a test second step",
-                    statusId: ["not-started", "in-progress", "cannot-be-done-yet", "completed"],
+                        id: 2,
+                        who: "John",
+                        step: "This is a test second step",
+                        statusId: ["not-started", "in-progress", "cannot-be-done-yet", "completed"],
                     },
                     {
-                    id: 3,
-                    who: "John",
-                    step: "This is a test third step",
-                    statusId: ["not-started", "in-progress", "cannot-be-done-yet", "completed"],
+                        id: 3,
+                        who: "John",
+                        step: "This is a test third step",
+                        statusId: ["not-started", "in-progress", "cannot-be-done-yet", "completed"],
                     },
                     {
-                    id: 4,
-                    who: "John",
-                    step: "This is a test fourth step",
-                    statusId: ["not-started", "in-progress", "cannot-be-done-yet", "completed"],
+                        id: 4,
+                        who: "John",
+                        step: "This is a test fourth step",
+                        statusId: ["not-started", "in-progress", "cannot-be-done-yet", "completed"],
                     }
                 ]
-            }
-            /*{
+            },
+            {
                 id: 2,
                 needArea: "Finance",
                 goalObjective: "Second test goal objective from routes",
                 relatedNeedAreas: [],
-                isActiveGoal: "Yes",
+                status: "ACHIEVED",
+                statusReason: 'John was super skilled and flew the helicopter well!',
                 date: "August 24th 2024",
                 steps: [{
-                    id: 5,
+                    id: 1,
                     who: "John",
-                    step: "Financial advice",
-                    status: "in-progress",
+                    step: "Fly his helicopter in a REALLY big circle!",
+                    status: "completed",
                 }]
             },
             {
@@ -92,15 +93,30 @@ router.use((req, res, next) => {
                 needArea: "Drug use",
                 goalObjective: "Third test goal objective from routes",
                 relatedNeedAreas: [],
-                isActiveGoal: "Yes",
+                status: "REMOVED",
+                statusReason: 'John decided he wanted to fly helicopters instead of race cars.',
                 date: "August 26th 2024",
                 steps: [{
-                    id: 6,
-                    who: "Programme staff",
-                    step: "Rehab",
-                    status: "completed",
+                    id: 1,
+                    who: "Programme Staff",
+                    step: "Teach John how to drive the race car",
+                    status: "in-progress",
                 }]
-            }*/
+            },
+            {
+                id: 4,
+                needArea: "Health and wellbeing",
+                goalObjective: "Fourth test goal objective from routes",
+                relatedNeedAreas: [],
+                status: "FUTURE",
+                date: "",
+                steps: [{
+                    id: 1,
+                    who: "John",
+                    step: "Eat a nice healthy meal before flying his helicopter",
+                    status: "in-progress",
+                }]
+            }
         ]
         /*CAN I MAKE ALIASES FOR EACH ENTRY IN AN ARRAY TEST
 

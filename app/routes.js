@@ -51,17 +51,29 @@ router.use((req, res, next) => {
                     id: 1,
                     who: "Probation practitioner",
                     step: "Find accommodation",
-                    status: "not-started",
+                    status: ["not-started", "in-progress", "cannot-be-done-yet", "completed"],
                     },
                     {
-                        id: 5,
-                        who: "John",
-                        step: "This is a test second step",
-                        status: "in-progress",
+                    id: 2,
+                    who: "John",
+                    step: "This is a test second step",
+                    status: ["not-started", "in-progress", "cannot-be-done-yet", "completed"],
+                    },
+                    {
+                    id: 3,
+                    who: "John",
+                    step: "This is a test third step",
+                    status: ["not-started", "in-progress", "cannot-be-done-yet", "completed"],
+                    },
+                    {
+                    id: 4,
+                    who: "John",
+                    step: "This is a test fourth step",
+                    status: ["not-started", "in-progress", "cannot-be-done-yet", "completed"],
                     }
                 ]
-            },
-            {
+            }
+            /*{
                 id: 2,
                 needArea: "Finance",
                 goalObjective: "Second test goal objective from routes",
@@ -69,7 +81,7 @@ router.use((req, res, next) => {
                 isActiveGoal: "Yes",
                 date: "August 24th 2024",
                 steps: [{
-                    id: 2,
+                    id: 5,
                     who: "John",
                     step: "Financial advice",
                     status: "in-progress",
@@ -83,16 +95,26 @@ router.use((req, res, next) => {
                 isActiveGoal: "Yes",
                 date: "August 26th 2024",
                 steps: [{
-                    id: 3,
+                    id: 6,
                     who: "Programme staff",
                     step: "Rehab",
                     status: "completed",
                 }]
-            }
+            }*/
         ]
+        const [notstarted, inprogress, cannotbedoneyet, completed] = session.data.goals.steps.status;
+
+        console.log(goals.steps.status[1]);
+        console.log(goals.steps.status[2]);
+        console.log(goals.steps.status[3]);
+        console.log(goals.steps.status[4]);
+
     }
+
     return next()
 })
+
+
 
 /**
  * Here's a super simple route that just renders the
@@ -339,9 +361,21 @@ router.post(`/${DESIGN_VERSION}/goal/:goalId/remove-goal`, (req, res, next) => {
     req.session.data.goals = req.session.data.goals.filter(goalData=> goalData.id != goalId)
 
 
-    /**
-     * Finally we pass that goal data to the view, so that we can use it in our page!
-     * We can now access all of our relevant goal data through {{ GOAL_DATA }} in our HTML/template
-     */
+
     return res.redirect(`/${DESIGN_VERSION}/plan-overview`)
 })
+
+router.get(`/${DESIGN_VERSION}/goal/:goalId/update-goal`, (req, res, next) => {
+    /** We can access that path variable like so */
+    const goalId = req.params.goalId
+
+    const goalData = req.session.data.goals[goalId - 1]
+
+
+
+
+    return res.render(`/${DESIGN_VERSION}/update-goal.html`, {
+        GOAL_DATA: goalData
+    })
+})
+

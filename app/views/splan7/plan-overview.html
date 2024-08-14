@@ -134,7 +134,7 @@
             <h2 class="govuk-summary-card__title">{{ goal.goalObjective }}</h2>
             <ul class="govuk-summary-card__actions">
               <li class="govuk-summary-card__action">
-                <a class="govuk-link govuk-link--no-visited-state" href="#">
+                <a class="govuk-link govuk-link--no-visited-state" href="/splan7/goal/{{ goal.id }}/update-goal.html">
                   Update<span class="govuk-visually-hidden"> {{ goal.goalObjective }}</span>
                 </a>
               </li>
@@ -175,6 +175,9 @@
 
                   {% elseif step.status == 'completed' %}
                   <strong class="govuk-tag govuk-tag--green">Completed</strong>
+
+                  {% elseif step.status == 'cannot-be-done-yet' %}
+                  <strong class="govuk-tag govuk-tag--purple">Cannot be done yet</strong>
                   {% endif %}
                 </td>
               </tr>
@@ -183,7 +186,6 @@
             </table>
             {% else %}
             <strong class="govuk-body govuk-!-font-weight-bold">No steps added</strong>
-            <hr></hr>
             {% endif %}
           </div>
           <p class="govuk-body-s" style="padding-left: 20px; color: #505a5f;">

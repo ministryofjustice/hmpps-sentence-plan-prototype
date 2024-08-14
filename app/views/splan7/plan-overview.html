@@ -167,16 +167,16 @@
                 <td class="govuk-table__cell">{{ step.who }}</td>
                 <td class="govuk-table__cell">{{ step.step }}</td>
                 <td class="govuk-table__cell">
-                  {% if step.status == 'not-started' %}
+                  {% if step.statusId == 'not-started' %}
                   <strong class="govuk-tag govuk-tag--grey">Not started</strong>
 
-                  {% elseif step.status == 'in-progress' %}
+                  {% elseif step.statusId == 'in-progress' %}
                   <strong class="govuk-tag govuk-tag">In Progress</strong>
 
-                  {% elseif step.status == 'completed' %}
+                  {% elseif step.statusId == 'completed' %}
                   <strong class="govuk-tag govuk-tag--green">Completed</strong>
 
-                  {% elseif step.status == 'cannot-be-done-yet' %}
+                  {% elseif step.statusId == 'cannot-be-done-yet' %}
                   <strong class="govuk-tag govuk-tag--purple">Cannot be done yet</strong>
                   {% endif %}
                 </td>

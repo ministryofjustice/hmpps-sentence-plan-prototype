@@ -29,8 +29,6 @@
   </form>
 </div>
 <p>Aim to achieve {{ GOAL_DATA.date }}<a href="/splan7/update-goal-details" class="govuk-link govuk-link--no-visited-state">Update goal details</a></p>
-
-set up tables to grab data like in plan overview same columns but status is drop down
       <div class="govuk-summary-card" id="summary-card-{{ goal.id }}" draggable="true">
           <div class="govuk-summary-card__content">
               <table class="govuk-table">
@@ -55,8 +53,8 @@ set up tables to grab data like in plan overview same columns but status is drop
                           5) save the text #}
                           {{ govukSelect({
                           id: step.id,
-                          value: step.status,
-                          text: step.status
+                          value: step.statusId,
+                          text: step.statusName
                           }) }}
                       </td>
                   </tr>

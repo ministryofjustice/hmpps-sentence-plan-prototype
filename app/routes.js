@@ -387,12 +387,9 @@ router.get(`/${DESIGN_VERSION}/goal/:goalId/remove-goal`, (req, res, next) => {
 })
 
 router.post(`/${DESIGN_VERSION}/goal/:goalId/remove-goal`, (req, res, next) => {
-    /** We can access that path variable like so */
     const goalId = req.params.goalId
 
-    req.session.data.goals = req.session.data.goals.filter(goalData=> goalData.id != goalId)
-
-
+    req.session.data.goals.find(goal => goal.id === goalId).state = 'REMOVED'
 
     return res.redirect(`/${DESIGN_VERSION}/plan-overview`)
 })

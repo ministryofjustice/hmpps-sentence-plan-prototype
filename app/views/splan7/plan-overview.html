@@ -48,10 +48,16 @@
       <nav class="moj-sub-navigation mb40" aria-label="Sub navigation">
         <ul class="moj-sub-navigation__list">
           <li class="moj-sub-navigation__item">
-            <a class="moj-sub-navigation__link" aria-current="page" href="#">Goals to work on now (3)</a>
+            <a class="moj-sub-navigation__link" aria-current="page" href="plan-overview">Goals to work on now ({{ ACTIVE_GOALS.length }})</a>
           </li>
           <li class="moj-sub-navigation__item">
-            <a class="moj-sub-navigation__link" href="plan-overview-later">Future goals (2) </a>
+            <a class="moj-sub-navigation__link" Href="plan-overview-later">Future goals ({{ FUTURE_GOALS.length }}) </a>
+          </li>
+          <li class="moj-sub-navigation__item">
+            <a class="moj-sub-navigation__link" href="plan-overview-achieved">Achieved goals ({{ ACHIEVED_GOALS.length }}) </a>
+          </li>
+          <li class="moj-sub-navigation__item" style="float: right">
+            <a class="moj-sub-navigation__link" href="plan-overview-removed">Removed goals ({{ REMOVED_GOALS.length }}) </a>
           </li>
         </ul>
       </nav>
@@ -128,7 +134,7 @@
 
 
         {# BELOW THIS IS DYNAMIC CODE #}
-        {% for goal in GOALS_DATA %}
+        {% for goal in ACTIVE_GOALS %}
         <div class="govuk-summary-card" id="summary-card-{{ goal.id }}" draggable="true">
           <div class="govuk-summary-card__title-wrapper">
             <h2 class="govuk-summary-card__title">{{ goal.goalObjective }}</h2>
@@ -197,9 +203,6 @@
         </div>
         {% endfor %}
       </div>
-
-      
-
     </div>
   </div>
 

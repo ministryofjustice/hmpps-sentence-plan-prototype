@@ -189,7 +189,7 @@ router.post(`/${DESIGN_VERSION}/create-goal`, function (req, res) {
         relatedNeedAreas: Array.isArray(req.body.relatedNeedAreas) ?
             req.body.relatedNeedAreas.filter(areaOfNeed => areaOfNeed !== "_unchecked") : [],
 
-        isActiveGoal: req.body.isActiveGoal,
+        state: req.body.isActiveGoal ? 'ACTIVE' : 'FUTURE',
 
         /** Check if the date is set to custom, if so, get value from datePicker, otherwise use req.body.date */
         date: req.body.date === 'custom' ? `by ${req.body.datePicker}` : req.body.date,
@@ -312,12 +312,11 @@ router.post(`/${DESIGN_VERSION}/goal/:goalId/add-steps`, (req, res, next) => {
 })
 
 router.get(`/${DESIGN_VERSION}/plan-overview`, (req, res, next) => {
-    /**
-     *  We can now access all goal data through {{ GOALS_DATA }} in our HTML/template
-     */
     return res.render(`${DESIGN_VERSION}/plan-overview.html`, {
-        GOALS_DATA: req.session.data.goals.filter(goal => goal.date),
-        GOALS_FOR_LATER_DATA: req.session.data.goals.filter(goal => !goal.date)
+        ACTIVE_GOALS: req.session.data.goals.filter(goal => goal.status === 'ACTIVE'),
+        FUTURE_GOALS: req.session.data.goals.filter(goal => goal.status === 'FUTURE'),
+        REMOVED_GOALS: req.session.data.goals.filter(goal => goal.status === 'REMOVED'),
+        ACHIEVED_GOALS: req.session.data.goals.filter(goal => goal.status === 'ACHIEVED')
     })
 })
 

@@ -1037,3 +1037,14 @@ margin-bottom: 20px;
 
   }
 
+.goal-list {
+	li {
+		&::marker {
+			font-weight: bold;
+		}
+
+		.govuk-summary-card {
+			margin-left: govuk-spacing(2);
+		}
+	}
+}

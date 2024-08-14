@@ -135,74 +135,78 @@
 
 
         {# BELOW THIS IS DYNAMIC CODE #}
-        {% for goal in ACTIVE_GOALS %}
-        <div class="govuk-summary-card" id="summary-card-{{ goal.id }}" draggable="true">
-          <div class="govuk-summary-card__title-wrapper">
-            <h2 class="govuk-summary-card__title">{{ goal.goalObjective }}</h2>
-            <ul class="govuk-summary-card__actions">
-              <li class="govuk-summary-card__action">
-                <a class="govuk-link govuk-link--no-visited-state" href="/splan7/goal/{{ goal.id }}/update-goal.html">
-                  Update<span class="govuk-visually-hidden"> {{ goal.goalObjective }}</span>
-                </a>
-              </li>
-              <li class="govuk-summary-card__action" style="padding-left: 10px;">
-                <a class="govuk-link govuk-link--no-visited-state" href="#">
-                  Mark as Achieved<span class="govuk-visually-hidden"> for {{ goal.goalObjective }}</span>
-                </a>
-              </li>
-              <li class="govuk-summary-card__action">
-                <a class="govuk-link govuk-link--no-visited-state" href="/splan7/goal/{{ goal.id }}/remove-goal.html">
-                  Remove<span class="govuk-visually-hidden"> {{ goal.goalObjective }}</span>
-                </a>
-              </li>
-            </ul>
+        <ol class="goal-list govuk-list govuk-list--number">
+          {% for goal in ACTIVE_GOALS %}
+          <li>
+            <div class="govuk-summary-card" id="summary-card-{{ goal.id }}" draggable="true">
+            <div class="govuk-summary-card__title-wrapper">
+              <h2 class="govuk-summary-card__title">{{ goal.goalObjective }}</h2>
+              <ul class="govuk-summary-card__actions">
+                <li class="govuk-summary-card__action">
+                  <a class="govuk-link govuk-link--no-visited-state" href="/splan7/goal/{{ goal.id }}/update-goal.html">
+                    Update<span class="govuk-visually-hidden"> {{ goal.goalObjective }}</span>
+                  </a>
+                </li>
+                <li class="govuk-summary-card__action" style="padding-left: 10px;">
+                  <a class="govuk-link govuk-link--no-visited-state" href="#">
+                    Mark as Achieved<span class="govuk-visually-hidden"> for {{ goal.goalObjective }}</span>
+                  </a>
+                </li>
+                <li class="govuk-summary-card__action">
+                  <a class="govuk-link govuk-link--no-visited-state" href="/splan7/goal/{{ goal.id }}/remove-goal.html">
+                    Remove<span class="govuk-visually-hidden"> {{ goal.goalObjective }}</span>
+                  </a>
+                </li>
+              </ul>
+            </div>
+            <div class="govuk-summary-card__content">
+              <p class="govuk-body">Aim to achieve {{ goal.date }}</p>
+              {% if goal.steps and goal.steps.length > 0 %}
+              <table class="govuk-table">
+                <thead class="govuk-table__head">
+                <tr class="govuk-table__row">
+                  <th scope="col" class="govuk-table__header" style="width: 25%">Who will do this</th>
+                  <th scope="col" class="govuk-table__header" style="width: 60%">Step</th>
+                  <th scope="col" class="govuk-table__header" style="width: 15%">Status</th>
+                </tr>
+                </thead>
+                <tbody class="govuk-table__body">
+                {% for step in goal.steps %}
+                <tr class="govuk-table__row">
+                  <td class="govuk-table__cell">{{ step.who }}</td>
+                  <td class="govuk-table__cell">{{ step.step }}</td>
+                  <td class="govuk-table__cell">
+                    {% if step.statusId == 'not-started' %}
+                    <strong class="govuk-tag govuk-tag--grey">Not started</strong>
+
+                    {% elseif step.statusId == 'in-progress' %}
+                    <strong class="govuk-tag govuk-tag">In Progress</strong>
+
+                    {% elseif step.statusId == 'completed' %}
+                    <strong class="govuk-tag govuk-tag--green">Completed</strong>
+
+                    {% elseif step.statusId == 'cannot-be-done-yet' %}
+                    <strong class="govuk-tag govuk-tag--purple">Cannot be done yet</strong>
+                    {% endif %}
+                  </td>
+                </tr>
+                {% endfor %}
+                </tbody>
+              </table>
+              {% else %}
+              <strong class="govuk-body govuk-!-font-weight-bold">No steps added</strong>
+              {% endif %}
+            </div>
+            <p class="govuk-body-s" style="padding-left: 20px; color: #505a5f;">
+              Area of need: {{ goal.needArea }}<br>
+              {% if goal.relatedNeedAreas.length > 0 %}
+              Also relates to: {{ goal.relatedNeedAreas | join(', ') }}
+              {% endif %}
+            </p>
           </div>
-          <div class="govuk-summary-card__content">
-            <p class="govuk-body">Aim to achieve {{ goal.date }}</p>
-            {% if goal.steps and goal.steps.length > 0 %}
-            <table class="govuk-table">
-              <thead class="govuk-table__head">
-              <tr class="govuk-table__row">
-                <th scope="col" class="govuk-table__header" style="width: 25%">Who will do this</th>
-                <th scope="col" class="govuk-table__header" style="width: 60%">Step</th>
-                <th scope="col" class="govuk-table__header" style="width: 15%">Status</th>
-              </tr>
-              </thead>
-              <tbody class="govuk-table__body">
-              {% for step in goal.steps %}
-              <tr class="govuk-table__row">
-                <td class="govuk-table__cell">{{ step.who }}</td>
-                <td class="govuk-table__cell">{{ step.step }}</td>
-                <td class="govuk-table__cell">
-                  {% if step.statusId == 'not-started' %}
-                  <strong class="govuk-tag govuk-tag--grey">Not started</strong>
-
-                  {% elseif step.statusId == 'in-progress' %}
-                  <strong class="govuk-tag govuk-tag">In Progress</strong>
-
-                  {% elseif step.statusId == 'completed' %}
-                  <strong class="govuk-tag govuk-tag--green">Completed</strong>
-
-                  {% elseif step.statusId == 'cannot-be-done-yet' %}
-                  <strong class="govuk-tag govuk-tag--purple">Cannot be done yet</strong>
-                  {% endif %}
-                </td>
-              </tr>
-              {% endfor %}
-              </tbody>
-            </table>
-            {% else %}
-            <strong class="govuk-body govuk-!-font-weight-bold">No steps added</strong>
-            {% endif %}
-          </div>
-          <p class="govuk-body-s" style="padding-left: 20px; color: #505a5f;">
-            Area of need: {{ goal.needArea }}<br>
-            {% if goal.relatedNeedAreas.length > 0 %}
-            Also relates to: {{ goal.relatedNeedAreas | join(', ') }}
-            {% endif %}
-          </p>
-        </div>
-        {% endfor %}
+          </li>
+          {% endfor %}
+        </ol>
       </div>
     </div>
   </div>

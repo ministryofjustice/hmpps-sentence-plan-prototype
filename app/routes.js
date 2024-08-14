@@ -330,12 +330,11 @@ router.get(`/${DESIGN_VERSION}/plan-overview-removed`, (req, res, next) => {
 })
 
 router.get(`/${DESIGN_VERSION}/plan-overview-later`, (req, res, next) => {
-    /**
-     *  We can now access all goal data through {{ GOALS_DATA }} in our HTML/template
-     */
     return res.render(`${DESIGN_VERSION}/plan-overview-later.html`, {
-        GOALS_DATA: req.session.data.goals.filter(goal => goal.date),
-        GOALS_FOR_LATER_DATA: req.session.data.goals.filter(goal => !goal.date)
+        ACTIVE_GOALS: req.session.data.goals.filter(goal => goal.status === 'ACTIVE'),
+        FUTURE_GOALS: req.session.data.goals.filter(goal => goal.status === 'FUTURE'),
+        REMOVED_GOALS: req.session.data.goals.filter(goal => goal.status === 'REMOVED'),
+        ACHIEVED_GOALS: req.session.data.goals.filter(goal => goal.status === 'ACHIEVED')
     })
 })
 

@@ -1,197 +1,152 @@
+{% extends "layouts/main.html" %}
+{% from "govuk/components/inset-text/macro.njk" import govukInsetText %}
 
-{% extends "layouts/main.html" %} {% block pageTitle %} John's progress –
-{{ serviceName }} – GOV.UK Prototype Kit {% endblock %} 
-
+{% block pageTitle %}
+  John's progress – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
 
 {% block main %}
-{% include "../includes/primary-nav-plan.html" %}
-{{ super() }}
+  {% include "../includes/primary-nav-plan.html" %}
+  {{ super() }}
 {% endblock %}
 
 {% block content %}
-{% include "../includes/profile-banner.html" %}
+  {% include "../includes/profile-banner.html" %}
 
-<a href="/splan7/plan-overview" class="govuk-back-link">Back</a>
-<main class="govuk-main-wrapper">
-
+  <a href="/splan7/plan-overview" class="govuk-back-link">Back</a>
+  <main class="govuk-main-wrapper">
     <div class="govuk-grid-row">
       <div class="govuk-grid-column-two-thirds">
+        <h1 class="govuk-heading-l">Record John's progress on their plan</h1>
+        <p class="govuk-body">
+          <a href="progress" class="govuk-link govuk-link--no-visited-state">View all notes on progress</a>
+        </p>
 
-        
+        <form class="form" method="post">
+          {{ govukInsetText({
+            text: "You updated 3 goals in John's plan."
+          }) }}
 
-<h1 class="govuk-heading-l">Record John's progress on their plan</h1>
-<p class="govuk-body">
-    <a href="progress" class="govuk-link govuk-link--no-visited-state">View all notes on progress</a>
-  </p>
+          {{ govukTextarea({
+            name: "overallNote",
+            rows: "4",
+            label: {
+              text: "How is John doing on their plan?",
+              classes: "govuk-label--m"
+            },
+            hint: {
+              text: "For example, what progress John is making, how motivated and engaged they are, or any strengths they have developed."
+            }
+          }) }}
 
-  {% from "govuk/components/inset-text/macro.njk" import govukInsetText %}
+          {% set supportRequiredNoteHtml %}
+            {{ govukTextarea({
+              rows: "2",
+              name: "supportRequiredNote",
+              type: "email",
+              autocomplete: "text",
+              spellcheck: false,
+              label: {
+                text: "Enter details"
+              }
+              }) }}
+          {% endset %}
 
-{{ govukInsetText({
-  text: "You updated 3 goals in John's plan."
-}) }}
+          {{ govukRadios({
+            name: "supportRequired",
+            fieldset: {
+              legend: {
+                text: "Does John need any support to achieve their goals?",
+                isPageHeading: true,
+                classes: "govuk-fieldset__legend--m"
+              }
+            },
+            items: [
+              {
+                value: "yes",
+                text: "Yes",
+                conditional: {
+                  html: supportRequiredNoteHtml
+                }
+              },
+              {
+                value: "no",
+                text: "No",
+                conditional: {
+                  html: supportRequiredNoteHtml
+                }
+              },
+              {
+                value: "unknown",
+                text: "Not sure",
+                conditional: {
+                  html: supportRequiredNoteHtml
+                }
+              }
+            ]
+          }) }}
 
-{{ govukTextarea({
-  name: "moreDetail",
-  id: "more-detail",
-  rows: "4",
-  label: {
-    text: "How is John doing on their plan?",
-    classes: "govuk-label--m"
-  },
-  hint: {
-    text: "For example, what progress John is making, how motivated and engaged they are, or any strengths they have developed."
-  }
-}) }}
+          {% set popInvolvedYesHtml %}
+            {{ govukTextarea({
+              rows: "2",
+              name: "popInvolvementNote",
+              type: "text",
+              autocomplete: "text",
+              spellcheck: false,
+              label: {
+                text: "Enter how John is feeling about their plan"
+              },
+              hint: {
+                text: "John must answer this question."
+              }
+            }) }}
+          {% endset %}
 
+          {% set popInvolveNodHtml %}
+            {{ govukTextarea({
+              rows: "2",
+              name: "popInvolvementNote",
+              type: "text",
+              autocomplete: "text",
+              spellcheck: false,
+              label: {
+                text: "Enter details"
+              }
+            }) }}
+          {% endset %}
 
-{% set emailHtml %}
-{{ govukTextarea({
-  id: "contact-by-email",
-  rows: "2",
-  name: "contactByEmail",
-  type: "email",
-  autocomplete: "text",
-  spellcheck: false,
-  label: {
-    text: "Enter details"
-  }
-}) }}
-{% endset -%}
+          {{ govukRadios({
+            name: "popInvolvement",
+            fieldset: {
+              legend: {
+                text: "Was John involved in this update?",
+                isPageHeading: true,
+                classes: "govuk-fieldset__legend--m"
+              }
+            },
+            items: [
+              {
+                value: "yes",
+                text: "Yes",
+                conditional: {
+                  html: popInvolvedYesHtml
+                }
+              },
+              {
+                value: "no",
+                text: "No",
+                conditional: {
+                  html: popInvolveNodHtml
+                }
+              }
+            ]
+          }) }}
 
-{% set phoneHtml %}
-{{ govukTextarea({
-  id: "contact-by-phone",
-  rows: "2",
-  name: "contactByPhone",
-  type: "text",
-  autocomplete: "tel",
-  
-  label: {
-    text: "Enter details"
-  }
-}) }}
-{% endset -%}
-
-{% set textHtml %}
-{{ govukTextarea({
-  id: "contact-by-text",
-  rows: "2",
-  name: "contactByText",
-  type: "text",
-  autocomplete: "tel",
-  
-  label: {
-    text: "Enter details"
-  }
-}) }}
-{% endset -%}
-
-{{ govukRadios({
-  name: "contact",
-  fieldset: {
-    legend: {
-      text: "Does John need any support to achieve their goals?",
-      isPageHeading: true,
-      classes: "govuk-fieldset__legend--m"
-    }
-  },
-  items: [
-    {
-      value: "email",
-      text: "Yes",
-      conditional: {
-        html: emailHtml
-      }
-    },
-    {
-      value: "phone",
-      text: "No",
-      conditional: {
-        html: phoneHtml
-      }
-    },
-    {
-      value: "text",
-      text: "Not sure",
-      conditional: {
-        html: textHtml
-      }
-    }
-  ]
-}) }}
-
-{% set yesHtml %}
-{{ govukTextarea({
-  id: "yes",
-  rows: "2",
-  name: "contactByEmail",
-  type: "email",
-  autocomplete: "text",
-  spellcheck: false,
-  label: {
-    text: "Enter how John is feeling about their plan"
-  },
-  hint: {
-    text: "John must answer this question."
-  }
-  
-}) }}
-{% endset -%}
-
-{% set noHtml %}
-{{ govukTextarea({
-  id: "no",
-  rows: "2",
-  name: "contactByPhone",
-  type: "text",
-  autocomplete: "tel",
-  
-  label: {
-    text: "Enter details"
-  }
-  
-}) }}
-{% endset -%}
-
-
-{{ govukRadios({
-  name: "involved",
-  fieldset: {
-    legend: {
-      text: "Was John involved in this update?",
-      isPageHeading: true,
-      classes: "govuk-fieldset__legend--m"
-    }
-  },
-  items: [
-    {
-      value: "yes",
-      text: "Yes",
-      conditional: {
-        html: yesHtml
-      }
-    },
-    {
-      value: "no",
-      text: "No",
-      conditional: {
-        html: noHtml
-      }
-    }
-    
-  ]
-}) }}
-
-<form class="form" action="/splan7/progress" method="get">
-    <button type="submit" class="govuk-button" data-module="govuk-button">
-      Save
-    </button>
-  </form>
-
-
-
-</div>
-</main>
-</div>
-
+          <button type="submit" class="govuk-button" data-module="govuk-button">
+            Save
+          </button>
+        </form>
+      </div>
+    </div>
+  </main>
 {% endblock %}

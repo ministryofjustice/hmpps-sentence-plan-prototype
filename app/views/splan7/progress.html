@@ -41,7 +41,7 @@
                 <h3 class="govuk-heading-s">Progress recorded</h3>
                 <p style="padding-left: 5px; color: #505a5f	;"> by Alexis Diaz</p>
             </div>
-            <p class="govuk-body-s">29 November 2023 at 1:04pm</p>
+            <p class="govuk-body-s">{{ note.createdAt | prettyPrintDate }}</p>
             <p>{{ note.content.overallNote }}</p>
             <br>
 
@@ -54,7 +54,7 @@
                     Unsure if John needs support to achieve their goals.
                 {% endif %}
                 <br>
-                {{ note.content.supportNote }}
+                {{ note.content.supportRequiredNote }}
             </p>
             <br>
 

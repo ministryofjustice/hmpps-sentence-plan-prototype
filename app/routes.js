@@ -131,10 +131,11 @@ router.use((req, res, next) => {
         req.session.data.notes = [{
             type: 'PLAN',
             subtype: 'PROGRESS',
+            createdAt: new Date(),
             content: {
                 overallNote: "John is making really great progress flying his helicopter around in circles",
                 supportRequired: 'no',
-                supportNote: `John doesn't need any support, plus I don't know how to fly a helicopter`,
+                supportRequiredNote: `John doesn't need any support, plus I don't know how to fly a helicopter`,
                 popInvolvement: 'no',
                 popInvolvementNote: `John was busy piloting his helicopter `
             }
@@ -382,8 +383,33 @@ router.get(`/${DESIGN_VERSION}/agreed-plan-later`, (req, res, next) => {
 
 router.get(`/${DESIGN_VERSION}/progress`, (req, res, next) => {
     return res.render(`${DESIGN_VERSION}/progress.html`, {
-        PLAN_NOTES: req.session.data.notes.filter(note => note.type === 'PLAN')
+        PLAN_NOTES: req.session.data.notes.filter(note => note.type === 'PLAN').reverse()
     })
+})
+
+router.get(`/${DESIGN_VERSION}/record-progress`, (req, res, next) => {
+    return res.render(`${DESIGN_VERSION}/record-progress.html`)
+})
+
+router.post(`/${DESIGN_VERSION}/record-progress`, (req, res, next) => {
+    const { overallNote, supportRequired, supportRequiredNote, popInvolvement, popInvolvementNote } = req.body
+
+    const note = {
+        type: 'PLAN',
+        subtype: 'PROGRESS',
+        createdAt: Date.now(),
+        content: {
+            overallNote,
+            supportRequired,
+            supportRequiredNote: supportRequiredNote.find(el => el !== ''),
+            popInvolvement,
+            popInvolvementNote: popInvolvementNote.find(el => el !== ''),
+        }
+    }
+
+    req.session.data.notes.push(note)
+
+    return res.redirect(`/${DESIGN_VERSION}/progress`)
 })
 
 router.get(`/${DESIGN_VERSION}/goal/:goalId/remove-goal`, (req, res, next) => {

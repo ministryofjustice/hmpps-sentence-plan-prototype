@@ -46,7 +46,7 @@ router.use((req, res, next) => {
                 goalObjective: "First test goal objective from routes",
                 relatedNeedAreas: [],
                 status: "ACTIVE",
-                date: "August 23rd 2024",
+                date: "by 23 August 2024",
                 steps: [
                     {
                         id: 1,
@@ -81,7 +81,7 @@ router.use((req, res, next) => {
                 relatedNeedAreas: [],
                 status: "ACHIEVED",
                 statusReason: 'John was super skilled and flew the helicopter well!',
-                date: "August 24th 2024",
+                date: "by 24 August 2024",
                 steps: [{
                     id: 1,
                     who: "John",
@@ -96,7 +96,7 @@ router.use((req, res, next) => {
                 relatedNeedAreas: [],
                 status: "REMOVED",
                 statusReason: 'John decided he wanted to fly helicopters instead of race cars.',
-                date: "August 26th 2024",
+                date: "by 26 August 2024",
                 steps: [{
                     id: 1,
                     who: "Programme Staff",
@@ -457,3 +457,20 @@ router.get(`/${DESIGN_VERSION}/goal/:goalId/update-goal`, (req, res, next) => {
     })
 })
 
+router.get(`/${DESIGN_VERSION}/goal/:goalId/achieve-goal`, (req, res, next) => {
+    const goalId = req.params.goalId
+    const goalData = req.session.data.goals[goalId - 1]
+
+    return res.render(`${DESIGN_VERSION}/goal-achieved.html`, {
+        GOAL_DATA: goalData
+    })
+})
+
+router.post(`/${DESIGN_VERSION}/goal/:goalId/achieve-goal`, (req, res, next) => {
+    const goalId = Number(req.params.goalId)
+    const goal = req.session.data.goals.find(goal => goal.id === goalId);
+    goal.status = 'ACHIEVED'
+    goal.statusReason = req.body['moreDetail']
+
+    return res.redirect(`/${DESIGN_VERSION}/plan-overview`)
+})

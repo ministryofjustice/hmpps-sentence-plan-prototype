@@ -46,7 +46,7 @@ router.use((req, res, next) => {
                 goalObjective: "First test goal objective from routes",
                 relatedNeedAreas: [],
                 status: "ACTIVE",
-                date: "August 23rd 2024",
+                date: "by 23 August 2024",
                 steps: [
                     {
                         id: 1,
@@ -81,7 +81,7 @@ router.use((req, res, next) => {
                 relatedNeedAreas: [],
                 status: "ACHIEVED",
                 statusReason: 'John was super skilled and flew the helicopter well!',
-                date: "August 24th 2024",
+                date: "by 24 August 2024",
                 steps: [{
                     id: 1,
                     who: "John",
@@ -96,7 +96,7 @@ router.use((req, res, next) => {
                 relatedNeedAreas: [],
                 status: "REMOVED",
                 statusReason: 'John decided he wanted to fly helicopters instead of race cars.',
-                date: "August 26th 2024",
+                date: "by 26 August 2024",
                 steps: [{
                     id: 1,
                     who: "Programme Staff",

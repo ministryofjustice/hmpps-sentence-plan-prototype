@@ -95,8 +95,8 @@ John's plan – {{ serviceName }} – GOV.UK Prototype Kit
                 <thead class="govuk-table__head">
                 <tr class="govuk-table__row">
                   <th scope="col" class="govuk-table__header" style="width: 25%">Who will do this</th>
-                  <th scope="col" class="govuk-table__header" style="width: 60%">Step</th>
-                  <th scope="col" class="govuk-table__header" style="width: 15%">Status</th>
+                  <th scope="col" class="govuk-table__header" style="width: 55%">Step</th>
+                  <th scope="col" class="govuk-table__header" style="width: 20%">Status</th>
                 </tr>
                 </thead>
                 <tbody class="govuk-table__body">
@@ -105,17 +105,14 @@ John's plan – {{ serviceName }} – GOV.UK Prototype Kit
                   <td class="govuk-table__cell">{{ step.who }}</td>
                   <td class="govuk-table__cell">{{ step.step }}</td>
                   <td class="govuk-table__cell">
-                    {% if step.statusId == 'not-started' %}
-                    <strong class="govuk-tag govuk-tag--grey">Not started</strong>
-
-                    {% elseif step.statusId == 'in-progress' %}
-                    <strong class="govuk-tag govuk-tag">In Progress</strong>
-
-                    {% elseif step.statusId == 'completed' %}
-                    <strong class="govuk-tag govuk-tag--green">Completed</strong>
-
-                    {% elseif step.statusId == 'cannot-be-done-yet' %}
-                    <strong class="govuk-tag govuk-tag--purple">Cannot be done yet</strong>
+                    {% if step.stepStatus =='not-started' %}
+                      <strong class="govuk-tag govuk-tag--grey">Not started</strong>
+                    {% elseif step.stepStatus == 'in-progress' %}
+                      <strong class="govuk-tag govuk-tag">In Progress</strong>
+                    {% elseif step.stepStatus == 'completed' %}
+                      <strong class="govuk-tag govuk-tag--green">Completed</strong>
+                    {% elseif step.stepStatus == 'cannot-be-done-yet' %}
+                      <strong class="govuk-tag govuk-tag--purple">Cannot be done yet</strong>
                     {% endif %}
                   </td>
                 </tr>

@@ -119,14 +119,6 @@ router.use((req, res, next) => {
                 }]
             }
         ]
-        /*CAN I MAKE ALIASES FOR EACH ENTRY IN AN ARRAY TEST
-
-        const statusName [notstarted, inprogress, cannotbedoneyet, completed] = session.data.goals.steps.status;
-
-        console.log(goals.steps.stepStatus[1]);
-        console.log(goals.steps.stepStatus[2]);
-        console.log(goals.steps.stepStatus[3]);
-        console.log(goals.steps.stepStatus[4]);*/
 
         req.session.data.notes = [{
             type: 'PLAN',
@@ -470,6 +462,27 @@ router.get(`/${DESIGN_VERSION}/goal/:goalId/update-goal`, (req, res, next) => {
         GOAL_DATA: goalData,
         STEP_STATUSES: stepStatuses
     })
+})
+
+router.post(`/${DESIGN_VERSION}/goal/:goalId/update-goal`, (req, res, next) => {
+    const goalId = req.params.goalId
+
+    const goalData = req.session.data.goals[goalId - 1]
+
+    const form = req.body
+
+    // console.log(form.step.value)
+
+    // loop over steps in goalData
+// where step.id === form.step-status-[id-here}
+// update step.stepStatus to form.step-status-[id-here} value
+        goalData.steps.forEach(step.id === form.step.step.id)
+    {
+        step.stepStatus = form.steps.id[0].value //not sure what I'm doing here honestly
+    }
+
+
+    res.redirect(`/${DESIGN_VERSION}/plan-overview`)
 })
 
 router.get(`/${DESIGN_VERSION}/goal/:goalId/achieve-goal`, (req, res, next) => {

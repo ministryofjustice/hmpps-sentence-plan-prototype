@@ -52,25 +52,25 @@ router.use((req, res, next) => {
                         id: 1,
                         who: "Probation practitioner",
                         step: "Find accommodation",
-                        statusId: "not-started",
+                        stepStatus: "not-started",
                     },
                     {
                         id: 2,
                         who: "John",
                         step: "This is a test second step",
-                        statusId: 'in-progress',
+                        stepStatus: 'in-progress',
                     },
                     {
                         id: 3,
                         who: "John",
                         step: "This is a test third step",
-                        statusId: "cannot-be-done-yet",
+                        stepStatus: "cannot-be-done-yet",
                     },
                     {
                         id: 4,
                         who: "John",
                         step: "This is a test fourth step",
-                        statusId: "completed",
+                        stepStatus: "completed",
                     }
                 ]
             },
@@ -86,7 +86,7 @@ router.use((req, res, next) => {
                     id: 1,
                     who: "John",
                     step: "Fly his helicopter in a REALLY big circle!",
-                    status: "completed",
+                    stepStatus: "completed",
                 }]
             },
             {
@@ -101,7 +101,7 @@ router.use((req, res, next) => {
                     id: 1,
                     who: "Programme Staff",
                     step: "Teach John how to drive the race car",
-                    status: "in-progress",
+                    stepStatus: "in-progress",
                 }]
             },
             {
@@ -115,7 +115,7 @@ router.use((req, res, next) => {
                     id: 1,
                     who: "John",
                     step: "Eat a nice healthy meal before flying his helicopter",
-                    status: "in-progress",
+                    stepStatus: "in-progress",
                 }]
             }
         ]
@@ -123,10 +123,10 @@ router.use((req, res, next) => {
 
         const statusName [notstarted, inprogress, cannotbedoneyet, completed] = session.data.goals.steps.status;
 
-        console.log(goals.steps.status[1]);
-        console.log(goals.steps.status[2]);
-        console.log(goals.steps.status[3]);
-        console.log(goals.steps.status[4]);*/
+        console.log(goals.steps.stepStatus[1]);
+        console.log(goals.steps.stepStatus[2]);
+        console.log(goals.steps.stepStatus[3]);
+        console.log(goals.steps.stepStatus[4]);*/
 
         req.session.data.notes = [{
             type: 'PLAN',

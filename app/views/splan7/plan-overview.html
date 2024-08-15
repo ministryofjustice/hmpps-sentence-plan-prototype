@@ -148,7 +148,7 @@
                   </a>
                 </li>
                 <li class="govuk-summary-card__action" style="padding-left: 10px;">
-                  <a class="govuk-link govuk-link--no-visited-state" href="#">
+                  <a class="govuk-link govuk-link--no-visited-state" href="/splan7/goal/{{ goal.id }}/achieve-goal">
                     Mark as Achieved<span class="govuk-visually-hidden"> for {{ goal.goalObjective }}</span>
                   </a>
                 </li>
@@ -160,7 +160,7 @@
               </ul>
             </div>
             <div class="govuk-summary-card__content">
-              <p class="govuk-body">Aim to achieve {{ goal.date }}</p>
+              <p class="govuk-body">Aim to achieve by {{ goal.date }}</p>
               {% if goal.steps and goal.steps.length > 0 %}
               <table class="govuk-table">
                 <thead class="govuk-table__head">

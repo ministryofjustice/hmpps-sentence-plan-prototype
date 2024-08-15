@@ -455,3 +455,20 @@ router.get(`/${DESIGN_VERSION}/goal/:goalId/update-goal`, (req, res, next) => {
     })
 })
 
+router.get(`/${DESIGN_VERSION}/goal/:goalId/achieve-goal`, (req, res, next) => {
+    const goalId = req.params.goalId
+    const goalData = req.session.data.goals[goalId - 1]
+
+    return res.render(`${DESIGN_VERSION}/goal-achieved.html`, {
+        GOAL_DATA: goalData
+    })
+})
+
+router.post(`/${DESIGN_VERSION}/goal/:goalId/achieve-goal`, (req, res, next) => {
+    const goalId = Number(req.params.goalId)
+    const goal = req.session.data.goals.find(goal => goal.id === goalId);
+    goal.status = 'ACHIEVED'
+    goal.statusReason = req.body['moreDetail']
+
+    return res.redirect(`/${DESIGN_VERSION}/plan-overview`)
+})

@@ -58,19 +58,19 @@ router.use((req, res, next) => {
                         id: 2,
                         who: "John",
                         step: "This is a test second step",
-                        statusId: ["not-started", "in-progress", "cannot-be-done-yet", "completed"],
+                        statusId: 'in-progress',
                     },
                     {
                         id: 3,
                         who: "John",
                         step: "This is a test third step",
-                        statusId: ["not-started", "in-progress", "cannot-be-done-yet", "completed"],
+                        statusId: "cannot-be-done-yet",
                     },
                     {
                         id: 4,
                         who: "John",
                         step: "This is a test fourth step",
-                        statusId: ["not-started", "in-progress", "cannot-be-done-yet", "completed"],
+                        statusId: "completed",
                     }
                 ]
             },
@@ -447,11 +447,28 @@ router.get(`/${DESIGN_VERSION}/goal/:goalId/update-goal`, (req, res, next) => {
 
     const goalData = req.session.data.goals[goalId - 1]
 
-
-
+    const stepStatuses = [
+        {
+            text: 'Not started',
+            value: 'not-started',
+        },
+        {
+            text: 'In progress',
+            value: 'in-progress',
+        },
+        {
+            text: 'Completed',
+            value: 'completed',
+        },
+        {
+            text: 'Cannot be done yet',
+            value: 'cannot-be-done-yet',
+        },
+    ]
 
     return res.render(`/${DESIGN_VERSION}/update-goal.html`, {
-        GOAL_DATA: goalData
+        GOAL_DATA: goalData,
+        STEP_STATUSES: stepStatuses
     })
 })
 

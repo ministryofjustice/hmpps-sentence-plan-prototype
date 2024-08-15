@@ -41,20 +41,23 @@
                   </thead>
                   <tbody class="govuk-table__body">
                   {% for step in GOAL_DATA.steps %}
-                  {{ step.status | dump }}
+
+                  {% set stepStatusItems = [] %}
+                  {% for status in STEP_STATUSES %}
+                    {% set stepStatusItems = stepStatusItems.concat({
+                        text: status.text,
+                        value: status.value,
+                        selected: status.value === step.stepStatus
+                    }) %}
+                  {% endfor %}
+
                   <tr class="govuk-table__row">
                       <td class="govuk-table__cell">{{ step.who }}</td>
                       <td class="govuk-table__cell">{{ step.step }}</td>
                       <td class="govuk-table__cell">
-                         {# 1)parse in the status into the drop down
-                          2) if the status is filled (maybe text length > 0 ?) then display it
-                          3) if empty (maybe text length < 0 ?) then display "---"
-                          4) Selectable status from dropdown
-                          5) save the text #}
                           {{ govukSelect({
-                          id: step.id,
-                          value: step.statusId,
-                          text: step.statusName
+                              id: step.id,
+                              items: stepStatusItems
                           }) }}
                       </td>
                   </tr>

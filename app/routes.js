@@ -38,7 +38,6 @@ router.use((req, res, next) => {
      * So, if the goals array isn't ready yet, let's get it set up to start saving goals!
      */
     if(!req.session.data.goals) {
-
         req.session.data.goals = [
             {
                 id: 1,
@@ -195,7 +194,7 @@ router.post(`/${DESIGN_VERSION}/create-goal`, function (req, res) {
         relatedNeedAreas: Array.isArray(req.body.relatedNeedAreas) ?
             req.body.relatedNeedAreas.filter(areaOfNeed => areaOfNeed !== "_unchecked") : [],
 
-        status: req.body.isActiveGoal ? 'ACTIVE' : 'FUTURE',
+        status: req.body.isActiveGoal === 'Yes' ? 'ACTIVE' : 'FUTURE',
 
         /** Check if the date is set to custom, if so, get value from datePicker, otherwise use req.body.date */
         date: req.body.date === 'custom' ? `by ${req.body.datePicker}` : req.body.date,
@@ -500,6 +499,25 @@ router.post(`/${DESIGN_VERSION}/goal/:goalId/achieve-goal`, (req, res, next) => 
     const goal = req.session.data.goals.find(goal => goal.id === goalId);
     goal.status = 'ACHIEVED'
     goal.statusReason = req.body['moreDetail']
+
+    return res.redirect(`/${DESIGN_VERSION}/plan-overview`)
+})
+
+router.get(`/${DESIGN_VERSION}/goal/:goalId/readd-goal`, (req, res, next) => {
+    const goalId = req.params.goalId
+    const goalData = req.session.data.goals[goalId - 1]
+
+    return res.render(`/${DESIGN_VERSION}/add-goal-to-plan.html`, {
+        GOAL_DATA: goalData
+    })
+})
+
+router.post(`/${DESIGN_VERSION}/goal/:goalId/readd-goal`, (req, res, next) => {
+    const goalId = Number(req.params.goalId)
+    const goal = req.session.data.goals.find(goal => goal.id === goalId);
+
+    goal.status = req.body.isActiveGoal === 'Yes' ? 'ACTIVE' : 'FUTURE'
+    goal.date = req.body.date === 'custom' ? `by ${req.body.datePicker}` : req.body.date
 
     return res.redirect(`/${DESIGN_VERSION}/plan-overview`)
 })

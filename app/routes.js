@@ -485,6 +485,28 @@ router.post(`/${DESIGN_VERSION}/goal/:goalId/update-goal`, (req, res, next) => {
     res.redirect(`/${DESIGN_VERSION}/plan-overview`)
 })
 
+router.get(`/${DESIGN_VERSION}/goal/:goalId/update-goal-details`, (req, res, next) => {
+    const goalId = req.params.goalId
+    const goalData = req.session.data.goals[goalId - 1]
+
+    return res.render(`${DESIGN_VERSION}/update-goal-details.html`, {
+        GOAL_DATA: goalData
+    })
+})
+
+router.post(`/${DESIGN_VERSION}/goal/:goalId/update-goal-details`, (req, res, next) => {
+    const goalId = req.params.goalId
+    const goalData = req.session.data.goals[goalId - 1]
+
+    goalData.goalObjective = req.body.goalObjective
+    goalData.relatedNeedAreas = Array.isArray(req.body.relatedNeedAreas) ?
+        req.body.relatedNeedAreas.filter(areaOfNeed => areaOfNeed !== "_unchecked") : []
+    goalData.status = req.body.isActiveGoal === 'Yes' ? 'ACTIVE' : 'FUTURE'
+    goalData.date = req.body.date === 'custom' ? `by ${req.body.datePicker}` : req.body.date
+
+    return res.redirect(`/${DESIGN_VERSION}/plan-overview`)
+})
+
 router.get(`/${DESIGN_VERSION}/goal/:goalId/achieve-goal`, (req, res, next) => {
     const goalId = req.params.goalId
     const goalData = req.session.data.goals[goalId - 1]

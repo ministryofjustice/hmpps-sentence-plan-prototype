@@ -22,14 +22,13 @@
         <div class="govuk-grid-column-two-thirds">
             </br>
             <h1 class="govuk-heading-l">
-                <span class="govuk-caption-l">[Goal title]</span>
+                <span class="govuk-caption-l">{{ GOAL_DATA.goalObjective }}</span>
                 Update goal with John
             </h1>
 
             {% include "../includes/info-from-assessment.html" %}
 
-            <form action="/splan7/update-goal" method="get" >
-                <input hidden name="needArea" value="Accommodation">
+            <form method="post" >
                 <div class="govuk-form-group goal">
                     <label class="govuk-label govuk-label--m" for="goalObjective">What goal should John try to achieve?</label>
                     <div id="goalObjective-hint" class="govuk-hint govuk-!-margin-bottom-2">
@@ -49,13 +48,41 @@
                             }
                         },
                         items: [
-                            { value: "Alcohol use", text: "Alcohol use" },
-                            { value: "Drug use", text: "Drug use" },
-                            { value: "Employment and education", text: "Employment and education" },
-                            { value: "Finance", text: "Finance" },
-                            { value: "Health and wellbeing", text: "Health and wellbeing" },
-                            { value: "Personal relationships and community", text: "Personal relationships and community" },
-                            { value: "Thinking, behaviours and attitudes", text: "Thinking, behaviours and attitudes" }
+                            {
+                                value: "Alcohol use",
+                                text: "Alcohol use",
+                                checked: "Alcohol use" in GOAL_DATA.relatedNeedAreas
+                            },
+                            {
+                                value: "Drug use",
+                                text: "Drug use",
+                                checked: "Drug use" in GOAL_DATA.relatedNeedAreas
+                            },
+                            {
+                                value: "Employment and education",
+                                text: "Employment and education",
+                                checked: "Employment and education" in GOAL_DATA.relatedNeedAreas
+                            },
+                            {
+                                value: "Finance",
+                                text: "Finance",
+                                checked: "Finance" in GOAL_DATA.relatedNeedAreas
+                            },
+                            {
+                                value: "Health and wellbeing",
+                                text: "Health and wellbeing",
+                                checked: "Health and wellbeing" in GOAL_DATA.relatedNeedAreas
+                            },
+                            {
+                                value: "Personal relationships and community",
+                                text: "Personal relationships and community",
+                                checked: "Personal relationships and community" in GOAL_DATA.relatedNeedAreas
+                            },
+                            {
+                                value: "Thinking, behaviours and attitudes",
+                                text: "Thinking, behaviours and attitudes",
+                                checked: "Thinking, behaviours and attitudes" in GOAL_DATA.relatedNeedAreas
+                            }
                         ]
                     }) }}
                 {% endset %}
@@ -70,8 +97,19 @@
                         }
                     },
                     items: [
-                        { value: "Yes", text: "Yes", conditional: { html: yesHtml } },
-                        { value: "No", text: "No" }
+                        {
+                            value: "Yes",
+                            text: "Yes",
+                            checked: GOAL_DATA.relatedNeedAreas.length,
+                            conditional: {
+                                html: yesHtml
+                            }
+                        },
+                        {
+                            value: "No",
+                            text: "No",
+                            checked: not GOAL_DATA.relatedNeedAreas.length
+                        }
                     ]
                 }) }}
 
@@ -82,11 +120,11 @@
                         </legend>
                         <div class="govuk-radios" data-module="govuk-radios">
                             <div class="govuk-radios__item" onclick="toggleDiv('isActiveGoal')">
-                                <input class="govuk-radios__input" id="isActiveGoal" name="isActiveGoal" type="radio" value="Yes">
+                                <input class="govuk-radios__input" id="isActiveGoal" name="isActiveGoal" type="radio" value="Yes" {% if GOAL_DATA.status === "ACTIVE" %} checked {% endif %}>
                                 <label class="govuk-label govuk-radios__label" for="isActiveGoal">Yes</label>
                             </div>
                             <div class="govuk-radios__item" onclick="toggleDiv('isActiveGoal')">
-                                <input class="govuk-radios__input" id="isActiveGoal-2" name="isActiveGoal" type="radio" value="No">
+                                <input class="govuk-radios__input" id="isActiveGoal-2" name="isActiveGoal" type="radio" value="No" {% if GOAL_DATA.status === "FUTURE" %} checked {% endif %}>
                                 <label class="govuk-label govuk-radios__label" for="isActiveGoal-2">No, it is a future goal</label>
                             </div>
                         </div>

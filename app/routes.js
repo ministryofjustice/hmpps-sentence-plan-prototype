@@ -471,15 +471,16 @@ router.post(`/${DESIGN_VERSION}/goal/:goalId/update-goal`, (req, res, next) => {
 
     const form = req.body
 
-    // console.log(form.step.value)
-
     // loop over steps in goalData
-// where step.id === form.step-status-[id-here}
-// update step.stepStatus to form.step-status-[id-here} value
-        goalData.steps.forEach(step.id === form.step.step.id)
-    {
-        step.stepStatus = form.steps.id[0].value //not sure what I'm doing here honestly
-    }
+    // where step.id === form.step-status-[id-here}
+    // update step.stepStatus to form.step-status-[id-here} value
+
+    goalData.steps.forEach(step => {
+        const stepStatusFromForm = form[`step-status-${step.id}`]
+        if (stepStatusFromForm) {
+            step.stepStatus = stepStatusFromForm
+        }
+    })
 
 
     res.redirect(`/${DESIGN_VERSION}/plan-overview`)

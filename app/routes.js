@@ -5,6 +5,7 @@
 
 const govukPrototypeKit = require('govuk-prototype-kit')
 const router = govukPrototypeKit.requests.setupRouter()
+const dateFormat1 = { day: 'numeric', month: 'long', year: 'numeric' }
 
 /**
  * This is the name of the design revision
@@ -484,6 +485,7 @@ router.post(`/${DESIGN_VERSION}/goal/:goalId/remove-goal`, (req, res, next) => {
     const goal = req.session.data.goals.find(goal => goal.id === goalId);
     goal.status = 'REMOVED'
     goal.statusReason = req.body['moreDetail']
+    goal.statusDate = new Date().toLocaleDateString('en-GB', dateFormat1);
 
     const note = {
         type: 'GOAL',
@@ -603,6 +605,7 @@ router.post(`/${DESIGN_VERSION}/goal/:goalId/achieve-goal`, (req, res, next) => 
     const goal = req.session.data.goals.find(goal => goal.id === goalId);
     goal.status = 'ACHIEVED'
     goal.statusReason = req.body['moreDetail']
+    goal.statusDate = new Date().toLocaleDateString('en-GB', dateFormat1);
 
     const note = {
         type: 'GOAL',

@@ -32,47 +32,58 @@ Sam's progress – {{ serviceName }} – GOV.UK Prototype Kit
         </div>
 
         <p>
-            Aim to achieve {{ GOAL_DATA.date }}
+            {% if GOAL_DATA.status === 'ACTIVE' %}
+                Aim to achieve this by {{ GOAL_DATA.date }}
+            {% elseif GOAL_DATA.status === 'ACHIEVED' %}
+                Marked as achieved on {{ GOAL_DATA.statusDate }}
+            {% elseif GOAL_DATA.status === 'REMOVED' %}
+                Removed on {{ GOAL_DATA.statusDate }}
+            {% endif %}
+
             <a href="/splan7/goal/{{ GOAL_DATA.id }}/update-goal-details" class="govuk-link govuk-link--no-visited-state">Update goal details</a>
         </p>
         <div class="govuk-summary-card" id="summary-card-{{ goal.id }}" draggable="true">
             <div class="govuk-summary-card__content">
-                <table class="govuk-table">
-                    <thead class="govuk-table__head">
-                    <tr class="govuk-table__row">
-                        <th scope="col" class="govuk-table__header">Who will do this</th>
-                        <th scope="col" class="govuk-table__header">Step</th>
-                        <th scope="col" class="govuk-table__header">Status</th>
-                    </tr>
-                    </thead>
-                    <tbody class="govuk-table__body">
-                    {% for step in GOAL_DATA.steps %}
-                        {% set stepStatusItems = [] %}
-                        {% for status in STEP_STATUSES %}
-                            {% set stepStatusItems = stepStatusItems.concat({
-                                text: status.text,
-                                value: status.value,
-                                selected: status.value === step.stepStatus
-                            }) %}
-                        {% endfor %}
+                {% if goal.steps and goal.steps.length > 0 %}
+                    <table class="govuk-table">
+                        <thead class="govuk-table__head">
+                        <tr class="govuk-table__row">
+                            <th scope="col" class="govuk-table__header">Who will do this</th>
+                            <th scope="col" class="govuk-table__header">Step</th>
+                            <th scope="col" class="govuk-table__header">Status</th>
+                        </tr>
+                        </thead>
+                        <tbody class="govuk-table__body">
+                        {% for step in GOAL_DATA.steps %}
+                            {% set stepStatusItems = [] %}
+                            {% for status in STEP_STATUSES %}
+                                {% set stepStatusItems = stepStatusItems.concat({
+                                    text: status.text,
+                                    value: status.value,
+                                    selected: status.value === step.stepStatus
+                                }) %}
+                            {% endfor %}
 
-                    <tr class="govuk-table__row">
-                        <td class="govuk-table__cell" style="width: 25%">{{ step.who }}</td>
-                        <td class="govuk-table__cell" style="width: 55%" >{{ step.step }}</td>
-                        <td class="govuk-table__cell" style="width: 20%">
-                            {{ govukSelect({
-                                id: step.id,
-                                name: "step-status-" + step.id,
-                                items: stepStatusItems,
-                                formGroup: {
-                                    classes: "govuk-!-margin-bottom-0"
-                                }
-                            }) }}
-                        </td>
-                    </tr>
-                    {% endfor %}
-                    </tbody>
-                </table>
+                        <tr class="govuk-table__row">
+                            <td class="govuk-table__cell" style="width: 25%">{{ step.who }}</td>
+                            <td class="govuk-table__cell" style="width: 55%" >{{ step.step }}</td>
+                            <td class="govuk-table__cell" style="width: 20%">
+                                {{ govukSelect({
+                                    id: step.id,
+                                    name: "step-status-" + step.id,
+                                    items: stepStatusItems,
+                                    formGroup: {
+                                        classes: "govuk-!-margin-bottom-0"
+                                    }
+                                }) }}
+                            </td>
+                        </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                {% else %}
+                    <strong class="govuk-body govuk-!-font-weight-bold">No steps added</strong>
+                {% endif %}
             </div>
         </div>
 

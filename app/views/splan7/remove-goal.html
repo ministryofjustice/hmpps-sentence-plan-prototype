@@ -27,7 +27,17 @@
         <h2 class="govuk-summary-card__title">{{ GOAL_DATA.goalObjective }}</h2>
       </div>
       <div class="govuk-summary-card__content">
-        <p class="govuk-body">Aim to achieve {{ GOAL_DATA.date }}</p>
+        {% if GOAL_DATA.status !== 'FUTURE' %}
+          <p class="govuk-body">
+            {% if GOAL_DATA.status === 'ACTIVE' %}
+              Aim to achieve this by {{ GOAL_DATA.date }}
+            {% elseif GOAL_DATA.status === 'ACHIEVED' %}
+              Marked as achieved on {{ GOAL_DATA.statusDate }}
+            {% elseif GOAL_DATA.status === 'REMOVED' %}
+              Removed on {{ GOAL_DATA.statusDate }}
+            {% endif %}
+          </p>
+        {% endif %}
         {% if GOAL_DATA.steps and GOAL_DATA.steps.length > 0 %}
         <table class="govuk-table">
           <thead class="govuk-table__head">

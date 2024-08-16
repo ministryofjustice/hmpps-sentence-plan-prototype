@@ -71,19 +71,19 @@
         {% endif %}
 
           {% if note.type === 'GOAL' %}
-          <div>
-              <div style="display: flex;">
-                  {% if note.subtype === 'UPDATED' %}
-                    <h3 class="govuk-heading-s" style="width: 60%">'{{ note.content.goalTitle }}' updated <span class="govuk-body" style="padding-left: 5px; color: #505a5f;"> by Alexis Diaz</span></h3>
-                  {% elseif note.subtype === 'ACHIEVED' %}
-                    <h3 class="govuk-heading-s" style="width: 60%">'{{ note.content.goalTitle }}' achieved <span class="govuk-body" style="padding-left: 5px; color: #505a5f;"> by Alexis Diaz</span></h3>
-                  {% else %}
-                    <h3 class="govuk-heading-s" style="width: 60%">'{{ note.content.goalTitle }}' removed <span class="govuk-body" style="padding-left: 5px; color: #505a5f;"> by Alexis Diaz</span></h3>
-                  {% endif %}
+              <div>
+                  <div style="display: flex;">
+                      {% if note.subtype === 'UPDATED' %}
+                        <h3 class="govuk-heading-s" style="width: 60%">'{{ note.content.goalTitle }}' updated <span class="govuk-body" style="padding-left: 5px; color: #505a5f;"> by Alexis Diaz</span></h3>
+                      {% elseif note.subtype === 'ACHIEVED' %}
+                        <h3 class="govuk-heading-s" style="width: 60%">'{{ note.content.goalTitle }}' achieved <span class="govuk-body" style="padding-left: 5px; color: #505a5f;"> by Alexis Diaz</span></h3>
+                      {% else %}
+                        <h3 class="govuk-heading-s" style="width: 60%">'{{ note.content.goalTitle }}' removed <span class="govuk-body" style="padding-left: 5px; color: #505a5f;"> by Alexis Diaz</span></h3>
+                      {% endif %}
+                  </div>
+                  <p class="govuk-body-s">{{ note.createdAt | prettyPrintDate }}</p>
+                  <p>{{ note.content.reason }}</p>
               </div>
-              <p class="govuk-body-s">{{ note.createdAt | prettyPrintDate }}</p>
-              <p>{{ note.content.reason }}</p>
-          </div>
           {% endif %}
         <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
       {% endfor %}

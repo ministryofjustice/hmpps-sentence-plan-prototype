@@ -89,19 +89,37 @@ Sam's progress – {{ serviceName }} – GOV.UK Prototype Kit
                         id: "more-detail",
                         rows: "4",
                         label: {
-                            text: "How is [Joan] doing on this [area of need] goal?",
+                            text: "How is Sam doing on this " + GOAL_DATA.needArea + " goal?",
                             classes: "govuk-label--m"
                         },
                         hint: {
-                            text: "For example, how Joan feels about their progress, any strengths or protective factors they have developed, or any support they need."
+                            text: "For example, how Sam feels about their progress, any strengths or protective factors they have developed, or any support they need."
                         }
                     }) }}
 
+                    {% set goalNotesHtml %}
+                        {% for note in GOAL_NOTES %}
+                            <div>
+                                <div style="display: flex;">
+                                    {% if note.subtype === 'UPDATED' %}
+                                    <h3 class="govuk-heading-s">{{ note.content.goalTitle }}' updated <span class="govuk-body" style="padding-left: 5px; color: #505a5f;"> by Alexis Diaz</span></h3>
+                                    {% elseif note.subtype === 'ACHIEVED' %}
+                                    <h3 class="govuk-heading-s">'{{ note.content.goalTitle }}' achieved <span class="govuk-body" style="padding-left: 5px; color: #505a5f;"> by Alexis Diaz</span></h3>
+                                    {% else %}
+                                    <h3 class="govuk-heading-s">'{{ note.content.goalTitle }}' removed <span class="govuk-body" style="padding-left: 5px; color: #505a5f;"> by Alexis Diaz</span></h3>
+                                    {% endif %}
+                                </div>
+                                <p class="govuk-body-s">{{ note.createdAt | prettyPrintDate }}</p>
+                                <p>{{ note.content.reason }}</p>
+                            </div>
+                            <hr>
+                        {% endfor %}
+                    {% endset %}
+
                     {{ govukDetails({
                     summaryText: "View all notes",
-                    text: "[DD Month YYYY] by [Practitioner] // Note content"
+                    html: goalNotesHtml
                     }) }}
-
 
                     <div class="govuk-button-group">
                         <button type="submit" class="govuk-button" data-module="govuk-button">

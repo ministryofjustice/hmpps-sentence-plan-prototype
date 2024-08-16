@@ -163,6 +163,7 @@ router.use((req, res, next) => {
                 subtype: 'REMOVED',
                 createdAt: new Date("1 August 2024 09:00"),
                 content: {
+                    goalId: 4,
                     goalTitle: "I will identify opportunities to re-engage in my previous hobbies, like rugby and general fitness.",
                     reason: "Sam has removed this goal from her plan because she realised her immediate focus should be on managing stress and emotional well-being rather than adding new activities. " +
                         "By prioritising her mental health and reducing stress-related alcohol use, Sam is concentrating on more critical aspects of her rehabilitation."
@@ -173,6 +174,7 @@ router.use((req, res, next) => {
                 subtype: 'ACHIEVED',
                 createdAt: new Date("1 August 2024 15:00"),
                 content: {
+                    goalId: 5,
                     goalTitle: "I will explore options to manage my financial obligations to reduce stress and ensure stability for my family.",
                     reason: "Sam has successfully explored and implemented strategies to manage her financial obligations, including contacting the court for payment options and creating a budget. " +
                         "This has reduced her financial stress, allowing her to feel more confident in providing for her children and maintaining stability in her home",
@@ -488,6 +490,7 @@ router.post(`/${DESIGN_VERSION}/goal/:goalId/remove-goal`, (req, res, next) => {
         subtype: 'REMOVED',
         createdAt: new Date(),
         content: {
+            goalId: goal.id,
             goalTitle: goal.goalObjective,
             reason: goal.statusReason
         }
@@ -500,7 +503,7 @@ router.post(`/${DESIGN_VERSION}/goal/:goalId/remove-goal`, (req, res, next) => {
 
 router.get(`/${DESIGN_VERSION}/goal/:goalId/update-goal`, (req, res, next) => {
     /** We can access that path variable like so */
-    const goalId = req.params.goalId
+    const goalId = Number(req.params.goalId)
 
     const goalData = req.session.data.goals[goalId - 1]
 
@@ -525,14 +528,15 @@ router.get(`/${DESIGN_VERSION}/goal/:goalId/update-goal`, (req, res, next) => {
 
     return res.render(`/${DESIGN_VERSION}/update-goal.html`, {
         GOAL_DATA: goalData,
-        STEP_STATUSES: stepStatuses
+        STEP_STATUSES: stepStatuses,
+        GOAL_NOTES: req.session.data.notes.filter(note => note.type === 'GOAL' && note.content.goalId === goalId).toReversed()
     })
 })
 
 router.post(`/${DESIGN_VERSION}/goal/:goalId/update-goal`, (req, res, next) => {
-    const goalId = req.params.goalId
+    const goalId = Number(req.params.goalId)
 
-    const goalData = req.session.data.goals[goalId - 1]
+    const goal = req.session.data.goals[goalId - 1]
 
     const form = req.body
 
@@ -540,13 +544,25 @@ router.post(`/${DESIGN_VERSION}/goal/:goalId/update-goal`, (req, res, next) => {
     // where step.id === form.step-status-[id-here}
     // update step.stepStatus to form.step-status-[id-here} value
 
-    goalData.steps.forEach(step => {
+    goal.steps.forEach(step => {
         const stepStatusFromForm = form[`step-status-${step.id}`]
         if (stepStatusFromForm) {
             step.stepStatus = stepStatusFromForm
         }
     })
 
+    const note = {
+        type: 'GOAL',
+        subtype: 'UPDATED',
+        createdAt: new Date(),
+        content: {
+            goalId: goal.id,
+            goalTitle: goal.goalObjective,
+            reason: form['moreDetail']
+        }
+    }
+
+    req.session.data.notes.push(note)
 
     res.redirect(`/${DESIGN_VERSION}/plan-overview`)
 })
@@ -593,6 +609,7 @@ router.post(`/${DESIGN_VERSION}/goal/:goalId/achieve-goal`, (req, res, next) => 
         subtype: 'ACHIEVED',
         createdAt: new Date(),
         content: {
+            goalId: goal.id,
             goalTitle: goal.goalObjective,
             reason: goal.statusReason
         }

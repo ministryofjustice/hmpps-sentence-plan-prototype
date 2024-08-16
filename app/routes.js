@@ -77,7 +77,8 @@ router.use((req, res, next) => {
                     "Alcohol use",
                     "Health and wellbeing"
                 ],
-                status: "FUTURE",
+                status: "ACTIVE",
+                date: "16 November 2024",
                 statusReason: 'John was super skilled and flew the helicopter well!',
                 steps: [
                     {
@@ -105,6 +106,18 @@ router.use((req, res, next) => {
                         stepStatus: "not-started",
                     }
                 ]
+            },
+            {
+                id: 3,
+                needArea: "Thinking, behaviours and attitudes",
+                goalObjective: "To better understand the link between my alcohol use and harmful behaviour when feeling stressed and overwhelmed",
+                relatedNeedAreas: [
+                    "Alcohol use",
+                    "Health and wellbeing"
+                ],
+                status: "FUTURE",
+                statusReason: 'John was super skilled and flew the helicopter well!',
+                steps: []
             }
         ]
 

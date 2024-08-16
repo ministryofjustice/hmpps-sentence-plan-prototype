@@ -66,6 +66,13 @@
       <div id="summary-cards">
         <ol class="goal-list govuk-list govuk-list--number">
           {% for goal in ACTIVE_GOALS %}
+            {% set buttons = [] %}
+            {% if not loop.first %}
+            {% endif %}
+
+            {% if not loop.last %}
+            {% endif %}
+
           <li>
             <div class="govuk-summary-card" id="summary-card-{{ goal.id }}" draggable="true">
             <div class="govuk-summary-card__title-wrapper">
@@ -121,14 +128,31 @@
               </table>
               {% else %}
               <strong class="govuk-body govuk-!-font-weight-bold">No steps added</strong>
+              <hr>
               {% endif %}
+
+              <p class="govuk-body-s" style="color: #505a5f;">
+                Area of need: {{ goal.needArea }}<br>
+                {% if goal.relatedNeedAreas.length > 0 %}
+                Also relates to: {{ goal.relatedNeedAreas | join(', ') }}
+                {% endif %}
+              </p>
+              <div class="govuk-button-group">
+                {% if not loop.first %}
+                <button type="button" class="govuk-button govuk-button--secondary govuk-!-margin-bottom-0" data-module="govuk-button">
+                  Move up
+                </button>
+                {% endif %}
+
+                {% if not loop.last %}
+                <button type="button" class="govuk-button govuk-button--secondary govuk-!-margin-bottom-0" data-module="govuk-button">
+                  Move down
+                </button>
+                {% endif %}
+              </div>
+
+
             </div>
-            <p class="govuk-body-s" style="padding-left: 20px; color: #505a5f;">
-              Area of need: {{ goal.needArea }}<br>
-              {% if goal.relatedNeedAreas.length > 0 %}
-              Also relates to: {{ goal.relatedNeedAreas | join(', ') }}
-              {% endif %}
-            </p>
           </div>
           </li>
           {% endfor %}

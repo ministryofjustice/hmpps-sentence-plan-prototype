@@ -1045,6 +1045,11 @@ margin-bottom: 20px;
 
 		.govuk-summary-card {
 			margin-left: govuk-spacing(2);
+
+			&__actions {
+				align-content: baseline;
+				width: 100%;
+			}
 		}
 	}
 }

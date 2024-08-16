@@ -95,6 +95,19 @@ Sam's progress – {{ serviceName }} – GOV.UK Prototype Kit
         <div class="govuk-width-container">
             <div class="govuk-grid-row">
                 <div class="govuk-grid-column-two-thirds">
+                    {% set hintHtml %}
+                        {% if GOAL_DATA.needArea == "Thinking, behaviours and attitudes" %}
+                            {% include "../includes/info-from-assessment-thinking.html" %}
+                        {% elif GOAL_DATA.needArea == "Finance" %}
+                            {% include "../includes/info-from-assessment-finance.html" %}
+                        {% else %}
+                            {% include "../includes/info-from-assessment.html" %}
+                        {% endif %}
+                        <div id="more-detail-hint" class="govuk-hint" style="margin-top: -20px">
+                            For example, how Sam feels about their progress, any strengths or protective factors they have developed, or any support they need.
+                        </div>
+                    {% endset %}
+
                     {{ govukTextarea({
                         name: "moreDetail",
                         id: "more-detail",
@@ -104,7 +117,7 @@ Sam's progress – {{ serviceName }} – GOV.UK Prototype Kit
                             classes: "govuk-label--m"
                         },
                         hint: {
-                            text: "For example, how Sam feels about their progress, any strengths or protective factors they have developed, or any support they need."
+                            html: hintHtml
                         }
                     }) }}
 

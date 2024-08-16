@@ -41,35 +41,31 @@ router.use((req, res, next) => {
         req.session.data.goals = [
             {
                 id: 1,
-                needArea: "Accommodation",
-                goalObjective: "First test goal objective from routes",
-                relatedNeedAreas: [],
+                needArea: "Finance",
+                goalObjective: "I want to be in a position where I feel happier and confident in myself again so that I can be a better mother to my children",
+                relatedNeedAreas: [
+                    "Health and wellbeing"
+                ],
                 status: "ACTIVE",
-                date: "by 23 August 2024",
+                date: "16 February 2025",
                 steps: [
                     {
                         id: 1,
-                        who: "Probation practitioner",
-                        step: "Find accommodation",
-                        stepStatus: "not-started",
+                        who: "Sam",
+                        step: "I will contact my GP for an appointment to discuss experiences of low mood and discuss what support I can be offered",
+                        stepStatus: "completed",
                     },
                     {
                         id: 2,
-                        who: "John",
-                        step: "This is a test second step",
-                        stepStatus: 'in-progress',
+                        who: "Sam",
+                        step: "I will contact the Court to ask for more information on payment plan options to reduce the worry I have from my fine and Court costs",
+                        stepStatus: 'completed',
                     },
                     {
                         id: 3,
-                        who: "John",
-                        step: "This is a test third step",
-                        stepStatus: "cannot-be-done-yet",
-                    },
-                    {
-                        id: 4,
-                        who: "John",
-                        step: "This is a test fourth step",
-                        stepStatus: "completed",
+                        who: "Probation practitioner",
+                        step: "I will support and signpost Sam as needed to ensure that she is able to get her fines and Court costs in a more manageable place",
+                        stepStatus: "in-progress",
                     }
                 ]
             },

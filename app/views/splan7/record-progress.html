@@ -39,7 +39,7 @@
             }
           }) }}
 
-          {% set supportRequiredNoteHtml %}
+          {% set supportRequireYesdNoteHtml %}
             {{ govukTextarea({
               rows: "2",
               name: "supportRequiredNote",
@@ -50,6 +50,19 @@
                 text: "Enter details"
               }
               }) }}
+          {% endset %}
+
+          {% set supportRequiredUnsureNoteHtml %}
+          {{ govukTextarea({
+            rows: "2",
+            name: "supportRequiredNote",
+            type: "email",
+            autocomplete: "text",
+            spellcheck: false,
+            label: {
+              text: "Enter details (optional)"
+            }
+          }) }}
           {% endset %}
 
           {{ govukRadios({
@@ -66,7 +79,7 @@
                 value: "yes",
                 text: "Yes",
                 conditional: {
-                  html: supportRequiredNoteHtml
+                  html: supportRequireYesdNoteHtml
                 }
               },
               {
@@ -77,7 +90,7 @@
                 value: "unknown",
                 text: "Not sure",
                 conditional: {
-                  html: supportRequiredNoteHtml
+                  html: supportRequiredUnsureNoteHtml
                 }
               }
             ]

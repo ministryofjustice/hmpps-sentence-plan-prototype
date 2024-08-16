@@ -27,11 +27,11 @@
         {% if GOAL_DATA.status !== 'FUTURE' %}
           <p class="govuk-body">
             {% if GOAL_DATA.status === 'ACTIVE' %}
-            Aim to achieve this by {{ GOAL_DATA.date }}
+            Aim to achieve this by {{ GOAL_DATA.date }}.
             {% elseif GOAL_DATA.status === 'ACHIEVED' %}
-            Marked as achieved on {{ GOAL_DATA.statusDate }}
+            Marked as achieved on {{ GOAL_DATA.statusDate }}.
             {% elseif GOAL_DATA.status === 'REMOVED' %}
-            Removed on {{ GOAL_DATA.statusDate }}
+            Removed on {{ GOAL_DATA.statusDate }}.
             {% endif %}
           </p>
         {% endif %}

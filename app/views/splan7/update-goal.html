@@ -33,11 +33,11 @@ Sam's progress – {{ serviceName }} – GOV.UK Prototype Kit
 
         <p>
             {% if GOAL_DATA.status === 'ACTIVE' %}
-                Aim to achieve this by {{ GOAL_DATA.date }}
+                Aim to achieve this by {{ GOAL_DATA.date }}.
             {% elseif GOAL_DATA.status === 'ACHIEVED' %}
-                Marked as achieved on {{ GOAL_DATA.statusDate }}
+                Marked as achieved on {{ GOAL_DATA.statusDate }}.
             {% elseif GOAL_DATA.status === 'REMOVED' %}
-                Removed on {{ GOAL_DATA.statusDate }}
+                Removed on {{ GOAL_DATA.statusDate }}.
             {% endif %}
 
             <a href="/splan7/goal/{{ GOAL_DATA.id }}/update-goal-details" class="govuk-link govuk-link--no-visited-state">Update goal details</a>

@@ -1057,3 +1057,13 @@ margin-bottom: 20px;
 		}
 	}
 }
+
+.govuk-summary-card {
+	&--no-pad {
+		border: unset;
+
+		.govuk-summary-card__content {
+			padding: 0;
+		}
+	}
+}

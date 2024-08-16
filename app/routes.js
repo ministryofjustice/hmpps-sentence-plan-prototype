@@ -500,7 +500,7 @@ router.post(`/${DESIGN_VERSION}/goal/:goalId/remove-goal`, (req, res, next) => {
 
     req.session.data.notes.push(note)
 
-    return res.redirect(`/${DESIGN_VERSION}/plan-overview`)
+    return res.redirect(`/${DESIGN_VERSION}/plan-overview-removed`)
 })
 
 router.get(`/${DESIGN_VERSION}/goal/:goalId/update-goal`, (req, res, next) => {
@@ -566,7 +566,17 @@ router.post(`/${DESIGN_VERSION}/goal/:goalId/update-goal`, (req, res, next) => {
 
     req.session.data.notes.push(note)
 
-    res.redirect(`/${DESIGN_VERSION}/plan-overview`)
+    switch (goal.status) {
+        case 'FUTURE':
+            return res.redirect(`/${DESIGN_VERSION}/plan-overview-later`)
+        case 'REMOVED':
+            return res.redirect(`/${DESIGN_VERSION}/plan-overview-removed`)
+        case 'ACHIEVED':
+            return res.redirect(`/${DESIGN_VERSION}/plan-overview-achieved`)
+        default:
+        case 'ACTIVE':
+            return res.redirect(`/${DESIGN_VERSION}/plan-overview`)
+    }
 })
 
 router.get(`/${DESIGN_VERSION}/goal/:goalId/update-goal-details`, (req, res, next) => {
@@ -588,7 +598,17 @@ router.post(`/${DESIGN_VERSION}/goal/:goalId/update-goal-details`, (req, res, ne
     goalData.status = req.body.isActiveGoal === 'Yes' ? 'ACTIVE' : 'FUTURE'
     goalData.date = req.body.date === 'custom' ? `by ${req.body.datePicker}` : req.body.date
 
-    return res.redirect(`/${DESIGN_VERSION}/plan-overview`)
+    switch (goalData.status) {
+        case 'FUTURE':
+            return res.redirect(`/${DESIGN_VERSION}/plan-overview-later`)
+        case 'REMOVED':
+            return res.redirect(`/${DESIGN_VERSION}/plan-overview-removed`)
+        case 'ACHIEVED':
+            return res.redirect(`/${DESIGN_VERSION}/plan-overview-achieved`)
+        default:
+        case 'ACTIVE':
+            return res.redirect(`/${DESIGN_VERSION}/plan-overview`)
+    }
 })
 
 router.get(`/${DESIGN_VERSION}/goal/:goalId/achieve-goal`, (req, res, next) => {
@@ -620,7 +640,7 @@ router.post(`/${DESIGN_VERSION}/goal/:goalId/achieve-goal`, (req, res, next) => 
 
     req.session.data.notes.push(note)
 
-    return res.redirect(`/${DESIGN_VERSION}/plan-overview`)
+    return res.redirect(`/${DESIGN_VERSION}/plan-overview-achieved`)
 })
 
 router.get(`/${DESIGN_VERSION}/goal/:goalId/readd-goal`, (req, res, next) => {
@@ -639,5 +659,15 @@ router.post(`/${DESIGN_VERSION}/goal/:goalId/readd-goal`, (req, res, next) => {
     goal.status = req.body.isActiveGoal === 'Yes' ? 'ACTIVE' : 'FUTURE'
     goal.date = req.body.date === 'custom' ? `by ${req.body.datePicker}` : req.body.date
 
-    return res.redirect(`/${DESIGN_VERSION}/plan-overview`)
+    switch (goal.status) {
+        case 'FUTURE':
+            return res.redirect(`/${DESIGN_VERSION}/plan-overview-later`)
+        case 'REMOVED':
+            return res.redirect(`/${DESIGN_VERSION}/plan-overview-removed`)
+        case 'ACHIEVED':
+            return res.redirect(`/${DESIGN_VERSION}/plan-overview-achieved`)
+        default:
+        case 'ACTIVE':
+            return res.redirect(`/${DESIGN_VERSION}/plan-overview`)
+    }
 })

@@ -113,6 +113,47 @@ router.use((req, res, next) => {
                 relatedNeedAreas: [],
                 status: "FUTURE",
                 steps: []
+            },
+            {
+                id: 4,
+                needArea: "Health and wellbeing",
+                goalObjective: "I will identify opportunities to re-engage in my previous hobbies, like rugby and general fitness.",
+                relatedNeedAreas: [],
+                status: "REMOVED",
+                statusReason: "Sam has removed this goal from her plan because she realised her immediate focus should be on managing stress and emotional well-being rather than adding new activities. " +
+                    "By prioritising her mental health and reducing stress-related alcohol use, Sam is concentrating on more critical aspects of her rehabilitation.",
+                statusDate: "1 August 2024",
+                steps: []
+            },
+            {
+                id: 5,
+                needArea: "Finance",
+                goalObjective: "I will explore options to manage my financial obligations to reduce stress and ensure stability for my family.",
+                relatedNeedAreas: [],
+                status: "ACHIEVED",
+                statusReason: "Sam has successfully explored and implemented strategies to manage her financial obligations, including contacting the court for payment options and creating a budget. " +
+                    "This has reduced her financial stress, allowing her to feel more confident in providing for her children and maintaining stability in her home",
+                statusDate: "1 August 2024",
+                steps: [
+                    {
+                        id: 1,
+                        who: "Sam",
+                        step: "Contacted the Court to inquire about payment plan options for my fine and court costs ",
+                        stepStatus: "completed",
+                    },
+                    {
+                        id: 2,
+                        who: "Sam",
+                        step: "Created a budget to track expenses and identify areas where I can save money",
+                        stepStatus: "completed",
+                    },
+                    {
+                        id: 3,
+                        who: "Sam",
+                        step: "Consulted with a financial advisor or support service to get advice on managing my finances more effectively",
+                        stepStatus: "completed",
+                    },
+                ]
             }
         ]
 

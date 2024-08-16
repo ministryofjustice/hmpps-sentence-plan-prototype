@@ -71,47 +71,40 @@ router.use((req, res, next) => {
             },
             {
                 id: 2,
-                needArea: "Finance",
-                goalObjective: "Second test goal objective from routes",
-                relatedNeedAreas: [],
-                status: "ACHIEVED",
-                statusReason: 'John was super skilled and flew the helicopter well!',
-                date: "by 24 August 2024",
-                steps: [{
-                    id: 1,
-                    who: "John",
-                    step: "Fly his helicopter in a REALLY big circle!",
-                    stepStatus: "completed",
-                }]
-            },
-            {
-                id: 3,
-                needArea: "Drug use",
-                goalObjective: "Third test goal objective from routes",
-                relatedNeedAreas: [],
-                status: "REMOVED",
-                statusReason: 'John decided he wanted to fly helicopters instead of race cars.',
-                date: "by 26 August 2024",
-                steps: [{
-                    id: 1,
-                    who: "Programme Staff",
-                    step: "Teach John how to drive the race car",
-                    stepStatus: "in-progress",
-                }]
-            },
-            {
-                id: 4,
-                needArea: "Health and wellbeing",
-                goalObjective: "Fourth test goal objective from routes",
-                relatedNeedAreas: [],
+                needArea: "Thinking, behaviours and attitudes",
+                goalObjective: "I will identify 4 different strategies to help me manage my stress better in order to stop me from binge drinking",
+                relatedNeedAreas: [
+                    "Alcohol use",
+                    "Health and wellbeing"
+                ],
                 status: "FUTURE",
-                date: "",
-                steps: [{
-                    id: 1,
-                    who: "John",
-                    step: "Eat a nice healthy meal before flying his helicopter",
-                    stepStatus: "in-progress",
-                }]
+                statusReason: 'John was super skilled and flew the helicopter well!',
+                steps: [
+                    {
+                        id: 1,
+                        who: "Sam",
+                        step: "Identify factors that contribute to causing me to feel stressed",
+                        stepStatus: "in-progress",
+                    },
+                    {
+                        id: 2,
+                        who: "Probation practitioner",
+                        step: "Identify factors that contribute to causing Sam to feel stressed",
+                        stepStatus: "in-progress",
+                    },
+                    {
+                        id: 3,
+                        who: "Sam",
+                        step: "Complete a brief intervention on the impact of binge drinking and its consequences on myself",
+                        stepStatus: "not-started",
+                    },
+                    {
+                        id: 4,
+                        who: "Probation practitioner",
+                        step: "Complete a brief intervention on the impact of binge drinking and its consequences on Sam",
+                        stepStatus: "not-started",
+                    }
+                ]
             }
         ]
 

@@ -159,6 +159,26 @@ router.use((req, res, next) => {
 
         req.session.data.notes = [
             {
+                type: 'GOAL',
+                subtype: 'REMOVED',
+                createdAt: new Date("1 August 2024 09:00"),
+                content: {
+                    goalTitle: "I will identify opportunities to re-engage in my previous hobbies, like rugby and general fitness.",
+                    reason: "Sam has removed this goal from her plan because she realised her immediate focus should be on managing stress and emotional well-being rather than adding new activities. " +
+                        "By prioritising her mental health and reducing stress-related alcohol use, Sam is concentrating on more critical aspects of her rehabilitation."
+                }
+            },
+            {
+                type: 'GOAL',
+                subtype: 'ACHIEVED',
+                createdAt: new Date("1 August 2024 15:00"),
+                content: {
+                    goalTitle: "I will explore options to manage my financial obligations to reduce stress and ensure stability for my family.",
+                    reason: "Sam has successfully explored and implemented strategies to manage her financial obligations, including contacting the court for payment options and creating a budget. " +
+                        "This has reduced her financial stress, allowing her to feel more confident in providing for her children and maintaining stability in her home",
+                }
+            },
+            {
                 type: 'PLAN',
                 subtype: 'PROGRESS',
                 createdAt: new Date(),
@@ -171,18 +191,6 @@ router.use((req, res, next) => {
                     supportRequiredNote: '',
                     popInvolvement: 'yes',
                     popInvolvementNote: ''
-                }
-            },
-            {
-                type: 'GOAL',
-                subtype: 'PROGRESS',
-                createdAt: new Date(),
-                content: {
-                    overallNote: "John is making really great progress flying his helicopter around in circles",
-                    supportRequired: 'no',
-                    supportRequiredNote: `John doesn't need any support, plus I don't know how to fly a helicopter`,
-                    popInvolvement: 'no',
-                    popInvolvementNote: `John was busy piloting his helicopter `
                 }
             },
         ]
@@ -429,7 +437,7 @@ router.get(`/${DESIGN_VERSION}/agreed-plan-later`, (req, res, next) => {
 
 router.get(`/${DESIGN_VERSION}/progress`, (req, res, next) => {
     return res.render(`${DESIGN_VERSION}/progress.html`, {
-        PLAN_NOTES: req.session.data.notes.filter(note => note.type === 'PLAN').reverse()
+        NOTES: req.session.data.notes.toReversed()
     })
 })
 
@@ -459,19 +467,10 @@ router.post(`/${DESIGN_VERSION}/record-progress`, (req, res, next) => {
 })
 
 router.get(`/${DESIGN_VERSION}/goal/:goalId/remove-goal`, (req, res, next) => {
-    /** We can access that path variable like so */
     const goalId = req.params.goalId
 
-    /**
-     * We can then get the goal we just created from our goal data store
-     * Note: We remove -1 from the goalId as arrays in Javascript are 0 indexed (start at 0)
-     */
     const goalData = req.session.data.goals[goalId - 1]
 
-    /**
-     * Finally we pass that goal data to the view, so that we can use it in our page!
-     * We can now access all of our relevant goal data through {{ GOAL_DATA }} in our HTML/template
-     */
     return res.render(`${DESIGN_VERSION}/remove-goal.html`, {
         GOAL_DATA: goalData
     })
@@ -483,6 +482,18 @@ router.post(`/${DESIGN_VERSION}/goal/:goalId/remove-goal`, (req, res, next) => {
     const goal = req.session.data.goals.find(goal => goal.id === goalId);
     goal.status = 'REMOVED'
     goal.statusReason = req.body['moreDetail']
+
+    const note = {
+        type: 'GOAL',
+        subtype: 'REMOVED',
+        createdAt: new Date(),
+        content: {
+            goalTitle: goal.goalObjective,
+            reason: goal.statusReason
+        }
+    }
+
+    req.session.data.notes.push(note)
 
     return res.redirect(`/${DESIGN_VERSION}/plan-overview`)
 })
@@ -576,6 +587,18 @@ router.post(`/${DESIGN_VERSION}/goal/:goalId/achieve-goal`, (req, res, next) => 
     const goal = req.session.data.goals.find(goal => goal.id === goalId);
     goal.status = 'ACHIEVED'
     goal.statusReason = req.body['moreDetail']
+
+    const note = {
+        type: 'GOAL',
+        subtype: 'ACHIEVED',
+        createdAt: new Date(),
+        content: {
+            goalTitle: goal.goalObjective,
+            reason: goal.statusReason
+        }
+    }
+
+    req.session.data.notes.push(note)
 
     return res.redirect(`/${DESIGN_VERSION}/plan-overview`)
 })

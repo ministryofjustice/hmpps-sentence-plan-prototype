@@ -157,18 +157,35 @@ router.use((req, res, next) => {
             }
         ]
 
-        req.session.data.notes = [{
-            type: 'PLAN',
-            subtype: 'PROGRESS',
-            createdAt: new Date(),
-            content: {
-                overallNote: "John is making really great progress flying his helicopter around in circles",
-                supportRequired: 'no',
-                supportRequiredNote: `John doesn't need any support, plus I don't know how to fly a helicopter`,
-                popInvolvement: 'no',
-                popInvolvementNote: `John was busy piloting his helicopter `
-            }
-        }]
+        req.session.data.notes = [
+            {
+                type: 'PLAN',
+                subtype: 'PROGRESS',
+                createdAt: new Date(),
+                content: {
+                    overallNote: "Sam has only recently been sentenced in Court and our current focus has been on helping " +
+                        "her understand the roles and responsibilities of Probation and understanding the requirements of her order. " +
+                        "Sam has shown some great early intentions to comply and better understand herself and her actions, " +
+                        "both of which we can continue to build up to improve her resilience to life stressors.",
+                    supportRequired: 'no',
+                    supportRequiredNote: '',
+                    popInvolvement: 'yes',
+                    popInvolvementNote: ''
+                }
+            },
+            {
+                type: 'GOAL',
+                subtype: 'PROGRESS',
+                createdAt: new Date(),
+                content: {
+                    overallNote: "John is making really great progress flying his helicopter around in circles",
+                    supportRequired: 'no',
+                    supportRequiredNote: `John doesn't need any support, plus I don't know how to fly a helicopter`,
+                    popInvolvement: 'no',
+                    popInvolvementNote: `John was busy piloting his helicopter `
+                }
+            },
+        ]
     }
     return next()
 })

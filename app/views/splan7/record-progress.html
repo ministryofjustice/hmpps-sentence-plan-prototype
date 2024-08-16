@@ -2,7 +2,7 @@
 {% from "govuk/components/inset-text/macro.njk" import govukInsetText %}
 
 {% block pageTitle %}
-  John's progress – {{ serviceName }} – GOV.UK Prototype Kit
+  Sam's progress – {{ serviceName }} – GOV.UK Prototype Kit
 {% endblock %}
 
 {% block main %}
@@ -17,25 +17,25 @@
   <main class="govuk-main-wrapper">
     <div class="govuk-grid-row">
       <div class="govuk-grid-column-two-thirds">
-        <h1 class="govuk-heading-l">Record John's progress on their plan</h1>
+        <h1 class="govuk-heading-l">Record Sam's progress on their plan</h1>
         <p class="govuk-body">
           <a href="progress" class="govuk-link govuk-link--no-visited-state">View all notes on progress</a>
         </p>
 
         <form class="form" method="post">
           {{ govukInsetText({
-            text: "You updated 3 goals in John's plan."
+            text: "You updated 3 goals in Sam's plan."
           }) }}
 
           {{ govukTextarea({
             name: "overallNote",
             rows: "4",
             label: {
-              text: "How is John doing on their plan?",
+              text: "How is Sam doing on their plan?",
               classes: "govuk-label--m"
             },
             hint: {
-              text: "For example, what progress John is making, how motivated and engaged they are, or any strengths they have developed."
+              text: "For example, what progress Sam is making, how motivated and engaged they are, or any strengths they have developed."
             }
           }) }}
 
@@ -56,7 +56,7 @@
             name: "supportRequired",
             fieldset: {
               legend: {
-                text: "Does John need any support to achieve their goals?",
+                text: "Does Sam need any support to achieve their goals?",
                 isPageHeading: true,
                 classes: "govuk-fieldset__legend--m"
               }
@@ -94,10 +94,10 @@
               autocomplete: "text",
               spellcheck: false,
               label: {
-                text: "Enter how John is feeling about their plan"
+                text: "Enter how Sam is feeling about their plan"
               },
               hint: {
-                text: "John must answer this question."
+                text: "Sam must answer this question."
               }
             }) }}
           {% endset %}
@@ -119,7 +119,7 @@
             name: "popInvolvement",
             fieldset: {
               legend: {
-                text: "Was John involved in this update?",
+                text: "Was Sam involved in this update?",
                 isPageHeading: true,
                 classes: "govuk-fieldset__legend--m"
               }

@@ -1,5 +1,5 @@
 
-{% extends "layouts/main.html" %} {% block pageTitle %} John's progress –
+{% extends "layouts/main.html" %} {% block pageTitle %} Sam's progress –
 {{ serviceName }} – GOV.UK Prototype Kit {% endblock %} 
 
 
@@ -20,7 +20,7 @@
 
 <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-        <h1 class="govuk-heading-l">Confirm you want to add this goal back into John's plan</h1>
+        <h1 class="govuk-heading-l">Confirm you want to add this goal back into Sam's plan</h1>
     </div>
 </div>
 
@@ -83,7 +83,7 @@
             <div class="govuk-form-group">
                 <fieldset class="govuk-fieldset">
                     <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
-                        Can John start working on this goal now?
+                        Can Sam start working on this goal now?
                     </legend>
                     <div class="govuk-radios" data-module="govuk-radios">
                         <div class="govuk-radios__item" onclick="toggleDiv('isActiveGoal')">
@@ -129,7 +129,7 @@
                 name: "date",
                 fieldset: {
                 legend: {
-                text: "When should John aim to achieve this goal?",
+                text: "When should Sam aim to achieve this goal?",
                 isPageHeading: false,
                 classes: "govuk-fieldset__legend--m"
                 }
@@ -139,7 +139,7 @@
                 { value: "by 8 October 2024", text: "In 3 months (8 October 2024)" },
                 { value: "by 8 January 2025", text: "In 6 months (8 January 2025)" },
                 { value: "by 8 July 2025", text: "In 12 months (8 July 2025)" },
-                { value: "by the end of John’s sentence", text: "At the end of John’s sentence" },
+                { value: "by the end of Sam’s sentence", text: "At the end of Sam’s sentence" },
                 { divider: "or" },
                 { value: "custom", text: "Set another date", conditional: { html: dateHtml } }
                 ]

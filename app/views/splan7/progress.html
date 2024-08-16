@@ -1,5 +1,5 @@
 
-{% extends "layouts/main.html" %} {% block pageTitle %} John's progress –
+{% extends "layouts/main.html" %} {% block pageTitle %} Sam's progress –
 {{ serviceName }} – GOV.UK Prototype Kit {% endblock %} 
 
 
@@ -16,7 +16,7 @@
         <div class="header-container">
             <ul class="govuk-list govuk-!-margin-bottom-0">
                 <li class="govuk-body govuk-!-font-size-19" style="padding-top: 8px;">
-                    <strong>John Smith</strong>
+                    <strong>Sam Smith</strong>
                 </li>
                 <li style="padding-top: 8px;">CRN: Z804100</li>
                 <li style="padding-top: 8px;">PNC: 2017/123400000H</li>
@@ -25,7 +25,7 @@
         </div>
     
         <div class="header-container" style="display: flex;  justify-content: space-between; padding-top: 20px;">
-            <h1 class="govuk-heading-l govuk-!-margin-bottom-0">John's progress</h1>
+            <h1 class="govuk-heading-l govuk-!-margin-bottom-0">Sam's progress</h1>
             <form class="form" action="/splan7/record-progress" method="get">
               <button type="submit" class="govuk-button govuk-!-margin-bottom-0" data-module="govuk-button">
                 Record progress
@@ -33,7 +33,7 @@
             </form>
         </div>
     </div>
-      <p class="govuk-body">View notes recorded by practitioners about John’s progress on their whole plan.</p>
+      <p class="govuk-body">View notes recorded by practitioners about Sam’s progress on their whole plan.</p>
 
       {% for note in PLAN_NOTES %}
         <div>
@@ -47,11 +47,11 @@
 
             <p>
                 {% if note.content.supportRequired === 'yes' %}
-                    John does need support to achieve their goals.
+                    Sam does need support to achieve their goals.
                 {% elseif note.content.supportRequired === 'no' %}
-                    John does not need support to achieve their goals.
+                    Sam does not need support to achieve their goals.
                 {% else %}
-                    Unsure if John needs support to achieve their goals.
+                    Unsure if Sam needs support to achieve their goals.
                 {% endif %}
                 <br>
                 {{ note.content.supportRequiredNote }}
@@ -60,9 +60,9 @@
 
             <p>
                 {% if note.content.popInvolvement === 'yes' %}
-                    John was involved in this update.
+                    Sam was involved in this update.
                 {% else %}
-                    John was not involved in this update.
+                    Sam was not involved in this update.
                 {% endif %}
                 <br>
                 {{ note.content.popInvolvementNote }}

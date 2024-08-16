@@ -31,7 +31,7 @@
                 <h2 class="govuk-summary-card__title">{{ GOAL_DATA.goalObjective }}</h2>
             </div>
             <div class="govuk-summary-card__content">
-                <p class="govuk-body">Removed on {{ GOAL_DATA.date }}</p>
+                <p class="govuk-body">Removed on {{ GOAL_DATA.statusDate }}</p>
                 <p>{{ GOAL_DATA.statusReason }}</p>
                 {% if GOAL_DATA.steps and GOAL_DATA.steps.length > 0 %}
                 <table class="govuk-table">

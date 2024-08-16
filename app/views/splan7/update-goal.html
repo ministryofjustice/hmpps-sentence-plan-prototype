@@ -44,7 +44,7 @@ Sam's progress – {{ serviceName }} – GOV.UK Prototype Kit
         </p>
         <div class="govuk-summary-card" id="summary-card-{{ goal.id }}" draggable="true">
             <div class="govuk-summary-card__content">
-                {% if goal.steps and goal.steps.length > 0 %}
+                {% if GOAL_DATA.steps and GOAL_DATA.steps.length > 0 %}
                     <table class="govuk-table">
                         <thead class="govuk-table__head">
                         <tr class="govuk-table__row">

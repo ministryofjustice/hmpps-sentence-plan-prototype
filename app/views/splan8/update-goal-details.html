@@ -1,0 +1,187 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+ Create goal for Accommodation – {{ serviceName }} – HMPPS
+{% endblock %}
+
+{% block main %}
+    {% include "../includes/primary-nav.html" %}
+    {{ super() }}
+    <script src="/public/javascripts/auto.js"></script>
+    <script src="/public/javascripts/datepicker.js"></script>
+    <script src="/public/javascripts/goals-accommodation.js"></script>
+{% endblock %}
+
+{% block content %}
+    {% include "../includes/profile-banner.html" %}
+    <a href="/splan8/update-goal" class="govuk-back-link">Back</a>
+
+    <div class="govuk-grid-row">
+        
+
+        <div class="govuk-grid-column-two-thirds">
+            </br>
+            <h1 class="govuk-heading-l">
+                <span class="govuk-caption-l">{{ GOAL_DATA.goalObjective }}</span>
+                Update goal with Sam
+            </h1>
+
+            {% include "../includes/info-from-assessment.html" %}
+
+            <form method="post" >
+                <div class="govuk-form-group goal">
+                    <label class="govuk-label govuk-label--m" for="goalObjective">What goal should Sam try to achieve?</label>
+                    <div id="goalObjective-hint" class="govuk-hint govuk-!-margin-bottom-2">
+                        Search for a suggested goal or enter your own. Add one goal at a time.
+                    </div>
+                    <div id="goalObjective"></div>
+                </div>
+
+                {% set yesHtml %}
+                    {{ govukCheckboxes({
+                        name: "relatedNeedAreas",
+                        fieldset: {
+                            legend: {
+                                text: "Select all that apply",
+                                isPageHeading: false,
+                                classes: ""
+                            }
+                        },
+                        items: [
+                            {
+                                value: "Alcohol use",
+                                text: "Alcohol use",
+                                checked: "Alcohol use" in GOAL_DATA.relatedNeedAreas
+                            },
+                            {
+                                value: "Drug use",
+                                text: "Drug use",
+                                checked: "Drug use" in GOAL_DATA.relatedNeedAreas
+                            },
+                            {
+                                value: "Employment and education",
+                                text: "Employment and education",
+                                checked: "Employment and education" in GOAL_DATA.relatedNeedAreas
+                            },
+                            {
+                                value: "Finance",
+                                text: "Finance",
+                                checked: "Finance" in GOAL_DATA.relatedNeedAreas
+                            },
+                            {
+                                value: "Health and wellbeing",
+                                text: "Health and wellbeing",
+                                checked: "Health and wellbeing" in GOAL_DATA.relatedNeedAreas
+                            },
+                            {
+                                value: "Personal relationships and community",
+                                text: "Personal relationships and community",
+                                checked: "Personal relationships and community" in GOAL_DATA.relatedNeedAreas
+                            },
+                            {
+                                value: "Thinking, behaviours and attitudes",
+                                text: "Thinking, behaviours and attitudes",
+                                checked: "Thinking, behaviours and attitudes" in GOAL_DATA.relatedNeedAreas
+                            }
+                        ]
+                    }) }}
+                {% endset %}
+
+                {{ govukRadios({
+                    name: "hasRelatedNeed",
+                    fieldset: {
+                        legend: {
+                            text: "Is this goal related to any other area of need?",
+                            isPageHeading: false,
+                            classes: "govuk-fieldset__legend--m"
+                        }
+                    },
+                    items: [
+                        {
+                            value: "Yes",
+                            text: "Yes",
+                            checked: GOAL_DATA.relatedNeedAreas.length,
+                            conditional: {
+                                html: yesHtml
+                            }
+                        },
+                        {
+                            value: "No",
+                            text: "No",
+                            checked: not GOAL_DATA.relatedNeedAreas.length
+                        }
+                    ]
+                }) }}
+
+                <div class="govuk-form-group">
+                    <fieldset class="govuk-fieldset">
+                        <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+                            Can Sam start working on this goal now?
+                        </legend>
+                        <div class="govuk-radios" data-module="govuk-radios">
+                            <div class="govuk-radios__item" onclick="toggleDiv('isActiveGoal')">
+                                <input class="govuk-radios__input" id="isActiveGoal" name="isActiveGoal" type="radio" value="Yes" {% if GOAL_DATA.status === "ACTIVE" %} checked {% endif %}>
+                                <label class="govuk-label govuk-radios__label" for="isActiveGoal">Yes</label>
+                            </div>
+                            <div class="govuk-radios__item" onclick="toggleDiv('isActiveGoal')">
+                                <input class="govuk-radios__input" id="isActiveGoal-2" name="isActiveGoal" type="radio" value="No" {% if GOAL_DATA.status === "FUTURE" %} checked {% endif %}>
+                                <label class="govuk-label govuk-radios__label" for="isActiveGoal-2">No, it is a future goal</label>
+                            </div>
+                        </div>
+                    </fieldset>
+                </div>
+
+                <script>
+                    function toggleDiv(x) {
+                        var yesRadio = document.querySelector('input[name="' + x + '"][value="Yes"]');
+                        var toggleDiv = document.getElementById('toggleDiv');
+
+                        if (yesRadio.checked) {
+                            toggleDiv.style.display = 'block';
+                            toggleDiv.setAttribute('aria-hidden', 'false');
+                        } else {
+                            toggleDiv.style.display = 'none';
+                            toggleDiv.setAttribute('aria-hidden', 'true');
+                        }
+                    }
+                </script>
+
+                <div id="toggleDiv" aria-hidden="true">
+                    {% set dateHtml %}
+                        {%- from "../includes/datepicker.html" import hmppsDatePicker -%}
+                        {{ hmppsDatePicker({
+                            id: "datePicker",
+                            name: "datePicker",
+                            classes: "govuk-input--width-10",
+                            hint: { text: "For example, 31/3/2023." },
+                            label: { text: "Select a date", classes: "govuk-fieldset__legend--s" }
+                        }) }}
+                    {% endset %}
+
+                    {{ govukRadios({
+                        name: "date",
+                        fieldset: {
+                            legend: {
+                                text: "When should Sam aim to achieve this goal?",
+                                isPageHeading: false,
+                                classes: "govuk-fieldset__legend--m"
+                            }
+                        },
+                        items: [
+                            { value: "by our next meeting (8 August 2024)", text: "By our next meeting" },
+                            { value: "in 3 months (8 October 2024)", text: "In 3 months (8 October 2024)" },
+                            { value: "in 6 months (8 January 2025)", text: "In 6 months (8 January 2025)" },
+                            { value: "in 12 months (8 July 2025)", text: "In 12 months (8 July 2025)" },
+                            { value: "by the end of Sam’s sentence", text: "By the end of Sam’s sentence" },
+                            { divider: "or" },
+                            { value: "custom", text: "Set another date", conditional: { html: dateHtml } }
+                        ]
+                    }) }}
+                </div>
+
+                <button type="submit" name="action" value="add-steps" class="govuk-button govuk-!-margin-top-" data-module="govuk-button">Save goal</button>
+                
+            </form>
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,383 @@
+{% extends "layouts/main.html" %} {% block pageTitle %} Question page template –
+{{ serviceName }} – GOV.UK Prototype Kit {% endblock %} 
+{% block main %}
+{% include "../includes/primary-nav.html" %}
+{{ super() }}
+<script src="/public/javascripts/auto.js"></script>
+<script src="/public/javascripts/datepicker.js"></script>
+{% if data.needArea == "Accommodation" %}
+  <script src="/public/javascripts/steps-accommodation.js"></script>
+  <script>
+    var DAsteps = [
+            "Comply with the rules and regulation of the Approved Premises/Supported Housing where I currently live",
+            "Improve my relationships with my neighbours and/or others in my accommodation",
+            "Reduce any rent arrears",
+            "Attend appointments with my housing worker",
+            "Pay rent/mortgage and bills are paid on time",
+            "Comply with any safeguarding conditions or restrictions that relate to my accommodation",
+            "Find information and advice about available accommodation",
+            "Submit an application to housing provider(s)",
+            "Attend housing appointments to have my housing needs assessed",
+            "Reduce any rent arrears",
+            "Seek approval before accepting accommodation offer, where required"
+            ]
+    </script>
+  {% elif data.needArea == "Finance" %}
+    <script src="/public/javascripts/steps-finance.js"></script>
+    <script>
+      var DAsteps = [
+              "Attend an appointment with the Citizen's Advice Bureau",
+              "Attend Budgetary Financial Management course",
+              "Attend Finance Advocacy course",
+              "Check with Citizen's Advice Bureau that an appointment was attended",
+              "Check with court that fines have been paid",
+              "Citizen's Advice Bureau to complete an assessment and give advice and information",
+              "Create a budget",
+              "Pay money back ",
+              "Pay off fines",
+              "Repay money borrowed from friends or family",
+              "Saved money so appointments can be attended",
+              "Share evidence of how debts have been paid off",
+              "Share examples of how money is being managed"
+              ]
+      </script>
+{% elif data.needArea == "Thinking, behaviours and attitudes" %}
+  <script src="/public/javascripts/steps-thinking.js"></script>
+  <script>
+    var DAsteps = [
+              "Attend all probation appointments",
+              "Attend and engage with exercises during supervision sessions",
+              "Attend counselling",
+              "Attend rehabilitation activity requirement (RAR) meetings on time",
+              "Attend Motivational Work Counselling",
+              "Attend Pro Social Modelling course",
+              "Attend Racially Motivated Offending course",
+              "Attend Thinking Skills Violence course",
+              "Break each problem into smaller parts, instead of trying to deal with it all at once",
+              "Consider previous problems they dealt with and what they could have done differently",
+              "Discuss how thoughts or beliefs may impacts behaviour",
+              "Find alternative solutions to problems",
+              "Find non-violent solutions to problems",
+              "Find positive solutions to problems",
+              "Identify people who can help with problems",
+              "Improve ability to identify a problem",
+              "Improve understanding of the results of their behaviour",
+              "Increase awareness of how impulsiveness can affect behaviour",
+              "Learn and understand how they have used anti-social or discriminatory attitudes to justify their behaviour",
+              "Share evidence of problems you have approached in a practical way",
+              "Share examples of how others see their attitudes and behaviour",
+              "Share examples of how their thoughts and feelings affect behaviour",
+              "Share examples of problems solved",
+              "Think about what has contributed to previous behaviour",
+              "Update on progress made and provide examples of achievements"
+            ]
+    </script>
+    {% elif data.needArea == "Finance" %}
+    <script src="/public/javascripts/steps-finance.js"></script>
+    <script>
+      var DAsteps = [
+      "Attend an appointment with the Citizen's Advice Bureau",
+      "Attend Budgetary Financial Management course",
+      "Attend Finance Advocacy course",
+      "Check with Citizen's Advice Bureau that an appointment was attended",
+      "Check with court that fines have been paid",
+      "Citizen's Advice Bureau to complete an assessment and give advice and information",
+      "Create a budget",
+      "Pay money back",
+      "Pay off fines",
+      "Repay money borrowed from friends or family",
+      "Saved money so appointments can be attended",
+      "Share evidence of how debts have been paid off",
+      "Share examples of how money is being managed"
+      ]
+      </script>
+{% else %}
+<script src="/public/javascripts/steps-accommodation.js"></script>
+<script>
+  var DAsteps = [
+            'Steps',
+            'Here',
+            'As',
+            'Well',
+            'Sorry',
+            'Attend an appointment with a housing agency'
+          ]
+</script>
+{% endif %}
+
+{% endblock %}
+
+{% block content %}
+
+
+{% include "../includes/profile-banner.html" %}
+{%- from "../includes/datepicker.html" import hmppsDatePicker -%}
+<a href="/splan8/create-goal" class="govuk-back-link">Back</a> 
+
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+    <h1 class="govuk-heading-l">
+      <span class="govuk-caption-l">{{ GOAL_DATA.goalObjective }}</span>
+      Add steps to Sam's goal
+    </h1>
+
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+        {% if data.needArea == "Thinking, behaviours and attitudes" %}
+          {% include "../includes/info-from-assessment-thinking.html" %}
+        {% elif data.needArea == "Finance" %}
+          {% include "../includes/info-from-assessment-finance.html" %}
+        {% else %}
+          {% include "../includes/info-from-assessment.html" %}
+        {% endif %}
+      </div>
+    </div>
+
+    <form method="post">
+      <div class="app-htmlformrow">
+        <div id="0">
+          <div class="govuk-grid-row">
+            <div class="govuk-grid-column-full">
+              <div class="govuk-grid-row">
+                <div class="govuk-grid-column-one-quarter">
+                  {{ govukSelect({
+                    id: "who0",
+                    name: "who0",
+                    label: {
+                      text: "Who will do the step?"
+                    },
+                    hint: {
+                      text: "Add one person or agency."
+                    },
+                    items: [
+                      {
+                        value: "",
+                        text: "Select who",
+                        selected: true,
+                        disabled: true
+                      },
+                      {
+                        value: "Sam",
+                        text: "Sam"
+                      },
+                      {
+                        value: "Probation practitioner",
+                        text: "Probation practitioner"
+                      },
+                      { value: "Programme staff",
+                        text: "Programme staff"
+                      },
+                      {
+                        value: "Partnership agency",
+                        text: "Partnership agency"
+                      },
+                      {
+                        value: "Commissioned rehabilitative services (CRS) provider",
+                        text: "Commissioned rehabilitative services (CRS) provider"
+                      },
+                      {
+                        value: "Someone else (include who in the step)",
+                        text: "Someone else (include who in the step)"
+                      }
+                    ]
+                  }) }}
+
+                </div>
+
+                <div class="govuk-grid-column-one-half">
+                  <label class="govuk-label" for="step0">
+                    What should they do to achieve the goal?
+                  </label>
+                  <div id="account-number-hint" class="govuk-hint">
+                    Add one step in each box.
+                  </div>
+                  <div id="step0"></div>
+                </div>
+
+
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      <script>
+        var count = 0;
+
+        function removeRowById(id) {
+            // Get the element by ID
+            const element = document.getElementById(id);
+
+            // Remove the element if it exists
+            if (element) {
+              element.remove();
+            } else {
+              alert(`Element with ID "${id}" not found.`);
+            }
+          }
+
+        function addHtmlLines() {
+          console.log(count) // print out number of rows ahead of it
+
+          var targetContainer = document.getElementById(count);
+          count++ // add one to number of rows
+            var htmlContent = `
+            <div id="${count}" class="govuk-grid-row">
+              <div id="container${count}" class="govuk-grid-column-full">
+                <div class="govuk-grid-row">
+
+                  <div class="govuk-grid-column-one-quarter">
+                    <div class="govuk-form-group">
+                      <label class="govuk-label govuk-visually-hidden" for="who${count}">
+                        Who will do the step?
+                      </label>
+                      <select class="govuk-select" id="who${count}" name="who${count}">
+                        <option value="" selected="" disabled="">Select who</option>
+                        <option value="Sam">Sam</option>
+                        <option value="Probation practitioner">Probation practitioner</option>
+                        <option value="Programme staff">Programme staff</option>
+                        <option value="Partnership agency">Partnership agency</option>
+                        <option value="Commissioned rehabilitative services (CRS) provider">Commissioned rehabilitative services (CRS) provider</option>
+                        <option value="Someone else (include who in the step)">Someone else (include who in the step)</option>
+                      </select>
+                    </div>
+                  </div>
+
+                  <div class="govuk-grid-column-one-half">
+                    <label class="govuk-label govuk-visually-hidden" for="step${count}">
+                      What should they do to achieve the goal?
+                    </label>
+                    <div id="step${count}"></div>
+                  </div>
+
+                  <div class="govuk-grid-column-one-quarter">
+
+                    <div class="govuk-form-group hmpps-datepicker " data-module="hmpps-datepicker">
+                      <label class="govuk-label govuk-visually-hidden" for="when${count}">
+                        Due date
+                      </label>
+                    <div class="hmpps-datepicker-input__wrapper">
+                    <div class="govuk-form-group">
+                      <input class="govuk-input govuk-input hmpps-js-datepicker-input" id="when${count}" name="when${count}" type="text" autocomplete="off" maxlength="10" data-mindate="" data-maxdate=""><div id="datepicker-when${count}" class="hmpps-datepicker__dialog  datepickerDialog" role="dialog" aria-modal="true" aria-labelledby="datepicker-title-when${count}"><div class="hmpps-datepicker__dialog__header ">
+                              <div class="hmpps-datepicker__dialog__navbuttons">
+                                  <button class="js-datepicker-prev-year" aria-label="previous year" data-button="button-datepicker-prevyear">
+                                      <span class="govuk-visually-hidden">Previous year</span>
+                                      <svg focusable="false" class="hmpps-datepicker-icon" aria-hidden="true" role="img"><use href="/public/images/icons.stack.svg#double_chevron_left"></use></svg>
+                                  </button>
+
+                                  <button class="js-datepicker-prev-month" aria-label="previous month" data-button="button-datepicker-prevmonth">
+                                      <span class="govuk-visually-hidden">Previous month</span>
+                                      <svg focusable="false" class="hmpps-datepicker-icon" aria-hidden="true" role="img"><use href="/public/images/icons.stack.svg#chevron_left"></use></svg>
+                                  </button>
+                              </div>
+
+                              <h2 id="datepicker-title-when${count}" class="hmpps-datepicker__dialog__title  js-datepicker-month-year" aria-live="polite">July 2024</h2>
+
+                              <div class="hmpps-datepicker__dialog__navbuttons">
+                                  <button class="js-datepicker-next-month" aria-label="next month" data-button="button-datepicker-nextmonth">
+                                      <span class="govuk-visually-hidden">Next month</span>
+                                      <svg focusable="false" class="hmpps-datepicker-icon" aria-hidden="true" role="img"><use href="/public/images/icons.stack.svg#chevron_right"></use></svg>
+                                  </button>
+
+                                  <button class="js-datepicker-next-year" aria-label="next year" data-button="button-datepicker-nextyear">
+                                      <span class="govuk-visually-hidden">Next year</span>
+                                      <svg focusable="false" class="hmpps-datepicker-icon" aria-hidden="true" role="img"><use href="/public/images/icons.stack.svg#double_chevron_right"></use></svg>
+                                  </button>
+                              </div>
+                            </div>
+
+                            <table class="hmpps-datepicker__dialog__table  js-datepicker-grid" role="grid" aria-labelledby="datepicker-title-when${count}">
+                            <caption class="hmpps-datepicker__dialog__table-caption">You can use the arrow keys to select a date</caption>
+                            <thead>
+                                <tr>
+                                <th scope="col" abbr="Monday">Mo</th>
+                                <th scope="col" abbr="Tuesday">Tu</th>
+                                <th scope="col" abbr="Wednesday">We</th>
+                                <th scope="col" abbr="Thursday">Th</th>
+                                <th scope="col" abbr="Friday">Fr</th>
+                                <th scope="col" abbr="Saturday">Sa</th>
+                                <th scope="col" abbr="Sunday">Su</th>
+                                </tr>
+                            </thead>
+
+                            <tbody><tr><td><button data-form="date-select" style="display: block;">1</button></td><td><button data-form="date-select" style="display: block;">2</button></td><td><button data-form="date-select" style="display: block;">3</button></td><td><button data-form="date-select" style="display: block;">4</button></td><td><button data-form="date-select" style="display: block;">5</button></td><td><button data-form="date-select" style="display: block;">6</button></td><td><button data-form="date-select" style="display: block;">7</button></td></tr><tr><td><button data-form="date-select" style="display: block;">8</button></td><td><button data-form="date-select" style="display: block;">9</button></td><td><button data-form="date-select" style="display: block;">10</button></td><td><button data-form="date-select" style="display: block;">11</button></td><td><button data-form="date-select" style="display: block;">12</button></td><td><button data-form="date-select" style="display: block;">13</button></td><td><button data-form="date-select" style="display: block;">14</button></td></tr><tr><td><button data-form="date-select" style="display: block;">15</button></td><td><button data-form="date-select" style="display: block;">16</button></td><td><button data-form="date-select" style="display: block;">17</button></td><td><button data-form="date-select" style="display: block;">18</button></td><td><button data-form="date-select" style="display: block;">19</button></td><td><button data-form="date-select" style="display: block;">20</button></td><td><button data-form="date-select" style="display: block;">21</button></td></tr><tr><td><button data-form="date-select" style="display: block;">22</button></td><td><button data-form="date-select" style="display: block;">23</button></td><td><button data-form="date-select" style="display: block;">24</button></td><td><button data-form="date-select" style="display: block;">25</button></td><td><button data-form="date-select" style="display: block;">26</button></td><td><button data-form="date-select" style="display: block;">27</button></td><td><button data-form="date-select" style="display: block;">28</button></td></tr><tr><td><button data-form="date-select" style="display: block;">29</button></td><td><button data-form="date-select" style="display: block;">30</button></td><td><button data-form="date-select" style="display: block;">31</button></td><td><button data-form="date-select" style="display: none;">1</button></td><td><button data-form="date-select" style="display: none;">2</button></td><td><button data-form="date-select" style="display: none;">3</button></td><td><button data-form="date-select" style="display: none;">4</button></td></tr><tr><td><button data-form="date-select" style="display: none;">5</button></td><td><button data-form="date-select" style="display: none;">6</button></td><td><button data-form="date-select" style="display: none;">7</button></td><td><button data-form="date-select" style="display: none;">8</button></td><td><button data-form="date-select" style="display: none;">9</button></td><td><button data-form="date-select" style="display: none;">10</button></td><td><button data-form="date-select" style="display: none;">11</button></td></tr></tbody>
+                            </table>
+
+                            <div class="hmpps-datepicker__dialog__buttongroup">
+                            <button type="button" class="govuk-button js-datepicker-ok" value="ok" data-button="button-datepicker-ok">Select</button>
+                            <button type="button" class="govuk-button govuk-button--secondary js-datepicker-cancel" value="cancel" data-button="button-datepicker-cancel">Cancel</button>
+                            </div></div>
+
+                    </div>
+
+                        <button class="hmpps-datepicker-button hmpps-js-datepicker-button" data-button="datepicker-when${count}-toggle">
+                          <span class="govuk-visually-hidden">Choose date.</span>
+                          <svg focusable="false" class="hmpps-datepicker-icon" aria-hidden="true" role="img" viewBox="0 0 22 22">
+                            <path fill-rule="evenodd" clip-rule="evenodd" d="M16.1333 2.93333H5.86668V4.4C5.86668 5.21002 5.21003 5.86667 4.40002 5.86667C3.59 5.86667 2.93335 5.21002 2.93335 4.4V2.93333H2C0.895431 2.93333 0 3.82877 0 4.93334V19.2667C0 20.3712 0.89543 21.2667 2 21.2667H20C21.1046 21.2667 22 20.3712 22 19.2667V4.93333C22 3.82876 21.1046 2.93333 20 2.93333H19.0667V4.4C19.0667 5.21002 18.41 5.86667 17.6 5.86667C16.79 5.86667 16.1333 5.21002 16.1333 4.4V2.93333ZM20.5333 8.06667H1.46665V18.8C1.46665 19.3523 1.91436 19.8 2.46665 19.8H19.5333C20.0856 19.8 20.5333 19.3523 20.5333 18.8V8.06667Z"></path>
+                            <rect x="3.66669" width="1.46667" height="5.13333" rx="0.733333"></rect>
+                            <rect x="16.8667" width="1.46667" height="5.13333" rx="0.733333"></rect>
+                          </svg>
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+              </div>
+            </div>
+
+            <!-- <div class="govuk-grid-column-one-quarter">
+              <p class="govuk-!-margin-bottom-0 govuk-!-margin-top-1">
+                <a class="govuk-link govuk-link--no-visited-state" href="#" onclick="removeRowById(${count})">Remove <span class="govuk-visually-hidden">step ${count}</span></a>
+              </p>
+            </div> -->
+
+          </div>
+            `; // the html that gets spat out
+
+
+            if (targetContainer) {
+              targetContainer.insertAdjacentHTML('afterend', htmlContent); // put that content after the last row
+            } else {
+              var fail = document.getElementById(0);
+              fail.insertAdjacentHTML('afterend', htmlContent); // put that content after the last row
+            }
+
+            accessibleAutocomplete({
+              element: document.querySelector('#step' + count),
+              id: 'step' + count, // To match it to the existing <label>.
+              name: 'step' + count,
+              displayMenu: 'overlay',
+              source: DAsteps,
+              minLength: 3,
+              showNoOptionsFound: false
+            })
+
+            // reload and init datepicker
+            const $datepickers = document.querySelectorAll('[data-module="hmpps-datepicker"]')
+            nodeListForEach($datepickers, function ($datepicker) {
+              new Datepicker($datepicker, {}).init()
+            })
+
+            document.getElementById("who" + count).focus() // switch focus to the label for the first element
+
+          console.log(count) // print out new value of rows just to make sure it's counting right
+        }
+
+      </script>
+
+      <button type="button" class="govuk-button govuk-button--secondary" data-module="govuk-button" onclick="addHtmlLines()">
+        Add another step
+      </button>
+
+      <div>
+        <button class="govuk-button" type="submit" name="action" value="save">
+          Save and continue
+        </button>
+      </div>
+    </form>
+
+  </div>
+</div>
+
+{% endblock %}

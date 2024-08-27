@@ -1,0 +1,94 @@
+
+{% extends "layouts/main.html" %} {% block pageTitle %} Sam's progress –
+{{ serviceName }} – GOV.UK Prototype Kit {% endblock %} 
+
+
+{% block main %}
+{% include "../includes/primary-nav-progress.html" %}
+{{ super() }}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+    <div class="profile-banner-plan profileFilters">
+        <div class="header-container">
+            <ul class="govuk-list govuk-!-margin-bottom-0">
+                <li class="govuk-body govuk-!-font-size-19" style="padding-top: 8px;">
+                    <strong>Sam Smith</strong>
+                </li>
+                <li style="padding-top: 8px;">CRN: Z804100</li>
+                <li style="padding-top: 8px;">PNC: 2017/123400000H</li>
+                <li style="padding-top: 8px;">Date of birth: 26 June 1978</li>
+            </ul>
+        </div>
+    
+        <div class="header-container" style="display: flex;  justify-content: space-between; padding-top: 20px;">
+            <h1 class="govuk-heading-l govuk-!-margin-bottom-0">Sam's progress</h1>
+            <form class="form" action="/splan8/record-progress" method="get">
+              <button type="submit" class="govuk-button govuk-!-margin-bottom-0" data-module="govuk-button">
+                Record plan progress
+              </button>
+            </form>
+        </div>
+    </div>
+      <p class="govuk-body">View notes recorded by practitioners about Sam’s progress on their whole plan.</p>
+
+      {% for note in NOTES %}
+        {% if note.type === 'PLAN' %}
+            <div>
+                <div style="display: flex;">
+                    <h3 class="govuk-heading-s">Progress recorded <span class="govuk-body" style="padding-left: 5px; color: #505a5f;"> by Alexis Diaz</span></h3>
+                </div>
+                <p class="govuk-body-s">{{ note.createdAt | prettyPrintDate }}</p>
+                <p>{{ note.content.overallNote }}</p>
+                <br>
+
+                <p>
+                    {% if note.content.supportRequired === 'yes' %}
+                        Sam does need support to achieve their goals.
+                    {% elseif note.content.supportRequired === 'no' %}
+                        Sam does not need support to achieve their goals.
+                    {% else %}
+                        Unsure if Sam needs support to achieve their goals.
+                    {% endif %}
+                    <br>
+                    {{ note.content.supportRequiredNote }}
+                </p>
+                <br>
+
+                <p>
+                    {% if note.content.popInvolvement === 'yes' %}
+                        Sam was involved in this update.
+                    {% else %}
+                        Sam was not involved in this update.
+                    {% endif %}
+                    <br>
+                    {{ note.content.popInvolvementNote }}
+                </p>
+            </div>
+        {% endif %}
+
+          {% if note.type === 'GOAL' %}
+              <div>
+                  <div style="display: flex;">
+                      {% if note.subtype === 'UPDATED' %}
+                        <h3 class="govuk-heading-s" style="width: 60%">'{{ note.content.goalTitle }}' updated <span class="govuk-body" style="padding-left: 5px; color: #505a5f;"> by Alexis Diaz</span></h3>
+                      {% elseif note.subtype === 'ACHIEVED' %}
+                        <h3 class="govuk-heading-s" style="width: 60%">'{{ note.content.goalTitle }}' achieved <span class="govuk-body" style="padding-left: 5px; color: #505a5f;"> by Alexis Diaz</span></h3>
+                      {% else %}
+                        <h3 class="govuk-heading-s" style="width: 60%">'{{ note.content.goalTitle }}' removed <span class="govuk-body" style="padding-left: 5px; color: #505a5f;"> by Alexis Diaz</span></h3>
+                      {% endif %}
+                  </div>
+                  <p class="govuk-body-s">{{ note.createdAt | prettyPrintDate }}</p>
+                  <p>{{ note.content.reason }}</p>
+              </div>
+          {% endif %}
+        <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+      {% endfor %}
+    </div>
+</div>
+
+
+{% endblock %}

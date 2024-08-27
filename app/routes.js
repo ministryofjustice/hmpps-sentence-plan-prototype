@@ -11,7 +11,7 @@ const dateFormat1 = { day: 'numeric', month: 'long', year: 'numeric' }
  * This is the name of the design revision
  * Make sure this matches the root folder of your designs!
  */
-const DESIGN_VERSION="splan7"
+const DESIGN_VERSION="splan8"
 
 /**
  * Here we add routes to the application,

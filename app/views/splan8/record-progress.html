@@ -1,0 +1,162 @@
+{% extends "layouts/main.html" %}
+{% from "govuk/components/inset-text/macro.njk" import govukInsetText %}
+
+{% block pageTitle %}
+  Sam's progress – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block main %}
+  {% include "../includes/primary-nav-plan.html" %}
+  {{ super() }}
+{% endblock %}
+
+{% block content %}
+  {% include "../includes/profile-banner.html" %}
+
+  <a href="/splan8/plan-overview" class="govuk-back-link">Back</a>
+  <main class="govuk-main-wrapper">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+        <h1 class="govuk-heading-l">Record Sam's progress on their plan</h1>
+        <p class="govuk-body">
+          <a href="progress" class="govuk-link govuk-link--no-visited-state">View all notes on progress</a>
+        </p>
+
+        <form class="form" method="post">
+          {{ govukInsetText({
+            text: "You updated 3 goals in Sam's plan."
+          }) }}
+
+          {{ govukTextarea({
+            name: "overallNote",
+            rows: "4",
+            label: {
+              text: "How is Sam doing on their plan?",
+              classes: "govuk-label--m"
+            },
+            hint: {
+              text: "For example, what progress Sam is making, how motivated and engaged they are, or any strengths they have developed."
+            }
+          }) }}
+
+          {% set supportRequireYesdNoteHtml %}
+            {{ govukTextarea({
+              rows: "2",
+              name: "supportRequiredNote",
+              type: "email",
+              autocomplete: "text",
+              spellcheck: false,
+              label: {
+                text: "Enter details"
+              }
+              }) }}
+          {% endset %}
+
+          {% set supportRequiredUnsureNoteHtml %}
+          {{ govukTextarea({
+            rows: "2",
+            name: "supportRequiredNote",
+            type: "email",
+            autocomplete: "text",
+            spellcheck: false,
+            label: {
+              text: "Enter details (optional)"
+            }
+          }) }}
+          {% endset %}
+
+          {{ govukRadios({
+            name: "supportRequired",
+            fieldset: {
+              legend: {
+                text: "Does Sam need any support to achieve their goals?",
+                isPageHeading: true,
+                classes: "govuk-fieldset__legend--m"
+              }
+            },
+            items: [
+              {
+                value: "yes",
+                text: "Yes",
+                conditional: {
+                  html: supportRequireYesdNoteHtml
+                }
+              },
+              {
+                value: "no",
+                text: "No"
+              },
+              {
+                value: "unknown",
+                text: "Not sure",
+                conditional: {
+                  html: supportRequiredUnsureNoteHtml
+                }
+              }
+            ]
+          }) }}
+
+          {% set popInvolvedYesHtml %}
+            {{ govukTextarea({
+              rows: "2",
+              name: "popInvolvementNote",
+              type: "text",
+              autocomplete: "text",
+              spellcheck: false,
+              label: {
+                text: "Enter how Sam is feeling about their plan"
+              },
+              hint: {
+                text: "Sam must answer this question."
+              }
+            }) }}
+          {% endset %}
+
+          {% set popInvolveNodHtml %}
+            {{ govukTextarea({
+              rows: "2",
+              name: "popInvolvementNote",
+              type: "text",
+              autocomplete: "text",
+              spellcheck: false,
+              label: {
+                text: "Enter details"
+              }
+            }) }}
+          {% endset %}
+
+          {{ govukRadios({
+            name: "popInvolvement",
+            fieldset: {
+              legend: {
+                text: "Was Sam involved in this update?",
+                isPageHeading: true,
+                classes: "govuk-fieldset__legend--m"
+              }
+            },
+            items: [
+              {
+                value: "yes",
+                text: "Yes",
+                conditional: {
+                  html: popInvolvedYesHtml
+                }
+              },
+              {
+                value: "no",
+                text: "No",
+                conditional: {
+                  html: popInvolveNodHtml
+                }
+              }
+            ]
+          }) }}
+
+          <button type="submit" class="govuk-button" data-module="govuk-button">
+            Save
+          </button>
+        </form>
+      </div>
+    </div>
+  </main>
+{% endblock %}

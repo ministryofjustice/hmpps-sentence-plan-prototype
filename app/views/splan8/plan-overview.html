@@ -70,10 +70,10 @@
             {% endif %}
 
           <li>
-            <div class="govuk-summary-card" id="summary-card-{{ goal.id }}" draggable="true">
+            <div class="govuk-summary-card" id="summary-card-{{ goal.id }}" >
             <div class="govuk-summary-card__title-wrapper">
               <h2 class="govuk-summary-card__title">{{ goal.goalObjective }}</h2>
-              <ul class="govuk-summary-card__actions">
+              <ul class="govuk-summary-card__actions summary-heading">
                 <li class="govuk-summary-card__action">
                   <a class="govuk-link govuk-link--no-visited-state" href="/splan8/goal/{{ goal.id }}/update-goal.html">
                     Update<span class="govuk-visually-hidden"> {{ goal.goalObjective }}</span>
@@ -106,13 +106,22 @@
                 {% endfor %}
               <p> {{ completedCount }} of {{goal.steps.length}} steps complete</p>
 
-              <p>
+             <!--  <p>
                 <a class="govuk-link govuk-link--no-visited-state" href="/splan8/goal/{{ goal.id }}/update-goal.html">
-                  View goal details<span class="govuk-visually-hidden"> for {{ goal.goalObjective }}</span>
+                  View steps<span class="govuk-visually-hidden"> for {{ goal.goalObjective }}</span>
                 </a>
-              </p>
+              </p> -->
 
-              <!--
+              <details class="govuk-details">
+                <summary class="govuk-details__summary">
+                  <span class="govuk-details__summary-text">
+                    View steps<span class="govuk-visually-hidden"> for {{ goal.goalObjective }}</span>
+                  </span>
+                </summary>
+                <div class="govuk-details__text">
+                  
+               
+              
               <table class="govuk-table">
                 <thead class="govuk-table__head">
                 <tr class="govuk-table__row">
@@ -135,13 +144,17 @@
                       <strong class="govuk-tag govuk-tag--green">Completed</strong>
                     {% elseif step.stepStatus == 'cannot-be-done-yet' %}
                       <strong class="govuk-tag govuk-tag--purple">Cannot be done yet</strong>
+                      {% elseif step.stepStatus == 'no-longer-required' %}
+                      <strong class="govuk-tag govuk-tag--yellow">No longer required</strong>
                     {% endif %}
                   </td>
                 </tr>
                 {% endfor %}
                 </tbody>
               </table>
-              -->
+              
+            </div>
+          </details>
 
 
               {% else %}

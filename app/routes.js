@@ -519,13 +519,18 @@ router.get(`/${DESIGN_VERSION}/goal/:goalId/update-goal`, (req, res, next) => {
             value: 'in-progress',
         },
         {
-            text: 'Completed',
-            value: 'completed',
-        },
-        {
             text: 'Cannot be done yet',
             value: 'cannot-be-done-yet',
         },
+        {
+            text: 'No longer required',
+            value: 'no-longer-required',
+        },
+        {
+            text: 'Completed',
+            value: 'completed',
+        }
+        
     ]
 
     return res.render(`/${DESIGN_VERSION}/update-goal.html`, {

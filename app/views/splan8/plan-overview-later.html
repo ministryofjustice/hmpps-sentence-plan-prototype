@@ -135,14 +135,17 @@ Sam's plan – {{ serviceName }} – GOV.UK Prototype Kit
               </table>
               -->
               {% else %}
+              <div style="display: flex; justify-content: space-between;">
               <strong class="govuk-body govuk-!-font-weight-bold">No steps added</strong>
               <p>
                 <a class="govuk-link govuk-link--no-visited-state" href="/splan8/goal/{{ goal.id }}/update-goal.html">
                   Add steps<span class="govuk-visually-hidden"> for {{ goal.goalObjective }}</span>
                 </a>
               </p> 
+            </div>
               {% endif %}
             </div>
+            
             <p class="govuk-body-s" style="padding-left: 20px; color: #505a5f;">
               Area of need: {{ goal.needArea }}<br>
               {% if goal.relatedNeedAreas.length > 0 %}

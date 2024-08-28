@@ -22,11 +22,11 @@
 
      <p> You will still be able to see it in ‘Removed goals’, but Sam will not be expected to achieve it. </p>
 
-    <div class="govuk-summary-card" id="summary-card-{{ goal.id }}" draggable="true">
+    <div class="govuk-summary-card" id="summary-card-{{ goal.id }}">
       <div class="govuk-summary-card__title-wrapper">
         <h2 class="govuk-summary-card__title">{{ GOAL_DATA.goalObjective }}</h2>
       </div>
-      <div class="govuk-summary-card__content">
+      <div class="govuk-summary-card__content" style="padding-bottom: 0px!important;">
         {% if GOAL_DATA.status !== 'FUTURE' %}
           <p class="govuk-body">
             {% if GOAL_DATA.status === 'ACTIVE' %}
@@ -39,6 +39,14 @@
           </p>
         {% endif %}
         {% if GOAL_DATA.steps and GOAL_DATA.steps.length > 0 %}
+
+        <details class="govuk-details">
+          <summary class="govuk-details__summary">
+            <span class="govuk-details__summary-text">
+              View steps<span class="govuk-visually-hidden"> for {{ goal.goalObjective }}</span>
+            </span>
+          </summary>
+          <div class="govuk-details__text">
         <table class="govuk-table">
           <thead class="govuk-table__head">
           <tr class="govuk-table__row">
@@ -72,6 +80,8 @@
         <hr></hr>
         {% endif %}
       </div>
+    </div>
+  </details>
       <p class="govuk-body-s" style="padding-left: 20px; color: #505a5f;">
         Area of need: {{ GOAL_DATA.needArea }}<br>
         {% if GOAL_DATA.relatedNeedAreas.length > 0 %}
@@ -79,6 +89,7 @@
         {% endif %}
       </p>
     </div>
+ 
 
       <div class="govuk-grid-row">
         <div class="govuk-grid-column-two-thirds">

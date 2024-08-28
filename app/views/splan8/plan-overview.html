@@ -112,7 +112,7 @@
                 </a>
               </p> -->
 
-              <details class="govuk-details">
+              <details class="govuk-details" style="margin-bottom: 20px!important;">
                 <summary class="govuk-details__summary">
                   <span class="govuk-details__summary-text">
                     View steps<span class="govuk-visually-hidden"> for {{ goal.goalObjective }}</span>
@@ -173,8 +173,12 @@
                 Also relates to: {{ goal.relatedNeedAreas | join(', ') }}
                 {% endif %}
               </p>
+              <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+
               <div class="govuk-button-group">
+                
                 {% if not loop.first %}
+                
                 <button type="button" class="govuk-button govuk-button--secondary govuk-!-margin-bottom-0" data-module="govuk-button">
                   Move up
                 </button>

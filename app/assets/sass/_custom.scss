@@ -1036,7 +1036,8 @@ margin-bottom: 20px;
 	margin-bottom: 20px;
 
   }
-/* 
+
+  
 .goal-list {
 	li {
 		&::marker {
@@ -1056,7 +1057,7 @@ margin-bottom: 20px;
 			}
 		}
 	}
-}*/
+}
 
 .govuk-summary-card--no-pad {
 		border: unset;
@@ -1065,8 +1066,14 @@ margin-bottom: 20px;
 			padding: 0;
 		
 	}
+
+	
 } 
 
-.card-actions-title{
+/* .card-actions-title{
 	width: 70%;
 }
+
+.card-heading {
+	font-size: 24px!important;	
+}	 */

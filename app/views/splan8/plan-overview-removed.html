@@ -60,9 +60,9 @@
       <ol class="goal-list govuk-list govuk-list--number">
         {% for goal in REMOVED_GOALS %}
         <li>
-          <div class="govuk-summary-card" id="summary-card-{{ goal.id }}" draggable="true">
+          <div class="govuk-summary-card" id="summary-card-{{ goal.id }}">
             <div class="govuk-summary-card__title-wrapper">
-              <h2 class="govuk-summary-card__title">{{ goal.goalObjective }}</h2>
+              <h2 class="govuk-summary-card__title card-actions-title">{{ goal.goalObjective }}</h2>
               <ul class="govuk-summary-card__actions">
                 <li class="govuk-summary-card__action">
                   <a class="govuk-link govuk-link--no-visited-state" href="/splan8/goal/{{ goal.id }}/update-goal">
@@ -111,7 +111,7 @@
               </table>
               -->
               {% else %}
-              <strong class="govuk-body govuk-!-font-weight-bold">No steps added</strong>
+              <!-- <strong class="govuk-body govuk-!-font-weight-bold">No steps added</strong> -->
               {% endif %}
             </div>
             <p class="govuk-body-s" style="padding-left: 20px; color: #505a5f;">

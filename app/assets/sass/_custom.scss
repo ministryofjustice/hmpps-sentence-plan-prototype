@@ -1036,7 +1036,7 @@ margin-bottom: 20px;
 	margin-bottom: 20px;
 
   }
-
+/* 
 .goal-list {
 	li {
 		&::marker {
@@ -1056,14 +1056,17 @@ margin-bottom: 20px;
 			}
 		}
 	}
-}
+}*/
 
-.govuk-summary-card {
-	&--no-pad {
+.govuk-summary-card--no-pad {
 		border: unset;
 
 		.govuk-summary-card__content {
 			padding: 0;
-		}
+		
 	}
+} 
+
+.card-actions-title{
+	width: 70%;
 }

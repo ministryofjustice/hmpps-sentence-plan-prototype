@@ -36,6 +36,13 @@
           </p>
         {% endif %}
         {% if GOAL_DATA.steps and GOAL_DATA.steps.length > 0 %}
+        <details class="govuk-details">
+          <summary class="govuk-details__summary">
+            <span class="govuk-details__summary-text">
+              View steps<span class="govuk-visually-hidden"> for {{ goal.goalObjective }}</span>
+            </span>
+          </summary>
+          <div class="govuk-details__text">
         <table class="govuk-table">
           <thead class="govuk-table__head">
           <tr class="govuk-table__row">
@@ -68,6 +75,9 @@
         <strong class="govuk-body govuk-!-font-weight-bold">No steps added</strong>
         <hr>
         {% endif %}
+        
+    </div>
+  </details>
       </div>
       <p class="govuk-body-s" style="padding-left: 20px; color: #505a5f;">
         Area of need: {{ GOAL_DATA.needArea }}<br>

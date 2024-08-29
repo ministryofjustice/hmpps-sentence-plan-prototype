@@ -23,7 +23,7 @@
       <div class="govuk-summary-card__title-wrapper">
         <h2 class="govuk-summary-card__title">{{ GOAL_DATA.goalObjective }}</h2>
       </div>
-      <div class="govuk-summary-card__content">
+      <div class="govuk-summary-card__content" style="padding-bottom: 0px!important;">
         {% if GOAL_DATA.status !== 'FUTURE' %}
           <p class="govuk-body">
             {% if GOAL_DATA.status === 'ACTIVE' %}

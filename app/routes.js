@@ -45,7 +45,7 @@ router.use((req, res, next) => {
                 needArea: "Finance",
                 goalObjective: "I want to be in a position where I feel happier and confident in myself again so that I can be a better mother to my children",
                 relatedNeedAreas: [
-                    "Health and wellbeing"
+                    "Health and wellbeing",
                 ],
                 status: "ACTIVE",
                 date: "16 February 2025",

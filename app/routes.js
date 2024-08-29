@@ -11,7 +11,7 @@ const dateFormat1 = { day: 'numeric', month: 'long', year: 'numeric' }
  * This is the name of the design revision
  * Make sure this matches the root folder of your designs!
  */
-const DESIGN_VERSION="splan8"
+var DESIGN_VERSION="splan8"
 
 /**
  * Here we add routes to the application,
@@ -207,16 +207,16 @@ router.use((req, res, next) => {
  * Here's a super simple route that just renders the
  * views/splan6/index.html page.
  */
-router.get(`/${DESIGN_VERSION}/index`, function (req, res) {
-    return res.render(`${DESIGN_VERSION}/index.html`)
+router.get('/:version/index', function (req, res) {
+    return res.render(`${req.params.version}/index.html`)
 })
 
 /**
  * Another super simple route that just renders the
  * views/splan6/create-goal.html page.
  */
-router.get(`/${DESIGN_VERSION}/create-goal`, function (req, res) {
-    return res.render(`${DESIGN_VERSION}/create-goal.njk`)
+router.get('/:version/create-goal', function (req, res) {
+    return res.render(`${req.params.version}/create-goal.njk`)
 })
 
 /**
@@ -227,7 +227,7 @@ router.get(`/${DESIGN_VERSION}/create-goal`, function (req, res) {
  *     ...
  * </form>
  */
-router.post(`/${DESIGN_VERSION}/create-goal`, function (req, res) {
+router.post('/:version/create-goal', function (req, res) {
     /**
      * Here we save all the data from the create-goal form
      * When data is POST'd from your web-browser, it's stored in the request (req) body.
@@ -298,17 +298,17 @@ router.post(`/${DESIGN_VERSION}/create-goal`, function (req, res) {
      * If they didn't select 'Add steps', redirect them to the plan overview page
      */
     if(req.body.action === 'add-steps') {
-        return res.redirect(`/${DESIGN_VERSION}/goal/${goalData.id}/add-steps`)
+        return res.redirect(`/${req.params.version}/goal/${goalData.id}/add-steps`)
     }
 
-    return res.redirect(`/${DESIGN_VERSION}/plan-overview`)
+    return res.redirect(`/${req.params.version}/plan-overview`)
 })
 
 /**
  * Here we set up the add steps route, we're being a bit fancy here and using
  * a path variable, :goalId, to add steps to a specific goal
  */
-router.get(`/${DESIGN_VERSION}/goal/:goalId/add-steps`, (req, res, next) => {
+router.get(`/:version/goal/:goalId/add-steps`, (req, res, next) => {
     /** We can access that path variable like so */
     const goalId = req.params.goalId
 
@@ -322,7 +322,7 @@ router.get(`/${DESIGN_VERSION}/goal/:goalId/add-steps`, (req, res, next) => {
      * Finally we pass that goal data to the view, so that we can use it in our page!
      * We can now access all of our relevant goal data through {{ GOAL_DATA }} in our HTML/template
      */
-    return res.render(`${DESIGN_VERSION}/add-steps.html`, {
+    return res.render(`/${req.params.version}/add-steps.html`, {
         GOAL_DATA: goalData
     })
 })
@@ -331,7 +331,7 @@ router.get(`/${DESIGN_VERSION}/goal/:goalId/add-steps`, (req, res, next) => {
  * Add a post route for receiving the steps, which can then be added to the goal with
  * the id that matches :goalId in the URL.
  */
-router.post(`/${DESIGN_VERSION}/goal/:goalId/add-steps`, (req, res, next) => {
+router.post(`/:version/goal/:goalId/add-steps`, (req, res, next) => {
     /** We access that path variable and goal again */
     const goalId = req.params.goalId
     const goalData = req.session.data.goals[goalId - 1]
@@ -379,11 +379,11 @@ router.post(`/${DESIGN_VERSION}/goal/:goalId/add-steps`, (req, res, next) => {
     req.session.data.goals[goalId - 1] = goalData
 
     /** Now lets redirect the user to the summary page */
-    return res.redirect(`/${DESIGN_VERSION}/plan-overview`)
+    return res.redirect(`/${req.params.version}/plan-overview`)
 })
 
-router.get(`/${DESIGN_VERSION}/plan-overview`, (req, res, next) => {
-    return res.render(`${DESIGN_VERSION}/plan-overview.html`, {
+router.get(`/:version/plan-overview`, (req, res, next) => {
+    return res.render(`${req.params.version}/plan-overview.html`, {
         ACTIVE_GOALS: req.session.data.goals.filter(goal => goal.status === 'ACTIVE'),
         FUTURE_GOALS: req.session.data.goals.filter(goal => goal.status === 'FUTURE'),
         REMOVED_GOALS: req.session.data.goals.filter(goal => goal.status === 'REMOVED'),
@@ -391,8 +391,8 @@ router.get(`/${DESIGN_VERSION}/plan-overview`, (req, res, next) => {
     })
 })
 
-router.get(`/${DESIGN_VERSION}/plan-overview-removed`, (req, res, next) => {
-    return res.render(`${DESIGN_VERSION}/plan-overview-removed.html`, {
+router.get(`/:version/plan-overview-removed`, (req, res, next) => {
+    return res.render(`${req.params.version}/plan-overview-removed.html`, {
         ACTIVE_GOALS: req.session.data.goals.filter(goal => goal.status === 'ACTIVE'),
         FUTURE_GOALS: req.session.data.goals.filter(goal => goal.status === 'FUTURE'),
         REMOVED_GOALS: req.session.data.goals.filter(goal => goal.status === 'REMOVED'),
@@ -400,8 +400,8 @@ router.get(`/${DESIGN_VERSION}/plan-overview-removed`, (req, res, next) => {
     })
 })
 
-router.get(`/${DESIGN_VERSION}/plan-overview-later`, (req, res, next) => {
-    return res.render(`${DESIGN_VERSION}/plan-overview-later.html`, {
+router.get(`/:version/plan-overview-later`, (req, res, next) => {
+    return res.render(`${req.params.version}/plan-overview-later.html`, {
         ACTIVE_GOALS: req.session.data.goals.filter(goal => goal.status === 'ACTIVE'),
         FUTURE_GOALS: req.session.data.goals.filter(goal => goal.status === 'FUTURE'),
         REMOVED_GOALS: req.session.data.goals.filter(goal => goal.status === 'REMOVED'),
@@ -409,8 +409,8 @@ router.get(`/${DESIGN_VERSION}/plan-overview-later`, (req, res, next) => {
     })
 })
 
-router.get(`/${DESIGN_VERSION}/plan-overview-achieved`, (req, res, next) => {
-    return res.render(`${DESIGN_VERSION}/plan-overview-achieved.html`, {
+router.get(`/:version/plan-overview-achieved`, (req, res, next) => {
+    return res.render(`${req.params.version}/plan-overview-achieved.html`, {
         ACTIVE_GOALS: req.session.data.goals.filter(goal => goal.status === 'ACTIVE'),
         FUTURE_GOALS: req.session.data.goals.filter(goal => goal.status === 'FUTURE'),
         REMOVED_GOALS: req.session.data.goals.filter(goal => goal.status === 'REMOVED'),
@@ -418,37 +418,37 @@ router.get(`/${DESIGN_VERSION}/plan-overview-achieved`, (req, res, next) => {
     })
 })
 
-router.get(`/${DESIGN_VERSION}/agreed-plan`, (req, res, next) => {
+router.get(`/:version/agreed-plan`, (req, res, next) => {
     /**
      *  We can now access all goal data through {{ GOALS_DATA }} in our HTML/template
      */
-    return res.render(`${DESIGN_VERSION}/agreed-plan.html`, {
+    return res.render(`${req.params.version}/agreed-plan.html`, {
         GOALS_DATA: req.session.data.goals.filter(goal => goal.date),
         GOALS_FOR_LATER_DATA: req.session.data.goals.filter(goal => !goal.date)
     })
 })
 
-router.get(`/${DESIGN_VERSION}/agreed-plan-later`, (req, res, next) => {
+router.get(`/:version/agreed-plan-later`, (req, res, next) => {
     /**
      *  We can now access all goal data through {{ GOALS_DATA }} in our HTML/template
      */
-    return res.render(`${DESIGN_VERSION}/agreed-plan-later.html`, {
+    return res.render(`${req.params.version}/agreed-plan-later.html`, {
         GOALS_DATA: req.session.data.goals.filter(goal => goal.date),
         GOALS_FOR_LATER_DATA: req.session.data.goals.filter(goal => !goal.date)
     })
 })
 
-router.get(`/${DESIGN_VERSION}/progress`, (req, res, next) => {
-    return res.render(`${DESIGN_VERSION}/progress.html`, {
+router.get(`/:version/progress`, (req, res, next) => {
+    return res.render(`${req.params.version}/progress.html`, {
         NOTES: req.session.data.notes.toReversed()
     })
 })
 
-router.get(`/${DESIGN_VERSION}/record-progress`, (req, res, next) => {
-    return res.render(`${DESIGN_VERSION}/record-progress.html`)
+router.get(`/:version/record-progress`, (req, res, next) => {
+    return res.render(`${req.params.version}/record-progress.html`)
 })
 
-router.post(`/${DESIGN_VERSION}/record-progress`, (req, res, next) => {
+router.post(`/:version/record-progress`, (req, res, next) => {
     const { overallNote, supportRequired, supportRequiredNote, popInvolvement, popInvolvementNote } = req.body
 
     const note = {
@@ -466,20 +466,20 @@ router.post(`/${DESIGN_VERSION}/record-progress`, (req, res, next) => {
 
     req.session.data.notes.push(note)
 
-    return res.redirect(`/${DESIGN_VERSION}/progress`)
+    return res.redirect(`/${req.params.version}/progress`)
 })
 
-router.get(`/${DESIGN_VERSION}/goal/:goalId/remove-goal`, (req, res, next) => {
+router.get(`/:version/goal/:goalId/remove-goal`, (req, res, next) => {
     const goalId = req.params.goalId
 
     const goalData = req.session.data.goals[goalId - 1]
 
-    return res.render(`${DESIGN_VERSION}/remove-goal.html`, {
+    return res.render(`${req.params.version}/remove-goal.html`, {
         GOAL_DATA: goalData
     })
 })
 
-router.post(`/${DESIGN_VERSION}/goal/:goalId/remove-goal`, (req, res, next) => {
+router.post(`/:version/goal/:goalId/remove-goal`, (req, res, next) => {
     const goalId = Number(req.params.goalId)
 
     const goal = req.session.data.goals.find(goal => goal.id === goalId);
@@ -500,10 +500,10 @@ router.post(`/${DESIGN_VERSION}/goal/:goalId/remove-goal`, (req, res, next) => {
 
     req.session.data.notes.push(note)
 
-    return res.redirect(`/${DESIGN_VERSION}/plan-overview-removed`)
+    return res.redirect(`/${req.params.version}/plan-overview-removed`)
 })
 
-router.get(`/${DESIGN_VERSION}/goal/:goalId/update-goal`, (req, res, next) => {
+router.get(`/:version/goal/:goalId/update-goal`, (req, res, next) => {
     /** We can access that path variable like so */
     const goalId = Number(req.params.goalId)
 
@@ -533,14 +533,14 @@ router.get(`/${DESIGN_VERSION}/goal/:goalId/update-goal`, (req, res, next) => {
         
     ]
 
-    return res.render(`/${DESIGN_VERSION}/update-goal.html`, {
+    return res.render(`/${req.params.version}/update-goal.html`, {
         GOAL_DATA: goalData,
         STEP_STATUSES: stepStatuses,
         GOAL_NOTES: req.session.data.notes.filter(note => note.type === 'GOAL' && note.content.goalId === goalId).toReversed()
     })
 })
 
-router.post(`/${DESIGN_VERSION}/goal/:goalId/update-goal`, (req, res, next) => {
+router.post(`/:version/goal/:goalId/update-goal`, (req, res, next) => {
     const goalId = Number(req.params.goalId)
 
     const goal = req.session.data.goals[goalId - 1]
@@ -573,27 +573,27 @@ router.post(`/${DESIGN_VERSION}/goal/:goalId/update-goal`, (req, res, next) => {
 
     switch (goal.status) {
         case 'FUTURE':
-            return res.redirect(`/${DESIGN_VERSION}/plan-overview-later`)
+            return res.redirect(`/${req.params.version}/plan-overview-later`)
         case 'REMOVED':
-            return res.redirect(`/${DESIGN_VERSION}/plan-overview-removed`)
+            return res.redirect(`/${req.params.version}/plan-overview-removed`)
         case 'ACHIEVED':
-            return res.redirect(`/${DESIGN_VERSION}/plan-overview-achieved`)
+            return res.redirect(`/${req.params.version}/plan-overview-achieved`)
         default:
         case 'ACTIVE':
-            return res.redirect(`/${DESIGN_VERSION}/plan-overview`)
+            return res.redirect(`/${req.params.version}/plan-overview`)
     }
 })
 
-router.get(`/${DESIGN_VERSION}/goal/:goalId/update-goal-details`, (req, res, next) => {
+router.get(`/:version/goal/:goalId/update-goal-details`, (req, res, next) => {
     const goalId = req.params.goalId
     const goalData = req.session.data.goals[goalId - 1]
 
-    return res.render(`${DESIGN_VERSION}/update-goal-details.html`, {
+    return res.render(`${req.params.version}/update-goal-details.html`, {
         GOAL_DATA: goalData
     })
 })
 
-router.post(`/${DESIGN_VERSION}/goal/:goalId/update-goal-details`, (req, res, next) => {
+router.post(`/:version/goal/:goalId/update-goal-details`, (req, res, next) => {
     const goalId = req.params.goalId
     const goalData = req.session.data.goals[goalId - 1]
 
@@ -605,27 +605,27 @@ router.post(`/${DESIGN_VERSION}/goal/:goalId/update-goal-details`, (req, res, ne
 
     switch (goalData.status) {
         case 'FUTURE':
-            return res.redirect(`/${DESIGN_VERSION}/plan-overview-later`)
+            return res.redirect(`/${req.params.version}/plan-overview-later`)
         case 'REMOVED':
-            return res.redirect(`/${DESIGN_VERSION}/plan-overview-removed`)
+            return res.redirect(`/${req.params.version}/plan-overview-removed`)
         case 'ACHIEVED':
-            return res.redirect(`/${DESIGN_VERSION}/plan-overview-achieved`)
+            return res.redirect(`/${req.params.version}/plan-overview-achieved`)
         default:
         case 'ACTIVE':
-            return res.redirect(`/${DESIGN_VERSION}/plan-overview`)
+            return res.redirect(`/${req.params.version}/plan-overview`)
     }
 })
 
-router.get(`/${DESIGN_VERSION}/goal/:goalId/achieve-goal`, (req, res, next) => {
+router.get(`/:version/goal/:goalId/achieve-goal`, (req, res, next) => {
     const goalId = req.params.goalId
     const goalData = req.session.data.goals[goalId - 1]
 
-    return res.render(`${DESIGN_VERSION}/goal-achieved.html`, {
+    return res.render(`${req.params.version}/goal-achieved.html`, {
         GOAL_DATA: goalData
     })
 })
 
-router.post(`/${DESIGN_VERSION}/goal/:goalId/achieve-goal`, (req, res, next) => {
+router.post(`/:version/goal/:goalId/achieve-goal`, (req, res, next) => {
     const goalId = Number(req.params.goalId)
     const goal = req.session.data.goals.find(goal => goal.id === goalId);
     goal.status = 'ACHIEVED'
@@ -645,19 +645,19 @@ router.post(`/${DESIGN_VERSION}/goal/:goalId/achieve-goal`, (req, res, next) => 
 
     req.session.data.notes.push(note)
 
-    return res.redirect(`/${DESIGN_VERSION}/plan-overview-achieved`)
+    return res.redirect(`/${req.params.version}/plan-overview-achieved`)
 })
 
-router.get(`/${DESIGN_VERSION}/goal/:goalId/readd-goal`, (req, res, next) => {
+router.get(`/:version/goal/:goalId/readd-goal`, (req, res, next) => {
     const goalId = req.params.goalId
     const goalData = req.session.data.goals[goalId - 1]
 
-    return res.render(`/${DESIGN_VERSION}/add-goal-to-plan.html`, {
+    return res.render(`/${req.params.version}/add-goal-to-plan.html`, {
         GOAL_DATA: goalData
     })
 })
 
-router.post(`/${DESIGN_VERSION}/goal/:goalId/readd-goal`, (req, res, next) => {
+router.post(`/:version/goal/:goalId/readd-goal`, (req, res, next) => {
     const goalId = Number(req.params.goalId)
     const goal = req.session.data.goals.find(goal => goal.id === goalId);
 
@@ -666,13 +666,13 @@ router.post(`/${DESIGN_VERSION}/goal/:goalId/readd-goal`, (req, res, next) => {
 
     switch (goal.status) {
         case 'FUTURE':
-            return res.redirect(`/${DESIGN_VERSION}/plan-overview-later`)
+            return res.redirect(`/${req.params.version}/plan-overview-later`)
         case 'REMOVED':
-            return res.redirect(`/${DESIGN_VERSION}/plan-overview-removed`)
+            return res.redirect(`/${req.params.version}/plan-overview-removed`)
         case 'ACHIEVED':
-            return res.redirect(`/${DESIGN_VERSION}/plan-overview-achieved`)
+            return res.redirect(`/${req.params.version}/plan-overview-achieved`)
         default:
         case 'ACTIVE':
-            return res.redirect(`/${DESIGN_VERSION}/plan-overview`)
+            return res.redirect(`/${req.params.version}/plan-overview`)
     }
 })

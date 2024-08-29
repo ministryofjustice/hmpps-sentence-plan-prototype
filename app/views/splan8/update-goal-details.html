@@ -9,7 +9,26 @@
     {{ super() }}
     <script src="/public/javascripts/auto.js"></script>
     <script src="/public/javascripts/datepicker.js"></script>
-    <script src="/public/javascripts/goals-accommodation.js"></script>
+    <script>
+        const theDValue = "{{ GOAL_DATA.goalObjective }}"
+        window.onload = function() {
+        const goal = [
+            "I will find a safe and stable place to live",
+            'I will keep my current accommodation'
+        ]
+        
+        accessibleAutocomplete({
+            element: document.querySelector('#goalObjective'),
+            id: 'goalObjective', // To match it to the existing <label>.
+            name: 'goalObjective',
+            source: goal,
+            displayMenu: 'overlay',
+            minLength: 3,
+            defaultValue: theDValue,
+            showNoOptionsFound: false
+        })
+    };
+      </script>
 {% endblock %}
 
 {% block content %}

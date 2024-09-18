@@ -28,7 +28,7 @@
           <h1 class="govuk-heading-l govuk-!-margin-bottom-0">Sam's plan</h1>
           
           <div class="govuk-button-group govuk-!-margin-bottom-0">
-            <a href="/splan8/create-goal">
+            <a href="/splan6/create-goal">
               <button type="submit" class="govuk-button govuk-button--secondary govuk-!-margin-bottom-0" data-module="govuk-button">
                 Create goal
               </button>
@@ -45,7 +45,7 @@
     
 
       <p>
-        Add steps to the goals John is working on now. You can then agree the plan with John.
+        Add steps to the goals Sam is working on now. You can then agree the plan with Sam.
       </p>
 
       <nav class="moj-sub-navigation mb40" aria-label="Sub navigation">
@@ -105,7 +105,7 @@
               <p> {{ completedCount }} of {{goal.steps.length}} steps complete</p>
 
              <!--  <p>
-                <a class="govuk-link govuk-link--no-visited-state" href="/splan8/goal/{{ goal.id }}/update-goal.html">
+                <a class="govuk-link govuk-link--no-visited-state" href="/splan6/goal/{{ goal.id }}/update-goal.html">
                   View steps<span class="govuk-visually-hidden"> for {{ goal.goalObjective }}</span>
                 </a>
               </p> -->
@@ -144,7 +144,7 @@
               {% else %}
               <strong class="govuk-body govuk-!-font-weight-bold">No steps added</strong>
               <p>
-                <a class="govuk-link govuk-link--no-visited-state" href="/splan8/goal/{{ goal.id }}/update-goal.html">
+                <a class="govuk-link govuk-link--no-visited-state" href="/splan6/goal/{{ goal.id }}/update-goal.html">
                   Add steps<span class="govuk-visually-hidden"> for {{ goal.goalObjective }}</span>
                 </a>
               </p> 

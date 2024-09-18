@@ -18,7 +18,7 @@
 
     <div class="govuk-grid-column-two-thirds">
       <h1 class="govuk-heading-l">
-        Does John agree to this plan?
+        Does Sam agree to this plan?
       </h1>
 
       <form class="form" action="/splan6/agreed-plan" method="post">
@@ -61,23 +61,23 @@
             }
           },
           hint: {
-            text: "John must answer this question, or you must record why John could not."
+            text: "Sam must answer this question, or you must record why Sam could not."
           },
           items: [
             {
               value: "email",
-              text: "Yes, John agrees"
+              text: "Yes, Sam agrees"
             },
             {
               value: "phone",
-              text: "No, John does not agree",
+              text: "No, Sam does not agree",
               conditional: {
                 html: phoneHtml
               }
             },
             {
               value: "no-answer",
-              text: "John could not answer this question",
+              text: "Sam could not answer this question",
               conditional: {
                 html: noanswerHtml
               }
@@ -94,7 +94,7 @@
         </div>
 
         {{ govukButton({
-          text: "Agree plan with John"
+          text: "Agree plan with Sam"
         }) }}
 
         <p class="govuk-body">

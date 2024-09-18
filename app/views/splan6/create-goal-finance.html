@@ -54,7 +54,7 @@
             </br>
             <h1 class="govuk-heading-l">
                 <span class="govuk-caption-l">Finance</span>
-                Create a goal with John
+                Create a goal with Sam
             </h1>
 
             {% include "../includes/info-from-assessment-finance.html" %}
@@ -62,7 +62,7 @@
             <form method="post" action="/splan6/create-goal">
                 <input hidden name="needArea" value="Finance">
                 <div class="govuk-form-group goal">
-                    <label class="govuk-label govuk-label--m" for="goalObjective">What goal should John try to achieve?</label>
+                    <label class="govuk-label govuk-label--m" for="goalObjective">What goal should Sam try to achieve?</label>
                     <div id="goalObjective-hint" class="govuk-hint govuk-!-margin-bottom-2">
                         Search for a suggested goal or enter your own. Add one goal at a time.
                     </div>
@@ -109,7 +109,7 @@
                 <div class="govuk-form-group">
                     <fieldset class="govuk-fieldset">
                         <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
-                            Can John start working on this goal now?
+                            Can Sam start working on this goal now?
                         </legend>
                         <div class="govuk-radios" data-module="govuk-radios">
                             <div class="govuk-radios__item" onclick="toggleDiv('isActiveGoal')">
@@ -155,7 +155,7 @@
                         name: "date",
                         fieldset: {
                             legend: {
-                                text: "When should John aim to achieve this goal?",
+                                text: "When should Sam aim to achieve this goal?",
                                 isPageHeading: false,
                                 classes: "govuk-fieldset__legend--m"
                             }
@@ -165,7 +165,7 @@
                             { value: "in 3 months (8 October 2024)", text: "In 3 months (8 October 2024)" },
                             { value: "in 6 months (8 January 2025)", text: "In 6 months (8 January 2025)" },
                             { value: "in 12 months (8 July 2025)", text: "In 12 months (8 July 2025)" },
-                            { value: "by the end of John’s sentence", text: "At the end of John’s sentence" },
+                            { value: "by the end of Sam’s sentence", text: "At the end of Sam’s sentence" },
                             { divider: "or" },
                             { value: "custom", text: "Set another date", conditional: { html: dateHtml } }
                         ]

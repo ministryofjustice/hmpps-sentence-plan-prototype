@@ -9,3 +9,10 @@
 @import "custom";
 @import "auto";
 @import "datepicker";
+@import "print";
+
+.app-link-print {
+
+    float: right;
+    padding-top: 10px;
+}

@@ -1,7 +1,8 @@
 window.onload = function() {
     const goal = [
-        "I will find a safe and stable place to live",
-        'I will keep my current accommodation'
+        "I will maintain my current accommodation by [add how]",
+        'I will find accommodation that is more suitable for me because [add why] ',
+        "I will reduce how much rent I owe ('arrears'), so that [add why] "
       ]
     
       accessibleAutocomplete({

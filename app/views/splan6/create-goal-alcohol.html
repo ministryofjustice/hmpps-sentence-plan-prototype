@@ -9,12 +9,12 @@
     {{ super() }}
     <script src="/public/javascripts/auto.js"></script>
     <script src="/public/javascripts/datepicker.js"></script>
-    <script src="/public/javascripts/goals-finance.js"></script>
+    <script src="/public/javascripts/goals-alcohol.js"></script>
 {% endblock %}
 
 {% block content %}
     {% include "../includes/profile-banner.html" %}
-    <a href="/splan6/index" class="govuk-back-link">Back</a>
+    <a href="/splan8/index" class="govuk-back-link">Back</a>
 
     <div class="govuk-grid-row">
         <div class="govuk-grid-column-one-third">
@@ -29,14 +29,16 @@
                     href: 'create-goal-employment'
                 }, {
                     text: 'Finance',
-                    href: 'create-goal-finance',
-                    active: true
+                    href: 'create-goal-finance'
+                    
                 }, {
                     text: 'Drug use',
                     href:'create-goal-drugs'
+                    
                 }, {
                     text: 'Alcohol use',
-                    href:'create-goal-alcohol'
+                    href:'create-goal-alcohol',
+                    active: true
                 }, {
                     text: 'Health and wellbeing',
                     href:'create-goal-health'
@@ -53,14 +55,14 @@
         <div class="govuk-grid-column-two-thirds">
             </br>
             <h1 class="govuk-heading-l">
-                <span class="govuk-caption-l">Finance</span>
+                <span class="govuk-caption-l">Alcohol use</span>
                 Create a goal with Sam
             </h1>
 
             {% include "../includes/info-from-assessment-finance.html" %}
 
-            <form method="post" action="/splan6/create-goal">
-                <input hidden name="needArea" value="Finance">
+            <form method="post" action="/splan8/create-goal">
+                <input hidden name="needArea" value="Alcohol use">
                 <div class="govuk-form-group goal">
                     <label class="govuk-label govuk-label--m" for="goalObjective">What goal should Sam try to achieve?</label>
                     <div id="goalObjective-hint" class="govuk-hint govuk-!-margin-bottom-2">
@@ -161,11 +163,9 @@
                             }
                         },
                         items: [
-                            { value: "by our next meeting (8 August 2024)", text: "At our next meeting (8 August 2024)" },
                             { value: "in 3 months (8 October 2024)", text: "In 3 months (8 October 2024)" },
                             { value: "in 6 months (8 January 2025)", text: "In 6 months (8 January 2025)" },
                             { value: "in 12 months (8 July 2025)", text: "In 12 months (8 July 2025)" },
-                            { value: "by the end of Sam’s sentence", text: "At the end of Sam’s sentence" },
                             { divider: "or" },
                             { value: "custom", text: "Set another date", conditional: { html: dateHtml } }
                         ]

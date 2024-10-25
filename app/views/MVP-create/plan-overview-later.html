@@ -1,5 +1,5 @@
 {% extends "layouts/main.html" %}
-
+{% set unagreedPlan = true %}
 {% block pageTitle %}
 Sam's plan – {{ serviceName }} – GOV.UK Prototype Kit
 {% endblock %}
@@ -13,8 +13,9 @@ Sam's plan – {{ serviceName }} – GOV.UK Prototype Kit
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-full">
     <div class="profile-banner-plan profileFIlters">
+      <a href="#" id="print-button" class="govuk-link govuk-link--no-visited-state app-link-print govuk-!-display-none-print">Print</a>
       <ul class="govuk-list govuk-!-margin-bottom-0">
-        <li class="govuk-body govuk-!-font-size-19" style="padding-top: 8px;">
+        <li class="govuk-body govuk-!-font-size-19" style="padding-top: 5px;">
           <strong>Sam Smith</strong>
         </li>
         <li style="padding-top: 8px;">CRN: Z804100</li>
@@ -26,7 +27,13 @@ Sam's plan – {{ serviceName }} – GOV.UK Prototype Kit
         <h1 class="govuk-heading-l govuk-!-margin-bottom-0">Sam's plan</h1>
 
         <div class="govuk-button-group govuk-!-margin-bottom-0">
-          <a href="/mvp-create/create-goal">
+          <a class="govuk-!-display-none-print" href="#">
+            <button type="submit" class="govuk-button govuk-button--secondary govuk-!-margin-bottom-0 govuk-!-display-none-print" data-module="govuk-button">
+              Return to OASys
+            </button>
+          </a>
+
+          <a class="govuk-!-display-none-print" href="/mvp-create/create-goal">
             <button type="submit" class="govuk-button govuk-button--secondary govuk-!-margin-bottom-0" data-module="govuk-button">
               Create goal
             </button>
@@ -42,11 +49,6 @@ Sam's plan – {{ serviceName }} – GOV.UK Prototype Kit
       </div>
     </div>
 
-
-    <p>
-      Add steps to the goals Sam is working on now. You can then agree the plan with Sam.
-    </p>
-
     <nav class="moj-sub-navigation mb40" aria-label="Sub navigation">
       <ul class="moj-sub-navigation__list">
         <li class="moj-sub-navigation__item">
@@ -60,6 +62,10 @@ Sam's plan – {{ serviceName }} – GOV.UK Prototype Kit
 
     <div id="summary-cards">
       {# BELOW THIS IS DYNAMIC CODE #}
+
+      {% if FUTURE_GOALS.length < 1 %}
+          <p>Kurtis does not have any future goals in their plan.</p>
+        {% endif %}
       <ol class="goal-list govuk-list govuk-list--number">
         {% for goal in FUTURE_GOALS %}
         <li>
@@ -158,5 +164,5 @@ Sam's plan – {{ serviceName }} – GOV.UK Prototype Kit
   </div>
 </div>
 
-
+{% include "../includes/print-js.html" %}  
 {% endblock %}

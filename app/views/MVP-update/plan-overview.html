@@ -50,16 +50,32 @@
           <li class="moj-sub-navigation__item">
             <a class="moj-sub-navigation__link" Href="plan-overview-later">Future goals ({{ FUTURE_GOALS.length }}) </a>
           </li>
+          {% if not ACHIEVED_GOALS %}
           <li class="moj-sub-navigation__item">
             <a class="moj-sub-navigation__link" href="plan-overview-achieved">Achieved goals ({{ ACHIEVED_GOALS.length }}) </a>
           </li>
+          {% endif %}
+          {% if not REMOVED_GOALS %}
           <li class="moj-sub-navigation__item" style="float: right">
             <a class="moj-sub-navigation__link" href="plan-overview-removed">Removed goals ({{ REMOVED_GOALS.length }}) </a>
           </li>
+          {% endif %}
+          
+          
+          
         </ul>
       </nav>
 
       <div id="summary-cards">
+
+        {% if ACTIVE_GOALS.length < 1 %}
+          <p>Joan does not have any goals to work on now. You can either:</p>
+          <ul class="govuk-list govuk-list--bullet">
+            <li><a class="govuk-link govuk-link--no-visited-state" href="/MVP-create/create-goal">create a goal with Sam</a></li>
+            <li><a class="govuk-link govuk-link--no-visited-state" href="/MVP-create/about">view information from Sam's assessment</a></li>
+          </ul>
+            
+        {% endif %}
         <ol class="goal-list govuk-list govuk-list--number">
           {% for goal in ACTIVE_GOALS %}
             {% set buttons = [] %}

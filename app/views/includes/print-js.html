@@ -28,5 +28,10 @@
   }
 
   // Event listener for the print button
-  document.getElementById('print-button').addEventListener('click', openAccordionsAndPrint);
+  if (document.getElementById('print-button')) {
+    document.getElementById('print-button').addEventListener('click', openAccordionsAndPrint);
+  } else {
+    console.log('no print button')
+  }
+  
 </script>

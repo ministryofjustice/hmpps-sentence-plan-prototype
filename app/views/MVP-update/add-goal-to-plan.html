@@ -1,0 +1,156 @@
+
+{% extends "layouts/main.html" %} {% block pageTitle %} Sam's progress –
+{{ serviceName }} – GOV.UK Prototype Kit {% endblock %} 
+
+
+{% block main %}
+    {% include "../includes/primary-nav-plan.html" %}
+    {{ super() }}
+    <script src="/public/javascripts/datepicker.js"></script>
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+    {% include "../includes/profile-banner.html" %}
+    <a href="/MVP-create/plan-overview-removed" class="govuk-back-link">Back</a>
+  </div>
+</div>
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        <h1 class="govuk-heading-l">Confirm you want to add this goal back into Sam's plan</h1>
+    </div>
+</div>
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+        <div class="govuk-summary-card" id="summary-card-{{ goal.id }}" draggable="true">
+            <div class="govuk-summary-card__title-wrapper">
+                <h2 class="govuk-summary-card__title">{{ GOAL_DATA.goalObjective }}</h2>
+            </div>
+            <div class="govuk-summary-card__content">
+                <p class="govuk-body">Removed on {{ GOAL_DATA.statusDate }}</p>
+                <p>{{ GOAL_DATA.statusReason }}</p>
+                {% if GOAL_DATA.steps and GOAL_DATA.steps.length > 0 %}
+                <table class="govuk-table">
+                    <thead class="govuk-table__head">
+                    <tr class="govuk-table__row">
+                        <th scope="col" class="govuk-table__header" style="width: 25%">Who will do this</th>
+                        <th scope="col" class="govuk-table__header" style="width: 55%">Step</th>
+                        <th scope="col" class="govuk-table__header" style="width: 20%">Status</th>
+                    </tr>
+                    </thead>
+                    <tbody class="govuk-table__body">
+                    {% for step in GOAL_DATA.steps %}
+                    <tr class="govuk-table__row">
+                        <td class="govuk-table__cell">{{ step.who }}</td>
+                        <td class="govuk-table__cell">{{ step.step }}</td>
+                        <td class="govuk-table__cell">
+                            {% if step.stepStatus =='not-started' %}
+                            <strong class="govuk-tag govuk-tag--grey">Not started</strong>
+                            {% elseif step.stepStatus == 'in-progress' %}
+                            <strong class="govuk-tag govuk-tag">In Progress</strong>
+                            {% elseif step.stepStatus == 'completed' %}
+                            <strong class="govuk-tag govuk-tag--green">Completed</strong>
+                            {% elseif step.stepStatus == 'cannot-be-done-yet' %}
+                            <strong class="govuk-tag govuk-tag--purple">Cannot be done yet</strong>
+                            {% endif %}
+                        </td>
+                    </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+                {% else %}
+                <strong class="govuk-body govuk-!-font-weight-bold">No steps added</strong>
+                <hr></hr>
+                {% endif %}
+            </div>
+            <p class="govuk-body-s" style="padding-left: 20px; color: #505a5f;">
+                Area of need: {{ GOAL_DATA.needArea }}<br>
+                {% if GOAL_DATA.relatedNeedAreas.length > 0 %}
+                Also relates to: {{ GOAL_DATA.relatedNeedAreas | join(', ') }}
+                {% endif %}
+            </p>
+        </div>
+    </div>
+</div>
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        <form class="form" method="post">
+            <div class="govuk-form-group">
+                <fieldset class="govuk-fieldset">
+                    <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+                        Can Sam start working on this goal now?
+                    </legend>
+                    <div class="govuk-radios" data-module="govuk-radios">
+                        <div class="govuk-radios__item" onclick="toggleDiv('isActiveGoal')">
+                            <input class="govuk-radios__input" id="isActiveGoal" name="isActiveGoal" type="radio" value="Yes">
+                            <label class="govuk-label govuk-radios__label" for="isActiveGoal">Yes</label>
+                        </div>
+                        <div class="govuk-radios__item" onclick="toggleDiv('isActiveGoal')">
+                            <input class="govuk-radios__input" id="isActiveGoal-2" name="isActiveGoal" type="radio" value="No">
+                            <label class="govuk-label govuk-radios__label" for="isActiveGoal-2">No, it is a future goal</label>
+                        </div>
+                    </div>
+                </fieldset>
+            </div>
+
+            <script>
+                function toggleDiv(x) {
+                    var yesRadio = document.querySelector('input[name="' + x + '"][value="Yes"]');
+                    var toggleDiv = document.getElementById('toggleDiv');
+
+                    if (yesRadio.checked) {
+                        toggleDiv.style.display = 'block';
+                        toggleDiv.setAttribute('aria-hidden', 'false');
+                    } else {
+                        toggleDiv.style.display = 'none';
+                        toggleDiv.setAttribute('aria-hidden', 'true');
+                    }
+                }
+            </script>
+
+            <div id="toggleDiv" aria-hidden="true">
+                {% set dateHtml %}
+                {%- from "../includes/datepicker.html" import hmppsDatePicker -%}
+                {{ hmppsDatePicker({
+                id: "datePicker",
+                name: "datePicker",
+                classes: "govuk-input--width-10",
+                hint: { text: "For example, 31/3/2023." },
+                label: { text: "Select a date", classes: "govuk-fieldset__legend--s" }
+                }) }}
+                {% endset %}
+
+                {{ govukRadios({
+                name: "date",
+                fieldset: {
+                legend: {
+                text: "When should Sam aim to achieve this goal?",
+                isPageHeading: false,
+                classes: "govuk-fieldset__legend--m"
+                }
+                },
+                items: [
+                { value: "by 8 August 2024", text: "At our next meeting (8 August 2024)" },
+                { value: "by 8 October 2024", text: "In 3 months (8 October 2024)" },
+                { value: "by 8 January 2025", text: "In 6 months (8 January 2025)" },
+                { value: "by 8 July 2025", text: "In 12 months (8 July 2025)" },
+                { value: "by the end of Sam’s sentence", text: "At the end of Sam’s sentence" },
+                { divider: "or" },
+                { value: "custom", text: "Set another date", conditional: { html: dateHtml } }
+                ]
+                }) }}
+            </div>
+
+            <button type="submit" name="action" value="add-steps" class="govuk-button govuk-!-margin-top-" data-module="govuk-button">
+                Confirm
+            </button>
+        </form>
+    </div>
+</div>
+
+{% endblock %}

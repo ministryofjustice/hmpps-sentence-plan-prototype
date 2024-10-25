@@ -1,0 +1,180 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+ Create goal for Accommodation – {{ serviceName }} – HMPPS
+{% endblock %}
+
+{% block main %}
+    {% include "../includes/primary-nav.html" %}
+    {{ super() }}
+    <script src="/public/javascripts/auto.js"></script>
+    <script src="/public/javascripts/datepicker.js"></script>
+    <script src="/public/javascripts/goals-accommodation.js"></script>
+{% endblock %}
+
+{% block content %}
+    {% include "../includes/profile-banner.html" %}
+    <a href="/MVP-create/plan-overview" class="govuk-back-link">Back</a>
+
+    <div class="govuk-grid-row">
+        <div class="govuk-grid-column-one-third">
+            {%- from "moj/components/side-navigation/macro.njk" import mojSideNavigation -%}
+            {{ mojSideNavigation({
+                label: 'Side navigation',
+                items: [{
+                    text: 'Accommodation',
+                    href: '#1',
+                    active: true
+                }, {
+                    text: 'Employment and education',
+                    href: '#2'
+                }, {
+                    text: 'Finance',
+                    href: 'create-goal-finance'
+                }, {
+                    text: 'Drug use',
+                    href:'#4'
+                }, {
+                    text: 'Alcohol use',
+                    href:'#'
+                }, {
+                    text: 'Health and wellbeing',
+                    href:'#6'
+                }, {
+                    text: 'Personal relationships and community',
+                    href:'#7'
+                }, {
+                    text: 'Thinking, behaviours and attitudes',
+                    href:'create-goal-thinking'
+                }]
+            }) }}
+        </div>
+
+        <div class="govuk-grid-column-two-thirds">
+            </br>
+            <h1 class="govuk-heading-l">
+                <span class="govuk-caption-l">Accommodation</span>
+                Create a goal with Sam
+            </h1>
+
+            {% include "../includes/info-from-assessment.html" %}
+
+            <form method="post">
+                <input hidden name="needArea" value="Accommodation">
+                <div class="govuk-form-group goal">
+                    <label class="govuk-label govuk-label--m" for="goalObjective">What goal should Sam try to achieve?</label>
+                    <div id="goalObjective-hint" class="govuk-hint govuk-!-margin-bottom-2">
+                        Search for a suggested goal or enter your own. Add one goal at a time.
+                    </div>
+                    <div id="goalObjective"></div>
+                </div>
+
+                {% set yesHtml %}
+                    {{ govukCheckboxes({
+                        name: "relatedNeedAreas",
+                        fieldset: {
+                            legend: {
+                                text: "Select all that apply",
+                                isPageHeading: false,
+                                classes: ""
+                            }
+                        },
+                        items: [
+                            { value: "Alcohol use", text: "Alcohol use" },
+                            { value: "Drug use", text: "Drug use" },
+                            { value: "Employment and education", text: "Employment and education" },
+                            { value: "Finance", text: "Finance" },
+                            { value: "Health and wellbeing", text: "Health and wellbeing" },
+                            { value: "Personal relationships and community", text: "Personal relationships and community" },
+                            { value: "Thinking, behaviours and attitudes", text: "Thinking, behaviours and attitudes" }
+                        ]
+                    }) }}
+                {% endset %}
+
+                {{ govukRadios({
+                    name: "hasRelatedNeed",
+                    fieldset: {
+                        legend: {
+                            text: "Is this goal related to any other area of need?",
+                            isPageHeading: false,
+                            classes: "govuk-fieldset__legend--m"
+                        }
+                    },
+                    items: [
+                        { value: "Yes", text: "Yes", conditional: { html: yesHtml } },
+                        { value: "No", text: "No" }
+                    ]
+                }) }}
+
+                <div class="govuk-form-group">
+                    <fieldset class="govuk-fieldset">
+                        <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+                            Can Sam start working on this goal now?
+                        </legend>
+                        <div class="govuk-radios" data-module="govuk-radios">
+                            <div class="govuk-radios__item" onclick="toggleDiv('isActiveGoal')">
+                                <input class="govuk-radios__input" id="isActiveGoal" name="isActiveGoal" type="radio" value="Yes">
+                                <label class="govuk-label govuk-radios__label" for="isActiveGoal">Yes</label>
+                            </div>
+                            <div class="govuk-radios__item" onclick="toggleDiv('isActiveGoal')">
+                                <input class="govuk-radios__input" id="isActiveGoal-2" name="isActiveGoal" type="radio" value="No">
+                                <label class="govuk-label govuk-radios__label" for="isActiveGoal-2">No, it is a future goal</label>
+                            </div>
+                        </div>
+                    </fieldset>
+                </div>
+
+                <script>
+                    function toggleDiv(x) {
+                        var yesRadio = document.querySelector('input[name="' + x + '"][value="Yes"]');
+                        var toggleDiv = document.getElementById('toggleDiv');
+
+                        if (yesRadio.checked) {
+                            toggleDiv.style.display = 'block';
+                            toggleDiv.setAttribute('aria-hidden', 'false');
+                        } else {
+                            toggleDiv.style.display = 'none';
+                            toggleDiv.setAttribute('aria-hidden', 'true');
+                        }
+                    }
+                </script>
+
+                <div id="toggleDiv" aria-hidden="true">
+                    {% set dateHtml %}
+                        {%- from "../includes/datepicker.html" import hmppsDatePicker -%}
+                        {{ hmppsDatePicker({
+                            id: "datePicker",
+                            name: "datePicker",
+                            classes: "govuk-input--width-10",
+                            hint: { text: "For example, 31/3/2023." },
+                            label: { text: "Select a date", classes: "govuk-fieldset__legend--s" }
+                        }) }}
+                    {% endset %}
+
+                    {{ govukRadios({
+                        name: "date",
+                        fieldset: {
+                            legend: {
+                                text: "When should Sam aim to achieve this goal?",
+                                isPageHeading: false,
+                                classes: "govuk-fieldset__legend--m"
+                            }
+                        },
+                        items: [
+                            { value: "by 8 August 2024", text: "By our next meeting" },
+                            { value: "by 8 October 2024", text: "In 3 months (8 October 2024)" },
+                            { value: "by 8 January 2025", text: "In 6 months (8 January 2025)" },
+                            { value: "by 8 July 2025", text: "In 12 months (8 July 2025)" },
+                            { value: "by the end of Sam’s sentence", text: "By the end of Sam’s sentence" },
+                            { divider: "or" },
+                            { value: "custom", text: "Set another date", conditional: { html: dateHtml } }
+                        ]
+                    }) }}
+                </div>
+
+                <button type="submit" name="action" value="add-steps" class="govuk-button govuk-!-margin-top-" data-module="govuk-button">Add steps</button>
+                <button type="submit" name="action" value="skip-steps" class="govuk-button govuk-button--secondary govuk-!-margin-top-" data-module="govuk-button">Save without steps</button>
+            </form>
+        </div>
+    </div>
+{% endblock %}

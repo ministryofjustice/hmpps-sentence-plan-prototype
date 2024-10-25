@@ -1,0 +1,160 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+Sam's progress – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block main %}
+{% include "../includes/primary-nav.html" %}
+{{ super() }}
+{% endblock %}
+
+{% block content %}
+{% include "../includes/profile-banner.html" %}
+<a href="/MVP-create/plan-overview" class="govuk-back-link">Back</a>
+<form class="form" method="post">
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+      
+
+      <div class="govuk-grid-row">
+        <div class="govuk-grid-column-three-quarters">
+            <h1 class="govuk-heading-l">
+                <span class="govuk-caption-m">
+                    {{ GOAL_DATA.needArea }}
+                    {% if GOAL_DATA.relatedNeedAreas.length > 0 %}
+                      (and {{ GOAL_DATA.relatedNeedAreas | join(', ') | lower}})
+                    {% endif %}
+                  </span>
+                {{ GOAL_DATA.goalObjective }}
+            </h1>
+        </div>
+      </div>
+
+        <p>
+            {% if GOAL_DATA.status === 'ACTIVE' %}
+                Aim to achieve this by {{ GOAL_DATA.date }}.
+            {% elseif GOAL_DATA.status === 'ACHIEVED' %}
+                Marked as achieved on {{ GOAL_DATA.statusDate }}.
+            {% elseif GOAL_DATA.status === 'REMOVED' %}
+                Removed on {{ GOAL_DATA.statusDate }}.
+            {% endif %}
+            <a href="/MVP-create/goal/{{ GOAL_DATA.id }}/update-goal-details" class="govuk-link govuk-link--no-visited-state">Change goal details</a>
+        </p>
+
+
+        <h2 class="govuk-heading-m">Review steps</h2>
+        <div class="govuk-summary-card govuk-summary-card--no-pad" id="summary-card-{{ goal.id }}">
+            <div class="govuk-summary-card__content">
+                {% if GOAL_DATA.steps and GOAL_DATA.steps.length > 0 %}
+                    <table class="govuk-table">
+                        <thead class="govuk-table__head">
+                        <tr class="govuk-table__row">
+                            <th scope="col" class="govuk-table__header">Who will do this</th>
+                            <th scope="col" class="govuk-table__header">Step</th>
+                            <th scope="col" class="govuk-table__header">Status</th>
+                        </tr>
+                        </thead>
+                        <tbody class="govuk-table__body">
+                        {% for step in GOAL_DATA.steps %}
+                            {% set stepStatusItems = [] %}
+                            {% for status in STEP_STATUSES %}
+                                {% set stepStatusItems = stepStatusItems.concat({
+                                    text: status.text,
+                                    value: status.value,
+                                    selected: status.value === step.stepStatus
+                                }) %}
+                            {% endfor %}
+
+                        <tr class="govuk-table__row">
+                            <td class="govuk-table__cell" style="width: 25%">{{ step.who }}</td>
+                            <td class="govuk-table__cell" style="width: 55%" >{{ step.step }}</td>
+                            <td class="govuk-table__cell" style="width: 20%">
+                                {{ govukSelect({
+                                    id: step.id,
+                                    name: "step-status-" + step.id,
+                                    items: stepStatusItems,
+                                    formGroup: {
+                                        classes: "govuk-!-margin-bottom-0"
+                                    }
+                                }) }}
+                            </td>
+                        </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                {% else %}
+                    <strong class="govuk-body govuk-!-font-weight-bold">No steps added</strong>
+                {% endif %}
+            </div>
+        </div>
+
+        <p>
+            <a href="/MVP-create/update-steps" class="govuk-link govuk-link--no-visited-state">Add or change steps</a>
+        </p>
+        <br>
+
+        <div class="govuk-width-container">
+            <div class="govuk-grid-row">
+                <div class="govuk-grid-column-two-thirds">
+
+                    {{ govukTextarea({
+                        name: "moreDetail",
+                        id: "more-detail",
+                        rows: "4",
+                        label: {
+                            text: "Add notes about progress (optional)",
+                            classes: "govuk-label--m"
+                        },
+                        hint: {
+                            text: "For example, how Sam feels about their progress, any strengths or protective factors they have developed, or any support they need."
+                        }
+                    }) }}
+
+                    {% set goalNotesHtml %}
+                        {% if GOAL_NOTES.length %}
+                            {% for note in GOAL_NOTES %}
+                                <div>
+                                    <div style="display: flex;">
+                                        {% if note.subtype === 'UPDATED' %}
+                                        <h3 class="govuk-heading-s">{{ note.content.goalTitle }}' updated <span class="govuk-body" style="padding-left: 5px; color: #505a5f;"> by Alexis Diaz</span></h3>
+                                        {% elseif note.subtype === 'ACHIEVED' %}
+                                        <h3 class="govuk-heading-s">'{{ note.content.goalTitle }}' achieved <span class="govuk-body" style="padding-left: 5px; color: #505a5f;"> by Alexis Diaz</span></h3>
+                                        {% else %}
+                                        <h3 class="govuk-heading-s">'{{ note.content.goalTitle }}' removed <span class="govuk-body" style="padding-left: 5px; color: #505a5f;"> by Alexis Diaz</span></h3>
+                                        {% endif %}
+                                    </div>
+                                    <p class="govuk-body-s">{{ note.createdAt | prettyPrintDate }}</p>
+                                    <p>{{ note.content.reason }}</p>
+                                </div>
+                                <hr>
+                            {% endfor %}
+                        {% else %}
+                            <p class="govuk-body">There are no notes yet.</p>
+                        {% endif %}
+                    {% endset %}
+
+                    {{ govukDetails({
+                        summaryText: "View all notes",
+                        html: goalNotesHtml
+                    }) }}
+
+                    <div class="govuk-button-group">
+                        <button type="submit" class="govuk-button" data-module="govuk-button">
+                            Save goal and steps
+                        </button>
+                        <a type="button" data-module="govuk-button" href="/MVP-create/goal/{{ GOAL_DATA.id }}/achieve-goal" class="govuk-button govuk-button--secondary">
+                                Mark as achieved
+                        </a>
+                    </div>
+                    <p>
+                        <a href="/MVP-create/goal/{{ GOAL_DATA.id }}/remove-goal"  class="govuk-link govuk-link--no-visited-state">Remove goal from plan</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+</form>
+{% endblock %}

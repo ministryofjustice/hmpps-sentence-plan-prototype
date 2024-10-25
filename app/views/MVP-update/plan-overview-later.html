@@ -1,0 +1,164 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+Sam's plan – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block main %}
+{% include "../includes/primary-nav-plan.html" %}
+{{ super() }}
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+    <div class="profile-banner-plan profileFIlters">
+      <ul class="govuk-list govuk-!-margin-bottom-0">
+        <li class="govuk-body govuk-!-font-size-19" style="padding-top: 8px;">
+          <strong>Sam Smith</strong>
+        </li>
+        <li style="padding-top: 8px;">CRN: Z804100</li>
+        <li style="padding-top: 8px;">PNC: 2017/123400000H</li>
+        <li style="padding-top: 8px;">Date of birth: 26 June 1978</li>
+      </ul>
+
+      <div style="display: flex; justify-content: space-between; align-items: center; padding-top: 40px;">
+        <h1 class="govuk-heading-l govuk-!-margin-bottom-0">Sam's plan</h1>
+
+        <div class="govuk-button-group govuk-!-margin-bottom-0">
+          <a href="/MVP-create/create-goal">
+            <button type="submit" class="govuk-button govuk-button--secondary govuk-!-margin-bottom-0" data-module="govuk-button">
+              Create goal
+            </button>
+          </a>
+
+        </div>
+      </div>
+    </div>
+
+
+    <p>
+      Last updated on 1 August 2024 by Alexis Diaz.
+    </p>
+
+    <nav class="moj-sub-navigation mb40" aria-label="Sub navigation">
+      <ul class="moj-sub-navigation__list">
+        <li class="moj-sub-navigation__item">
+          <a class="moj-sub-navigation__link" href="plan-overview">Goals to work on now ({{ ACTIVE_GOALS.length }})</a>
+        </li>
+        <li class="moj-sub-navigation__item">
+          <a class="moj-sub-navigation__link" aria-current="page" href="plan-overview-later">Future goals ({{ FUTURE_GOALS.length }}) </a>
+        </li>
+        <li class="moj-sub-navigation__item">
+          <a class="moj-sub-navigation__link" href="plan-overview-achieved">Achieved goals ({{ ACHIEVED_GOALS.length }}) </a>
+        </li>
+        <li class="moj-sub-navigation__item" style="float: right">
+          <a class="moj-sub-navigation__link" href="plan-overview-removed">Removed goals ({{ REMOVED_GOALS.length }}) </a>
+        </li>
+      </ul>
+    </nav>
+
+    <div id="summary-cards">
+      {# BELOW THIS IS DYNAMIC CODE #}
+      <ol class="goal-list govuk-list govuk-list--number">
+        {% for goal in FUTURE_GOALS %}
+        <li>
+          <div class="govuk-summary-card" id="summary-card-{{ goal.id }}" draggable="true">
+            <div class="govuk-summary-card__title-wrapper">
+              <h2 class="govuk-summary-card__title">{{ goal.goalObjective }}</h2>
+              <ul class="govuk-summary-card__actions">
+                <li class="govuk-summary-card__action">
+                  <a class="govuk-link govuk-link--no-visited-state" href="/MVP-create/goal/{{ goal.id }}/update-goal.html">
+                    Update<span class="govuk-visually-hidden"> {{ goal.goalObjective }}</span>
+                  </a>
+                </li>
+                <!--
+                <li class="govuk-summary-card__action" style="padding-left: 10px;">
+                  <a class="govuk-link govuk-link--no-visited-state" href="/MVP-create/goal/{{ goal.id }}/achieve-goal">
+                    Mark as achieved<span class="govuk-visually-hidden"> for {{ goal.goalObjective }}</span>
+                  </a>
+                </li>
+                <li class="govuk-summary-card__action">
+                  <a class="govuk-link govuk-link--no-visited-state" href="/MVP-create/goal/{{ goal.id }}/remove-goal.html">
+                    Remove<span class="govuk-visually-hidden"> {{ goal.goalObjective }}</span>
+                  </a>
+                </li>
+                -->
+              </ul>
+            </div>
+            <div class="govuk-summary-card__content" style="padding-bottom: 0px!important;">
+
+              {% set completedCount = 0 %}
+              {% if goal.steps and goal.steps.length > 0 %}
+                {% for step in goal.steps %}
+                  {% if step.stepStatus == 'completed' %}
+                      {% set completedCount = completedCount + 1 %}
+                  {% endif %}
+                {% endfor %}
+              <p> {{ completedCount }} of {{goal.steps.length}} steps complete</p>
+
+              <p>
+                <a class="govuk-link govuk-link--no-visited-state" href="/MVP-create/goal/{{ goal.id }}/update-goal.html">
+                  View goal details<span class="govuk-visually-hidden"> for {{ goal.goalObjective }}</span>
+                </a>
+              </p> 
+
+
+              <!--
+              <table class="govuk-table">
+                <thead class="govuk-table__head">
+                <tr class="govuk-table__row">
+                  <th scope="col" class="govuk-table__header" style="width: 25%">Who will do this</th>
+                  <th scope="col" class="govuk-table__header" style="width: 55%">Step</th>
+                  <th scope="col" class="govuk-table__header" style="width: 20%">Status</th>
+                </tr>
+                </thead>
+                <tbody class="govuk-table__body">
+                {% for step in goal.steps %}
+                <tr class="govuk-table__row">
+                  <td class="govuk-table__cell">{{ step.who }}</td>
+                  <td class="govuk-table__cell">{{ step.step }}</td>
+                  <td class="govuk-table__cell">
+                    {% if step.stepStatus =='not-started' %}
+                      <strong class="govuk-tag govuk-tag--grey">Not started</strong>
+                    {% elseif step.stepStatus == 'in-progress' %}
+                      <strong class="govuk-tag govuk-tag">In progress</strong>
+                    {% elseif step.stepStatus == 'completed' %}
+                      <strong class="govuk-tag govuk-tag--green">Completed</strong>
+                    {% elseif step.stepStatus == 'cannot-be-done-yet' %}
+                      <strong class="govuk-tag govuk-tag--purple">Cannot be done yet</strong>
+                    {% endif %}
+                  </td>
+                </tr>
+                {% endfor %}
+                </tbody>
+              </table>
+              -->
+              {% else %}
+              <div style="display: flex; justify-content: space-between;">
+              <strong class="govuk-body govuk-!-font-weight-bold">No steps added</strong>
+              <p>
+                <a class="govuk-link govuk-link--no-visited-state" href="/MVP-create/goal/{{ goal.id }}/update-goal.html">
+                  Add steps<span class="govuk-visually-hidden"> for {{ goal.goalObjective }}</span>
+                </a>
+              </p> 
+            </div>
+              {% endif %}
+            </div>
+            
+            <p class="govuk-body-s" style="padding-left: 20px; color: #505a5f;">
+              Area of need: {{ goal.needArea }}<br>
+              {% if goal.relatedNeedAreas.length > 0 %}
+              Also relates to: {{ goal.relatedNeedAreas | join(', ') }}
+              {% endif %}
+            </p>
+          </div>
+        </li>
+        {% endfor %}
+      </ol>
+    </div>
+  </div>
+</div>
+
+
+{% endblock %}

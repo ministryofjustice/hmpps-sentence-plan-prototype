@@ -1,0 +1,117 @@
+
+{% extends "layouts/main.html" %} {% block pageTitle %} Sam's progress –
+{{ serviceName }} – GOV.UK Prototype Kit {% endblock %} 
+
+
+{% block main %}
+{% include "../includes/primary-nav-plan.html" %}
+{{ super() }}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+    {% include "../includes/profile-banner.html" %}
+    <a href="/MVP-create/plan-overview" class="govuk-back-link">Back</a>
+
+    
+    <h1 class="govuk-heading-l govuk-!-margin-bottom-0">Confirm you want to remove this goal</h1>
+    <br>
+    <p>Remove a goal if it is no longer relevant to Sam. </p>
+
+     <p> You will still be able to see it in ‘Removed goals’, but Sam will not be expected to achieve it. </p>
+
+    <div class="govuk-summary-card" id="summary-card-{{ goal.id }}">
+      <div class="govuk-summary-card__title-wrapper">
+        <h2 class="govuk-summary-card__title">{{ GOAL_DATA.goalObjective }}</h2>
+      </div>
+      <div class="govuk-summary-card__content" style="padding-bottom: 0px!important;">
+        {% if GOAL_DATA.status !== 'FUTURE' %}
+          <p class="govuk-body">
+            {% if GOAL_DATA.status === 'ACTIVE' %}
+              Aim to achieve this by {{ GOAL_DATA.date }}.
+            {% elseif GOAL_DATA.status === 'ACHIEVED' %}
+              Marked as achieved on {{ GOAL_DATA.statusDate }}.
+            {% elseif GOAL_DATA.status === 'REMOVED' %}
+              Removed on {{ GOAL_DATA.statusDate }}.
+            {% endif %}
+          </p>
+        {% endif %}
+        {% if GOAL_DATA.steps and GOAL_DATA.steps.length > 0 %}
+
+        <details class="govuk-details">
+          <summary class="govuk-details__summary">
+            <span class="govuk-details__summary-text">
+              View steps<span class="govuk-visually-hidden"> for {{ goal.goalObjective }}</span>
+            </span>
+          </summary>
+          <div class="govuk-details__text">
+        <table class="govuk-table">
+          <thead class="govuk-table__head">
+          <tr class="govuk-table__row">
+            <th scope="col" class="govuk-table__header" style="width: 25%">Who will do this</th>
+            <th scope="col" class="govuk-table__header" style="width: 55%">Step</th>
+            <th scope="col" class="govuk-table__header" style="width: 20%">Status</th>
+          </tr>
+          </thead>
+          <tbody class="govuk-table__body">
+          {% for step in GOAL_DATA.steps %}
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell">{{ step.who }}</td>
+              <td class="govuk-table__cell">{{ step.step }}</td>
+              <td class="govuk-table__cell">
+                {% if step.stepStatus =='not-started' %}
+                <strong class="govuk-tag govuk-tag--grey">Not started</strong>
+                {% elseif step.stepStatus == 'in-progress' %}
+                <strong class="govuk-tag govuk-tag">In Progress</strong>
+                {% elseif step.stepStatus == 'completed' %}
+                <strong class="govuk-tag govuk-tag--green">Completed</strong>
+                {% elseif step.stepStatus == 'cannot-be-done-yet' %}
+                <strong class="govuk-tag govuk-tag--purple">Cannot be done yet</strong>
+                {% endif %}
+              </td>
+            </tr>
+          {% endfor %}
+          </tbody>
+        </table>
+        {% else %}
+        <strong class="govuk-body govuk-!-font-weight-bold">No steps added</strong>
+        <hr></hr>
+        {% endif %}
+      </div>
+    </div>
+  </details>
+      <p class="govuk-body-s" style="padding-left: 20px; color: #505a5f;">
+        Area of need: {{ GOAL_DATA.needArea }}<br>
+        {% if GOAL_DATA.relatedNeedAreas.length > 0 %}
+        Also relates to: {{ GOAL_DATA.relatedNeedAreas | join(', ') }}
+        {% endif %}
+      </p>
+    </div>
+ 
+
+      <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+        <form class="form" method="post">
+          {{ govukTextarea({
+            name: "moreDetail",
+            id: "more-detail",
+            rows: "4",
+            label: {
+              text: "Why do you want to remove this goal?",
+              classes: "govuk-label--m"
+            }
+          }) }}
+          <button type="submit" class="govuk-button" data-module="govuk-button">
+            Confirm
+          </button>
+        </form>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+
+{% endblock %}

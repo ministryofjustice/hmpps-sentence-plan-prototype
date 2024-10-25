@@ -1,7 +1,7 @@
 {% extends "layouts/main.html" %}
 
 {% block pageTitle %}
-  Create goal for Thinking, behaviours and attitudes – {{ serviceName }} – HMPPS
+  Create goal for Finance – {{ serviceName }} – HMPPS
 {% endblock %}
 
 {% block main %}
@@ -9,12 +9,12 @@
     {{ super() }}
     <script src="/public/javascripts/auto.js"></script>
     <script src="/public/javascripts/datepicker.js"></script>
-    <script src="/public/javascripts/goals-thinking.js"></script>
+    <script src="/public/javascripts/goals-alcohol.js"></script>
 {% endblock %}
 
 {% block content %}
     {% include "../includes/profile-banner.html" %}
-    <a href="/splan6/index" class="govuk-back-link">Back</a>
+    <a href="/splan8/index" class="govuk-back-link">Back</a>
 
     <div class="govuk-grid-row">
         <div class="govuk-grid-column-one-third">
@@ -30,12 +30,15 @@
                 }, {
                     text: 'Finance',
                     href: 'create-goal-finance'
+                    
                 }, {
                     text: 'Drug use',
                     href:'create-goal-drugs'
+                    
                 }, {
                     text: 'Alcohol use',
-                    href:'create-goal-alcohol'
+                    href:'create-goal-alcohol',
+                    active: true
                 }, {
                     text: 'Health and wellbeing',
                     href:'create-goal-health'
@@ -44,8 +47,7 @@
                     href:'create-goal-relationships'
                 }, {
                     text: 'Thinking, behaviours and attitudes',
-                    href:'create-goal-thinking',
-                    active: true
+                    href:'create-goal-thinking'
                 }]
             }) }}
         </div>
@@ -53,14 +55,14 @@
         <div class="govuk-grid-column-two-thirds">
             </br>
             <h1 class="govuk-heading-l">
-                <span class="govuk-caption-l">Thinking, behaviours and attitudes</span>
+                <span class="govuk-caption-l">Alcohol use</span>
                 Create a goal with Sam
             </h1>
 
-            {% include "../includes/info-from-assessment-thinking.html" %}
+            {% include "../includes/info-from-assessment-finance.html" %}
 
-            <form method="post" action="/splan8/create-goal">
-                <input hidden name="needArea" value="Thinking, behaviours and attitudes">
+            <form method="post" action="/splan6/create-goal">
+                <input hidden name="needArea" value="Alcohol use">
                 <div class="govuk-form-group goal">
                     <label class="govuk-label govuk-label--m" for="goalObjective">What goal should Sam try to achieve?</label>
                     <div id="goalObjective-hint" class="govuk-hint govuk-!-margin-bottom-2">
@@ -84,9 +86,9 @@
                             { value: "Alcohol use", text: "Alcohol use" },
                             { value: "Drug use", text: "Drug use" },
                             { value: "Employment and education", text: "Employment and education" },
-                            { value: "Finance", text: "Finance" },
                             { value: "Health and wellbeing", text: "Health and wellbeing" },
-                            { value: "Personal relationships and community", text: "Personal relationships and community" }
+                            { value: "Personal relationships and community", text: "Personal relationships and community" },
+                            { value: "Thinking, behaviours and attitudes", text: "Thinking, behaviours and attitudes" }
                         ]
                     }) }}
                 {% endset %}

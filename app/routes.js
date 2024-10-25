@@ -39,6 +39,26 @@ router.use((req, res, next) => {
      * So, if the goals array isn't ready yet, let's get it set up to start saving goals!
      */
     if(!req.session.data.goals) {
+        req.session.data.goals = []
+
+        req.session.data.notes = []
+    }
+    return next()
+})
+
+// Removed adding goals by default
+// You can get no goals if you use the create plan route
+// If you hit the link on the /index page for update plan
+// you get the goals added if none exist
+
+
+router.get('/:version/create-data', function (req, res) {
+
+    // empty data first
+    req.session.data = {};
+
+    if(!req.session.data.goals) {
+        console.log("yolo")
         req.session.data.goals = [
             {
                 id: 1,
@@ -198,9 +218,9 @@ router.use((req, res, next) => {
             },
         ]
     }
-    return next()
-})
 
+    return res.redirect(`/${req.params.version}/plan-overview.html`)
+})
 
 
 /**

@@ -16,7 +16,7 @@
       <link rel="apple-touch-icon" href="/plugin-assets/govuk-frontend/govuk/assets/images/govuk-apple-touch-icon.png">
       <link href="/public/stylesheets/application.css" rel="stylesheet" type="text/css" />
    </head>
-   <body class="govuk-template__body ">
+   <body class="govuk-template__body">
       <script id="__bs_script__">//<![CDATA[
          (function() {
            try {
@@ -60,7 +60,7 @@
       }]
       }
       }) }}
-      <div class="govuk-width-container">
+      <div class="govuk-width-container govuk-!-margin-top-3">
          <main class="govuk-main-wrapper " id="main-content" role="main">
             <!-- Patterns -->         
             <div class="govuk-grid-row">
@@ -93,28 +93,28 @@
                </div>
             </div>
             <h2 class="govuk-heading-m mb30">
-               Update a plan 
-               <br>
                {%- from "govuk/components/tag/macro.njk" import govukTag -%}
                {{ govukTag({
                text: "In progress",
-               classes: "govuk-tag--purple"
+               classes: "govuk-tag--purple govuk-!-margin-bottom-1"
                }) }}
+               <br>
+               Create and update a plan 
             </h2>
-            <!--   <p class="govuk-body">Main features:</p>
-               <ul class="govuk-list govuk-list--bullet">
-                 <li>Update a plan journey</li>
-                 <li>View 'About' page</li>    
-               
-               </ul> -->
 
-               <ul class="govuk-list">
+               <ul class="govuk-list govuk-list--bullet ">
                   <li>
-                     <a href="/splan6/index">Create plan prototype</a>
+                     <a href="/MVP-create/index" class="govuk-link--no-visited-state">Create plan prototype for MVP</a>
                   </li>
                   <li>
-                     <a href="/splan8/index">Update plan prototype</a>
+                     <a href="/MVP-update/plan-overview" class="govuk-link--no-visited-state">Update plan prototype for MVP (uses goals created in create plan routes)</a>
                   </li>
+                  <div class="govuk-body govuk-!-margin-bottom-1">or</div>
+                  <li>
+                     
+                     <a href="/MVP-update/create-data" class="govuk-link--no-visited-state">Clear data and use Update plan prototype for MVP with placeholder goals</a>
+                  </li>
+                  
                </ul>
       </div>
       </div>

@@ -9,10 +9,16 @@
 @import "custom";
 @import "auto";
 @import "datepicker";
+@import "profile";
+@import "moj";
 @import "print";
 
 .app-link-print {
 
     float: right;
     padding-top: 10px;
+}
+
+.app-main-wrapper {
+    padding-top: 0;
 }

@@ -1,4 +1,5 @@
 {% set unagreedPlan = true %}
+{% set mainClasses = "app-main-wrapper" %}
 {% extends "layouts/main.html" %} {% block pageTitle %} Question page template –
 {{ serviceName }} – GOV.UK Prototype Kit {% endblock %} 
 {% block main %}
@@ -111,7 +112,14 @@
 {% block content %}
 
 
-{% include "../includes/profile-banner.html" %}
+<!-- plan header start -->
+<div class="plan-header">
+  <!-- profile start -->
+  {% include "../includes/profile.html" %}
+  <!-- profile end -->
+</div>
+<!-- plan header end -->
+
 {%- from "../includes/datepicker.html" import hmppsDatePicker -%}
 <a href="/splan7/create-goal" class="govuk-back-link">Back</a> 
 

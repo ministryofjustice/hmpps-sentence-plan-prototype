@@ -1,7 +1,7 @@
 {% extends "layouts/main.html" %} {% block pageTitle %} Question page template –
 {{ serviceName }} – GOV.UK Prototype Kit {% endblock %} 
 {% set unagreedPlan = true %}
-
+{% set mainClasses = "app-main-wrapper" %}
 {% block main %}
 {% include "../includes/primary-nav.html" %}
 {{ super() }}
@@ -9,7 +9,13 @@
 
 {% block content %}
 
-    {% include "../includes/profile-banner.html" %}
+    <!-- plan header start -->
+<div class="plan-header">
+  <!-- profile start -->
+  {% include "../includes/profile.html" %}
+  <!-- profile end -->
+</div>
+<!-- plan header end -->
 
      <a href="/mvp-create/plan-overview" class="govuk-back-link">Back</a> 
 

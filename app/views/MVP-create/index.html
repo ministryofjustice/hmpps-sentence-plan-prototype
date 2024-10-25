@@ -1,5 +1,6 @@
 {% extends "layouts/main.html" %}
 {% set unagreedPlan = true %}
+{% set mainClasses = "app-main-wrapper" %}
 {% block pageTitle %}
   Sam's plan – {{ serviceName }} – GOV.UK Prototype Kit
 {% endblock %}
@@ -14,42 +15,36 @@
 {% block content %}
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-full">
-      <div class="profile-banner-plan profileFIlters">
-        <a href="#" id="print-button" class="govuk-link govuk-link--no-visited-state app-link-print govuk-!-display-none-print">Print</a>
-        <ul class="govuk-list govuk-!-margin-bottom-0">
-           <li class="govuk-body govuk-!-font-size-19" style="padding-top: 5px;">
-             <strong>Sam Smith</strong>
-           </li>
-          <li style="padding-top: 8px;">CRN: Z804100</li>
-          <li style="padding-top: 8px;">PNC: 2017/123400000H</li>
-          <li style="padding-top: 8px;">Date of birth: 26 June 1978</li>
-        </ul>
+      <!-- plan header start -->
+      <div class="plan-header">
+        <!-- profile start -->
+        {% include "../includes/profile.html" %}
+        <!-- profile end -->
 
-        <div style="display: flex; justify-content: space-between; align-items: center; padding-top: 40px;">
-          <h1 class="govuk-heading-l govuk-!-margin-bottom-0">Sam's plan</h1>
-          
-          <div class="govuk-button-group govuk-!-margin-bottom-0">
-
-            <a class="govuk-!-display-none-print" href="#">
-              <button type="submit" class="govuk-button govuk-button--secondary govuk-!-margin-bottom-0 govuk-!-display-none-print" data-module="govuk-button">
-                Return to OASys
-              </button>
-            </a>
-
-            <a class="govuk-!-display-none-print" href="/mvp-create/create-goal">
-              <button type="submit" class="govuk-button govuk-button--secondary govuk-!-margin-bottom-0 govuk-!-display-none-print" data-module="govuk-button">
-                Create goal
-              </button>
-            </a>
-
-            <form class="form govuk-!-display-none-print" action="/mvp-create/agree-plan" method="post">
-              <button type="submit" class="govuk-button govuk-!-margin-bottom-0 govuk-!-display-none-print" data-module="govuk-button">
-                Agree plan
-              </button>
-            </form>
+        <!-- h1 and button row start -->
+        <div class="plan-header__extended">
+          <div class="plan-header__extended__title">
+              <h1 class="govuk-heading-l govuk-!-margin-bottom-0">Sam's plan</h1>
           </div>
-        </div>
+              <div class="moj-button-menu">
+                <div class="moj-button-menu__wrapper">          
+                  <a href="#" role="button" draggable="false" class="govuk-button moj-button-menu__item govuk-button--secondary govuk-!-display-none-print" data-module="govuk-button">
+                    Return to OASys
+                  </a>
+                  
+                  <a href="/mvp-create/create-goal" role="button" draggable="false" class="govuk-button moj-button-menu__item govuk-button--secondary govuk-!-display-none-print" data-module="govuk-button">
+                    Create goal
+                  </a>
+
+                  <a href="/mvp-create/agree-plan" role="button" draggable="false" class="govuk-button moj-button-menu__item govuk-!-display-none-print" data-module="govuk-button">
+                    Agree plan
+                  </a>
+                </div>
+              </div>
+          </div>
+          <!-- h1 and button row end -->
       </div>
+      <!-- plan header end -->
 
       <nav class="moj-sub-navigation mb40" aria-label="Sub navigation">
         <ul class="moj-sub-navigation__list">

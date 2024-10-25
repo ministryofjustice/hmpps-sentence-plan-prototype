@@ -1,5 +1,6 @@
 {% extends "layouts/main.html" %}
 {% set unagreedPlan = true %}
+{% set mainClasses = "app-main-wrapper" %}
 {% block pageTitle %}
   Create goal for Thinking, behaviours and attitudes – {{ serviceName }} – HMPPS
 {% endblock %}
@@ -13,7 +14,14 @@
 {% endblock %}
 
 {% block content %}
-    {% include "../includes/profile-banner.html" %}
+    <!-- plan header start -->
+    <div class="plan-header">
+        <!-- profile start -->
+        {% include "../includes/profile.html" %}
+        <!-- profile end -->
+      </div>
+      <!-- plan header end -->
+
     <a href="/MVP-create/index" class="govuk-back-link">Back</a>
 
     <div class="govuk-grid-row">

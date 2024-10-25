@@ -7,8 +7,6 @@ window.onload = function() {
       "I will prioritise my wellbeing, so that [add why]",
       "I will improve how I recognise what emotions I am feeling, so that I can understand my behaviour better",
       "I will get support from [add partner agency or organisation] to help me understand my past experiences and how I can manage my emotions in a safer way"
-      
-      
       ]
     
       accessibleAutocomplete({

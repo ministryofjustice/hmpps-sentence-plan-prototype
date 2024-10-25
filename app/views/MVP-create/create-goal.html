@@ -1,5 +1,5 @@
 {% extends "layouts/main.html" %}
-
+{% set unagreedPlan = true %}
 {% block pageTitle %}
  Create goal for Accommodation – {{ serviceName }} – HMPPS
 {% endblock %}
@@ -14,7 +14,7 @@
 
 {% block content %}
     {% include "../includes/profile-banner.html" %}
-    <a href="/mvp-create/index" class="govuk-back-link">Back</a>
+    <a href="/MVP-create/plan-overview" class="govuk-back-link">Back</a>
 
     <div class="govuk-grid-row">
         <div class="govuk-grid-column-one-third">
@@ -27,22 +27,22 @@
                     active: true
                 }, {
                     text: 'Employment and education',
-                    href: '#2'
+                    href: 'create-goal-employment'
                 }, {
-                    text: 'Finance',
+                    text: 'Finances',
                     href: 'create-goal-finance'
                 }, {
                     text: 'Drug use',
-                    href:'#4'
+                    href:'create-goal-drugs'
                 }, {
                     text: 'Alcohol use',
-                    href:'#'
+                    href:'create-goal-alcohol'
                 }, {
                     text: 'Health and wellbeing',
-                    href:'#6'
+                    href:'create-goal-health'
                 }, {
                     text: 'Personal relationships and community',
-                    href:'#7'
+                    href:'create-goal-relationships'
                 }, {
                     text: 'Thinking, behaviours and attitudes',
                     href:'create-goal-thinking'
@@ -161,11 +161,11 @@
                             }
                         },
                         items: [
-                            { value: "by our next meeting (8 August 2024)", text: "At our next meeting (8 August 2024)" },
-                            { value: "in 3 months (8 October 2024)", text: "In 3 months (8 October 2024)" },
-                            { value: "in 6 months (8 January 2025)", text: "In 6 months (8 January 2025)" },
-                            { value: "in 12 months (8 July 2025)", text: "In 12 months (8 July 2025)" },
-                            { value: "by the end of Sam’s sentence", text: "At the end of Sam’s sentence" },
+                            { value: "by 8 August 2024", text: "By our next meeting" },
+                            { value: "by 8 October 2024", text: "In 3 months (8 October 2024)" },
+                            { value: "by 8 January 2025", text: "In 6 months (8 January 2025)" },
+                            { value: "by 8 July 2025", text: "In 12 months (8 July 2025)" },
+                            { value: "by the end of Sam’s sentence", text: "By the end of Sam’s sentence" },
                             { divider: "or" },
                             { value: "custom", text: "Set another date", conditional: { html: dateHtml } }
                         ]

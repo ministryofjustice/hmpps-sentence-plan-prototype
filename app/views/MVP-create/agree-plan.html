@@ -1,6 +1,6 @@
 {% extends "layouts/main.html" %} {% block pageTitle %} Question page template –
 {{ serviceName }} – GOV.UK Prototype Kit {% endblock %} 
-
+{% set unagreedPlan = true %}
 
 {% block main %}
 {% include "../includes/primary-nav.html" %}
@@ -21,17 +21,16 @@
         Does Sam agree to this plan?
       </h1>
 
-      <form class="form" action="/mvp-create/agreed-plan" method="post">
+      <form class="form" action="/MVP-update/plan-overview" method="post">
 
         
         
         {% set phoneHtml %}
-        {{ govukInput({
-          id: "contact-by-phone",
-          name: "contactByPhone",
-          type: "text",
-          autocomplete: "text",
-          classes: "govuk-!-width-full",
+
+        {{ govukTextarea({
+          name: "moreDetail1",
+          id: "more-detail1",
+          rows: "3",
           label: {
             text: "Enter details"
           }
@@ -39,12 +38,10 @@
         {% endset -%}
       
         {% set noanswerHtml %}
-        {{ govukInput({
-          id: "no-answer",
-          name: "contactByPhone",
-          type: "text",
-          autocomplete: "text",
-          classes: "govuk-!-width-full",
+        {{ govukTextarea({
+          name: "moreDetail2",
+          id: "more-detail2",
+          rows: "3",
           label: {
             text: "Enter details"
           }

@@ -1,22 +1,39 @@
 
 {%- from "moj/components/primary-navigation/macro.njk" import mojPrimaryNavigation -%}
 
-{{ mojPrimaryNavigation({
-  label: 'Primary navigation',
-  classes: "govuk-!-display-none-print",
-  items: [
-    {
-      text: "Sam's plan",
-      href: '/splan8/plan-overview'
-    },
-    {
-      text: "Sam's progress",
-      href: '/splan8/progress',
-      active: true
-    },
-    {
-      text: 'About Sam',
-      href: '/splan8/about'
-    }
-  ]
-}) }}
+{% if unagreedPlan %}
+  {{ mojPrimaryNavigation({
+    label: 'Primary navigation',
+    classes: "govuk-!-display-none-print",
+    items: [
+      {
+        text: "Sam's plan",
+        href: '/MVP-create/plan-overview'
+      },
+      {
+        text: 'About Sam',
+        href: '/MVP-create/about'
+      }
+    ]
+  }) }}
+{% else %}
+  {{ mojPrimaryNavigation({
+    label: 'Primary navigation',
+    classes: "govuk-!-display-none-print",
+    items: [
+      {
+        text: "Sam's plan",
+        href: '/MVP-update/plan-overview'
+      },
+      {
+        text: "Sam's progress",
+        href: '/MVP-update/progress',
+        active: true
+      },
+      {
+        text: 'About Sam',
+        href: '/MVP-update/about'
+      }
+    ]
+  }) }}
+{% endif %}

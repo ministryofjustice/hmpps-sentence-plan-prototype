@@ -11,7 +11,7 @@ Sam's progress – {{ serviceName }} – GOV.UK Prototype Kit
 
 {% block content %}
 {% include "../includes/profile-banner.html" %}
-<a href="/MVP-create/plan-overview" class="govuk-back-link">Back</a>
+<a href="/MVP-update/plan-overview" class="govuk-back-link">Back</a>
 <form class="form" method="post">
 <div class="govuk-grid-row">
     <div class="govuk-grid-column-full">
@@ -39,7 +39,7 @@ Sam's progress – {{ serviceName }} – GOV.UK Prototype Kit
             {% elseif GOAL_DATA.status === 'REMOVED' %}
                 Removed on {{ GOAL_DATA.statusDate }}.
             {% endif %}
-            <a href="/MVP-create/goal/{{ GOAL_DATA.id }}/update-goal-details" class="govuk-link govuk-link--no-visited-state">Change goal details</a>
+            <a href="/MVP-update/goal/{{ GOAL_DATA.id }}/update-goal-details" class="govuk-link govuk-link--no-visited-state">Change goal details</a>
         </p>
 
 
@@ -90,7 +90,7 @@ Sam's progress – {{ serviceName }} – GOV.UK Prototype Kit
         </div>
 
         <p>
-            <a href="/MVP-create/update-steps" class="govuk-link govuk-link--no-visited-state">Add or change steps</a>
+            <a href="/MVP-update/update-steps" class="govuk-link govuk-link--no-visited-state">Add or change steps</a>
         </p>
         <br>
 
@@ -143,12 +143,12 @@ Sam's progress – {{ serviceName }} – GOV.UK Prototype Kit
                         <button type="submit" class="govuk-button" data-module="govuk-button">
                             Save goal and steps
                         </button>
-                        <a type="button" data-module="govuk-button" href="/MVP-create/goal/{{ GOAL_DATA.id }}/achieve-goal" class="govuk-button govuk-button--secondary">
+                        <a type="button" data-module="govuk-button" href="/MVP-update/goal/{{ GOAL_DATA.id }}/achieve-goal" class="govuk-button govuk-button--secondary">
                                 Mark as achieved
                         </a>
                     </div>
                     <p>
-                        <a href="/MVP-create/goal/{{ GOAL_DATA.id }}/remove-goal"  class="govuk-link govuk-link--no-visited-state">Remove goal from plan</a>
+                        <a href="/MVP-update/goal/{{ GOAL_DATA.id }}/remove-goal"  class="govuk-link govuk-link--no-visited-state">Remove goal from plan</a>
                     </p>
                 </div>
             </div>

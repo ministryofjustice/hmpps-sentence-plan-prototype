@@ -9,7 +9,7 @@
     {{ super() }}
     <script src="/public/javascripts/auto.js"></script>
     <script src="/public/javascripts/datepicker.js"></script>
-    <script src="/public/javascripts/goals-finance.js"></script>
+    <script src="/public/javascripts/goals-relationships.js"></script>
 {% endblock %}
 
 {% block content %}
@@ -29,20 +29,23 @@
                     href: 'create-goal-employment'
                 }, {
                     text: 'Finances',
-                    href: 'create-goal-finance',
-                    active: true
+                    href: 'create-goal-finance'
+                    
                 }, {
                     text: 'Drug use',
                     href:'create-goal-drugs'
+                    
                 }, {
                     text: 'Alcohol use',
                     href:'create-goal-alcohol'
                 }, {
                     text: 'Health and wellbeing',
                     href:'create-goal-health'
+                    
                 }, {
                     text: 'Personal relationships and community',
-                    href:'create-goal-relationships'
+                    href:'create-goal-relationships',
+                    active: true
                 }, {
                     text: 'Thinking, behaviours and attitudes',
                     href:'create-goal-thinking'
@@ -53,14 +56,14 @@
         <div class="govuk-grid-column-two-thirds">
             </br>
             <h1 class="govuk-heading-l">
-                <span class="govuk-caption-l">Finances</span>
+                <span class="govuk-caption-l">Personal relationships and community</span>
                 Create a goal with Sam
             </h1>
 
             {% include "../includes/info-from-assessment-finance.html" %}
 
             <form method="post" action="/MVP-create/create-goal">
-                <input hidden name="needArea" value="Finance">
+                <input hidden name="needArea" value="Personal relationships and community">
                 <div class="govuk-form-group goal">
                     <label class="govuk-label govuk-label--m" for="goalObjective">What goal should Sam try to achieve?</label>
                     <div id="goalObjective-hint" class="govuk-hint govuk-!-margin-bottom-2">

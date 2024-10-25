@@ -162,7 +162,7 @@ router.use((req, res, next) => {
             {
                 type: 'GOAL',
                 subtype: 'REMOVED',
-                createdAt: new Date("1 August 2024 09:00"),
+                createdAt: new Date("1 October 2024 09:00"),
                 content: {
                     goalId: 4,
                     goalTitle: "I will identify opportunities to re-engage in my previous hobbies, like rugby and general fitness.",
@@ -173,7 +173,7 @@ router.use((req, res, next) => {
             {
                 type: 'GOAL',
                 subtype: 'ACHIEVED',
-                createdAt: new Date("1 August 2024 15:00"),
+                createdAt: new Date("1 October 2024 15:00"),
                 content: {
                     goalId: 5,
                     goalTitle: "I will explore options to manage my financial obligations to reduce stress and ensure stability for my family.",

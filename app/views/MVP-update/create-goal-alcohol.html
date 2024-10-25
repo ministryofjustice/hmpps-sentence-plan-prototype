@@ -1,5 +1,5 @@
 {% extends "layouts/main.html" %}
-{% set unagreedPlan = true %}
+
 {% block pageTitle %}
   Create goal for Finance – {{ serviceName }} – HMPPS
 {% endblock %}
@@ -9,12 +9,12 @@
     {{ super() }}
     <script src="/public/javascripts/auto.js"></script>
     <script src="/public/javascripts/datepicker.js"></script>
-    <script src="/public/javascripts/goals-finance.js"></script>
+    <script src="/public/javascripts/goals-alcohol.js"></script>
 {% endblock %}
 
 {% block content %}
     {% include "../includes/profile-banner.html" %}
-    <a href="/MVP-create/index" class="govuk-back-link">Back</a>
+    <a href="/MVP-update/index" class="govuk-back-link">Back</a>
 
     <div class="govuk-grid-row">
         <div class="govuk-grid-column-one-third">
@@ -29,14 +29,16 @@
                     href: 'create-goal-employment'
                 }, {
                     text: 'Finances',
-                    href: 'create-goal-finance',
-                    active: true
+                    href: 'create-goal-finance'
+                    
                 }, {
                     text: 'Drug use',
                     href:'create-goal-drugs'
+                    
                 }, {
                     text: 'Alcohol use',
-                    href:'create-goal-alcohol'
+                    href:'create-goal-alcohol',
+                    active: true
                 }, {
                     text: 'Health and wellbeing',
                     href:'create-goal-health'
@@ -53,14 +55,14 @@
         <div class="govuk-grid-column-two-thirds">
             </br>
             <h1 class="govuk-heading-l">
-                <span class="govuk-caption-l">Finances</span>
+                <span class="govuk-caption-l">Alcohol use</span>
                 Create a goal with Sam
             </h1>
 
             {% include "../includes/info-from-assessment-finance.html" %}
 
-            <form method="post" action="/MVP-create/create-goal">
-                <input hidden name="needArea" value="Finance">
+            <form method="post" action="/MVP-update/create-goal">
+                <input hidden name="needArea" value="Alcohol use">
                 <div class="govuk-form-group goal">
                     <label class="govuk-label govuk-label--m" for="goalObjective">What goal should Sam try to achieve?</label>
                     <div id="goalObjective-hint" class="govuk-hint govuk-!-margin-bottom-2">

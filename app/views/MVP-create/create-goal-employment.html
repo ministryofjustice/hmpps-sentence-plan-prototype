@@ -9,7 +9,7 @@
     {{ super() }}
     <script src="/public/javascripts/auto.js"></script>
     <script src="/public/javascripts/datepicker.js"></script>
-    <script src="/public/javascripts/goals-finance.js"></script>
+    <script src="/public/javascripts/goals-employment-education.js"></script>
 {% endblock %}
 
 {% block content %}
@@ -26,11 +26,12 @@
                     href: 'create-goal'
                 }, {
                     text: 'Employment and education',
-                    href: 'create-goal-employment'
+                    href: 'create-goal-employment',
+                    active: true
                 }, {
                     text: 'Finances',
-                    href: 'create-goal-finance',
-                    active: true
+                    href: 'create-goal-finance'
+                    
                 }, {
                     text: 'Drug use',
                     href:'create-goal-drugs'
@@ -53,7 +54,7 @@
         <div class="govuk-grid-column-two-thirds">
             </br>
             <h1 class="govuk-heading-l">
-                <span class="govuk-caption-l">Finances</span>
+                <span class="govuk-caption-l">Employment and education</span>
                 Create a goal with Sam
             </h1>
 

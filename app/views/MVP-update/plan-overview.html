@@ -16,7 +16,7 @@
     <div class="govuk-grid-column-full">
       <div class="profile-banner-plan profileFIlters">
         <ul class="govuk-list govuk-!-margin-bottom-0">
-           <li class="govuk-body govuk-!-font-size-19" style="padding-top: 8px;">
+           <li class="govuk-body govuk-!-font-size-19" style="padding-top: 5px;">
              <strong>Sam Smith</strong>
            </li>
           <li style="padding-top: 8px;">CRN: Z804100</li>
@@ -28,7 +28,7 @@
           <h1 class="govuk-heading-l govuk-!-margin-bottom-0">Sam's plan</h1>
           
           <div class="govuk-button-group govuk-!-margin-bottom-0">
-            <a href="/MVP-create/create-goal">
+            <a href="/MVP-update/create-goal">
               <button type="submit" class="govuk-button govuk-button--secondary govuk-!-margin-bottom-0" data-module="govuk-button">
                 Create goal
               </button>
@@ -75,18 +75,18 @@
               <h2 class="govuk-summary-card__title">{{ goal.goalObjective }}</h2>
               <ul class="govuk-summary-card__actions summary-heading">
                 <li class="govuk-summary-card__action">
-                  <a class="govuk-link govuk-link--no-visited-state" href="/MVP-create/goal/{{ goal.id }}/update-goal.html">
+                  <a class="govuk-link govuk-link--no-visited-state" href="/MVP-update/goal/{{ goal.id }}/update-goal.html">
                     Update<span class="govuk-visually-hidden"> {{ goal.goalObjective }}</span>
                   </a>
                 </li>
                 <!--
                 <li class="govuk-summary-card__action" style="padding-left: 10px;">
-                  <a class="govuk-link govuk-link--no-visited-state" href="/MVP-create/goal/{{ goal.id }}/achieve-goal">
+                  <a class="govuk-link govuk-link--no-visited-state" href="/MVP-update/goal/{{ goal.id }}/achieve-goal">
                     Mark as achieved<span class="govuk-visually-hidden"> for {{ goal.goalObjective }}</span>
                   </a>
                 </li>
                 <li class="govuk-summary-card__action">
-                  <a class="govuk-link govuk-link--no-visited-state" href="/MVP-create/goal/{{ goal.id }}/remove-goal.html">
+                  <a class="govuk-link govuk-link--no-visited-state" href="/MVP-update/goal/{{ goal.id }}/remove-goal.html">
                     Remove<span class="govuk-visually-hidden"> {{ goal.goalObjective }}</span>
                   </a>
                 </li>
@@ -107,7 +107,7 @@
               <p> {{ completedCount }} of {{goal.steps.length}} steps complete</p>
 
              <!--  <p>
-                <a class="govuk-link govuk-link--no-visited-state" href="/MVP-create/goal/{{ goal.id }}/update-goal.html">
+                <a class="govuk-link govuk-link--no-visited-state" href="/MVP-update/goal/{{ goal.id }}/update-goal.html">
                   View steps<span class="govuk-visually-hidden"> for {{ goal.goalObjective }}</span>
                 </a>
               </p> -->
@@ -160,7 +160,7 @@
               {% else %}
               <strong class="govuk-body govuk-!-font-weight-bold">No steps added</strong>
               <p>
-                <a class="govuk-link govuk-link--no-visited-state" href="/MVP-create/goal/{{ goal.id }}/update-goal.html">
+                <a class="govuk-link govuk-link--no-visited-state" href="/MVP-update/goal/{{ goal.id }}/update-goal.html">
                   Add steps<span class="govuk-visually-hidden"> for {{ goal.goalObjective }}</span>
                 </a>
               </p> 

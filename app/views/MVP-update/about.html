@@ -1,8 +1,8 @@
 
 {% extends "layouts/main.html" %} {% block pageTitle %} About Sam –
 {{ serviceName }} – GOV.UK Prototype Kit {% endblock %} 
-
-
+{% set print = true %}
+{% set mainClasses = "app-main-wrapper" %}
 {% block main %}
 {% include "../includes/primary-nav-about.html" %}
 {{ super() }}
@@ -11,28 +11,33 @@
 {% block content %}    
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-full">
-    <div class="profile-banner-plan profileFilters">
-      <a href="#" id="print-button" class="govuk-link govuk-link--no-visited-state app-link-print govuk-!-display-none-print">Print</a>
-        <div class="header-container">
-            <ul class="govuk-list govuk-!-margin-bottom-0">
-                <li class="govuk-body govuk-!-font-size-19" style="padding-top: 8px;">
-                    <strong>Sam Smith</strong>
-                </li>
-                <li style="padding-top: 8px;">CRN: Z804100</li>
-                <li style="padding-top: 8px;">PNC: 2017/123400000H</li>
-                <li style="padding-top: 8px;">Date of birth: 26 June 1978</li>
-            </ul>
-        </div>
-    
-        <div class="header-container" style="display: flex;  justify-content: space-between; padding-top: 20px;">
+    <!-- plan header start -->
+    <div class="plan-header">
+      <!-- profile start -->
+      {% include "../includes/profile.html" %}
+      <!-- profile end -->
+
+      <!-- h1 and button row start -->
+      <div class="plan-header__extended">
+        <div class="plan-header__extended__title">
             <h1 class="govuk-heading-l govuk-!-margin-bottom-0">About Sam</h1>
-            <form class="form" action="/MVP-update/create-goal" method="get">
-              <button type="submit" class="govuk-button govuk-button--secondary govuk-!-margin-bottom-0" data-module="govuk-button">
-                Create goal
-              </button>
-            </form>
         </div>
+            <div class="moj-button-menu">
+              <div class="moj-button-menu__wrapper">          
+                <a href="#" role="button" draggable="false" class="govuk-button moj-button-menu__item govuk-button--secondary govuk-!-display-none-print" data-module="govuk-button">
+                  Return to OASys
+                </a>
+                
+                <a href="/mvp-update/create-goal" role="button" draggable="false" class="govuk-button moj-button-menu__item govuk-button--secondary govuk-!-display-none-print" data-module="govuk-button">
+                  Create goal
+                </a>
+
+              </div>
+            </div>
+        </div>
+        <!-- h1 and button row end -->
     </div>
+    <!-- plan header end -->
 
     <p class="govuk-body">Last updated: 27 June 2024</p>
 

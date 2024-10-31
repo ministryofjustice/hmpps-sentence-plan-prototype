@@ -31,11 +31,11 @@ Sam's plan – {{ serviceName }} – GOV.UK Prototype Kit
                   Return to OASys
                 </a>
                 
-                <a href="/mvp-create/create-goal" role="button" draggable="false" class="govuk-button moj-button-menu__item govuk-button--secondary govuk-!-display-none-print" data-module="govuk-button">
+                <a href="/MVP-create/create-goal" role="button" draggable="false" class="govuk-button moj-button-menu__item govuk-button--secondary govuk-!-display-none-print" data-module="govuk-button">
                   Create goal
                 </a>
 
-                <a href="/mvp-create/agree-plan" role="button" draggable="false" class="govuk-button moj-button-menu__item govuk-!-display-none-print" data-module="govuk-button">
+                <a href="/MVP-create/agree-plan" role="button" draggable="false" class="govuk-button moj-button-menu__item govuk-!-display-none-print" data-module="govuk-button">
                   Agree plan
                 </a>
               </div>
@@ -70,18 +70,18 @@ Sam's plan – {{ serviceName }} – GOV.UK Prototype Kit
               <h2 class="govuk-summary-card__title">{{ goal.goalObjective }}</h2>
               <ul class="govuk-summary-card__actions">
                 <li class="govuk-summary-card__action">
-                  <a class="govuk-link govuk-link--no-visited-state" href="/mvp-create/goal/{{ goal.id }}/update-goal.html">
+                  <a class="govuk-link govuk-link--no-visited-state" href="/MVP-create/goal/{{ goal.id }}/update-goal.html">
                     Update<span class="govuk-visually-hidden"> {{ goal.goalObjective }}</span>
                   </a>
                 </li>
                 <!--
                 <li class="govuk-summary-card__action" style="padding-left: 10px;">
-                  <a class="govuk-link govuk-link--no-visited-state" href="/mvp-create/goal/{{ goal.id }}/achieve-goal">
+                  <a class="govuk-link govuk-link--no-visited-state" href="/MVP-create/goal/{{ goal.id }}/achieve-goal">
                     Mark as achieved<span class="govuk-visually-hidden"> for {{ goal.goalObjective }}</span>
                   </a>
                 </li>
                 <li class="govuk-summary-card__action">
-                  <a class="govuk-link govuk-link--no-visited-state" href="/mvp-create/goal/{{ goal.id }}/remove-goal.html">
+                  <a class="govuk-link govuk-link--no-visited-state" href="/MVP-create/goal/{{ goal.id }}/remove-goal.html">
                     Remove<span class="govuk-visually-hidden"> {{ goal.goalObjective }}</span>
                   </a>
                 </li>
@@ -100,7 +100,7 @@ Sam's plan – {{ serviceName }} – GOV.UK Prototype Kit
               <p> {{ completedCount }} of {{goal.steps.length}} steps complete</p>
 
               <!--  <p>
-                <a class="govuk-link govuk-link--no-visited-state" href="/mvp-create/goal/{{ goal.id }}/update-goal.html">
+                <a class="govuk-link govuk-link--no-visited-state" href="/MVP-create/goal/{{ goal.id }}/update-goal.html">
                   View steps<span class="govuk-visually-hidden"> for {{ goal.goalObjective }}</span>
                 </a>
               </p> -->
@@ -138,7 +138,7 @@ Sam's plan – {{ serviceName }} – GOV.UK Prototype Kit
               <div style="display: flex; justify-content: space-between;">
               <strong class="govuk-body govuk-!-font-weight-bold">No steps added</strong>
               <p>
-                <a class="govuk-link govuk-link--no-visited-state" href="/mvp-create/goal/{{ goal.id }}/update-goal.html">
+                <a class="govuk-link govuk-link--no-visited-state" href="/MVP-create/goal/{{ goal.id }}/update-goal.html">
                   Add steps<span class="govuk-visually-hidden"> for {{ goal.goalObjective }}</span>
                 </a>
               </p> 

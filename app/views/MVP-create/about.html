@@ -1,4 +1,4 @@
-
+{% set unagreedPlan = true %}
 {% extends "layouts/main.html" %} {% block pageTitle %} About Sam –
 {{ serviceName }} – GOV.UK Prototype Kit {% endblock %} 
 {% set print = true %}
@@ -44,20 +44,24 @@
     <h2 class="govuk-heading-m">Sentence information</h2>
     <div style="display: flex; padding-bottom: 20px;">
         <div style="padding-right: 25px;">
-        <p class="govuk-body-s">Length of sentence</p>
-        <p class="govuk-body-l">12 months</p>
+        <p class="govuk-body-s">Sentence</p>
+        <p class="govuk-body-m">Suspended sentence order<br>(1 year and 6 months)</p>
     </div>
     <div style="padding-right: 25px;">
         <p class="govuk-body-s">Expected end date</p>
-        <p class="govuk-body-l">1 July 2025</p>
+        <p class="govuk-body-m">1 July 2025</p>
     </div>
     <div style="padding-right: 25px;">
         <p class="govuk-body-s">Unpaid work</p>
-        <p class="govuk-body-l">0 hours</p>
+        <p class="govuk-body-m">120 hours</p>
     </div>
     <div style="padding-right: 25px;">
+      <p class="govuk-body-s">Programme requirement</p>
+      <p class="govuk-body-m">Yes</p>
+  </div>
+    <div style="padding-right: 25px;">
         <p class="govuk-body-s">Rehabilitation activity requirement (RAR)</p>
-        <p class="govuk-body-l">10 days</p>
+        <p class="govuk-body-m">10 days</p>
     </div>
         
     </div>
@@ -176,9 +180,6 @@
                   <path d="M328.102 110.516C328.102 110.01 328.141 109.516 328.219 109.031C328.302 108.542 328.427 108.081 328.594 107.648C328.766 107.211 328.982 106.81 329.242 106.445C329.503 106.076 329.815 105.758 330.18 105.492C330.544 105.227 330.961 105.018 331.43 104.867C331.904 104.716 332.432 104.641 333.016 104.641C333.49 104.641 333.93 104.701 334.336 104.82C334.747 104.935 335.115 105.096 335.438 105.305C335.766 105.508 336.049 105.75 336.289 106.031C336.529 106.307 336.716 106.607 336.852 106.93L334.758 107.742C334.576 107.388 334.326 107.122 334.008 106.945C333.695 106.763 333.341 106.672 332.945 106.672C332.56 106.672 332.219 106.75 331.922 106.906C331.625 107.057 331.372 107.266 331.164 107.531C330.961 107.797 330.805 108.107 330.695 108.461C330.586 108.815 330.526 109.19 330.516 109.586C330.646 109.456 330.799 109.331 330.977 109.211C331.154 109.086 331.349 108.979 331.562 108.891C331.781 108.802 332.016 108.732 332.266 108.68C332.521 108.622 332.786 108.594 333.062 108.594C333.609 108.594 334.117 108.682 334.586 108.859C335.06 109.036 335.469 109.286 335.812 109.609C336.161 109.927 336.435 110.307 336.633 110.75C336.831 111.193 336.93 111.68 336.93 112.211C336.93 112.773 336.828 113.297 336.625 113.781C336.427 114.26 336.143 114.677 335.773 115.031C335.409 115.38 334.969 115.656 334.453 115.859C333.938 116.057 333.362 116.156 332.727 116.156C332.029 116.156 331.396 116.034 330.828 115.789C330.26 115.539 329.773 115.182 329.367 114.719C328.966 114.255 328.654 113.69 328.43 113.023C328.211 112.357 328.102 111.604 328.102 110.766V110.516ZM330.625 112.336C330.625 112.602 330.672 112.849 330.766 113.078C330.859 113.307 330.992 113.508 331.164 113.68C331.341 113.846 331.552 113.979 331.797 114.078C332.042 114.177 332.312 114.227 332.609 114.227C332.917 114.227 333.193 114.177 333.438 114.078C333.682 113.979 333.888 113.846 334.055 113.68C334.227 113.508 334.357 113.307 334.445 113.078C334.534 112.849 334.578 112.602 334.578 112.336C334.578 112.076 334.534 111.833 334.445 111.609C334.357 111.38 334.227 111.182 334.055 111.016C333.888 110.844 333.682 110.708 333.438 110.609C333.193 110.51 332.917 110.461 332.609 110.461C332.312 110.461 332.042 110.51 331.797 110.609C331.552 110.708 331.341 110.844 331.164 111.016C330.992 111.182 330.859 111.38 330.766 111.609C330.672 111.833 330.625 112.076 330.625 112.336Z" fill="black"/>
                   <path d="M388.805 106.047H382.867V104.797H390.211V106.047L386.047 116H384.516L388.805 106.047Z" fill="black"/>
                   </svg>
-                  
-                    
-                    
             </div>
         </div>
         </div>
@@ -186,8 +187,6 @@
         </div>
 
       </div>
-        
-
 
     <h2 class="govuk-heading-m" style="margin-top: 60px!important;">Low-scoring areas from the assessment </h2>
   
@@ -202,7 +201,7 @@
               </h2>
               <div class="govuk-accordion__section-summary govuk-body phoebe-accordion-tags" id="accordion-with-summary-sections-summary-1">
                 
-                <span class="moj-badge moj-badge--bright-purple">Risk of reoffending</span>
+      
                 </div>
               <div class="govuk-accordion__section-summary govuk-body phoebe-accordion-tags" id="accordion-with-summary-sections-summary-1">
                   
